@@ -34,7 +34,7 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Assign tickets to other agents
 * POP3 Integration - link your support centre to an email address and automatically create support tickets when emails are received
 * Themes for the front-end help desk page
-* Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $14.99
+* Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $9.99
 
 
 = Translations =
@@ -61,6 +61,11 @@ The Submit Ticket page is created automatically upon activation. To edit, please
 Not applicable
 
 == Changelog ==
+
+= 1.1 =
+* Bug fixes
+* Welcome page added
+* More CSS classes added to the submit support ticket page
 
 = 1.0 =
 * First release

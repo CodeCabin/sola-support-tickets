@@ -3,7 +3,7 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://www.solaplugins.com/plugins/sola-support-tickets/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 1.0
+Version: 1.1
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
@@ -16,7 +16,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "1.0";
+$sola_st_version = "1.1";
 $sola_st_version_string = "beta";
 
 
@@ -55,6 +55,29 @@ add_shortcode("sola_st_submit_ticket", "sola_st_shortcode_submit_ticket_page");
 register_activation_hook( __FILE__, 'sola_st_activate' );
 register_deactivation_hook( __FILE__, 'sola_st_deactivate' );
 function sola_st_init() {
+
+   
+   if (isset($_POST['action']) && $_POST['action'] == 'sola_submit_find_us') {
+        sola_st_feedback_head();
+        wp_redirect("./edit.php?post_type=sola_st_tickets&page=sola-st-settings",302);
+        exit();
+    }
+   if (isset($_POST['action']) && $_POST['action'] == 'sola_skip_find_us') {
+        wp_redirect("./edit.php?post_type=sola_st_tickets&page=sola-st-settings",302);
+        exit();
+    }
+    
+    if (isset($_GET['post_type']) && $_GET['post_type'] == "sola_st_tickets") { 
+        if(get_option('sola_st_first_time') == false){
+            update_option('sola_st_first_time', true);
+            wp_redirect('edit.php?post_type=sola_st_tickets&page=sola-st-settings&action=welcome_page', 302);
+            exit();
+        }
+    }
+    
+
+    
+    
     $plugin_dir = basename(dirname(__FILE__))."/languages/";
     load_plugin_textdomain( 'sola_st', false, $plugin_dir );
     
@@ -205,7 +228,11 @@ function sola_st_admin_menu() {
     add_submenu_page('edit.php?post_type=sola_st_tickets', __('Log','sola'), __('Error Log','sola_st'), 'manage_options' , 'sola-st-menu-error-log', 'sola_st_admin_error_log_layout');
 }
 function sola_st_settings_page() {
-    include('includes/settings-page.php');
+    if (isset($_GET['page']) && $_GET['page'] == "sola-st-settings" && isset($_GET['action']) && $_GET['action'] == "welcome_page") { 
+            include('includes/welcome-page.php');
+    } else {
+        include('includes/settings-page.php');
+    }
 }
 function sola_st_admin_error_log_layout() {
     include('includes/error-log-page.php');
@@ -253,6 +280,7 @@ function sola_st_wp_head() {
    global $sola_st_error;
    
    
+
    
    /* move to activation hook */
    if (!get_option("sola_st_default_assigned_to")) {
@@ -278,7 +306,7 @@ function sola_st_wp_head() {
         } else {
             
             if (function_exists('curl_version')) {
-                $request_url = "http://www.solaplugins.com/apif/rec_feedback.php";
+                $request_url = "http://www.solaplugins.com/apif-support-tickets/rec_feedback.php";
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $request_url);
                 curl_setopt($ch, CURLOPT_POST, 1);
@@ -888,38 +916,46 @@ function sola_st_shortcode_submit_ticket_page($atr , $text = null){
 
     if (is_user_logged_in()) {
     
-    ?>
-
-        <div class="sola_st_response_div">
-            <form name="sola_st_add_ticket" method="POST" action="" enctype="multipart/form-data">
-                <table width="100%" border="0">
-                <tr>
-                   <td>
-                      <strong><?php _e("Subject","sola_st"); ?></strong> <br />
-                      <input type="text" value="" name="sola_st_ticket_title" id="sola_st_ticket_title" /><br />
-                      <strong><?php _e("Description","sola_st"); ?></strong> <br />
-                      <textarea style="width:100%; height:120px;" name="sola_st_ticket_text" id="sola_st_ticket_text"></textarea>
+    $content = "
+        <div class=\"sola_st_response_div\">
+            <form name=\"sola_st_add_ticket\" method=\"POST\" action=\"\" enctype=\"multipart/form-data\">
+                <table width=\"100%\" border=\"0\">
+                <tr class=\"sola_st_st_tr sola_st_st_subject\">
+                   <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_subject_label\">
+                      <strong>".__("Subject","sola_st")."</strong>
+                   </td>
+                   <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_subject_input\">
+                      <input type=\"text\" value=\"\" name=\"sola_st_ticket_title\" id=\"sola_st_ticket_title\" /><br />
                    </td>
                 </tr>
-                <tr>
-                   <td align="right">
-                        <input type="submit" name="sola_st_submit_ticket" title="<?php _e("Send","sola_st"); ?>" class="sola_st_button_send_reponse" />
+                <tr class=\"sola_st_st_tr sola_st_st_desc\">
+                    <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_desc_label\">
+                      <strong>".__("Description","sola_st")."</strong>
+                    </td>
+                    <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_desc_textare\">
+                      <textarea style=\"width:100%; height:120px;\" name=\"sola_st_ticket_text\" id=\"sola_st_ticket_text\"></textarea>
+                   </td>
+                </tr>
+                <tr class=\"sola_st_st_tr sola_st_st_submit\">
+                   <td valign=\"top\"></td>
+                   <td valign=\"top\" align=\"right\" class=\"sola_st_st_td sola_st_st_td_submit_button\">
+                        <input type=\"submit\" name=\"sola_st_submit_ticket\" title=\"".__("Send","sola_st")."\" class=\"sola_st_button_send_reponse\" />
                    </td>
                 </tr>
                 </table>
             </form>
             
         </div>
-    
+";    
 
-<?php
+
     } else {
-?>
-
-<a href="<?php echo wp_login_url(); ?>"><?php _e("Log in","sola_st"); ?></a> <?php _e("or","sola_st"); ?> <a href="<?php echo wp_registration_url(); ?>"><?php _e("register","sola_st"); ?></a> <?php _e("to submit a support ticket.","sola_st"); ?>
-<br /><br /> 
-<?php
+        $content = "
+        <a href=\"".wp_login_url()."\">".__("Log in","sola_st")."</a> ".__("or","sola_st")." <a href=\"".wp_registration_url()."\">".__("register","sola_st")."</a> ".__("to submit a support ticket.","sola_st")."
+        <br /><br /> 
+        ";
     }
+    return $content;
 }
 add_filter( 'views_edit-sola_st_tickets', 'meta_views_sola_st_tickets', 10, 1 );
 
@@ -1017,4 +1053,22 @@ function sola_st_loop_control( $query ) {
         }
     }
    
+}
+
+
+function sola_st_feedback_head() {
+    if (function_exists('curl_version')) {
+
+        $request_url = "http://www.solaplugins.com/apif-support-tickets/rec.php";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $request_url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
+        curl_setopt($ch, CURLOPT_REFERER, $_SERVER['HTTP_HOST']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        
+    } 
+    return;
 }
