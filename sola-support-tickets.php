@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Sola Support Tickets
-Plugin URI: http://www.solaplugins.com/plugins/sola-support-tickets/
+Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 1.2
+Version: 1.3
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
@@ -16,7 +16,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "1.2";
+$sola_st_version = "1.3";
 $sola_st_version_string = "beta";
 
 
@@ -93,7 +93,7 @@ function sola_st_init() {
     
     
     if (!get_option("sola_st_submit_ticket_page")) {
-        $content = __("[sola_st_submit_ticket]","sola");
+        $content = "[sola_st_submit_ticket]";
         $page_id = sola_st_create_page('submit-ticket',__("Submit a ticket","sola_st"),$content);
         add_option("sola_st_submit_ticket_page","$page_id");
     }
@@ -214,7 +214,11 @@ function sola_st_activate() {
   if (!get_option("sola_st_password")) { add_option("sola_st_password", ""); }
   if (!get_option("sola_st_encryption")) { add_option("sola_st_encryption", ""); }
 
-    
+  $sola_st_settings = get_option("sola_st_settings");
+  if (!isset($sola_st_settings['sola_st_settings_thank_you_text'])) { $sola_st_settings['sola_st_settings_thank_you_text'] = __('Thank you for submitting your support ticket. One of our agents will respond as soon as possible.','sola_st'); }
+  
+  update_option("sola_st_settings",$sola_st_settings);
+  
 }
 
 function sola_st_deactivate() {
@@ -293,6 +297,7 @@ function sola_st_wp_head() {
         $sola_st_settings = array();
         $sola_st_settings['sola_st_settings_notify_new_tickets'] = esc_attr($_POST['sola_st_settings_notify_new_tickets']);
         $sola_st_settings['sola_st_settings_notify_new_responses'] = esc_attr($_POST['sola_st_settings_notify_new_responses']);
+        $sola_st_settings['sola_st_settings_thank_you_text'] = esc_attr($_POST['sola_st_settings_thank_you_text']);
         update_option('sola_st_settings', $sola_st_settings);
         echo "<div class='updated'>";
         _e("Your settings have been saved.","sola_st");
@@ -319,7 +324,7 @@ function sola_st_wp_head() {
             } 
             else {
                 echo "<div id=\"message\" class=\"error\">";
-                echo "<p>".__("There was a problem sending your feedback. Please log your feedback on ","sola_st")."<a href='http://support.solaplugins.com' target='_BLANK'>http://support.solaplugins.com</a></p>";
+                echo "<p>".__("There was a problem sending your feedback. Please log your feedback on ","sola_st")."<a href='http://solaplugins.com/support-desk' target='_BLANK'>http://solaplugins.com/support-desk</a></p>";
                 echo "</div>";
             }
         }
@@ -442,7 +447,7 @@ function sola_st_action_callback() {
 
 function sola_st_notification_control($type,$post_id,$userid) {
     $sola_st_settings = get_option("sola_st_settings");
-    //var_dump($sola_st_settings);
+    
     //echo "notification control".$type.$post_id;
     if ($type == 'response') {
         /* response */
@@ -498,18 +503,23 @@ function sola_st_notification_control($type,$post_id,$userid) {
             }
             
             $headers[] = 'From: '.get_bloginfo('name').' <'.get_settings('admin_email').'>';
-            $headers[] = 'Content-type: text/html';
             $headers[] = 'Reply-To: '.get_bloginfo('name').' <'.get_settings('admin_email').'>';
-            wp_mail($user_email,$post->post_title." [$ticket_reference]",__("Your support ticket has been received. To access your ticket, please follow this link:","sola_st"). " ". get_permalink($post_id),$headers);
+            
+            
+            $additional_response = $sola_st_settings['sola_st_settings_thank_you_text'];
+            
+            wp_mail($user_email,$post->post_title." [$ticket_reference]",$additional_response."\n\r\n\r".__("To access your ticket, please follow this link:","sola_st"). " ". get_permalink($post_id),$headers);
         }
         
         
         /* send an email to the auto assigned support member */
-        $meta_data = get_post_custom_values( 'ticket_assigned_to', $post_id );
-        $user_details = get_user_by( 'id', $meta_data[0] );
-        $user_email = $user_details->user_email;
-        if (isset($user_email)) {
-            wp_mail($user_email,__("New support ticket:","sola_st")." ".$post->post_title."",__("A new support ticket has been received. To access this ticket, please follow this link:","sola_st"). " ". get_permalink($post_id));
+        if ($sola_st_settings['sola_st_settings_notify_new_tickets'] == "1") {
+            $meta_data = get_post_custom_values( 'ticket_assigned_to', $post_id );
+            $user_details = get_user_by( 'id', $meta_data[0] );
+            $user_email = $user_details->user_email;
+            if (isset($user_email)) {
+                wp_mail($user_email,__("New support ticket:","sola_st")." ".$post->post_title."",__("A new support ticket has been received. To access this ticket, please follow this link:","sola_st"). " ". get_permalink($post_id));
+            }
         }
         
     }

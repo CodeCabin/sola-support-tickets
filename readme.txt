@@ -7,11 +7,11 @@ Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2
 
-The easiest to use Support Ticket plugin. Create a support helpdesk in minutes.
+The easiest to use Support Ticket plugin. Create a support help desk in minutes.
 
 == Description ==
 
-The easiest to use Helpdesk & Support Ticket plugin. Create a support helpdesk quickly and easily with Sola Support Tickets.
+The easiest to use Help Desk & Support Ticket plugin. Create a support help desk quickly and easily with Sola Support Tickets.
 
 Sola Support Tickets is still in BETA. Any feedback, comments or suggestions would be appreciated.
 
@@ -30,11 +30,12 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Custom front-end help desk showing new, open and closed tickets
 * Multiple support agents
 * Support tickets can be made private or public
-* Add popular tickets to your support desk page
-* Assign tickets to other agents
-* POP3 Integration - link your support centre to an email address and automatically create support tickets when emails are received
-* Themes for the front-end help desk page
-* Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $9.99
+* Add popular tickets to your help desk page
+* Assign tickets to other support agents
+* Link your help desk to an email address and automatically create support tickets when emails are received
+* Themes for the front-end help desk page (coming soon)
+* Customize your help desk through the use of shortcodes
+* Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $9.99
 
 
 = Translations =
@@ -61,6 +62,9 @@ The Submit Ticket page is created automatically upon activation. To edit, please
 Not applicable
 
 == Changelog ==
+
+= 1.3 =
+* New features - Add a custom message when someone sends a support ticket
 
 = 1.2 =
 * Language file added
