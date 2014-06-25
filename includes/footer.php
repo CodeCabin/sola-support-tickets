@@ -11,7 +11,8 @@
             <a target="_blank" href="http://support.solaplugins.com/">Support</a>
             <?php } else { global $sola_st_version; global $sola_st_version_string; ?>
             <br /><?php _e("Sola Support Tickets Version","sola_st"); ?>: <a target='_BLANK' href="http://solaplugins.com/plugins/sola-support-tickets/?utm_source=plugin&utm_medium=link&utm_campaign=st_version_free"><?php echo $sola_st_version.$sola_st_version_string; ?></a> |
-            <a target="_blank" href="http://support.solaplugins.com/">Support</a> | 
+            <a target="_blank" href="http://solaplugins.com/support-desk/?utm_source=plugin&utm_medium=link&utm_campaign=st_support_footer"><?php _e("Support","sola_st"); ?></a> | 
+            <a target="_blank" href="http://solaplugins.com/documentation/sola-support-tickets-documentation/?utm_source=plugin&utm_medium=link&utm_campaign=st_documentation_footer"><?php _e("Documentation","sola_st"); ?></a> | 
             <a target="_blank" id="uppgrade" href="http://solaplugins.com/plugins/sola-support-tickets/?utm_source=plugin&utm_medium=link&utm_campaign=st_footer" title="Premium Upgrade">Go Premium</a>
             <?php } ?>
             

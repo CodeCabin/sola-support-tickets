@@ -62,6 +62,10 @@ Not applicable
 
 == Changelog ==
 
+= 1.2 =
+* Language file added
+* Documentation link added
+
 = 1.1 =
 * Bug fixes
 * Welcome page added

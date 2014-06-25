@@ -3,7 +3,7 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://www.solaplugins.com/plugins/sola-support-tickets/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 1.1
+Version: 1.2
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
@@ -16,7 +16,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "1.1";
+$sola_st_version = "1.2";
 $sola_st_version_string = "beta";
 
 
