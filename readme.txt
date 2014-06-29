@@ -66,6 +66,9 @@ Not applicable
 
 == Changelog 
 
+= 2.1 29-06-2014 =
+* Small bug fix
+
 = 2.0 29-06-2014 =
 * New feature: Priorities - set a default ticket priority aswell as give your users the ability to add a priority to their support ticket
 * New feature: You can now filter by priority, status and support agent on the support tickets admin page

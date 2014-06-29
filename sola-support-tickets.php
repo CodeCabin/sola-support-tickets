@@ -3,12 +3,15 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 2.0
+Version: 2.1
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
 
 /* 
+ * 2.1
+ * Small bug fix with public tickets
+ * 
  * 2.0
  * New feature: Priorities - set a default ticket priority aswell as give your users the ability to add a priority to their support ticket
  * New feature: You can now filter by priority, status and support agent on the support tickets admin page
@@ -26,7 +29,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "2.0";
+$sola_st_version = "2.1";
 $sola_st_version_string = "beta";
 
 
@@ -587,6 +590,7 @@ function sola_st_append_responses_to_ticket($post_id) {
         $sola_content = "";
     }
     
+    if (is_user_logged_in()) {
     $add_a_response = '
     <h2 class="sola_st_response_title">'.__('Add a Response','sola_st').'</h2>
         <div class="sola_st_response_div">
@@ -609,6 +613,13 @@ function sola_st_append_responses_to_ticket($post_id) {
 
         </div>
     ';
+    } else {
+       $add_a_response = "
+           <br />
+        <p><strong><a href=\"".wp_login_url(get_permalink())."\">".__("Log in","sola_st")."</a> ".__("or","sola_st")." <a href=\"".wp_registration_url()."\">".__("register","sola_st")."</a> ".__("to submit a response.","sola_st")."
+        <br /><br /> </strong></p>
+        "; 
+    }
     
     
     foreach ($meta_data as $response) {
@@ -679,34 +690,41 @@ function sola_st_content_control($content) {
                     /* open ticket */
                     
                     /* can others see the ticket or not? - pro version only */
-                    $current_user = wp_get_current_user();
-                    if (!$current_user->ID) {
-                        return __("You cannot view this support ticket","sola_st");
-                    }
-                    else {
-                    /* check if it's the owner of the ticket */
-                        $show_content = false;
-                        if ((get_the_author_meta('ID') == $current_user->ID)) {
-                            /* this is the user that posted the ticket */
-                            $show_content = true;
-                        } else {
-                            /* let's check if the current user has capabilitie to see tickets */
-                            if (current_user_can('edit_sola_st_ticket')) {
+                    
+                    if (function_exists("sola_st_check_if_public")) {
+                        $show_content = true;
+                    } else { 
+
+                        $current_user = wp_get_current_user();
+                        if (!$current_user->ID) {
+                            return __("You cannot view this support ticket","sola_st");
+                        }
+                        else {
+                        /* check if it's the owner of the ticket */
+                            $show_content = false;
+                            if ((get_the_author_meta('ID') == $current_user->ID)) {
+                                /* this is the user that posted the ticket */
                                 $show_content = true;
                             } else {
-                                $show_content = false;
+                                /* let's check if the current user has capabilitie to see tickets */
+                                if (current_user_can('edit_sola_st_ticket')) {
+                                    $show_content = true;
+                                } else {
+                                    $show_content = false;
+                                }
+
                             }
-                            
+
+
                         }
-                    
-                        if ($show_content) {
+                    }
+                    if ($show_content) {
                             $sola_content .= "";
                             $pre_content = "";
                             $after_content = sola_st_show_author_box(get_the_author_meta('id'),get_the_date(),get_the_time());
                             
                             $content = $pre_content.$content.$sola_content.$after_content;
                         }
-                    }
                     
                     
                     
