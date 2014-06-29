@@ -21,10 +21,10 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Receive email notifications for new support tickets
 * Receive email notifications for support ticket responses
 * One support agent
+* Priorities - Add priorities to your support tickets (low, high, urgent, critical)
 * Macros (coming soon!)
-* Priorities (coming soon!)
 * Internal notes (coming soon!)
-* Upload files to tickets and responses (coming soon!)
+* Upload files to support tickets and responses (coming soon!)
 
 = Premium Add-on =
 * Custom front-end help desk showing new, open and closed tickets
@@ -40,6 +40,9 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 
 = Translations =
 Get a free copy of the Sola Support Tickets Premium version in exchange for translating our plugin!
+
+* English (default)
+* Italian
 
 == Installation ==
 
@@ -61,7 +64,15 @@ The Submit Ticket page is created automatically upon activation. To edit, please
 
 Not applicable
 
-== Changelog ==
+== Changelog 
+
+= 2.0 29-06-2014 =
+* New feature: Priorities - set a default ticket priority aswell as give your users the ability to add a priority to their support ticket
+* New feature: You can now filter by priority, status and support agent on the support tickets admin page
+* When user logs in, they are now redirected to the "submit support ticket" page
+* Better support ticket page UI (author details, extra styling)
+* Bug fix: 'Last response by' column is now working correctly
+* Better error handling
 
 = 1.3 =
 * New features - Add a custom message when someone sends a support ticket

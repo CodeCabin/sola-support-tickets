@@ -161,6 +161,11 @@ function sola_st_view_responses_meta_box_callback( $post ) {
             add_post_meta( $post->ID, 'ticket_assigned_to', $default_user, true ); 
         }
         
+        
+        
+        
+
+        
 	$meta_data = sola_st_get_post_meta_all($post->ID);
         //var_dump($meta_data);
         $sola_st_ajax_nonce = wp_create_nonce("sola_st");
@@ -225,7 +230,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
 function sola_st_get_post_meta_all($post_id){
     global $wpdb;
     $data   =   array();
-    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` DESC"; 
+    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC"; 
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
@@ -236,6 +241,7 @@ function sola_st_get_post_meta_last($post_id){
     global $wpdb;
     $data   =   array();
     $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` DESC LIMIT 1"; 
+    
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
@@ -285,6 +291,7 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
 	 * from the database and use the value for the form.
 	 */
         $value = get_post_custom_values( 'ticket_status', $post->ID );
+        $priority = get_post_custom_values( 'ticket_priority', $post->ID );
         ?>
         <table>
             <tr>
@@ -296,6 +303,19 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
                         <option value="0"<?php if ($value[0] == "0") { echo 'selected="selected"'; } ?>><?php _e("Open","sola_st"); ?></option>
                         <option value="1"<?php if ($value[0] == "1") { echo 'selected="selected"'; } ?>><?php _e("Solved","sola_st"); ?></option>
                         <option value="9"<?php if ($value[0] == "9") { echo 'selected="selected"'; } ?>><?php _e("Pending Approval","sola_st"); ?></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="sola_st_new_field"><?php _e( 'Priority', 'sola_st' ); ?></label>
+                </td>
+                <td>
+                    <select name="sola_st_change_ticket_priority">
+                        <option value="1" <?php if ($priority[0] == "1") { echo 'selected="selected"'; } ?>><?php _e("Low","sola_st"); ?></option>
+                        <option value="2" <?php if ($priority[0] == "2") { echo 'selected="selected"'; } ?>><?php _e("High","sola_st"); ?></option>
+                        <option value="3" <?php if ($priority[0] == "3") { echo 'selected="selected"'; } ?>><?php _e("Urgent","sola_st"); ?></option>
+                        <option value="4" <?php if ($priority[0] == "4") { echo 'selected="selected"'; } ?>><?php _e("Critical","sola_st"); ?></option>
                     </select>
                 </td>
             </tr>
@@ -349,16 +369,18 @@ function sola_st_topic_status_save_meta_box_data( $post_id ) {
 	/* OK, it's safe for us to save the data now. */
 
 	// Make sure that it is set.
-	if ( ! isset( $_POST['sola_st_change_ticket_status'] ) ) {
+	if ( ! isset( $_POST['sola_st_change_ticket_status'] ) || ! isset( $_POST['sola_st_change_ticket_priority'] ) ) {
 		return;
 	}
 
 	// Sanitize user input.
 	$my_data = sanitize_text_field( $_POST['sola_st_change_ticket_status'] );
+	$priority = sanitize_text_field( $_POST['sola_st_change_ticket_priority'] );
         
         
 	// Update the meta field in the database.
 	update_post_meta( $post_id, 'ticket_status', $my_data );
+	update_post_meta( $post_id, 'ticket_priority', $priority );
         
 }
 if (function_exists("sola_st_pro_topic_status_save_meta_box_data")) {

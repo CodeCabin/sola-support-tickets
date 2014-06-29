@@ -6,6 +6,9 @@
 .sola_st_post_title { margin-top:2px; margin-bottom:2px; margin-left:0; margin-right:0; font-style: italic; color:#666; }
 .sola_response_user { font-weight:bold; color:#333; }
 .sola_response_time { color: #bbb; font-size:11px; }
+.sola_st_author_image { margin-right:5px !important; margin-bottom:5px !important; margin-top:0 !important; }
+.sola_st_author_box { display:block; overflow:auto; border:1px solid #eee; padding:3px; font-size:0.8em; }
+.sola_st_author_box_name { font-weight:bold; }
 .sola_button {
     
     color: #555;

@@ -48,10 +48,28 @@ $sola_st_settings = get_option("sola_st_settings");
             <tr>
                 <td width="250" valign="top">
                     <label><?php _e("Thank you text","sola_st"); ?></label>
-                    <p class="description">This is sent when someone posts a new support ticket</p>
+                    <p class="description"><?php _e("This is sent when someone posts a new support ticket","sola_st"); ?></p>
                 </td>
                <td>
                   <textarea cols="80" rows="6" name="sola_st_settings_thank_you_text"><?php echo $sola_st_settings['sola_st_settings_thank_you_text']; ?></textarea>
+               </td>
+            </tr>
+            <tr style="height:25px;"><td></td><td></td></tr>
+            <tr>
+                <td width="250" valign="top">
+                    <label><?php _e("Priorities","sola_st"); ?></label>
+                </td>
+               <td>
+                  <?php _e("Default ticket priority:","sola_st"); ?>
+                  <select name="sola_st_settings_default_priority" id="sola_st_settings_default_priority">
+                      <option value="0" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 0) { echo "selected='selected'"; } ?>><?php _e("Low","sola_st"); ?></option>
+                      <option value="1" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 1) { echo "selected='selected'"; } ?>><?php _e("High","sola_st"); ?></option>
+                      <option value="2" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 2) { echo "selected='selected'"; } ?>><?php _e("Urgent","sola_st"); ?></option>
+                      <option value="3" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 3) { echo "selected='selected'"; } ?>><?php _e("Critical","sola_st"); ?></option>
+                  </select>
+                  <br />
+                  <br />
+                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_priority" value="1" <?php if ($sola_st_settings['sola_st_settings_allow_priority'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to select a priority when submitting a ticket","sola_st"); ?><br />
                </td>
             </tr>
           </table>
@@ -65,11 +83,9 @@ $sola_st_settings = get_option("sola_st_settings");
           <h3><?php _e("Email Settings",'sola_st'); ?></h3>
           <?php if (function_exists("sola_st_pro_activate")) { ?>
                 <?php 
-                //$schedule = wp_get_schedule( 'sola_st_cron_imap' );
-                //$timestamp = wp_next_scheduled('sola_st_cron_imap');
-                //var_dump(date("Y-m-d H:i:s"));
-                //var_dump(date("Y-m-d H:i:s",$timestamp));
+                
                 sola_st_pro_settings('email_settings'); 
+                sola_st_pro_get_emails();
                 ?>
           <?php } else { ?>
           <p><?php echo __("Upgrade to the","sola_st")." <a href='http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_email' title='Premium Version' target='_BLANK'>".__("Premium version","sola_st")."</a> ". __("of Sola Support Tickets and automatically convert received emails to support tickets and responses","sola_st"); ?></p>
