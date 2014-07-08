@@ -3,7 +3,7 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 2.2
+Version: 2.3
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
@@ -17,7 +17,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "2.2";
+$sola_st_version = "2.3";
 $sola_st_version_string = "beta";
 
 
@@ -604,39 +604,48 @@ function sola_st_append_responses_to_ticket($post_id) {
         $sola_content = "";
     }
     
-    if (is_user_logged_in()) {
+    
+    
+    if ($custom['ticket_status'][0] == "1") {
+        $add_a_response = "";
+    } else { 
+        if (is_user_logged_in()) {
         
-    if (function_exists("sola_st_pro_metabox_addin_macros") && current_user_can('edit_sola_st_ticket')) { $macro = sola_st_pro_metabox_addin_macros(1); }
-        
-    $add_a_response = '
-    <h2 class="sola_st_response_title">'.__('Add a Response','sola_st').'</h2>
-        <div class="sola_st_response_div">
-            <form name="sola_st_add_response" method="POST" action="" enctype="multipart/form-data">
-                <input type="hidden" value="'.$post_id.'" name="sola_st_response_id" id="sola_st_response_id" />
-                <table width="100%">
-                <tr>
-                   <td>
-                      <input style="width:50%; min-width:200px; margin-bottom:5px; font-weight:bold;" type="text" value="Reply to '.get_the_title().'" name="sola_st_response_title" id="sola_st_response_title" />
-                      <textarea style="width:100%; height:120px;" name="sola_st_response_text" id="sola_st_response_text"></textarea>
-                      '.$macro.'
-                   </td>
-                </tr>
-                <tr>
-                   <td align="right">
-                        <input type="submit" value="'.__("Send","sola_st").'" class="sola_st_button_send_reponse" />
-                   </td>
-                </tr>
-                </table>
-            </form>
+        if (function_exists("sola_st_pro_metabox_addin_macros") && current_user_can('edit_sola_st_ticket')) { $macro = sola_st_pro_metabox_addin_macros(1); }
 
-        </div>
-    ';
-    } else {
-       $add_a_response = "
-           <br />
-        <p><strong><a href=\"".wp_login_url(get_permalink())."\">".__("Log in","sola_st")."</a> ".__("or","sola_st")." <a href=\"".wp_registration_url()."\">".__("register","sola_st")."</a> ".__("to submit a response.","sola_st")."
-        <br /><br /> </strong></p>
-        "; 
+
+
+        $add_a_response = '
+            <h2 class="sola_st_response_title">'.__('Add a Response','sola_st').'</h2>
+                <div class="sola_st_response_div">
+                    <form name="sola_st_add_response" method="POST" action="" enctype="multipart/form-data">
+                        <input type="hidden" value="'.$post_id.'" name="sola_st_response_id" id="sola_st_response_id" />
+                        <table width="100%">
+                        <tr>
+                           <td>
+                              <input style="width:50%; min-width:200px; margin-bottom:5px; font-weight:bold;" type="text" value="Reply to '.get_the_title().'" name="sola_st_response_title" id="sola_st_response_title" />
+                              <textarea style="width:100%; height:120px;" name="sola_st_response_text" id="sola_st_response_text"></textarea>
+                              '.$macro.'
+                           </td>
+                        </tr>
+                        <tr>
+                           <td align="right">
+                                <input type="submit" value="'.__("Send","sola_st").'" class="sola_st_button_send_reponse" />
+                           </td>
+                        </tr>
+                        </table>
+                    </form>
+
+                </div>
+            ';
+        
+        } else {
+           $add_a_response = "
+               <br />
+            <p><strong><a href=\"".wp_login_url(get_permalink())."\">".__("Log in","sola_st")."</a> ".__("or","sola_st")." <a href=\"".wp_registration_url()."\">".__("register","sola_st")."</a> ".__("to submit a response.","sola_st")."
+            <br /><br /> </strong></p>
+            "; 
+        }
     }
     
     
@@ -774,6 +783,7 @@ function sola_st_content_control($content) {
                         if ($show_content) {
                             $sola_content .= "<span class='sola_st_pending_approval_span'>".__("This support ticket is marked as solved.","sola_st")."</span>";
                             $content = $content.$sola_content;
+                            $content = $content.sola_st_append_responses_to_ticket(get_the_ID());
                         }
                     }
                     

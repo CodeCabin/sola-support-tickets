@@ -65,12 +65,17 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 
 1. Submit a ticket
 2. Add a response to a support ticket
+3. Support ticket settings
 
 == Upgrade Notice ==
 
 Not applicable
 
 == Changelog  ==
+
+= 2.3 08-7-2014 =
+* Closed support topics now show responses
+* Screenshots added
 
 = 2.2 08-7-2014 =
 * Typo fix
