@@ -188,7 +188,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
                     <input type="hidden" value="<?php echo get_current_user_id(); ?>" name="sola_st_response_author" id="sola_st_response_author" />
                     <table width='100%'>
                     <tr>
-                       <td width="15%">
+                       <td width="10%" valign="top">
                            <?php _e("Title","sola_st"); ?>
                        </td>
                        <td>
@@ -197,12 +197,12 @@ function sola_st_view_responses_meta_box_callback( $post ) {
                        </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td valign="top">
                             <?php _e("Response","sola_st"); ?>
                         </td>
                         <td><textarea style="width:100%; height:120px;" name="sola_st_response_text" id="sola_st_response_text"></textarea></td>
-                        
                     </tr>
+                    <?php if (function_exists("sola_st_pro_metabox_addin_macros")) { echo sola_st_pro_metabox_addin_macros(); } ?>
                     <tr>
                         <td>
                         </td>

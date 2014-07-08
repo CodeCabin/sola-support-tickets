@@ -7,7 +7,6 @@ jQuery("document").ready(function() {
         var post_author = escape(jQuery("#sola_st_response_author").val());
         var orig = jQuery("sola_st_response_div").html();
         jQuery(".sola_st_response_div").html("Sending...");
-        
         var data = {
             action: 'sola_st_save_response',
             parent: post_id,
@@ -25,4 +24,5 @@ jQuery("document").ready(function() {
         
         
     });
+    
 });

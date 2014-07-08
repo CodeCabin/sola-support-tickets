@@ -72,6 +72,15 @@ $sola_st_settings = get_option("sola_st_settings");
                   <input type="checkbox" class='sola-input' name="sola_st_settings_allow_priority" value="1" <?php if ($sola_st_settings['sola_st_settings_allow_priority'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to select a priority when submitting a ticket","sola_st"); ?><br />
                </td>
             </tr>
+            <tr style="height:25px;"><td></td><td></td></tr>
+            <tr>
+                <td width="250" valign="top">
+                    <label><?php _e("General Settings","sola_st"); ?></label>
+                </td>
+               <td>
+                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_html" value="1" <?php if ($sola_st_settings['sola_st_settings_allow_html'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to post HTML in support tickets and responses?","sola_st"); ?><br />
+               </td>
+            </tr>
           </table>
         <p>&nbsp;</p>
         <p><?php echo __("Need more options?","sola_st"). " <a href='./edit.php?post_type=sola_st_tickets&page=sola-st-menu-feedback-page'>".__("Let us know!","sola_st")."</a> ".__("and we'll add it in!","sola_st"); ?></p>
@@ -83,9 +92,7 @@ $sola_st_settings = get_option("sola_st_settings");
           <h3><?php _e("Email Settings",'sola_st'); ?></h3>
           <?php if (function_exists("sola_st_pro_activate")) { ?>
                 <?php 
-                
                 sola_st_pro_settings('email_settings'); 
-                sola_st_pro_get_emails();
                 ?>
           <?php } else { ?>
           <p><?php echo __("Upgrade to the","sola_st")." <a href='http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_email' title='Premium Version' target='_BLANK'>".__("Premium version","sola_st")."</a> ". __("of Sola Support Tickets and automatically convert received emails to support tickets and responses","sola_st"); ?></p>

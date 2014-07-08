@@ -3,23 +3,11 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 2.1
+Version: 2.2
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
 
-/* 
- * 2.1
- * Small bug fix with public tickets
- * 
- * 2.0
- * New feature: Priorities - set a default ticket priority aswell as give your users the ability to add a priority to their support ticket
- * New feature: You can now filter by priority, status and support agent on the support tickets admin page
- * When user logs in, they are now redirected to the "submit support ticket" page
- * Better support ticket page UI (author details, extra styling)
- * Bug fix: 'Last response by' column is now working correctly
-
- */
 
 global $sola_st_version;
 global $sola_st_p_version;
@@ -29,7 +17,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "2.1";
+$sola_st_version = "2.2";
 $sola_st_version_string = "beta";
 
 
@@ -118,6 +106,7 @@ function sola_st_init() {
     if (!isset($sola_st_settings['sola_st_settings_allow_priority'])) { $sola_st_settings['sola_st_settings_allow_priority'] = 0; }
     if (!isset($sola_st_settings['sola_st_settings_notify_new_tickets'])) { $sola_st_settings['sola_st_settings_notify_new_tickets'] = 0; }
     if (!isset($sola_st_settings['sola_st_settings_notify_new_responses'])) { $sola_st_settings['sola_st_settings_notify_new_responses'] = 0; }
+    if (!isset($sola_st_settings['sola_st_settings_allow_html'])) { $sola_st_settings['sola_st_settings_allow_html'] = 0; }
     if (!isset($sola_st_settings['sola_st_settings_thank_you_text'])) { $sola_st_settings['sola_st_settings_thank_you_text'] = __("Thank you for submitting your support ticket. One of our agents will respond as soon as possible.","sola_st"); }
     
     
@@ -185,6 +174,8 @@ function sola_st_create_ticket_post_type() {
           register_post_type( 'sola_st_tickets', $args ); 
           flush_rewrite_rules();
       }
+      
+      
     
     
        
@@ -212,6 +203,8 @@ function sola_st_create_response_post_type() {
         'menu_position' => 51,
         'hierarchical'  => true,
         'rewrite'            => array( 'slug' => 'ticket-response' ),
+        'show_in_nav_menus' => false,
+        'show_in_menu' => true,
         'publicly_queryable' => true,          
         'supports'      => array( 'title', 'editor', 'custom-fields', 'revisions', 'page-attributes', 'author' ),
         'has_archive'   => true,
@@ -226,7 +219,6 @@ function sola_st_create_response_post_type() {
         ),
         'map_meta_cap' => true
       );
-      
       if (post_type_exists('sola_st_responses')) { } else {
            register_post_type( 'sola_st_responses', $args );
            flush_rewrite_rules();
@@ -264,7 +256,6 @@ function sola_st_deactivate() {
 }
 
 function sola_st_admin_menu() {
-    
     add_submenu_page('edit.php?post_type=sola_st_tickets', __('Settings','sola_st'), __('Settings','sola_st'), 'manage_options' , 'sola-st-settings', 'sola_st_settings_page');
     add_submenu_page('edit.php?post_type=sola_st_tickets', __('Feedback','sola'), __('Feedback','sola_st'), 'manage_options' , 'sola-st-menu-feedback-page', 'sola_st_admin_feedback_layout');
     add_submenu_page('edit.php?post_type=sola_st_tickets', __('Log','sola'), __('System Log','sola_st'), 'manage_options' , 'sola-st-menu-error-log', 'sola_st_admin_error_log_layout');
@@ -335,6 +326,7 @@ function sola_st_wp_head() {
         $sola_st_settings = array();
         $sola_st_settings['sola_st_settings_notify_new_tickets'] = esc_attr($_POST['sola_st_settings_notify_new_tickets']);
         $sola_st_settings['sola_st_settings_notify_new_responses'] = esc_attr($_POST['sola_st_settings_notify_new_responses']);
+        $sola_st_settings['sola_st_settings_allow_html'] = esc_attr($_POST['sola_st_settings_allow_html']);
         $sola_st_settings['sola_st_settings_thank_you_text'] = esc_attr($_POST['sola_st_settings_thank_you_text']);
         $sola_st_settings['sola_st_settings_allow_priority'] = esc_attr($_POST['sola_st_settings_allow_priority']);
         $sola_st_settings['sola_st_settings_default_priority'] = esc_attr($_POST['sola_st_settings_default_priority']);
@@ -454,11 +446,16 @@ function sola_st_action_callback() {
             if (!isset($_POST['parent'])) { return false; }
             
             $parent_id = $_POST['parent'];
-            $content = $_POST['content'];
+            $content_current = $_POST['content'];
             $title = $_POST['title'];
             $author = $_POST['author'];
+            
+            
+            /* check if we allow for HTML or not */
+            $content = sola_st_check_for_html(urldecode($content_current));
+            
             $data = array(
-                'post_content' => urldecode($content),
+                'post_content' => $content,
                 'post_status' => 'publish', 
                 'post_title' => urldecode($title),
                 'post_type' => 'sola_st_responses', 
@@ -485,6 +482,23 @@ function sola_st_action_callback() {
     die(); // this is required to return a proper result
 }
 
+function sola_st_check_for_html($content) {
+    
+    
+    if (current_user_can('edit_sola_st_ticket')) {
+        /* they're a support agent, they can do what they want */
+        return $content;
+    } else {
+        $sola_st_settings = get_option("sola_st_settings");
+        if ($sola_st_settings['sola_st_settings_allow_html'] == 0) {
+            return strip_tags($content);
+        } else {
+            return $content;
+        }
+    }
+    
+    
+}
 function sola_st_notification_control($type,$post_id,$userid) {
     $sola_st_settings = get_option("sola_st_settings");
     
@@ -591,6 +605,9 @@ function sola_st_append_responses_to_ticket($post_id) {
     }
     
     if (is_user_logged_in()) {
+        
+    if (function_exists("sola_st_pro_metabox_addin_macros") && current_user_can('edit_sola_st_ticket')) { $macro = sola_st_pro_metabox_addin_macros(1); }
+        
     $add_a_response = '
     <h2 class="sola_st_response_title">'.__('Add a Response','sola_st').'</h2>
         <div class="sola_st_response_div">
@@ -601,6 +618,7 @@ function sola_st_append_responses_to_ticket($post_id) {
                    <td>
                       <input style="width:50%; min-width:200px; margin-bottom:5px; font-weight:bold;" type="text" value="Reply to '.get_the_title().'" name="sola_st_response_title" id="sola_st_response_title" />
                       <textarea style="width:100%; height:120px;" name="sola_st_response_text" id="sola_st_response_text"></textarea>
+                      '.$macro.'
                    </td>
                 </tr>
                 <tr>
@@ -777,17 +795,18 @@ function sola_st_draw_response_box($post_id) {
     $sola_content = '<div class="sola_st_response" style="width:100%; display:block; overflow:auto;">';
     
     
-    $sola_content .= "<div class='sola_st_post_author_image'>";
-    $sola_content .= get_avatar( $author_data->user_email, '50')."</div>";
+    $sola_content .= "<div class='sola_st_post_author'>";
+    $sola_content .= "<div class='sola_st_post_author_image'>".get_avatar( $author_data->user_email, '50')."</div>";
+    $sola_content .= "<div class='sola_st_post_author_meta'><span class=\"sola_response_user\">".$author_data->user_login."</span><br/><span class=\"sola_response_user_type\">".$author_data->roles[0]."</span><br /><span title=\"".$response_data->post_date."\" class=\"sola_response_time\">".sola_st_time_elapsed_string(strtotime($response_data->post_date))."</span><br />";
+    $sola_content .= "<span class=\"sola_st_post_title\">".$response_data->post_title."</span></div></div>";
+    $sola_content .= "<div class=\"sola_st_post_response\"><p>".nl2br($response_data->post_content)."</p>";
     $sola_content .= "<div class='sola_st_post_box'>";
-    $sola_content .= '<span class="sola_response_user">'.$author_data->user_login.'</span> <span class="sola_response_time">'.$response_data->post_date.'</span><br />';
-    $sola_content .= '<span class="sola_st_post_title">'.$response_data->post_title.'</span><p>'.nl2br($response_data->post_content).'</p>';
     if (sola_st_is_admin()) {
         $sola_content .= "<span class='sola_st_admin_edit_response_span'><a href='".get_edit_post_link( $post_id )."' class='sola_button'>".__("edit","sola_st")."</a></span> &nbsp;";
         $sola_content .= "<span class='sola_st_admin_delete_response_span'><a href='".get_delete_post_link( $post_id )."' class='sola_button'>".__("delete","sola_st")."</a></span>";
     }
     $sola_content .= '</div>';
-    $sola_content .= '</div>';
+    $sola_content .= '</div></div>';
     $sola_content .= '<hr />';
     return $sola_content;
     
@@ -805,12 +824,12 @@ function sola_st_user_head() {
     
         /* add a option to save as draft or live (settings) */
         
-        
+        $content = sola_st_check_for_html($_POST['sola_st_ticket_text']);
         
         $data = array(
-            'post_content' => esc_attr($_POST['sola_st_ticket_text']),
+            'post_content' => $content,
             'post_status' => 'publish', 
-            'post_title' => esc_attr($_POST['sola_st_ticket_title']),
+            'post_title' => esc_attr(wp_strip_all_tags($_POST['sola_st_ticket_title'])),
             'post_type' => 'sola_st_tickets', 
             'post_author' => get_current_user_id(),
             'comment_status' => 'closed',
@@ -852,10 +871,13 @@ function sola_st_user_head() {
     if (isset($_POST['sola_st_response_id']) && $_POST['sola_st_response_id'] != "") {
     
         $parent_id = esc_attr($_POST['sola_st_response_id']);
+        
+        $content = sola_st_check_for_html($_POST['sola_st_response_text']);
+        
         $data = array(
-            'post_content' => esc_attr($_POST['sola_st_response_text']),
+            'post_content' => $content,
             'post_status' => 'publish', 
-            'post_title' => esc_attr($_POST['sola_st_response_title']),
+            'post_title' => esc_attr(wp_strip_all_tags($_POST['sola_st_response_title'])),
             'post_type' => 'sola_st_responses', 
             'post_author' => get_current_user_id(),
             'comment_status' => 'closed',
@@ -938,7 +960,7 @@ function sola_st_time_elapsed_string($ptime) {
 
     if ($etime < 1)
     {
-        return '0 seconds';
+        return 'Now';
     }
 
     $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
@@ -1245,7 +1267,7 @@ function sola_st_add_status_filter() {
     
     ?>
     <select name="sola_st_status_mv">
-            <option value=""><?php _e( 'All Priorities', 'sola_st_tickets' ); ?></option>
+            <option value=""><?php _e( 'All Statuses', 'sola_st_tickets' ); ?></option>
             <option value="99" <?php if ($_GET['sola_st_status_mv'] == "99") { echo "selected='selected'"; } ?>><?php echo esc_attr(sola_st_return_ticket_status_from_meta_id(0)); ?></option>
             <option value="1" <?php if ($_GET['sola_st_status_mv'] == "1") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(1)); ?></option>
             <option value="2" <?php if ($_GET['sola_st_status_mv'] == "2") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(2)); ?></option>

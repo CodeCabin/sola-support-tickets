@@ -1,14 +1,42 @@
-.sola_st_post_author_image {
-    float:left;
-    display:block;
-    width:75px;
+.sola_st_response{
+    width: 100%;
 }
-.sola_st_post_title { margin-top:2px; margin-bottom:2px; margin-left:0; margin-right:0; font-style: italic; color:#666; }
+.sola_st_post_author{
+    display: inline-block;
+    width: 25%;
+    min-width: 210px;
+    float: left;    
+}
+.sola_st_post_author_image{
+    display: inline-block;
+    width: 50px;
+    float: left;
+    padding: 12px 0;
+}
+.sola_st_post_author_meta{
+    display: inline-block;
+    float: left;
+    width: 65%;
+    padding: 6px;
+}
+.sola_st_post_title{
+    display: none;
+}
+.sola_st_post_response{
+    display: inline-block;
+    width: 60%;   
+    padding-top: 6px;
+}
+.sola_st_post_response p{
+    text-align: justify;
+}
+.sola_response_time { font-size:0.8em; }
+.sola_st_post_title { margin-top:2px; margin-bottom:2px; margin-left:0; margin-right:0; font-style: italic; }
 .sola_response_user { font-weight:bold; color:#333; }
-.sola_response_time { color: #bbb; font-size:11px; }
 .sola_st_author_image { margin-right:5px !important; margin-bottom:5px !important; margin-top:0 !important; }
-.sola_st_author_box { display:block; overflow:auto; border:1px solid #eee; padding:3px; font-size:0.8em; }
+.sola_st_author_box { display:block; overflow:auto; border:1px solid #eee; padding: 8px 8px 4px 8px; font-size:0.8em; border-radius: 5px;}
 .sola_st_author_box_name { font-weight:bold; }
+.sola_response_user_type { font-size:0.8em; }
 .sola_button {
     
     color: #555;
@@ -34,8 +62,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;   
-    
-    
 }
+
 .sola_st_post_box { float:left; }
 .sola_st_pending_approval_span { font-weight:bold; color:#cc0000; }

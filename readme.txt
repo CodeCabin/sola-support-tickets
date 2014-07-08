@@ -22,7 +22,6 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Receive email notifications for support ticket responses
 * One support agent
 * Priorities - Add priorities to your support tickets (low, high, urgent, critical)
-* Macros (coming soon!)
 * Internal notes (coming soon!)
 * Upload files to support tickets and responses (coming soon!)
 
@@ -31,6 +30,7 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Multiple support agents
 * Support tickets can be made private or public
 * Add popular tickets to your help desk page
+* Macros (add predefined responses to your support tickets)
 * Assign tickets to other support agents
 * Link your help desk to an email address and automatically create support tickets when emails are received
 * Themes for the front-end help desk page (coming soon)
@@ -52,8 +52,14 @@ Get a free copy of the Sola Support Tickets Premium version in exchange for tran
 
 == Frequently Asked Questions ==
 
+= How does the plugin work? =
+When activated, the plugin automatically creates a "Submit Ticket" page where users can submit support tickets. Once a support ticket has been submitted, you will be notified via an email. To view the support ticket, log in to your wordpress admin section, click on "Support Tickets" in the left navigation and then click on "Edit". At the top right, you should notice options to change your support ticket status as well as assign a ticket priority. Notifications are sent out when there is a new support ticket as well as when there are new support ticket responses - these can be changed in the settings page.
+
 = How do I edit the Submit Ticket page? =
 The Submit Ticket page is created automatically upon activation. To edit, please go to Pages in your left navigation and edit the relevant page. Please remember to keep the shortcode on the page so that the submit ticket form shows correctly.
+
+= How do I add a support desk / help desk to my website? =
+In the basic version of the plugin, only a "Submit ticket" page is created. Should you wish to add a fully customizable help desk to your front end that shows public open/closed tickets and a search feature, please consider purchasing the premium version of the plugin for only $9.99 once off. Updates included forever.
 
 == Screenshots ==
 
@@ -64,7 +70,13 @@ The Submit Ticket page is created automatically upon activation. To edit, please
 
 Not applicable
 
-== Changelog 
+== Changelog  ==
+
+= 2.2 08-7-2014 =
+* Typo fix
+* New layout for support ticket responses
+* New feature: You can now choose whether users are allowed to submit HTML in their support tickets and responses
+* Macro support functionality added for the pro version
 
 = 2.1 29-06-2014 =
 * Small bug fix
