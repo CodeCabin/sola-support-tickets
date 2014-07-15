@@ -40,8 +40,8 @@ $sola_st_settings = get_option("sola_st_settings");
                     <label><?php _e("Notifications","sola_st"); ?></label>
                 </td>
                <td>
-                  <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_tickets" value="1" <?php if ($sola_st_settings['sola_st_settings_notify_new_tickets'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new support ticket is received","sola_st"); ?><br />
-                  <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_responses" value="1" <?php if ($sola_st_settings['sola_st_settings_notify_new_responses'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new response is received","sola_st"); ?><br />
+                  <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_tickets" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_new_tickets']) && $sola_st_settings['sola_st_settings_notify_new_tickets'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new support ticket is received","sola_st"); ?><br />
+                  <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_responses" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_new_responses']) && $sola_st_settings['sola_st_settings_notify_new_responses'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new response is received","sola_st"); ?><br />
                </td>
             </tr>
             <tr style="height:25px;"><td></td><td></td></tr>
@@ -51,7 +51,7 @@ $sola_st_settings = get_option("sola_st_settings");
                     <p class="description"><?php _e("This is sent when someone posts a new support ticket","sola_st"); ?></p>
                 </td>
                <td>
-                  <textarea cols="80" rows="6" name="sola_st_settings_thank_you_text"><?php echo $sola_st_settings['sola_st_settings_thank_you_text']; ?></textarea>
+                  <textarea cols="80" rows="6" name="sola_st_settings_thank_you_text"><?php if (isset($sola_st_settings['sola_st_settings_thank_you_text'])) { echo $sola_st_settings['sola_st_settings_thank_you_text']; } ?></textarea>
                </td>
             </tr>
             <tr style="height:25px;"><td></td><td></td></tr>
@@ -62,14 +62,14 @@ $sola_st_settings = get_option("sola_st_settings");
                <td>
                   <?php _e("Default ticket priority:","sola_st"); ?>
                   <select name="sola_st_settings_default_priority" id="sola_st_settings_default_priority">
-                      <option value="0" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 0) { echo "selected='selected'"; } ?>><?php _e("Low","sola_st"); ?></option>
-                      <option value="1" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 1) { echo "selected='selected'"; } ?>><?php _e("High","sola_st"); ?></option>
-                      <option value="2" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 2) { echo "selected='selected'"; } ?>><?php _e("Urgent","sola_st"); ?></option>
-                      <option value="3" <?php if ($sola_st_settings['sola_st_settings_default_priority'] == 3) { echo "selected='selected'"; } ?>><?php _e("Critical","sola_st"); ?></option>
+                      <option value="0" <?php if (isset($sola_st_settings['sola_st_settings_default_priority']) && $sola_st_settings['sola_st_settings_default_priority'] == 0) { echo "selected='selected'"; } ?>><?php _e("Low","sola_st"); ?></option>
+                      <option value="1" <?php if (isset($sola_st_settings['sola_st_settings_default_priority']) && $sola_st_settings['sola_st_settings_default_priority'] == 1) { echo "selected='selected'"; } ?>><?php _e("High","sola_st"); ?></option>
+                      <option value="2" <?php if (isset($sola_st_settings['sola_st_settings_default_priority']) && $sola_st_settings['sola_st_settings_default_priority'] == 2) { echo "selected='selected'"; } ?>><?php _e("Urgent","sola_st"); ?></option>
+                      <option value="3" <?php if (isset($sola_st_settings['sola_st_settings_default_priority']) && $sola_st_settings['sola_st_settings_default_priority'] == 3) { echo "selected='selected'"; } ?>><?php _e("Critical","sola_st"); ?></option>
                   </select>
                   <br />
                   <br />
-                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_priority" value="1" <?php if ($sola_st_settings['sola_st_settings_allow_priority'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to select a priority when submitting a ticket","sola_st"); ?><br />
+                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_priority" value="1" <?php if (isset($sola_st_settings['sola_st_settings_allow_priority']) && $sola_st_settings['sola_st_settings_allow_priority'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to select a priority when submitting a ticket","sola_st"); ?><br />
                </td>
             </tr>
             <tr style="height:25px;"><td></td><td></td></tr>
@@ -78,7 +78,7 @@ $sola_st_settings = get_option("sola_st_settings");
                     <label><?php _e("General Settings","sola_st"); ?></label>
                 </td>
                <td>
-                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_html" value="1" <?php if ($sola_st_settings['sola_st_settings_allow_html'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to post HTML in support tickets and responses?","sola_st"); ?><br />
+                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_html" value="1" <?php if (isset($sola_st_settings['sola_st_settings_allow_html']) && $sola_st_settings['sola_st_settings_allow_html'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to post HTML in support tickets and responses?","sola_st"); ?><br />
                </td>
             </tr>
           </table>

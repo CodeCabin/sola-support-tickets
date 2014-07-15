@@ -3,7 +3,7 @@ Contributors: SolaPlugins
 Donate link: http://www.solaplugins.com
 Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk
 Requires at least: 3.5
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2
 
@@ -73,11 +73,16 @@ Not applicable
 
 == Changelog  ==
 
-= 2.3 08-7-2014 =
+= 2.4 15-07-2014 =
+* Tested with WP 4.0
+* Performance improvement - Fixed PHP warnings
+* Performance improvement - Corrected the use of flush_rewrite_rules
+
+= 2.3 08-07-2014 =
 * Closed support topics now show responses
 * Screenshots added
 
-= 2.2 08-7-2014 =
+= 2.2 08-07-2014 =
 * Typo fix
 * New layout for support ticket responses
 * New feature: You can now choose whether users are allowed to submit HTML in their support tickets and responses

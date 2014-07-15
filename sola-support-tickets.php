@@ -3,7 +3,7 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 2.3
+Version: 2.4
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
@@ -17,7 +17,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "2.3";
+$sola_st_version = "2.4";
 $sola_st_version_string = "beta";
 
 
@@ -108,8 +108,8 @@ function sola_st_init() {
     if (!isset($sola_st_settings['sola_st_settings_notify_new_responses'])) { $sola_st_settings['sola_st_settings_notify_new_responses'] = 0; }
     if (!isset($sola_st_settings['sola_st_settings_allow_html'])) { $sola_st_settings['sola_st_settings_allow_html'] = 0; }
     if (!isset($sola_st_settings['sola_st_settings_thank_you_text'])) { $sola_st_settings['sola_st_settings_thank_you_text'] = __("Thank you for submitting your support ticket. One of our agents will respond as soon as possible.","sola_st"); }
-    
-    
+    update_option("sola_st_settings",$sola_st_settings);
+
     
     
     /* version control */
@@ -124,8 +124,8 @@ function sola_st_init() {
  
 
 }
-add_action( 'init', 'sola_st_create_ticket_post_type' );
-add_action( 'init', 'sola_st_create_response_post_type' );
+add_action( 'init', 'sola_st_create_ticket_post_type', 0 );
+add_action( 'init', 'sola_st_create_response_post_type', 0 );
 
 add_action('wp_ajax_sola_st_save_response', 'sola_st_action_callback');
 
@@ -169,11 +169,10 @@ function sola_st_create_ticket_post_type() {
         
           
       );
-      
       if (post_type_exists('sola_st_tickets')) { } else {
           register_post_type( 'sola_st_tickets', $args ); 
-          flush_rewrite_rules();
       }
+      
       
       
     
@@ -221,7 +220,6 @@ function sola_st_create_response_post_type() {
       );
       if (post_type_exists('sola_st_responses')) { } else {
            register_post_type( 'sola_st_responses', $args );
-           flush_rewrite_rules();
       }
 
      
@@ -248,6 +246,10 @@ function sola_st_activate() {
       global $sola_st_version;
       add_option("sola_st_current_version",$sola_st_version);
   }
+  
+  
+  flush_rewrite_rules();
+
   
 }
 
@@ -671,7 +673,7 @@ function sola_st_next_previous_fix($url) {
 
 
 function sola_st_content_control($content) {
-        
+        if (!isset($post)) { return $content; }
 	if (get_post_type( $post ) == "sola_st_tickets") {
             
             
@@ -925,15 +927,18 @@ function sola_st_manage_ticket_status_column($column_name, $post_id) {
         break;
     case 'ticket_last_responded_column':
         $data = sola_st_get_last_response($post_id);
-        //var_dump($data);
-        $author = $data->post_author;
-        //var_dump($author);
-        
-        if ($author) {
-            $author_data = get_userdata($author);
-            echo $author_data->user_login;
-            
-            echo "<br /><small>".sola_st_time_elapsed_string(strtotime($data->post_date))."</small>";
+        if (isset($data->post_author)) {
+            $author = $data->post_author;
+            //var_dump($author);
+
+            if ($author) {
+                $author_data = get_userdata($author);
+                echo $author_data->user_login;
+
+                echo "<br /><small>".sola_st_time_elapsed_string(strtotime($data->post_date))."</small>";
+            } else {
+                echo "-";
+            }
         } else {
             echo "-";
         }
@@ -954,14 +959,17 @@ function sola_st_cnt_responses($id) {
 }
 function sola_st_get_last_response($id) {
     $meta_data = sola_st_get_post_meta_last($id);
-    $post_id = $meta_data[0]->post_id;
-    if ($meta_data) {
-        $response_data = sola_st_get_response_data($post_id);
-        return $response_data;
-    }
-    else {
-        return false;
-    } 
+    
+    if (isset($meta_data[0])) {
+        $post_id = $meta_data[0]->post_id;
+        if ($meta_data) {
+            $response_data = sola_st_get_response_data($post_id);
+            return $response_data;
+        }
+        else {
+            return false;
+        } 
+    } else { return false; }
         
 }
 function sola_st_time_elapsed_string($ptime) {
@@ -1073,7 +1081,7 @@ function sola_st_shortcode_submit_ticket_page($atr , $text = null){
     $sola_st_settings = get_option("sola_st_settings");
     
     
-    if ($sola_st_settings['sola_st_settings_allow_priority'] == "1") {
+    if (isset($sola_st_settings['sola_st_settings_allow_priority']) && $sola_st_settings['sola_st_settings_allow_priority'] == "1") {
         $sola_priority_text = "
                 <tr class=\"sola_st_st_tr sola_st_st_subject\">
                    <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_priority_label\">
@@ -1091,7 +1099,7 @@ function sola_st_shortcode_submit_ticket_page($atr , $text = null){
                 </tr>
             
         ";
-    }
+    } else { $sola_priority_text = ""; }
     
     $content = "
         <div class=\"sola_st_response_div\">
@@ -1264,10 +1272,10 @@ function sola_st_add_priority_filter() {
     ?>
     <select name="sola_st_priority_mv">
             <option value=""><?php _e( 'All Priorities', 'sola_st_tickets' ); ?></option>
-            <option value="1" <?php if ($_GET['sola_st_priority_mv'] == "1") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(1)); ?></option>
-            <option value="2" <?php if ($_GET['sola_st_priority_mv'] == "2") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(2)); ?></option>
-            <option value="3" <?php if ($_GET['sola_st_priority_mv'] == "3") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(3)); ?></option>
-            <option value="4" <?php if ($_GET['sola_st_priority_mv'] == "4") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(4)); ?></option>
+            <option value="1" <?php if (isset($_GET['sola_st_priority_mv']) && $_GET['sola_st_priority_mv'] == "1") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(1)); ?></option>
+            <option value="2" <?php if (isset($_GET['sola_st_priority_mv']) && $_GET['sola_st_priority_mv'] == "2") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(2)); ?></option>
+            <option value="3" <?php if (isset($_GET['sola_st_priority_mv']) && $_GET['sola_st_priority_mv'] == "3") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(3)); ?></option>
+            <option value="4" <?php if (isset($_GET['sola_st_priority_mv']) && $_GET['sola_st_priority_mv'] == "4") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_priority_from_meta_id(4)); ?></option>
     </select><input type="hidden" size="16" value="ticket_priority" name="sola_st_priority_mk" />
     <?php
 }
@@ -1278,10 +1286,10 @@ function sola_st_add_status_filter() {
     ?>
     <select name="sola_st_status_mv">
             <option value=""><?php _e( 'All Statuses', 'sola_st_tickets' ); ?></option>
-            <option value="99" <?php if ($_GET['sola_st_status_mv'] == "99") { echo "selected='selected'"; } ?>><?php echo esc_attr(sola_st_return_ticket_status_from_meta_id(0)); ?></option>
-            <option value="1" <?php if ($_GET['sola_st_status_mv'] == "1") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(1)); ?></option>
-            <option value="2" <?php if ($_GET['sola_st_status_mv'] == "2") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(2)); ?></option>
-            <option value="9" <?php if ($_GET['sola_st_status_mv'] == "9") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(9)); ?></option>
+            <option value="99" <?php if (isset($_GET['sola_st_status_mv']) && $_GET['sola_st_status_mv'] == "99") { echo "selected='selected'"; } ?>><?php echo esc_attr(sola_st_return_ticket_status_from_meta_id(0)); ?></option>
+            <option value="1" <?php if (isset($_GET['sola_st_status_mv']) && $_GET['sola_st_status_mv'] == "1") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(1)); ?></option>
+            <option value="2" <?php if (isset($_GET['sola_st_status_mv']) && $_GET['sola_st_status_mv'] == "2") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(2)); ?></option>
+            <option value="9" <?php if (isset($_GET['sola_st_status_mv']) && $_GET['sola_st_status_mv'] == "9") { echo "selected='selected'"; } ?>><?php echo esc_attr( sola_st_return_ticket_status_from_meta_id(9)); ?></option>
     </select><input type="hidden" size="16" value="ticket_status" name="sola_st_status_mk" />
     <?php
 }
@@ -1298,7 +1306,7 @@ $super_admins = get_super_admins();
 $suser = get_user_by( 'slug', $super_admins[0] );
 
 ?>
-            <option value="<?php echo $suser->ID; ?>" <?php if ($_GET['sola_st_agent_mv'] == $suser->ID) { echo "selected='selected'"; } ?>><?php echo $suser->user_login; ?></option>
+            <option value="<?php echo $suser->ID; ?>" <?php if (isset($_GET['sola_st_agent_mv']) && $_GET['sola_st_agent_mv'] == $suser->ID) { echo "selected='selected'"; } ?>><?php echo $suser->user_login; ?></option>
             
 <?php 
        $users = get_users(array(
@@ -1308,7 +1316,7 @@ $suser = get_user_by( 'slug', $super_admins[0] );
         ));
         foreach($users as $user) {
 ?>        
-            <option value="<?php echo $user->ID; ?>" <?php if ($_GET['sola_st_agent_mv'] == $user->ID) { echo "selected='selected'"; } ?>><?php echo $user->user_login; ?></option>
+            <option value="<?php echo $user->ID; ?>" <?php if (isset($_GET['sola_st_agent_mv']) && $_GET['sola_st_agent_mv'] == $user->ID) { echo "selected='selected'"; } ?>><?php echo $user->user_login; ?></option>
 <?php       
         }
 ?>
