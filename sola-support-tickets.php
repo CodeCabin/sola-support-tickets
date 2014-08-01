@@ -3,21 +3,28 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 2.4
+Version: 2.5
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
 
 
+/*
+ * 
+ * 2.5 2014-08-01
+ * Fixed a bug that stopped showing the responses in the front end
+ * Code improvements (PHP Warnings)
+ * 
+ */
+
 global $sola_st_version;
 global $sola_st_p_version;
-global $sola_st_tblprfx;
 
 define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "2.4";
+$sola_st_version = "2.5";
 $sola_st_version_string = "beta";
 
 
@@ -25,7 +32,6 @@ include "modules/metaboxes.php";
 
 
 global $wpdb;
-$sola_st_tblprfx = $wpdb->prefix."sola_st_";
 
 
 $plugin_url = ABSPATH.'wp-content/plugins';
@@ -613,7 +619,7 @@ function sola_st_append_responses_to_ticket($post_id) {
     } else { 
         if (is_user_logged_in()) {
         
-        if (function_exists("sola_st_pro_metabox_addin_macros") && current_user_can('edit_sola_st_ticket')) { $macro = sola_st_pro_metabox_addin_macros(1); }
+        if (function_exists("sola_st_pro_metabox_addin_macros") && current_user_can('edit_sola_st_ticket',$post_id)) { $macro = sola_st_pro_metabox_addin_macros(1); }
 
 
 
@@ -673,126 +679,124 @@ function sola_st_next_previous_fix($url) {
 
 
 function sola_st_content_control($content) {
-        if (!isset($post)) { return $content; }
-	if (get_post_type( $post ) == "sola_st_tickets") {
-            
-            
-            /* is single page? /*
-             * 
-             */
-            if (!is_single() && !is_admin()) {
-                return $content;
-            } else {
-            
-                $post_id = get_the_ID();
-                $custom = get_post_custom($post_id);
-                if ($custom['ticket_status'][0] == "9") {
+    global $post;
+    if (!isset($post)) { return $content; }
+    if (get_post_type( $post ) == "sola_st_tickets") {
+        /* is single page? /*
+         * 
+         */
+        if (!is_single() && !is_admin()) {
+            return $content;
+        } else {
+            $post_id = get_the_ID();
+            $custom = get_post_custom($post_id);
+            if ($custom['ticket_status'][0] == "9") {
 
-                    /* check if there is a user logged in */
-                    $current_user = wp_get_current_user();
-                    if (!$current_user->ID) {
-                        /* show 404 template as the user is not logged in and it is pending */
-                        return __("This support ticket is marked as private or is pending approval.","sola_st");
-                    }
-                    else {
-                    /* check if it's the owner of the ticket */
-                        $show_content = false;
-                        if ((get_the_author_meta('ID') == $current_user->ID)) {
-                            /* this is the user that posted the ticket */
-                            $show_content = true;
-                        } else {
-                            /* let's check if the current user has capabilitie to see tickets */
-                            if (current_user_can('edit_sola_st_ticket')) {
-                                $show_content = true;
-                            } else {
-                                $show_content = false;
-                            }
-                            
-                        }
-                    
-                        if ($show_content) {
-                            $sola_content .= "<span class='sola_st_pending_approval_span'>".__("This support ticket is pending approval.","sola_st")."</span>";
-                            $content = $content.$sola_content;
-                        }
-                    }
-                } else if ($custom['ticket_status'][0] == "0") {  
-                    /* open ticket */
-                    
-                    /* can others see the ticket or not? - pro version only */
-                    
-                    if (function_exists("sola_st_check_if_public")) {
-                        $show_content = true;
-                    } else { 
-
-                        $current_user = wp_get_current_user();
-                        if (!$current_user->ID) {
-                            return __("You cannot view this support ticket","sola_st");
-                        }
-                        else {
-                        /* check if it's the owner of the ticket */
-                            $show_content = false;
-                            if ((get_the_author_meta('ID') == $current_user->ID)) {
-                                /* this is the user that posted the ticket */
-                                $show_content = true;
-                            } else {
-                                /* let's check if the current user has capabilitie to see tickets */
-                                if (current_user_can('edit_sola_st_ticket')) {
-                                    $show_content = true;
-                                } else {
-                                    $show_content = false;
-                                }
-
-                            }
-
-
-                        }
-                    }
-                    if ($show_content) {
-                            $sola_content .= "";
-                            $pre_content = "";
-                            $after_content = sola_st_show_author_box(get_the_author_meta('id'),get_the_date(),get_the_time());
-                            
-                            $content = $pre_content.$content.$sola_content.$after_content;
-                        }
-                    
-                    
-                    
-                    $content = $content.sola_st_append_responses_to_ticket(get_the_ID());
-                } else if ($custom['ticket_status'][0] == "1") {  
-                    /* solved ticket */
-                    
-                    /* can others see the ticket or not? - pro version only */
-                    $current_user = wp_get_current_user();
-                    if (!$current_user->ID) {
-                        return __("You cannot view this support ticket.","sola_st");
-                    }
-                    else {
-                    /* check if it's the owner of the ticket */
-                        $show_content = false;
-                        if ((get_the_author_meta('ID') == $current_user->ID)) {
-                            /* this is the user that posted the ticket */
-                            $show_content = true;
-                        } else {
-                            /* let's check if the current user has capabilitie to see tickets */
-                            if (current_user_can('edit_sola_st_ticket')) {
-                                $show_content = true;
-                            } else {
-                                $show_content = false;
-                            }
-                            
-                        }
-                    
-                        if ($show_content) {
-                            $sola_content .= "<span class='sola_st_pending_approval_span'>".__("This support ticket is marked as solved.","sola_st")."</span>";
-                            $content = $content.$sola_content;
-                            $content = $content.sola_st_append_responses_to_ticket(get_the_ID());
-                        }
-                    }
-                    
-                    
-                    
-                    $content = $content;
+                /* check if there is a user logged in */
+                $current_user = wp_get_current_user();
+                if (!$current_user->ID) {
+                    /* show 404 template as the user is not logged in and it is pending */
+                    return __("This support ticket is marked as private or is pending approval.","sola_st");
                 }
+                else {
+                /* check if it's the owner of the ticket */
+                    $show_content = false;
+                    if ((get_the_author_meta('ID') == $current_user->ID)) {
+                        /* this is the user that posted the ticket */
+                        $show_content = true;
+                    } else {
+                        /* let's check if the current user has capabilitie to see tickets */
+                        if (current_user_can('edit_sola_st_ticket')) {
+                            $show_content = true;
+                        } else {
+                            $show_content = false;
+                        }
+
+                    }
+
+                    if ($show_content) {
+                        $sola_content .= "<span class='sola_st_pending_approval_span'>".__("This support ticket is pending approval.","sola_st")."</span>";
+                        $content = $content.$sola_content;
+                    }
+                }
+            } else if ($custom['ticket_status'][0] == "0") {  
+                /* open ticket */
+
+                /* can others see the ticket or not? - pro version only */
+
+                if (function_exists("sola_st_check_if_public")) {
+                    $show_content = true;
+                } else { 
+
+                    $current_user = wp_get_current_user();
+                    if (!$current_user->ID) {
+                        return __("You cannot view this support ticket","sola_st");
+                    }
+                    else {
+                    /* check if it's the owner of the ticket */
+                        $show_content = false;
+                        if ((get_the_author_meta('ID') == $current_user->ID)) {
+                            /* this is the user that posted the ticket */
+                            $show_content = true;
+                        } else {
+                            /* let's check if the current user has capabilitie to see tickets */
+                            if (current_user_can('edit_sola_st_ticket')) {
+                                $show_content = true;
+                            } else {
+                                $show_content = false;
+                            }
+
+                        }
+
+
+                    }
+                }
+                if ($show_content) {
+                        $sola_content = "";
+                        $pre_content = "";
+                        $after_content = sola_st_show_author_box(get_the_author_meta('ID'),get_the_date(),get_the_time());
+
+                        $content = $pre_content.$content.$sola_content.$after_content;
+                    }
+
+
+
+                $content = $content.sola_st_append_responses_to_ticket(get_the_ID());
+            } else if ($custom['ticket_status'][0] == "1") {  
+                /* solved ticket */
+
+                /* can others see the ticket or not? - pro version only */
+                $current_user = wp_get_current_user();
+                if (!$current_user->ID) {
+                    return __("You cannot view this support ticket.","sola_st");
+                }
+                else {
+                /* check if it's the owner of the ticket */
+                    $show_content = false;
+                    if ((get_the_author_meta('ID') == $current_user->ID)) {
+                        /* this is the user that posted the ticket */
+                        $show_content = true;
+                    } else {
+                        /* let's check if the current user has capabilitie to see tickets */
+                        if (current_user_can('edit_sola_st_ticket')) {
+                            $show_content = true;
+                        } else {
+                            $show_content = false;
+                        }
+
+                    }
+
+                    if ($show_content) {
+                        $sola_content .= "<span class='sola_st_pending_approval_span'>".__("This support ticket is marked as solved.","sola_st")."</span>";
+                        $content = $content.$sola_content;
+                        $content = $content.sola_st_append_responses_to_ticket(get_the_ID());
+                    }
+                }
+
+
+
+                $content = $content;
+            }
         }
 	}
 	return $content;

@@ -1,5 +1,5 @@
 === Sola Support Tickets ===
-Contributors: SolaPlugins
+Contributors: SolaPlugins, NickDuncan
 Donate link: http://www.solaplugins.com
 Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk
 Requires at least: 3.5
@@ -7,7 +7,7 @@ Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2
 
-The easiest to use Support Ticket plugin. Create a support help desk in minutes.
+Create a support help desk and support ticket system in minutes with Sola Support Tickets.
 
 == Description ==
 
@@ -43,6 +43,7 @@ Get a free copy of the Sola Support Tickets Premium version in exchange for tran
 
 * English (default)
 * Italian
+* Dutch (Johan Omlo)
 
 == Installation ==
 
@@ -63,7 +64,7 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 
 == Screenshots ==
 
-1. Submit a ticket
+1. Submit a support ticket
 2. Add a response to a support ticket
 3. Support ticket settings
 
@@ -73,8 +74,12 @@ Not applicable
 
 == Changelog  ==
 
+= 2.5 01-08-2014 =
+* Fixed a bug that stopped showing the responses in the front end
+* Code improvements (PHP Warnings)
+* Dutch translation added - thank you Johan Omlo
+
 = 2.4 15-07-2014 =
-* Tested with WP 4.0
 * Performance improvement - Fixed PHP warnings
 * Performance improvement - Corrected the use of flush_rewrite_rules
 
