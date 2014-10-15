@@ -35,15 +35,18 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Link your help desk to an email address and automatically create support tickets when emails are received
 * Themes for the front-end help desk page (coming soon)
 * Customize your help desk through the use of shortcodes
-* Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $9.99
+* Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $29.99
 
 
 = Translations =
 Get a free copy of the Sola Support Tickets Premium version in exchange for translating our plugin!
 
 * English (default)
-* Italian
+* German (Michael Schulz)
+* French (Raymond Radet)
+* Spanish (Io)
 * Dutch (Johan Omlo)
+* Italian
 
 == Installation ==
 
@@ -60,7 +63,7 @@ When activated, the plugin automatically creates a "Submit Ticket" page where us
 The Submit Ticket page is created automatically upon activation. To edit, please go to Pages in your left navigation and edit the relevant page. Please remember to keep the shortcode on the page so that the submit ticket form shows correctly.
 
 = How do I add a support desk / help desk to my website? =
-In the basic version of the plugin, only a "Submit ticket" page is created. Should you wish to add a fully customizable help desk to your front end that shows public open/closed tickets and a search feature, please consider purchasing the premium version of the plugin for only $9.99 once off. Updates included forever.
+In the basic version of the plugin, only a "Submit ticket" page is created. Should you wish to add a fully customizable help desk to your front end that shows public open/closed tickets and a search feature, please consider purchasing the premium version of the plugin for only $29.99 once off. Updates included forever.
 
 == Screenshots ==
 
@@ -73,6 +76,17 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+
+= 2.6 15-10-2014 =
+* New Features:
+*  Internal notes can be created
+*  Departments are now available (premium version)
+*  Assign a ticket to an agent (premium version)
+*  Force the collection of new mails (premium version)
+* Languages Added:
+*  German (Thank you Michael Schulz)
+*  French (Thank you Raymond Radet)
+*  Spanish (Thank you Io)
 
 = 2.5 01-08-2014 =
 * Fixed a bug that stopped showing the responses in the front end

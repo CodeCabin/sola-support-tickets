@@ -227,10 +227,91 @@ function sola_st_view_responses_meta_box_callback( $post ) {
         }
 }
 
+function sola_st_notes_meta_box() {
+
+	$screens = array( 'sola_st_tickets' );
+
+	foreach ( $screens as $screen ) {
+
+		add_meta_box(
+			'sola_st_notes',
+			__( 'Notes', 'sola_st' ),
+			'sola_st_view_internal_notes_callback',
+			$screen,
+                        'normal',
+                        'high'
+		);
+	}
+}
+add_action( 'add_meta_boxes', 'sola_st_notes_meta_box' );
+
+function sola_st_view_internal_notes_callback($post){
+    
+    $sola_st_ajax_nonce = wp_create_nonce("sola_st");
+?>
+
+<script language="javascript">
+    var sola_st_nonce = '<?php echo $sola_st_ajax_nonce; ?>';
+</script>
+<h2 style="display:block; font-weight:bold; border-bottom:2px solid #2ea2cc; color:#2ea2cc; padding:5px; padding-left:0px;"><?php _e('Add a Note','sola_st'); ?></h2>
+            <div class="sola_st_note_div">
+                <form name="sola_st_add_note" method="POST" action="" enctype="multipart/form-data">
+                    
+                    <input type="hidden" value="<?php echo $post->ID; ?>" name="sola_st_note_id" id="sola_st_note_id" />
+                    <input type="hidden" value="<?php echo get_current_user_id(); ?>" name="sola_st_note_author" id="sola_st_note_author" />
+                    <table width='100%'>
+                    <tr>
+                       <td width="10%" valign="top">
+                           <?php _e("Title","sola_st"); ?>
+                       </td>
+                       <td>
+                          <input style="width:50%; min-width:200px; margin-bottom:5px; font-weight:bold;" type="text" value="<?php _e('Note for ', 'sola_st'); echo $post->post_title; ?>" name="sola_st_note_title" id="sola_st_note_title" />
+                       </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <?php _e("Note","sola_st"); ?>
+                        </td>
+                        <td><textarea style="width:100%; height:120px;" name="sola_st_note_text" id="sola_st_note_text"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                       <td align="right">
+                            <a href="javascript:void(0);" title="<?php _e("Save","sola_st"); ?>" class="button-primary sola_st_save_note_btn" /><?php _e("Save Note","sola_st"); ?></a>
+                       </td>
+                    </tr>
+                    </table>
+                </form>
+
+            </div>
+            
+            
+<?php
+
+$meta_data = sola_st_get_note_meta_all($post->ID);
+//var_dump($meta_data);
+    echo '<hr />';
+            foreach ($meta_data as $response) {
+                echo sola_st_draw_response_box($response->post_id);
+
+            }
+}
+
 function sola_st_get_post_meta_all($post_id){
     global $wpdb;
     $data   =   array();
     $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC"; 
+    $wpdb->query($sql);
+    foreach($wpdb->last_result as $k => $v){
+        $data[$k] = $v;
+    };
+    return $data;
+}
+function sola_st_get_note_meta_all($post_id){
+    global $wpdb;
+    $data   =   array();
+    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_note_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC"; 
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
@@ -292,6 +373,9 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
 	 */
         $value = get_post_custom_values( 'ticket_status', $post->ID );
         $priority = get_post_custom_values( 'ticket_priority', $post->ID );
+        
+        $sola_st_get_all_users = get_users();
+               
         ?>
         <table>
             <tr>
@@ -319,7 +403,25 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
                     </select>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <label for="sola_st_new_field"><?php _e( 'Agent', 'sola_st' ); ?></label>
+                </td>
+                <td>
+                    <select name="sola_st_change_ticket_agent">
+                        <?php
+                        foreach($sola_st_get_all_users as $user){
 
+                            if($user->has_cap('edit_sola_st_ticket')){
+                                $user_id = $user->data->ID;
+                                $user_display_name = $user->data->display_name;
+                                echo '<option value='.$user_id.'>'.$user_display_name.'</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
         </table>
             
 <?php

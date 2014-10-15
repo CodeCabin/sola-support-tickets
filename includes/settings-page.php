@@ -1,23 +1,17 @@
-<?php $st_notification = get_option("sola_st_notifications"); ?>
-<?php
+<?php 
+$st_notification = get_option("sola_st_notifications");
 $sola_st_ajax_nonce = wp_create_nonce("sola_st");
-
-
 $sola_st_settings = get_option("sola_st_settings");
-
-
-
 ?>
 
 <script language="javascript">
     var sola_st_nonce = '<?php echo $sola_st_ajax_nonce; ?>';
 </script>
 <style>
- label { font-weight: bolder; }    
+    label { font-weight: bolder; }    
 </style>
+
 <div class="wrap">
-   
-    
     <div id="icon-options-general" class="icon32 icon32-posts-post"><br></div><h2><?php _e("Sola Support Tickets Settings","sola_st") ?></h2>
 
 
@@ -42,6 +36,9 @@ $sola_st_settings = get_option("sola_st_settings");
                <td>
                   <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_tickets" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_new_tickets']) && $sola_st_settings['sola_st_settings_notify_new_tickets'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new support ticket is received","sola_st"); ?><br />
                   <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_responses" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_new_responses']) && $sola_st_settings['sola_st_settings_notify_new_responses'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new response is received","sola_st"); ?><br />
+                  <?php if (function_exists("sola_st_pro_activate")) { ?>
+                    <input type="checkbox" class='sola-input' name="sola_st_settings_notify_agent_change" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_agent_change']) && $sola_st_settings['sola_st_settings_notify_agent_change'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification to the agent when a ticket is assigned to them","sola_st"); ?><br />
+                  <?php } ?>                  
                </td>
             </tr>
             <tr style="height:25px;"><td></td><td></td></tr>
@@ -89,12 +86,12 @@ $sola_st_settings = get_option("sola_st_settings");
 
       </div>
       <div id="tabs-2">
-          <h3><?php _e("Email Settings",'sola_st'); ?></h3>
-          <?php if (function_exists("sola_st_pro_activate")) { ?>
-                <?php 
+        <h3><?php _e("Email Settings",'sola_st'); ?></h3>
+        <?php 
+            if (function_exists("sola_st_pro_activate")) { 
                 sola_st_pro_settings('email_settings'); 
-                ?>
-          <?php } else { ?>
+            } else { 
+        ?>
           <p><?php echo __("Upgrade to the","sola_st")." <a href='http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_email' title='Premium Version' target='_BLANK'>".__("Premium version","sola_st")."</a> ". __("of Sola Support Tickets and automatically convert received emails to support tickets and responses","sola_st"); ?></p>
           <?php } ?>
       </div>
@@ -110,7 +107,7 @@ $sola_st_settings = get_option("sola_st_settings");
       <div id="tabs-4">
           <center>
               <h1><?php _e("Upgrade to the premium version",'sola_st'); ?></h1>
-              <h2><?php _e("only","sola_st"); ?> $9.99 <?php _e("once off","sola_st"); ?></h2>
+              <h2><?php _e("only","sola_st"); ?> $29.99 <?php _e("once off","sola_st"); ?></h2>
               <br />
               <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_agents" target="_BLANK" class="button button-primary">Upgrade now</a>
           
