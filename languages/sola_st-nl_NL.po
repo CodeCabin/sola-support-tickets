@@ -1,0 +1,534 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sola_st\n"
+"POT-Creation-Date: 2014-06-25 21:51+0200\n"
+"PO-Revision-Date: 2014-07-31 22:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: Johan Omlo <johan@omlonet.nl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"Language: nl_NL\n"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:97
+msgid "Submit a ticket"
+msgstr "Dien een ticket in"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:114
+msgid "Tickets"
+msgstr "Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:115
+msgid "Ticket"
+msgstr "Ticket"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:116
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:119
+msgid "New Ticket"
+msgstr "Nieuw Ticket"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:117
+msgid "Add New Ticket"
+msgstr "Voeg nieuw ticket toe"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:118
+msgid "Edit Ticket"
+msgstr "Pas ticket aan"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:120
+msgid "All Tickets"
+msgstr "Alle Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:121
+msgid "View Ticket"
+msgstr "Bekijk Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:122
+msgid "Search Tickets"
+msgstr "Zoek Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:123
+msgid "No tickets found"
+msgstr "Geen tickets gevonden"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:124
+msgid "No tickets found in the Trash"
+msgstr "Geen tickets gevonden in de prullenbak"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:125
+msgid "Support Tickets"
+msgstr "Support Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:129
+msgid "Support tickets"
+msgstr "Support Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:162
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:792
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:125
+msgid "Responses"
+msgstr "Reacties"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:163
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:196
+msgid "Response"
+msgstr "Reactie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:164
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:167
+msgid "New Response"
+msgstr "Nieuwe Reactie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:165
+msgid "Add New Response"
+msgstr "Voeg nieuwe reactie toe"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:166
+msgid "Edit Response"
+msgstr "Pas reactie aan"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:168
+msgid "All Responses"
+msgstr "Alle Reacties"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:169
+msgid "View Response"
+msgstr "Bekijk Reacties"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:170
+msgid "Search Responses"
+msgstr "Zoek Reacties"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:171
+msgid "No responses found"
+msgstr "Geen reacties gevonden"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:172
+msgid "No responses found in the Trash"
+msgstr "Geen reacties gevonden in de prullenbak"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:173
+msgid "Ticket Responses"
+msgstr "Tickets Reacties"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:177
+msgid "Responses to support tickets"
+msgstr "Reacties op support tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:218
+msgid ""
+"Thank you for submitting your support ticket. One of our agents will respond "
+"as soon as possible."
+msgstr ""
+"Dank u wel voor het invoeren van uw ticket. Een van onze medewerkers zal zo "
+"spoedig mogelijk reageren."
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:230
+msgid "Settings"
+msgstr "Instellingen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:231
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:37
+msgid "Feedback"
+msgstr "Terugkoppeling"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:232
+msgid "Log"
+msgstr "Log"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:232
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/error-log-page.php:4
+msgid "System Log"
+msgstr "Systeem log"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:303
+msgid "Your settings have been saved."
+msgstr "Uw instellingen zijn bewaard"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:310
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:323
+msgid "Thank you for your feedback. We will be in touch soon"
+msgstr "Bedankt voor uw terugkoppeling. Wij zullen snel contact met u opnemen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:327
+msgid "There was a problem sending your feedback. Please log your feedback on "
+msgstr ""
+"Er was een probleem met het verzenden van uw terugkoppeling. Geef uw "
+"terugkoppeling op"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:345
+msgid "No errors to report on"
+msgstr "Geen fouten gevonden"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:484
+msgid "New response"
+msgstr "Nieuwe reactie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:484
+msgid "There is a new response to the support ticket titled"
+msgstr "Er is een reactie op een ticket genaamd"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:484
+msgid "Follow this link to view the reply"
+msgstr "Klik op deze link om de het antwoord te bekijken"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:511
+msgid "To access your ticket, please follow this link:"
+msgstr "Om uw ticket te bekijken, klik op deze link"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:521
+msgid "New support ticket:"
+msgstr "Nieuw support ticket"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:521
+msgid ""
+"A new support ticket has been received. To access this ticket, please follow "
+"this link:"
+msgstr ""
+"Uw heeft een nieuw support ticket ontvangen. Om deze te bekijken kuntu op "
+"deze link klikken:"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:542
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:178
+msgid "Add a Response"
+msgstr "Voeg reactie toe"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:555
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:952
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:205
+msgid "Send"
+msgstr "Verstuur"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:607
+msgid "This support ticket is marked as private or is pending approval."
+msgstr "Dit ticket is gemarkeerd al prive of wachten op toestemming"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:626
+msgid "This support ticket is pending approval."
+msgstr "Dit ticket wacht op toestemming"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:636
+msgid "You cannot view this support ticket"
+msgstr "U kunt dit support ticket niet bekijken"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:669
+msgid "You cannot view this support ticket."
+msgstr "U kunt dit support ticket niet bekijken"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:688
+msgid "This support ticket is marked as solved."
+msgstr "Dit support ticket staat op opgelost"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:717
+msgid "edit"
+msgstr "aanpassen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:718
+msgid "delete"
+msgstr "verwijderen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:793
+msgid "Last Response By"
+msgstr "Laatste reactie door"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:794
+msgid "Status"
+msgstr "Status"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:875
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:296
+msgid "Open"
+msgstr "Open"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:876
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:297
+msgid "Solved"
+msgstr "Opgelost"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:877
+msgid "Closed"
+msgstr "Gesloten"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:878
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:975
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:298
+msgid "Pending Approval"
+msgstr "Wacht op toestemming"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:879
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:935
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:943
+msgid "Description"
+msgstr "Omschrijving"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:964
+msgid "Log in"
+msgstr "Log in"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:964
+msgid "or"
+msgstr "of"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:964
+msgid "register"
+msgstr "registreer"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:964
+msgid "to submit a support ticket."
+msgstr "om een support ticket toe te voegen."
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:976
+msgid "Open Tickets"
+msgstr "Open Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:977
+msgid "Solved Tickets"
+msgstr "Opgeloste Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:978
+msgid "Closed Tickets"
+msgstr "Gesloten Tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:7
+msgid "Sola Support Tickets Feedback"
+msgstr "Sola Support Tickets Feedback"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:8
+msgid "We'd love to hear your comments and/or suggestions"
+msgstr "Wij waarderen uw opmerkingen en/of suggesties"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:13
+msgid "Your Name"
+msgstr "Uw Naam"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:21
+msgid "Your Email"
+msgstr "Uw Email"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:29
+msgid "Your Website"
+msgstr "Uw Website"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:48
+msgid "Send Feedback"
+msgstr "Verstuur Feedback"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/footer.php:6
+msgid ""
+"Sola Support Tickets is still in BETA. If you find any errors or if you have "
+"any suggestions"
+msgstr ""
+"Sola Support Tickets is nog in BETA fase. Wanneer u fouten ontdekt of "
+"suggesties heeft"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/footer.php:6
+msgid "please get in touch with us"
+msgstr "neem dan contact met ons op"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/footer.php:13
+msgid "Sola Support Tickets Version"
+msgstr "Sola Support Tickets Versie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/footer.php:14
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/footer.php:15
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:21
+msgid "Sola Support Tickets Settings"
+msgstr "Sola Support Tickets Instellingen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:28
+msgid "Main Settings"
+msgstr "Algemene Instellinge"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:29
+msgid "Email"
+msgstr "Email"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:30
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:80
+msgid "Agents"
+msgstr "Medewerkers"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:32
+msgid "Upgrade"
+msgstr "Upgrade"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:36
+msgid "Notification Settings"
+msgstr "Berichten Instellingen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:40
+msgid "Notifications"
+msgstr "Berichten"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:43
+msgid "Send a notification when a new support ticket is received"
+msgstr "Stuur een bericht wanneer er een nieuwe support ticket wordt ontvangen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:44
+msgid "Send a notification when a new response is received"
+msgstr "Stuur een bericht wanneer een nieuwe reactie is ontvangen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:50
+msgid "Thank you text"
+msgstr "Bedankt tekst"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:59
+msgid "Need more options?"
+msgstr "Heeft u meer opties nodig?"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:59
+msgid "Let us know!"
+msgstr "Laat het ons weten!"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:59
+msgid "and we'll add it in!"
+msgstr "en wij voegen ze toe!"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:65
+msgid "Email Settings"
+msgstr "Email instellingen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:76
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:84
+msgid "Upgrade to the"
+msgstr "Upgrade naar"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:76
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:84
+msgid "Premium version"
+msgstr "Premium versie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:76
+msgid ""
+"of Sola Support Tickets and automatically convert received emails to support "
+"tickets and responses"
+msgstr ""
+"van Sola Support Tickets en verwerk automatisch emails naar support tickets "
+"en reacties"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:84
+msgid "of Sola Support Tickets and assign more than one support agent."
+msgstr "van Sola Support Tickets en verwijs naar meer dan een medewerker."
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:90
+msgid "Upgrade to the premium version"
+msgstr "Upgrade naar de premium versie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:91
+msgid "only"
+msgstr "alleen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:91
+msgid "once off"
+msgstr "eenmalig afgeschreven"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:100
+msgid "Add a support desk to the front end of your website"
+msgstr "Voeg een support ticket toe vanaf de voorkant van uw website"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:105
+msgid "Add as many support agents as you need"
+msgstr "Voeg zoveel medewerkers toe als u nodig heeft"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:110
+msgid "Convert emails to support tickets"
+msgstr "Zet emails om in support tickets"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:117
+msgid "Save Settings"
+msgstr "Bewaar Instellingen"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:120
+msgid "Need help?"
+msgstr "Hulp nodig?"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/settings-page.php:120
+msgid "Read the documentation"
+msgstr "Lees de documentatie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:4
+msgid "Welcome to "
+msgstr "Welkom bij"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:8
+msgid "Create your own support desk in minutes"
+msgstr "Creëer uw eigen support tickets in minuten"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:11
+msgid "How did you find us?"
+msgstr "Hoe heeft u ons gevonden"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:16
+msgid "WordPress.org plugin repository "
+msgstr "Wordpress.org plugin database"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:19
+msgid "Search Term"
+msgstr "Als zoekterm"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:23
+msgid "Google or other search Engine"
+msgstr "Google of andere zoekmachines"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:29
+msgid "Friend recommendation"
+msgstr "Aanbeveling van een friend"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:35
+msgid "Other"
+msgstr "Anders"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:39
+msgid "Please Explain"
+msgstr "Leg alstublieft uit"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:48
+msgid "Submit"
+msgstr "voeg toe"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:50
+msgid "Skip"
+msgstr "Overslaan"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:11
+msgid "Response Information"
+msgstr "informatie over de reactie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:38
+msgid "Parent ID"
+msgstr "Parent ID"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:171
+msgid ""
+"This support ticket is pending approval. Please change the status to 'Open' "
+"before responding to this ticket."
+msgstr ""
+"Dit ticket wacht op toestemming. Zet het ticket op Ópen' voordat u reageert."
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:187
+msgid "Title"
+msgstr "Titel"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:205
+msgid "Send Response"
+msgstr "Verstuur reactie"
+
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:259
+#: C:\wamp\www\wordpress38\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:292
+msgid "Ticket Status"
+msgstr "Status Ticket"
