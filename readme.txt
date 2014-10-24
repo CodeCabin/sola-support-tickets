@@ -22,7 +22,7 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Receive email notifications for support ticket responses
 * One support agent
 * Priorities - Add priorities to your support tickets (low, high, urgent, critical)
-* Internal notes (coming soon!)
+* Internal notes 
 * Upload files to support tickets and responses (coming soon!)
 
 = Premium Add-on =
@@ -35,6 +35,7 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Link your help desk to an email address and automatically create support tickets when emails are received
 * Themes for the front-end help desk page (coming soon)
 * Customize your help desk through the use of shortcodes
+* Departments
 * Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $29.99
 
 
@@ -76,6 +77,19 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+
+= 2.7 24-10-2014 =
+* New Features: 
+*  Show or hide the departments dropdown.
+*  Choose a default department.
+*  Allow guests to submit a support ticket
+*  You can now notify the default agent or all agents when a new support ticket is received.
+*  Choose a default support ticket status
+*  Enable CAPTCHA on your support ticket submission form
+* 
+* Improvements:
+*  Output Buffering enabled.
+*  Uses user's Display name instead of login name
 
 = 2.6 15-10-2014 =
 * New Features:

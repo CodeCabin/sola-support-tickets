@@ -402,26 +402,7 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
                         <option value="4" <?php if ($priority[0] == "4") { echo 'selected="selected"'; } ?>><?php _e("Critical","sola_st"); ?></option>
                     </select>
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="sola_st_new_field"><?php _e( 'Agent', 'sola_st' ); ?></label>
-                </td>
-                <td>
-                    <select name="sola_st_change_ticket_agent">
-                        <?php
-                        foreach($sola_st_get_all_users as $user){
-
-                            if($user->has_cap('edit_sola_st_ticket')){
-                                $user_id = $user->data->ID;
-                                $user_display_name = $user->data->display_name;
-                                echo '<option value='.$user_id.'>'.$user_display_name.'</option>';
-                            }
-                        }
-                        ?>
-                    </select>
-                </td>
-            </tr>
+            </tr>            
         </table>
             
 <?php
