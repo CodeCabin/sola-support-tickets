@@ -2,6 +2,17 @@
 $st_notification = get_option("sola_st_notifications");
 $sola_st_ajax_nonce = wp_create_nonce("sola_st");
 $sola_st_settings = get_option("sola_st_settings");
+
+if(function_exists('sola_st_pro_activate')){
+    global $sola_st_pro_version;
+    if($sola_st_pro_version <= '1.4'){
+        $need_update = true;
+    } else {
+        $need_update = false;
+    }
+} else {
+    $need_update = false;
+}
 ?>
 
 <script language="javascript">
@@ -13,7 +24,11 @@ $sola_st_settings = get_option("sola_st_settings");
 
 <div class="wrap">
     <div id="icon-options-general" class="icon32 icon32-posts-post"><br></div><h2><?php _e("Sola Support Tickets Settings","sola_st") ?></h2>
-
+    <?php if($need_update){ ?>
+        <div id="" class="error">
+            <p><?php _e('You are using an outdated version of Sola Support Tickets Pro. Please update the plugin to take advantage of new features.', 'sola_st'); ?></p>
+        </div>
+    <?php } ?>
 
     <form action='' name='sola_st_settings' method='POST' id='sola_st_settings'>
 
@@ -129,8 +144,10 @@ $sola_st_settings = get_option("sola_st_settings");
                 <td>                    
                     <?php
                     if(function_exists('sola_st_pro_activate')){
-                        echo sola_st_get_all_departments();
-                        _e(" Select a default department your support tickets will be added to. ","sola_st"); 
+                        if(function_exists('sola_st_get_all_departments')){
+                            echo sola_st_get_all_departments();
+                            _e(" Select a default department your support tickets will be added to. ","sola_st"); 
+                        }                        
                     } else {
                         $pro_link = '<a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=default_departments" target="_BLANK">'.__('Premium Version', 'sola_st').'</a>';
                         echo '<select disabled><option>'.__('None', 'sola_st').'</option></select>';
@@ -183,7 +200,7 @@ $sola_st_settings = get_option("sola_st_settings");
                     <label><?php _e("General Settings","sola_st"); ?></label>
                 </td>
                <td>
-                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_html" value="1" <?php if (isset($sola_st_settings['sola_st_settings_allow_html']) && $sola_st_settings['sola_st_settings_allow_html'] == "1") echo 'checked="checked"'; ?> /><?php _e("Allow users to post HTML in support tickets and responses?","sola_st"); ?><br />
+                  <input type="checkbox" class='sola-input' name="sola_st_settings_allow_html" value="1" <?php if (isset($sola_st_settings['sola_st_settings_allow_html']) && $sola_st_settings['sola_st_settings_allow_html'] == "1") { echo 'checked="checked"'; } ?> /><?php _e("Allow users to post HTML in support tickets and responses?","sola_st"); ?><br />
                </td>
             </tr>                      
           </table>

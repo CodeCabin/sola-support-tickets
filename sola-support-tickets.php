@@ -3,13 +3,17 @@
 Plugin Name: Sola Support Tickets
 Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
 Description: Create a support centre within your WordPress admin. No need for third party systems!
-Version: 2.7
+Version: 2.8
 Author: SolaPlugins
 Author URI: http://www.solaplugins.com
 */
 
 
-/* 2.7
+/* 2.8
+ * Bug Fixes:
+ *  - Fixed PHP Errors
+ * 
+ * 2.7
  * New Features: 
  *  - Show or hide the departments dropdown.
  *  - Choose a default department.
@@ -49,7 +53,7 @@ define("SOLA_ST_PLUGIN_NAME","Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "2.7";
+$sola_st_version = "2.8";
 $sola_st_version_string = "beta";
 
 
@@ -132,7 +136,7 @@ function sola_st_init() {
     
     /* check if options are correct */
     $sola_st_settings = get_option("sola_st_settings");
-    
+
     if (!isset($sola_st_settings['sola_st_settings_default_priority'])) { $sola_st_settings['sola_st_settings_default_priority'] = 1; }
     if (!isset($sola_st_settings['sola_st_settings_allow_priority'])) { $sola_st_settings['sola_st_settings_allow_priority'] = 0; }
     if (!isset($sola_st_settings['sola_st_settings_notify_new_tickets'])) { $sola_st_settings['sola_st_settings_notify_new_tickets'] = 0; }
@@ -142,9 +146,6 @@ function sola_st_init() {
     if (!isset($sola_st_settings['sola_st_settings_notify_agent_change'])) { $sola_st_settings['sola_st_settings_notify_agent_change'] = 0; }
     
     update_option("sola_st_settings",$sola_st_settings);
-
-    
-    
     /* version control */
     global $sola_st_version;
     if (floatval($sola_st_version) > floatval(get_option("sola_st_current_version"))) {
@@ -374,16 +375,12 @@ function sola_st_user_styles() {
 
 add_action( 'wp_enqueue_scripts', 'sola_st_user_styles' );
 
-
 function sola_st_wp_head() {
     @session_start();
     // post data handling
     
    global $sola_st_success;
    global $sola_st_error;
-   
-   
-
    
    /* move to activation hook */
    if (!get_option("sola_st_default_assigned_to")) {
@@ -393,13 +390,14 @@ function sola_st_wp_head() {
    }
    
    if (isset($_POST['sola_st_save_settings'])) {
+       
         $sola_st_settings = array();
-        $sola_st_settings['sola_st_settings_notify_new_tickets'] = esc_attr($_POST['sola_st_settings_notify_new_tickets']);
-        $sola_st_settings['sola_st_settings_notify_new_responses'] = esc_attr($_POST['sola_st_settings_notify_new_responses']);
-        $sola_st_settings['sola_st_settings_allow_html'] = esc_attr($_POST['sola_st_settings_allow_html']);
-        $sola_st_settings['sola_st_settings_thank_you_text'] = esc_attr($_POST['sola_st_settings_thank_you_text']);
-        $sola_st_settings['sola_st_settings_allow_priority'] = esc_attr($_POST['sola_st_settings_allow_priority']);
-        $sola_st_settings['sola_st_settings_default_priority'] = esc_attr($_POST['sola_st_settings_default_priority']);            
+        if(isset($_POST['sola_st_settings_notify_new_tickets'])) { $sola_st_settings['sola_st_settings_notify_new_tickets'] = esc_attr($_POST['sola_st_settings_notify_new_tickets']); } else { $sola_st_settings['sola_st_settings_notify_new_tickets'] = 0; }
+        if(isset($sola_st_settings['sola_st_settings_notify_new_responses'])) { $sola_st_settings['sola_st_settings_notify_new_responses'] = esc_attr($_POST['sola_st_settings_notify_new_responses']); } else { $sola_st_settings['sola_st_settings_notify_new_responses'] = 0; }
+        if(isset($sola_st_settings['sola_st_settings_allow_html'])) { $sola_st_settings['sola_st_settings_allow_html'] = esc_attr($_POST['sola_st_settings_allow_html']); } else { $sola_st_settings['sola_st_settings_allow_html'] = 0; }
+        if(isset($sola_st_settings['sola_st_settings_thank_you_text'])) { $sola_st_settings['sola_st_settings_thank_you_text'] = esc_attr($_POST['sola_st_settings_thank_you_text']); } else { $sola_st_settings['sola_st_settings_thank_you_text'] = __('Thank you for submitting your support ticket. One of our agents will respond as soon as possible.', 'sola_st'); }
+        if(isset($sola_st_settings['sola_st_settings_allow_priority'])) { $sola_st_settings['sola_st_settings_allow_priority'] = esc_attr($_POST['sola_st_settings_allow_priority']); } else { $sola_st_settings['sola_st_settings_allow_priority'] = 0; }
+        if(isset($sola_st_settings['sola_st_settings_default_priority'])) { $sola_st_settings['sola_st_settings_default_priority'] = esc_attr($_POST['sola_st_settings_default_priority']); }else { $sola_st_settings['sola_st_settings_default_priority'] = 0; }
         
         update_option('sola_st_settings', $sola_st_settings);
         echo "<div class='updated'>";
@@ -584,7 +582,7 @@ function sola_st_check_for_html($content) {
         return $content;
     } else {
         $sola_st_settings = get_option("sola_st_settings");
-        if ($sola_st_settings['sola_st_settings_allow_html'] == 0) {
+        if (isset($sola_st_settings['sola_st_settings_allow_html']) && $sola_st_settings['sola_st_settings_allow_html'] == 0) {
             return strip_tags($content);
         } else {
             return $content;
@@ -1335,7 +1333,7 @@ if (!function_exists("sola_st_pro_activate")) {
 function sola_st_loop_control( $query ) {
     
     if (!is_admin() && !is_single() && !is_page()) {
-        if ($query->query['post_type'] == "sola_st_tickets" || $query->query['post_type'] == "sola_st_responses" ) {
+        if (isset($query->query['post_type']) && $query->query['post_type'] == "sola_st_tickets" || isset($query->query['post_type']) && $query->query['post_type'] == "sola_st_responses" ) {
             $query->set('post_type', 'sola_st_x'); /* 4 0 4 */
             $query->parse_query();
         }
@@ -1397,6 +1395,7 @@ function sola_st_add_status_filter() {
 }
 
 function sola_st_add_agent_filter() {
+    
     global $typenow;
     if ($typenow != "sola_st_tickets") { return; }
     
@@ -1434,7 +1433,7 @@ function sola_st_admin_loop_control( $query ) {
     
     
     if (is_admin()) {
-        if ($query->query['post_type'] == "sola_st_tickets") {
+        if (isset($query->query['post_type']) && $query->query['post_type'] == "sola_st_tickets") {
             
             $agent = false;
             $status = false;
@@ -1527,10 +1526,19 @@ function sola_st_submission_form(){
         $sola_priority_text = ""; 
     }
 
+    $validation_text = __('You have not completed all required fields', 'sola_st');
     if(function_exists('sola_st_pro_activate')){
-        $sola_st_departments_row = sola_st_pro_departments();
+        if(function_exists('sola_st_pro_departments')){
+            $sola_st_departments_row = sola_st_pro_departments();
+        } else {
+            $sola_st_departments_row = "";
+        }
         if(!is_user_logged_in()){
-            $sola_st_email_row = sola_st_pro_email_field();
+            if(function_exists('sola_st_pro_email_field')){
+                $sola_st_email_row = sola_st_pro_email_field();
+            } else {
+                $sola_st_email_row = "";
+            }
         } else {
             $sola_st_email_row = "";
         }
@@ -1551,7 +1559,7 @@ function sola_st_submission_form(){
                       <strong>".__("Subject","sola_st")."</strong>
                    </td>
                    <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_subject_input\">
-                      <input type=\"text\" value=\"\" name=\"sola_st_ticket_title\" id=\"sola_st_ticket_title\" data-validation=\"required\"/><br />
+                      <input type=\"text\" value=\"\" name=\"sola_st_ticket_title\" id=\"sola_st_ticket_title\" data-validation=\"required\" data-validation-error-msg=\"$validation_text\"/><br />
                    </td>
                 </tr>
                 <tr class=\"sola_st_st_tr sola_st_st_desc\">
@@ -1559,7 +1567,7 @@ function sola_st_submission_form(){
                       <strong>".__("Description","sola_st")."</strong>
                     </td>
                     <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_desc_textare\">
-                      <textarea style=\"width:100%; height:120px;\" name=\"sola_st_ticket_text\" id=\"sola_st_ticket_text\" data-validation=\"required\"></textarea><br />
+                      <textarea style=\"width:100%; height:120px;\" name=\"sola_st_ticket_text\" id=\"sola_st_ticket_text\" data-validation=\"required\" data-validation-error-msg=\"$validation_text\"></textarea><br />
                    </td>
                 </tr>
                 $sola_priority_text

@@ -78,6 +78,10 @@ Not applicable
 
 == Changelog  ==
 
+= 2.8 24-10-2014 = 
+* Bug Fixes:
+*  Fixed PHP Errors
+
 = 2.7 24-10-2014 =
 * New Features: 
 *  Show or hide the departments dropdown.
