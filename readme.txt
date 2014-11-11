@@ -1,7 +1,7 @@
 === Sola Support Tickets ===
 Contributors: SolaPlugins, NickDuncan
 Donate link: http://www.solaplugins.com
-Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk
+Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk, support desk
 Requires at least: 3.5
 Tested up to: 4.0
 Stable tag: trunk
@@ -13,7 +13,6 @@ Create a support help desk and support ticket system in minutes with Sola Suppor
 
 The easiest to use Help Desk & Support Ticket plugin. Create a support help desk quickly and easily with Sola Support Tickets.
 
-Sola Support Tickets is still in BETA. Any feedback, comments or suggestions would be appreciated.
 
 = Features =
 * Manage support tickets (pending, open, solved)
@@ -32,9 +31,12 @@ Sola Support Tickets is still in BETA. Any feedback, comments or suggestions wou
 * Add popular tickets to your help desk page
 * Macros (add predefined responses to your support tickets)
 * Assign tickets to other support agents
+* Allow guests to submit support tickets
+* Choose a default ticket status
 * Link your help desk to an email address and automatically create support tickets when emails are received
 * Themes for the front-end help desk page (coming soon)
 * Customize your help desk through the use of shortcodes
+* Enable CAPTCHA on your support ticket submission form
 * Departments
 * Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $29.99
 
@@ -77,6 +79,12 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+
+= 2.9 11-11-2014 = 
+* Bug Fixes:
+*  Fixed PHP Errors
+*  Support Tickets do not show in normal site search, only when searched through the help desk
+*  Private Support Tickets are not displayed to other users except the author and agents. 
 
 = 2.8 24-10-2014 = 
 * Bug Fixes:
