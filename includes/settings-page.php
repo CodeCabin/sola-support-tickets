@@ -13,6 +13,13 @@ if(function_exists('sola_st_pro_activate')){
 } else {
     $need_update = false;
 }
+
+
+ if (function_exists("sola_st_api_check")) {
+    sola_st_api_check();
+}
+
+
 ?>
 
 <script language="javascript">
@@ -42,6 +49,48 @@ if(function_exists('sola_st_pro_activate')){
           <?php } ?>
       </ul>
       <div id="tabs-1">
+         <table width='100%'>
+                <?php if (function_exists("sola_st_pro_activate")) { ?>
+                <tr>
+                    <td width="250px" valign="top" >
+                        <label><?php _e('API Key', 'sola'); ?></label>
+                            <p class="description" style='padding:10px;'><?php _e('Enter your Sola Support Tickets Premium API key', 'sola'); ?></p>
+                    </td>
+                    <td>
+                        <input type="text" class='sola-input' name="sola_st_api" value="<?php echo get_option("sola_st_api");?>"/>
+                        <a href="http://solaplugins.com/documentation/sola-support-tickets-documentation/where-do-i-get-my-sola-support-tickets-pro-api-key/" title="Sola Support Tickets" target="_BLANK"><?php _e("Where do I get my API key?","sola"); ?></a>
+                        <br />
+                        <?php 
+                        
+                            $api_check = get_option("sola_st_api_status");
+                            if (isset($api_check) && $api_check)    {
+                                
+                                $api_msg = get_option("sola_st_api_msg");
+                                $api_msg2 = get_option("sola_st_api_msg2");
+                                $api_domains = get_option("sola_st_api_domains");
+                            ?>
+                        <div class="api_box <?php  if (isset($api_check) && $api_check == 1) {?>green-border<?php } else { ?>red-border<?php } ?>">
+                            <strong><?php echo $api_msg; ?></strong>
+                            <p><?php echo $api_msg2; ?></p>
+                            <p><ul><?php if($api_domains) { foreach($api_domains as $domain) { echo "<li>".$domain."</li>"; } }?></ul></p>
+                        </div>
+                        
+
+                            <?php
+                            }
+                            else {
+                                
+                            
+                            }
+                        
+                        ?>
+                    </td>
+                </tr>
+                <tr style="height:20px;"><td></td><td></td></tr>
+         </table>
+                <?php } ?> 
+          
+          
         <h3><?php _e("Notification Settings","sola_st"); ?></h3>
         <table width='100%' class="form-table">
             <tr>
@@ -51,6 +100,7 @@ if(function_exists('sola_st_pro_activate')){
                 <td>
                     <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_tickets" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_new_tickets']) && $sola_st_settings['sola_st_settings_notify_new_tickets'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new support ticket is received","sola_st"); ?><br />
                     <input type="checkbox" class='sola-input' name="sola_st_settings_notify_new_responses" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_new_responses']) && $sola_st_settings['sola_st_settings_notify_new_responses'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification when a new response is received","sola_st"); ?><br />
+                    <input type="checkbox" class='sola-input' name="sola_st_settings_notify_status_change" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_status_change']) && $sola_st_settings['sola_st_settings_notify_status_change'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification to the user whenever the status of a support ticket changes","sola_st"); ?><br />
                     <?php if (function_exists("sola_st_pro_activate")) { ?>
                         <input type="checkbox" class='sola-input' name="sola_st_settings_notify_agent_change" value="1" <?php if (isset($sola_st_settings['sola_st_settings_notify_agent_change']) && $sola_st_settings['sola_st_settings_notify_agent_change'] == "1") echo 'checked="checked"'; ?> /><?php _e("Send a notification to the agent when a ticket is assigned to them","sola_st"); ?><br />
                     <?php } else { 
@@ -232,7 +282,7 @@ if(function_exists('sola_st_pro_activate')){
       <div id="tabs-4">
           <center>
               <h1><?php _e("Upgrade to the premium version",'sola_st'); ?></h1>
-              <h2><?php _e("only","sola_st"); ?> $29.99 <?php _e("once off","sola_st"); ?></h2>
+              <h2><?php _e("only","sola_st"); ?> $29.99 <?php _e("/ year","sola_st"); ?></h2>
               <br />
               <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_agents" target="_BLANK" class="button button-primary">Upgrade now</a>
           

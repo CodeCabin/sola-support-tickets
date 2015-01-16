@@ -17,8 +17,6 @@ jQuery("document").ready(function() {
         };
         
         jQuery.post(ajaxurl, data, function(response) {
-            console.log(response);
-            
             location.reload();
         });
     });
@@ -41,8 +39,6 @@ jQuery("document").ready(function() {
         };
         
         jQuery.post(ajaxurl, data, function(response) {
-            console.log(response);
-            
             location.reload();
         });                
         

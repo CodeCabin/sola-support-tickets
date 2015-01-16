@@ -3,7 +3,7 @@ Contributors: SolaPlugins, NickDuncan
 Donate link: http://www.solaplugins.com
 Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk, support desk
 Requires at least: 3.5
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2
 
@@ -66,7 +66,7 @@ When activated, the plugin automatically creates a "Submit Ticket" page where us
 The Submit Ticket page is created automatically upon activation. To edit, please go to Pages in your left navigation and edit the relevant page. Please remember to keep the shortcode on the page so that the submit ticket form shows correctly.
 
 = How do I add a support desk / help desk to my website? =
-In the basic version of the plugin, only a "Submit ticket" page is created. Should you wish to add a fully customizable help desk to your front end that shows public open/closed tickets and a search feature, please consider purchasing the premium version of the plugin for only $29.99 once off. Updates included forever.
+In the basic version of the plugin, only a "Submit ticket" page is created. Should you wish to add a fully customizable help desk to your front end that shows public open/closed tickets and a search feature, please consider purchasing the premium version of the plugin for only $29.99 / year. Updates included forever.
 
 == Screenshots ==
 
@@ -79,6 +79,14 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+
+= 3.0 16-01-2015 =
+* Fixed submit support ticket page bug
+* Fixed a bug that may have shown support tickets on the front end even when marked as private
+* Support ticket status change notifications (new feature)
+* Bug fixes
+* Help desk improvements
+* Menu changes
 
 = 2.9 11-11-2014 = 
 * Bug Fixes:

@@ -212,6 +212,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
                     </tr>
                     </table>
                 </form>
+                
 
             </div>
 
@@ -462,8 +463,20 @@ function sola_st_topic_status_save_meta_box_data( $post_id ) {
         
         
 	// Update the meta field in the database.
-	update_post_meta( $post_id, 'ticket_status', $my_data );
+	
 	update_post_meta( $post_id, 'ticket_priority', $priority );
+        
+        if(update_post_meta( $post_id, 'ticket_status', $my_data )){                       
+            $sola_st_settings = get_option("sola_st_settings");
+            
+            if($sola_st_settings['sola_st_settings_notify_status_change'] == 1){
+                $post_details = get_post($post_id);
+
+                $author_id = $post_details->post_author;
+                
+                sola_st_notification_control('status_change', $post_id, $author_id);
+            }
+        }
         
 }
 if (function_exists("sola_st_pro_topic_status_save_meta_box_data")) {
