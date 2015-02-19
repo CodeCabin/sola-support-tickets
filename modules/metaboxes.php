@@ -20,7 +20,7 @@ add_action( 'add_meta_boxes', 'sola_st_add_reply_meta_box' );
 
 /**
  * Prints the box content.
- * 
+ *
  * @param WP_Post $post The object for the current post/page.
  */
 function sola_st_reply_meta_box_callback( $post ) {
@@ -82,7 +82,7 @@ function sola_st_reply_save_meta_box_data( $post_id ) {
 	}
 
 	/* OK, it's safe for us to save the data now. */
-	
+
 	// Make sure that it is set.
 	if ( ! isset( $_POST['sola_st_new_field'] ) ) {
 		return;
@@ -93,18 +93,18 @@ function sola_st_reply_save_meta_box_data( $post_id ) {
 
 	// Update the meta field in the database.
 	update_post_meta( $post_id, '_response_parent_id', $my_data );
-        
+
         /* add custom fields if neccessary */
         $custom_fields = get_post_custom($post_id);
         if (!isset($custom_fields['ticket_status'])) {
-            add_post_meta( $post_id, 'ticket_status', '0', true ); 
+            add_post_meta( $post_id, 'ticket_status', '0', true );
         }
         if (!isset($custom_fields['ticket_assigned_to'])) {
             add_post_meta( $post_id, 'ticket_assigned_to', '0', true );  /* 0 is default administrator */
         }
 
-        
-        
+
+
 }
 add_action( 'save_post', 'sola_st_reply_save_meta_box_data' );
 
@@ -132,9 +132,12 @@ function sola_st_ticket_meta_box() {
 }
 add_action( 'add_meta_boxes', 'sola_st_ticket_meta_box' );
 
+
+
+
 /**
  * Prints the box content.
- * 
+ *
  * @param WP_Post $post The object for the current post/page.
  */
 function sola_st_view_responses_meta_box_callback( $post ) {
@@ -142,40 +145,44 @@ function sola_st_view_responses_meta_box_callback( $post ) {
 	// Add an nonce field so we can check for it later.
 	wp_nonce_field( 'sola_st_view_responses_meta_box_callback', 'sola_st_ticket_meta_box_nonce' );
 
-	
-        
+
+
         $custom_fields = get_post_custom($post->ID);
         if (!isset($custom_fields['ticket_status'])) {
-            add_post_meta( $post->ID, 'ticket_status', '0', true ); 
+            add_post_meta( $post->ID, 'ticket_status', '0', true );
         }
         if (!isset($custom_fields['ticket_public'])) {
-            add_post_meta( $post->ID, 'ticket_public', '0', true ); 
+            add_post_meta( $post->ID, 'ticket_public', '0', true );
         }
         if (!isset($custom_fields['ticket_assigned_to'])) {
             if (!get_option("sola_st_default_assigned_to")) {
                 $super_admins = get_super_admins();
                 $user = get_user_by( 'slug', $super_admins[0] );
-                add_option('sola_st_default_assigned_to',$user->ID);
+                if(is_object($user))
+                {
+                    add_option('sola_st_default_assigned_to',$user->ID);
+                }
+
             }
             $default_user = get_option("sola_st_default_assigned_to");
-            add_post_meta( $post->ID, 'ticket_assigned_to', $default_user, true ); 
+            add_post_meta( $post->ID, 'ticket_assigned_to', $default_user, true );
         }
-        
-        
-        
-        
 
-        
+
+
+
+
+
 	$meta_data = sola_st_get_post_meta_all($post->ID);
         //var_dump($meta_data);
         $sola_st_ajax_nonce = wp_create_nonce("sola_st");
         $value = get_post_custom_values( 'ticket_status', $post->ID );
-        
-        
+
+
         if ($value[0] == "9") {
             echo __("This support ticket is pending approval. Please change the status to 'Open' before responding to this ticket.","sola_st");
-        } else { 
-        
+        } else {
+
             ?>
             <script language="javascript">
                 var sola_st_nonce = '<?php echo $sola_st_ajax_nonce; ?>';
@@ -183,7 +190,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
             <h2 style="display:block; font-weight:bold; border-bottom:2px solid #2ea2cc; color:#2ea2cc; padding:5px; padding-left:0px;"><?php _e('Add a Response','sola_st'); ?></h2>
             <div class="sola_st_response_div">
                 <form name="sola_st_add_response" method="POST" action="" enctype="multipart/form-data">
-                    
+
                     <input type="hidden" value="<?php echo $post->ID; ?>" name="sola_st_response_id" id="sola_st_response_id" />
                     <input type="hidden" value="<?php echo get_current_user_id(); ?>" name="sola_st_response_author" id="sola_st_response_author" />
                     <table width='100%'>
@@ -193,7 +200,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
                        </td>
                        <td>
                           <input style="width:50%; min-width:200px; margin-bottom:5px; font-weight:bold;" type="text" value="Reply to <?php echo $post->post_title; ?>" name="sola_st_response_title" id="sola_st_response_title" />
-                          
+
                        </td>
                     </tr>
                     <tr>
@@ -202,7 +209,36 @@ function sola_st_view_responses_meta_box_callback( $post ) {
                         </td>
                         <td><textarea style="width:100%; height:120px;" name="sola_st_response_text" id="sola_st_response_text"></textarea></td>
                     </tr>
+
+
+
+
+
+
                     <?php if (function_exists("sola_st_pro_metabox_addin_macros")) { echo sola_st_pro_metabox_addin_macros(); } ?>
+
+                    <?php
+                        $sola_st_settings = get_option("sola_st_settings");
+                        if(isset($sola_st_settings['enable_file_uploads'])&&$sola_st_settings['enable_file_uploads']===1&&function_exists('sola_st_pro_activate'))
+                        {
+                            $out='
+                            <tr>
+                                <td colspan="2">
+                                    <div style="display:none;" id="response_file_upload_field_container">
+                                        <br/><br/>
+
+                                        Allowed file formats: JPEG, PNG, GIF, TIFF, PDF, ZIP: <br/>
+                                        <br/>
+                                        <input type="file" name="fl_upload_ticket_file_admin_section" id="fl_upload_ticket_file_admin_section"/>
+                                    </div>
+                                </td>
+                            </tr>';
+
+                            echo $out;
+                        }
+                    ?>
+
+
                     <tr>
                         <td>
                         </td>
@@ -212,7 +248,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
                     </tr>
                     </table>
                 </form>
-                
+
 
             </div>
 
@@ -247,7 +283,7 @@ function sola_st_notes_meta_box() {
 add_action( 'add_meta_boxes', 'sola_st_notes_meta_box' );
 
 function sola_st_view_internal_notes_callback($post){
-    
+
     $sola_st_ajax_nonce = wp_create_nonce("sola_st");
 ?>
 
@@ -257,7 +293,7 @@ function sola_st_view_internal_notes_callback($post){
 <h2 style="display:block; font-weight:bold; border-bottom:2px solid #2ea2cc; color:#2ea2cc; padding:5px; padding-left:0px;"><?php _e('Add a Note','sola_st'); ?></h2>
             <div class="sola_st_note_div">
                 <form name="sola_st_add_note" method="POST" action="" enctype="multipart/form-data">
-                    
+
                     <input type="hidden" value="<?php echo $post->ID; ?>" name="sola_st_note_id" id="sola_st_note_id" />
                     <input type="hidden" value="<?php echo get_current_user_id(); ?>" name="sola_st_note_author" id="sola_st_note_author" />
                     <table width='100%'>
@@ -286,8 +322,8 @@ function sola_st_view_internal_notes_callback($post){
                 </form>
 
             </div>
-            
-            
+
+
 <?php
 
 $meta_data = sola_st_get_note_meta_all($post->ID);
@@ -302,7 +338,7 @@ $meta_data = sola_st_get_note_meta_all($post->ID);
 function sola_st_get_post_meta_all($post_id){
     global $wpdb;
     $data   =   array();
-    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC"; 
+    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC";
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
@@ -312,7 +348,7 @@ function sola_st_get_post_meta_all($post_id){
 function sola_st_get_note_meta_all($post_id){
     global $wpdb;
     $data   =   array();
-    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_note_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC"; 
+    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_note_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC";
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
@@ -322,8 +358,8 @@ function sola_st_get_note_meta_all($post_id){
 function sola_st_get_post_meta_last($post_id){
     global $wpdb;
     $data   =   array();
-    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` DESC LIMIT 1"; 
-    
+    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` DESC LIMIT 1";
+
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
@@ -360,7 +396,7 @@ if (function_exists("sola_st_pro_add_topic_status_meta_box")) {
 
 /**
  * Prints the box content.
- * 
+ *
  * @param WP_Post $post The object for the current post/page.
  */
 function sola_st_ticket_status_meta_box_callback( $post ) {
@@ -374,9 +410,15 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
 	 */
         $value = get_post_custom_values( 'ticket_status', $post->ID );
         $priority = get_post_custom_values( 'ticket_priority', $post->ID );
-        
+        $author_id=$post->post_author;
+
+
+        $user_email=get_the_author_meta( 'user_email', $author_id );
+
+
+
         $sola_st_get_all_users = get_users();
-               
+
         ?>
         <table>
             <tr>
@@ -403,9 +445,20 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
                         <option value="4" <?php if ($priority[0] == "4") { echo 'selected="selected"'; } ?>><?php _e("Critical","sola_st"); ?></option>
                     </select>
                 </td>
-            </tr>            
+            </tr>
+            <tr>
+            	<td>
+            		<?php _e( 'Author e-mail:', 'sola_st' ); ?>
+
+            	</td>
+            	<td>
+            		<?php echo $user_email ?>
+
+
+            	</td>
+            </tr>
         </table>
-            
+
 <?php
 }
 
@@ -460,24 +513,24 @@ function sola_st_topic_status_save_meta_box_data( $post_id ) {
 	// Sanitize user input.
 	$my_data = sanitize_text_field( $_POST['sola_st_change_ticket_status'] );
 	$priority = sanitize_text_field( $_POST['sola_st_change_ticket_priority'] );
-        
-        
+
+
 	// Update the meta field in the database.
-	
+
 	update_post_meta( $post_id, 'ticket_priority', $priority );
-        
-        if(update_post_meta( $post_id, 'ticket_status', $my_data )){                       
+
+        if(update_post_meta( $post_id, 'ticket_status', $my_data )){
             $sola_st_settings = get_option("sola_st_settings");
-            
+
             if($sola_st_settings['sola_st_settings_notify_status_change'] == 1){
                 $post_details = get_post($post_id);
 
                 $author_id = $post_details->post_author;
-                
+
                 sola_st_notification_control('status_change', $post_id, $author_id);
             }
         }
-        
+
 }
 if (function_exists("sola_st_pro_topic_status_save_meta_box_data")) {
     add_action( 'save_post', 'sola_st_pro_topic_status_save_meta_box_data' );

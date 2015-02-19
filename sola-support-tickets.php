@@ -3,60 +3,70 @@
   Plugin Name: Sola Support Tickets
   Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
   Description: Create a support centre within your WordPress admin. No need for third party systems!
-  Version: 3.0
+  Version: 3.01
   Author: SolaPlugins
   Author URI: http://www.solaplugins.com
  */
 
-/* 3.0 2015-01-16
+/* 3.01
+ * Files can now be uploaded and linked to support tickets (For browsers that support the HTML 5 file API only) (Premium)
+ * Sola Support Tickets Languages added: Bengali, Croatian
+ * New feature: Automatic support ticket closure after x days (Premium)
+ * New feature: Notification e-mails now contain the ticket content
+ * New feature: The e-mail address of the author is now visible within the ticket editor
+ * You can now disable/enable the use of bootstrap on the support desk page (Premium)
+ * You can now disable/enable the use of fontawesome on the support desk page (Premium)
+ * Bug fix: incorrect db prefix was used previously
+ *
+ * 3.0 2015-01-16
  * Fixed submit support ticket page bug
  * Fixed a bug that may have shown support tickets on the front end even when marked as private
  * Support ticket status change notifications (new feature)
  * Bug fixes
  * Help desk improvements
  * Menu changes
- * 
+ *
  * 2.9 2014-11-11
  * Bug Fixes:
  *  - Fixed PHP Errors
  *  - Tickets do not show in normal site search
- *  - Private tickets are not displayed to other users except the author and agents. 
- * 
+ *  - Private tickets are not displayed to other users except the author and agents.
+ *
  * 2.8
  * Bug Fixes:
  *  - Fixed PHP Errors
- * 
+ *
  * 2.7
- * New Features: 
+ * New Features:
  *  - Show or hide the departments dropdown.
  *  - Choose a default department.
  *  - Allow guests to submit a ticket
  *  - You can now notify the default agent or all agents when a new ticket is received.
  *  - Choose a default ticket status
  *  - Enable CAPTCHA on your ticket submission form
- * 
+ *
  * Improvements:
  *  - Output Buffering enabled.
  *  - Uses user's Display name instead of login name
- * 
- * 2.6 
+ *
+ * 2.6
  * New Features:
  *  - Internal Notes can be created
  *  - Departments are now available
  *  - Assign a ticket to an agent
  *  - Force the collection of new mails
- * 
+ *
  * Languages Added:
  *  - German (Thank you Michael Schulz)
  *  - French (Thank you Raymond Radet)
  *  - Spanish (Thank you Io)
- * 
+ *
  * 2.5 2014-08-01
  * Fixed a bug that stopped showing the responses in the front end
  * Code improvements (PHP Warnings)
- * 
+ *
  */
-
+@session_start();
 ob_start();
 
 global $sola_st_version;
@@ -66,7 +76,7 @@ define("SOLA_ST_PLUGIN_NAME", "Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "3.0";
+$sola_st_version = "3.01";
 $sola_st_version_string = "beta";
 
 
@@ -174,8 +184,10 @@ function sola_st_init() {
     if (!isset($sola_st_settings['sola_st_settings_notify_status_change'])) {
         $sola_st_settings['sola_st_settings_notify_status_change'] = 0;
     }
-    
-    
+
+
+
+
 
     update_option("sola_st_settings", $sola_st_settings);
     /* version control */
@@ -234,7 +246,7 @@ function sola_st_create_ticket_post_type() {
         'map_meta_cap' => true
     );
     if (post_type_exists('sola_st_tickets')) {
-        
+
     } else {
         register_post_type('sola_st_tickets', $args);
     }
@@ -280,7 +292,7 @@ function sola_st_create_response_post_type() {
         'map_meta_cap' => true
     );
     if (post_type_exists('sola_st_responses')) {
-        
+
     } else {
         register_post_type('sola_st_responses', $args);
     }
@@ -316,7 +328,7 @@ function sola_st_create_internal_notes() {
         'has_archive' => true
     );
     if (post_type_exists('sola_st_notes')) {
-        
+
     } else {
         register_post_type('sola_st_notes', $args);
     }
@@ -356,11 +368,16 @@ function sola_st_activate() {
     }
 
 
+
+
+
     flush_rewrite_rules();
 }
 
+
+
 function sola_st_deactivate() {
-    
+
 }
 
 function sola_st_admin_menu() {
@@ -402,7 +419,6 @@ function sola_st_admin_scripts_basic() {
         wp_register_style('sola_st_admin_styles', plugins_url('/css/sola-support-admin.css', __FILE__));
         wp_enqueue_style('sola_st_admin_styles', get_stylesheet_uri());
 
-
     }
 
     if (isset($_GET['post']) && isset($_GET['action']) && $_GET['action'] == 'edit') {
@@ -426,6 +442,8 @@ function sola_st_user_styles() {
 add_action('wp_enqueue_scripts', 'sola_st_user_styles');
 
 function sola_st_wp_head() {
+
+
     @session_start();
     // post data handling
 
@@ -436,12 +454,16 @@ function sola_st_wp_head() {
     if (!get_option("sola_st_default_assigned_to")) {
         $super_admins = get_super_admins();
         $user = get_user_by('slug', $super_admins[0]);
-        add_option('sola_st_default_assigned_to', $user->ID);
+        if(is_object($user))
+        {
+            add_option('sola_st_default_assigned_to', $user->ID);
+        }
     }
+
 
     if (isset($_POST['sola_st_save_settings'])) {
         $sola_st_settings = array();
-        
+
         if (isset($_POST['sola_st_settings_notify_new_tickets'])) {
             $sola_st_settings['sola_st_settings_notify_new_tickets'] = esc_attr($_POST['sola_st_settings_notify_new_tickets']);
         } else {
@@ -477,7 +499,22 @@ function sola_st_wp_head() {
         } else {
             $sola_st_settings['sola_st_settings_notify_status_change'] = 0;
         }
-        
+
+        if(isset($_POST['cb_settings_enable_file_uploads']))
+        {
+            //true;
+            $sola_st_settings['enable_file_uploads']=1;
+        }
+        else
+        {
+            //false
+            $sola_st_settings['enable_file_uploads']=0;
+        }
+
+        //var_dump($sola_st_settings['enable_file_uploads']);
+
+
+
         update_option('sola_st_settings', $sola_st_settings);
         echo "<div class='updated'>";
         _e("Your settings have been saved.", "sola_st");
@@ -590,6 +627,7 @@ function sola_st_action_callback() {
                 return false;
             }
 
+
             $parent_id = $_POST['parent'];
             $content_current = $_POST['content'];
             $title = $_POST['title'];
@@ -612,6 +650,99 @@ function sola_st_action_callback() {
 
 
             update_post_meta($post_id, '_response_parent_id', $parent_id);
+
+
+
+
+            /*base 64 file upload*/
+
+
+            if(isset($_POST['base_64_data'])&&isset($_POST['file_name'])&&isset($_POST['file_mime_type']))
+            {
+                $posted_full_base_64=  urldecode($_POST['base_64_data']);
+                $posted_mime_type=urldecode($_POST['file_mime_type']);
+                $posted_file_name=urldecode($_POST['file_name']);
+
+                if( !function_exists( 'wp_handle_sideload' ) )
+                {
+                    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+                }
+
+                if( !function_exists( 'wp_get_current_user' ))
+                {
+                    require_once( ABSPATH . 'wp-includes/pluggable.php' );
+                }
+
+
+                $upload_dir = wp_upload_dir();
+                $upload_path = str_replace( '/', DIRECTORY_SEPARATOR, $upload_dir['path'] ) . DIRECTORY_SEPARATOR;
+                $base64_array=explode(';base64,',$posted_full_base_64);
+                $file_data_as_string=$base64_array[1];
+
+                if($posted_mime_type==='application/pdf'||$posted_mime_type==='application/zip'||$posted_mime_type==='application/x-zip-compressed'||$posted_mime_type==='image/tiff'||$posted_mime_type==='image/png'||$posted_mime_type==='image/x-png'||$posted_mime_type==='image/jpeg'||$posted_mime_type==='image/gif')
+                {
+                    $decoded_base64_string = base64_decode($file_data_as_string);
+                    $hashed_filename = md5( $posted_file_name . microtime() ) . '_' . $posted_file_name;
+                    $image_upload = file_put_contents( $upload_path . $hashed_filename, $decoded_base64_string );
+
+                    /* create my own fake php $_FILES array*/
+                    $overload_php_files_array = array();
+                    $overload_php_files_array['error'] = '';
+                    $overload_php_files_array['tmp_name'] = $upload_path . $hashed_filename;
+                    $overload_php_files_array['name'] = $hashed_filename;
+                    $overload_php_files_array['type'] = $posted_mime_type;
+                    $overload_php_files_array['size'] = filesize( $upload_path . $hashed_filename );
+
+                    /*pass the fake $_FILES array to the wp_handle_sideload function as the first parameter - this is the format this wp function expects*/
+
+                    $file_save_result = wp_handle_sideload($overload_php_files_array, array( 'test_form' => false));
+
+
+                    $file_name_path=$file_save_result['file'];
+                    $file_name_url=$file_save_result['url'];
+
+                    $wp_filetype = wp_check_filetype(basename($file_name_url), null );
+                    $post_mime_type=$wp_filetype['type'];
+                    $post_title=preg_replace('/\.[^.]+$/', '', basename($file_name_url));
+
+
+
+                    $attachment = array(
+                        'post_mime_type' => $post_mime_type,
+                        'post_title' => $post_title,
+                        'post_content' => '',
+                        'post_status' => 'inherit',
+                        'guid'=>$file_name_url,
+                        'post_parent'=>$parent_id
+                    );
+
+                    wp_insert_attachment( $attachment, $file_name_path );
+
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             sola_st_notification_control('response', $parent_id, get_current_user_id());
         } else if ($_POST['action'] == "sola_st_save_note") {
@@ -663,8 +794,27 @@ function sola_st_check_for_html($content) {
     }
 }
 //remove_role('sola_st-ticket_author');
+
+
+
+
+
 function sola_st_notification_control($type, $post_id, $userid, $email = false, $password = false) {
     $sola_st_settings = get_option("sola_st_settings");
+
+    //albert
+
+
+    $post_data=get_post( $post_id, ARRAY_A);
+    $ticket_content=$post_data['post_content'];
+    $ticket_content=str_replace('<br/>',"\r",$ticket_content);
+    $ticket_content=str_replace('<br>',"\r",$ticket_content);
+    $ticket_content=strip_tags($ticket_content);
+    $ticket_content=html_entity_decode($ticket_content,ENT_QUOTES);
+
+
+
+
 
     //echo "notification control".$type.$post_id;
     if ($type == 'response') {
@@ -690,7 +840,7 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
                 $response_data = get_post($response->post_id);
                 $response_user = $response_data->post_author;
                 if (isset($notification_array[$response_user])) {
-                    
+
                 } else {
                     $notification_array[$response_user] = get_userdata($response_user)->user_email;
                 }
@@ -699,7 +849,7 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
 
 
             foreach ($notification_array as $email_item) {
-                wp_mail($email_item, __("New response", "sola_st") . " (" . $post_data->post_title . ")", __("There is a new response to the support ticket titled", "sola_st") . " \"" . $post_data->post_title . "\"\n\r" . __("Follow this link to view the reply", "sola_st") . " " . get_permalink($post_id));
+                wp_mail($email_item, __("New response", "sola_st") . " (" . $post_data->post_title . ")", __("There is a new response to the support ticket titled", "sola_st") . " \"" . $post_data->post_title . "\"\n\r Ticket content: \n\r\n\r".$ticket_content."\n\r\n\r " . __("Follow this link to view the reply", "sola_st") . " " . get_permalink($post_id));
             }
         }
     } else if ($type == 'ticket') {
@@ -709,16 +859,20 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
         extract($_POST);
 
         /* send an email to the owner of the ticket */
-        $user_email = get_userdata($userid)->user_email;
+        if(is_object(get_userdata($userid)))
+        {
+            $user_email = get_userdata($userid)->user_email;
+        }
+
         $post = get_post($post_id);
 
         if ($user_email == null && isset($sola_st_user_email_address)) {
-            
+
             $user_email = $sola_st_user_email_address;
-            
+
         }
         if (isset($user_email)) {
-            
+
             $custom_fields = get_post_custom($post_id);
             if (!isset($custom_fields['ticket_reference'])) {
                 $ticket_reference = md5($post_id . $userid);
@@ -742,13 +896,14 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
             if ($email && $password) {
                 $username = str_replace('+', '', $email);
                 wp_mail($user_email, $post->post_title . " [$ticket_reference]", $additional_response . "\n\r\n\r" .
+                  		"Ticket content: \n\r\n\r".$ticket_content."\n\r\n\r".
                         __("Please use the following credentials to access and respond to your ticket: ", "sola_st") . "\n\r\n\r" .
                         __("Username: ", "sola_st") . $username . "\n\r" .
                         __("Password: ", "sola_st") . $password . "\n\r" .
                         __("To login, please follow this link: ", "sola_st") . wp_login_url(get_permalink($post_id)) . "\n\r\n\r" .
                         __("To view your ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id) . "\n\r\n\r", $headers);
             } else {
-                wp_mail($user_email, $post->post_title . " [$ticket_reference]", $additional_response . "\n\r\n\r" . __("To access your ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id), $headers);
+                wp_mail($user_email, $post->post_title . " [$ticket_reference]", $additional_response . "\n\r\n\r Ticket content: \n\r\n\r".$ticket_content."\n\r\n\r" . __("To access your ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id), $headers);
             }
         }
 
@@ -764,28 +919,28 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
                 $user_details = get_user_by('id', $meta_data[0]);
                 $user_email = $user_details->user_email;
                 if (isset($user_email)) {
-                    wp_mail($user_email, __("New support ticket:", "sola_st") . " " . $post->post_title . "", __("A new support ticket has been received. To access this ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id));
+                    wp_mail($user_email, __("New support ticket:", "sola_st") . " " . $post->post_title . "\n\r\n\r Ticket content: \n\r\n\r".$ticket_content."\n\r\n\r", __("A new support ticket has been received. To access this ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id));
                 }
             }
         }
-        
+
     } else if ($type == 'agent_change') {
-        
+
         if(isset($sola_st_settings['sola_st_settings_notify_agent_change']) && $sola_st_settings['sola_st_settings_notify_agent_change'] == "1"){
             $post_data = get_post($post_id);
             $user_details = get_user_by('id', $userid);
             $user_email = $user_details->user_email;
-            wp_mail($user_email, __("New Ticket Assigned", "sola_st") . " (" . $post_data->post_title . ")", __("A new ticket has been assigned to you. ", "sola_st") . " \"" . $post_data->post_title . "\"\n\r" . __("Follow this link to view the ticket", "sola_st") . " " . get_page_link($post_id));
+            wp_mail($user_email, __("New Ticket Assigned", "sola_st") . " (" . $post_data->post_title . ")", __("A new ticket has been assigned to you. ", "sola_st") . " \"" . $post_data->post_title . "\"\n\r\n\r Ticket content: \n\r\n\r".$ticket_content."\n\r\n\r ". __("Follow this link to view the ticket", "sola_st") . " " . get_page_link($post_id));
         }
-        
+
     } else if ($type == 'status_change') {
-        
+
         if(isset($sola_st_settings['sola_st_settings_notify_status_change']) && $sola_st_settings['sola_st_settings_notify_status_change'] == "1"){
-            
+
             $post_data = get_post($post_id);
 
             $post_status = get_post_meta($post_id, 'ticket_status', true);
-            
+
             if($post_status == 0){
                 /* Open */
                 $stat = __('Open', 'sola_st');
@@ -798,18 +953,19 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
             } else {
                 /* Unknown */
                 $stat = __('Unknown', 'sola_st');
-            } 
-           
+            }
+
             $user_details = get_user_by('id', $userid);
             $user_email = $user_details->user_email;
 
-            wp_mail($user_email, __("Support Ticket Status Changed", "sola_st") . " (" . $post_data->post_title . ")", 
-                    __("Your Support Ticket ", "sola_st") . " \"" . 
-                    $post_data->post_title . " ".__("has been marked as $stat")."\"\n\r" . 
-                    __("Follow this link to view the ticket", "sola_st") . " " . 
+            wp_mail($user_email, __("Support Ticket Status Changed", "sola_st") . " (" . $post_data->post_title . ")",
+                    __("Your Support Ticket ", "sola_st") . " \"" .
+                    $post_data->post_title . " ".__("has been marked as $stat")."\"\n\r\n\r" .
+                      "Ticket content: \n\r\n\r".$ticket_content."\n\r\n\r".
+                    __("Follow this link to view the ticket", "sola_st") . " " .
                     get_page_link($post_id));
         }
-        
+
     } else {
         return;
     }
@@ -900,7 +1056,8 @@ function sola_st_next_previous_fix($url) {
 function sola_st_content_control($content) {
     global $post;
     $sola_content = "";
-    
+
+
 
     if (!isset($post)) {
         return $content;
@@ -917,7 +1074,7 @@ function sola_st_content_control($content) {
             $ticket_status = get_post_meta($post->ID, 'ticket_status', true);
 
             /*
-             * 0 - Open 
+             * 0 - Open
              * 1 - Solved
              * 9 - Pending
              */
@@ -928,7 +1085,20 @@ function sola_st_content_control($content) {
 
                 $author_id = $post_details->post_author;
                 $author_details = get_user_by('id', $author_id);
-                
+                /* come here */
+
+                if(function_exists('sola_st_display_linked_files_metabox'))
+                {
+                	$sola_st_attached_files = sola_st_display_linked_files_metabox();
+                }
+                else
+                {
+                	$sola_st_attached_files = '';
+                }
+
+
+
+
                 if($current_user->ID == 0){
                     if($is_public){
                         $show_ticket = true;
@@ -948,7 +1118,7 @@ function sola_st_content_control($content) {
 
                 if ($show_ticket) {
                     $content = $content;
-                    $content = $content . sola_st_append_responses_to_ticket(get_the_ID());
+                    $content = $content .$sola_st_attached_files. sola_st_append_responses_to_ticket(get_the_ID());
                 } else {
                     $sola_content .= "<span class='sola_st_pending_approval_span'>" . __("This support ticket has been  marked as private.", "sola_st") . "</span>";
                     $content = $sola_content;
@@ -960,7 +1130,7 @@ function sola_st_content_control($content) {
 
                 $author_id = $post_details->post_author;
                 $author_details = get_user_by('id', $author_id);
-                
+
                 if($current_user->ID == 0){
                     if($is_public){
                         $show_ticket = true;
@@ -993,7 +1163,7 @@ function sola_st_content_control($content) {
 
                 $author_id = $post_details->post_author;
                 $author_details = get_user_by('id', $author_id);
-                
+
                 if($current_user->ID == 0){
                     if($is_public){
                         $show_ticket = true;
@@ -1011,6 +1181,16 @@ function sola_st_content_control($content) {
                     }
                 }
 
+
+
+
+
+                if(isset($_SESSION['file_upload_failed']))
+                {
+                    echo $_SESSION['file_upload_failed'].'<br/>';
+                    unset($_SESSION['file_upload_failed']);
+                }
+
                 if ($show_ticket) {
                     $sola_content .= "<span class='sola_st_pending_approval_span'>" . __("This support ticket is pending approval.", "sola_st") . "</span>";
                     $content = $sola_content . $content;
@@ -1026,10 +1206,10 @@ function sola_st_content_control($content) {
     return $content;
 }
 
-//    
+//
 //    if (get_post_type( $post ) == "sola_st_tickets") {
 //        /* is single page? /*
-//         * 
+//         *
 //         */
 //        if (!is_single() && !is_admin()) {
 //            return $content;
@@ -1065,16 +1245,16 @@ function sola_st_content_control($content) {
 //                        $content = $content.$sola_content;
 //                    }
 //                }
-//            } else if ($custom['ticket_status'][0] == "0") {  
+//            } else if ($custom['ticket_status'][0] == "0") {
 //                /* open ticket */
 //
 //                /* can others see the ticket or not? - pro version only */
 //
 //                if (function_exists("sola_st_check_if_public")) {
 //                    $show_content = false;
-//                } else { 
+//                } else {
 //
-//                    
+//
 //                    $show_content = false;
 //                    if ((get_the_author_meta('ID') == $current_user->ID)) {
 //                        /* this is the user that posted the ticket */
@@ -1098,8 +1278,8 @@ function sola_st_content_control($content) {
 //                }
 //
 //                $content = $content.sola_st_append_responses_to_ticket(get_the_ID());
-//                
-//            } else if ($custom['ticket_status'][0] == "1") {  
+//
+//            } else if ($custom['ticket_status'][0] == "1") {
 //                /* solved ticket */
 //
 //                /* can others see the ticket or not? - pro version only */
@@ -1132,7 +1312,7 @@ function sola_st_content_control($content) {
 //
 //
 //
-//                
+//
 //            }
 //            $content = $content;
 //        }
@@ -1150,10 +1330,10 @@ function sola_st_draw_response_box($post_id) {
     $author_data = get_userdata($response_data->post_author);
     $sola_content = '<div class="sola_st_response" style="width:100%; display:block; overflow:auto;">';
 
-    if (isset($author_data->roles[0])) {
+    if (isset($author_data->roles[0]) && isset($author_data->roles[1])) {
         $role = $author_data->roles[0];
     } else {
-        $role = $author_data->roles[1];
+        if (isset($author_data->roles[1])) { $role = $author_data->roles[1]; } else { $role = ""; }
     }
 
     $sola_content .= "<div class='sola_st_post_author'>";
@@ -1190,9 +1370,12 @@ function sola_st_user_head() {
 
         $content = sola_st_check_for_html($_POST['sola_st_ticket_text']);
 
-        $tax_input = array(
-            'sola_st_deparments' => wp_strip_all_tags($_POST['sola_st_submit_department'])
-        );
+        if(isset($_POST['sola_st_submit_department']))
+        {
+            $tax_input = array(
+                'sola_st_deparments' => wp_strip_all_tags($_POST['sola_st_submit_department'])
+            );
+        }
 
         $sola_st_settings = get_option("sola_st_settings");
 
@@ -1206,8 +1389,6 @@ function sola_st_user_head() {
             'ping_status' => 'closed'
         );
         $post_id = wp_insert_post($data);
-
-
 
         $custom_fields = get_post_custom($post_id);
         if (!isset($custom_fields['ticket_status'])) {
@@ -1232,13 +1413,19 @@ function sola_st_user_head() {
             if (!get_option("sola_st_default_assigned_to")) {
                 $super_admins = get_super_admins();
                 $user = get_user_by('slug', $super_admins[0]);
-                add_option('sola_st_default_assigned_to', $user->ID);
+                if(is_object($user))
+                {
+                    add_option('sola_st_default_assigned_to', $user->ID);
+                }
             }
             $default_user = get_option("sola_st_default_assigned_to");
             add_post_meta($post_id, 'ticket_assigned_to', $default_user, true);
         }
+
         add_post_meta($post_id, 'ticket_reference', md5($post_id . get_current_user_id()), true);
         sola_st_notification_control('ticket', $post_id, get_current_user_id());
+
+
         wp_redirect(get_permalink($post_id));
     }
 
@@ -1522,7 +1709,7 @@ function sola_st_return_open_ticket_qty() {
     global $wpdb;
     $row = $wpdb->get_row(
             $wpdb->prepare(
-                    "SELECT count(`meta_id`) as `total` FROM `wp_postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 0
+                    "SELECT count(`meta_id`) as `total` FROM `".$wpdb->prefix."postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 0
             )
     );
     $total = $row->total;
@@ -1533,7 +1720,7 @@ function sola_st_return_pending_ticket_qty() {
     global $wpdb;
     $row = $wpdb->get_row(
             $wpdb->prepare(
-                    "SELECT count(`meta_id`) as `total` FROM `wp_postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 9
+                    "SELECT count(`meta_id`) as `total` FROM `".$wpdb->prefix."postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 9
             )
     );
     $total = $row->total;
@@ -1544,7 +1731,7 @@ function sola_st_return_closed_ticket_qty() {
     global $wpdb;
     $row = $wpdb->get_row(
             $wpdb->prepare(
-                    "SELECT count(`meta_id`) as `total` FROM `wp_postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 2
+                    "SELECT count(`meta_id`) as `total` FROM `".$wpdb->prefix."postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 2
             )
     );
     $total = $row->total;
@@ -1555,7 +1742,7 @@ function sola_st_return_solved_ticket_qty() {
     global $wpdb;
     $row = $wpdb->get_row(
             $wpdb->prepare(
-                    "SELECT count(`meta_id`) as `total` FROM `wp_postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 1
+                    "SELECT count(`meta_id`) as `total` FROM `".$wpdb->prefix."postmeta` WHERE `meta_key` = %s AND `meta_value` = %d", 'ticket_status', 1
             )
     );
     $total = $row->total;
@@ -1756,7 +1943,7 @@ function sola_st_add_status_filter() {
         'meta_compare' => '-',
     ));
     foreach ($users as $user) {
-        ?>        
+        ?>
             <option value="<?php echo $user->ID; ?>" <?php
         if (isset($_GET['sola_st_agent_mv']) && $_GET['sola_st_agent_mv'] == $user->ID) {
             echo "selected='selected'";
@@ -1848,7 +2035,7 @@ function sola_st_show_author_box($id, $date, $time) {
             <img src='" . sola_st_get_gravatar($user_data->user_email, '50') . "' class='alignleft sola_st_author_image' />
             " . __("Submitted by ", "sola_st") . " <span class='sola_st_author_box_name'>" . $user_data->display_name . "</span><br />
             " . __("on ", "sola_st") . " <span class='sola_st_author_box_date'>" . $date . " " . $time . "</span>
-                
+
         </div>";
 }
 
@@ -1921,13 +2108,36 @@ function sola_st_submission_form() {
                 </tr>
                 $sola_priority_text
                 $sola_st_departments_row
-                $captcha
+                $captcha";
+
+                if(isset($sola_st_settings['enable_file_uploads'])&&$sola_st_settings['enable_file_uploads']===1&&function_exists('sola_st_pro_activate'))
+                {
+                    $content.='
+                    <tr>
+                        <td colspan="2">
+                            Upload a file:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Allowed formats: JPEG, PNG, GIF, TIFF, PDF, ZIP:
+                        </td>
+                        <td>
+                            <input type="file" name="fl_upload_ticket_file_public_section" id="fl_upload_ticket_file_public_section"/>
+                        </td>
+                    </tr>';
+                }
+
+
+
+                $content.="
                 <tr class=\"sola_st_st_tr sola_st_st_submit\">
                    <td valign=\"top\"></td>
                    <td valign=\"top\" align=\"right\" class=\"sola_st_st_td sola_st_st_td_submit_button\">
                         <input type=\"submit\" name=\"sola_st_submit_ticket\" title=\"" . __("Submit", "sola_st") . "\" class=\"sola_st_button_send_reponse\" value=\"" . __("Submit", "sola_st") . "\" />
                    </td>
                 </tr>
+
                 </table>
             </form>
         </div>";

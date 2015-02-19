@@ -3,7 +3,7 @@ Contributors: SolaPlugins, NickDuncan
 Donate link: http://www.solaplugins.com
 Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk, support desk
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.1.1
 Stable tag: trunk
 License: GPLv2
 
@@ -13,7 +13,6 @@ Create a support help desk and support ticket system in minutes with Sola Suppor
 
 The easiest to use Help Desk & Support Ticket plugin. Create a support help desk quickly and easily with Sola Support Tickets.
 
-
 = Features =
 * Manage support tickets (pending, open, solved)
 * Adds a Submit Ticket page to your website
@@ -22,7 +21,6 @@ The easiest to use Help Desk & Support Ticket plugin. Create a support help desk
 * One support agent
 * Priorities - Add priorities to your support tickets (low, high, urgent, critical)
 * Internal notes 
-* Upload files to support tickets and responses (coming soon!)
 
 = Premium Add-on =
 * Custom front-end help desk showing new, open and closed tickets
@@ -33,13 +31,13 @@ The easiest to use Help Desk & Support Ticket plugin. Create a support help desk
 * Assign tickets to other support agents
 * Allow guests to submit support tickets
 * Choose a default ticket status
+* Upload files to support tickets and responses (HTML 5)
 * Link your help desk to an email address and automatically create support tickets when emails are received
 * Themes for the front-end help desk page (coming soon)
 * Customize your help desk through the use of shortcodes
 * Enable CAPTCHA on your support ticket submission form
 * Departments
 * Get the [Sola Support Tickets Premium Version](http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=wordpress&utm_medium=click&utm_campaign=st_readme) for only $29.99
-
 
 = Translations =
 Get a free copy of the Sola Support Tickets Premium version in exchange for translating our plugin!
@@ -50,6 +48,8 @@ Get a free copy of the Sola Support Tickets Premium version in exchange for tran
 * Spanish (Io)
 * Dutch (Johan Omlo)
 * Italian
+* Croatian (Sanjin Barac)
+* Bengali (Mayeenul Islam)
 
 == Installation ==
 
@@ -79,6 +79,15 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+= 3.01 19-02-2015 =
+* Files can now be uploaded and linked to support tickets (For browsers that support the HTML 5 file API only) (Premium)
+* Sola Support Tickets Languages added: Bengali, Croatian
+* New feature: Automatic support ticket closure after x days (Premium)
+* New feature: Notification e-mails now contain the ticket content
+* New feature: The e-mail address of the author is now visible within the ticket editor
+* You can now disable/enable the use of bootstrap on the support desk page (Premium)
+* You can now disable/enable the use of fontawesome on the support desk page (Premium)
+* Bug fix: incorrect db prefix was used previously
 
 = 3.0 16-01-2015 =
 * Fixed submit support ticket page bug

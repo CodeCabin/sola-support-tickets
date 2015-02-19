@@ -4,5 +4,4 @@ jQuery(document).ready(function(){
         form: "#sola_st_add_ticket"
     });    
     
-    
 });

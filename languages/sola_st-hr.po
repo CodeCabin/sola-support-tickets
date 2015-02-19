@@ -1,0 +1,1052 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sola_st\n"
+"POT-Creation-Date: 2014-10-15 14:16+0200\n"
+"PO-Revision-Date: 2014-12-09 02:27+0100\n"
+"Last-Translator: Sanjin Barac <update.soft.sanjin@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: hr_HR\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress\\wp-content\\plugins\\sola-"
+"support-tickets\n"
+"X-Poedit-SearchPath-1: C:\\wamp\\www\\wordpress\\wp-content\\plugins\\sola-"
+"support-tickets-pro\n"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:24
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:72
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:102
+msgid "Email connection error"
+msgstr "Email Greška Povezivanja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:26
+msgid "Email Connected Successfully"
+msgstr "Email Povezano Uspješno"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:73
+msgid "Email response received"
+msgstr "Email odgovor zaprimljen"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:136
+msgid "Your support desk log in details"
+msgstr "Detaljan log vaše podrške"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:136
+msgid "Login URL:"
+msgstr "Login URL:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:136
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:136
+msgid "Password:"
+msgstr "Lozinka:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:13
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:38
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:346
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:383
+msgid "Ticket Status"
+msgstr "Tiket Status"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:42
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:387
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1080
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1088
+msgid "Open"
+msgstr "Otvoreno"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:43
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:526
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:388
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1081
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1089
+msgid "Solved"
+msgstr "Rješeno"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:44
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:389
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1083
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1091
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1248
+msgid "Pending Approval"
+msgstr "Čeka na odobrenje"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:49
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:539
+msgid "Public"
+msgstr "Javno"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:52
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:565
+msgid "Yes"
+msgstr "Da"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:53
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:564
+msgid "No"
+msgstr "Ne"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:59
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:395
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:984
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1164
+msgid "Priority"
+msgstr "Prioritet"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:63
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:62
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:399
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1098
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1102
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1106
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1110
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1168
+msgid "Low"
+msgstr "Nisko"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:64
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:63
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:400
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1099
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1107
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1169
+msgid "High"
+msgstr "Visoko"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:65
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:64
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:401
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1100
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1108
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1170
+msgid "Urgent"
+msgstr "Hitno"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:66
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:65
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:402
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1101
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1109
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1171
+msgid "Critical"
+msgstr "Kritično"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:72
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:408
+msgid "Agent"
+msgstr "Agent"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:67
+msgid "Support Desk"
+msgstr "Podrška"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:97
+msgid "Every 15 Minutes"
+msgstr "Svakih 15 minuta"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:166
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:380
+msgid "Your settings have been saved."
+msgstr "Vaše postavke su spremljene"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:175
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:188
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:387
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:400
+msgid "Thank you for your feedback. We will be in touch soon"
+msgstr "Hvala vam na javljanju. Mi ćemo vas ubrzo kontaktirati"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:192
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:404
+msgid "There was a problem sending your feedback. Please log your feedback on "
+msgstr ""
+"Došlo je do problema prilikom slanja vaših povratnih informacija. Molimo "
+"logirajte se sa vašim povratnim informacijama na"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:204
+msgid "Your most recent mails have been collected."
+msgstr "Vaša najnovija email pošta je prikupljena."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:290
+msgid "Support Agent"
+msgstr "Agent za Podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:295
+msgid "Make this user a support agent"
+msgstr "Napravi ovog korisnika agentom za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:345
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:109
+msgid "Submit a ticket"
+msgstr "Pošaljite tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:347
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:721
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1237
+msgid "Log in"
+msgstr "Logirajte se u"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:347
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:721
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1237
+msgid "or"
+msgstr "ili"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:347
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:721
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1237
+msgid "register"
+msgstr "registrirajte se"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:347
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1237
+msgid "to submit a support ticket."
+msgstr "kako biste poslali tiket za podršku."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:356
+msgid "Search for:"
+msgstr "Pretraži za:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:388
+msgid "Open tickets"
+msgstr "Otvoreni tiketi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:401
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:442
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:481
+msgid "No topics found"
+msgstr "Nema pronađenih stavki"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:429
+msgid "Closed tickets"
+msgstr "Zatvoreni tiketi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:468
+msgid "Pending tickets"
+msgstr "Tiketi na čekanju"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:538
+msgid "Assigned Agent"
+msgstr "Dodijeljeni Agent"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:566
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1084
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1092
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:587
+msgid "Automatically convert emails to support tickets"
+msgstr "Automatski pretvori email u tiket za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:592
+msgid "Email Retrieval Settings"
+msgstr "Email Postavke preuzimanja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:597
+msgid "Host"
+msgstr "Host"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:601
+msgid "Enter your host's URL (for gmail use imap.gmail.com)"
+msgstr "Unesite host URL (za gmail koristite imap.gmail.com)"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:606
+msgid "Username"
+msgstr "Korisničko ime"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:610
+msgid "The username for your Email Account"
+msgstr "Korisničko ime za vaš email račun"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:615
+msgid "Password"
+msgstr "Lozinka"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:619
+msgid "Your Email Password"
+msgstr "Lozinka za vaš email račun"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:624
+msgid "Port"
+msgstr "Port"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:628
+msgid "And finally the port number. We recommend 993"
+msgstr "Broj porta. Preporučamo 993"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:633
+msgid "Encryption"
+msgstr "Šifriranje"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:637
+msgid "No Encryption"
+msgstr "Bez šifriranja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:638
+msgid "SSL"
+msgstr "SSL"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:638
+msgid "(use SSL for gmail)"
+msgstr "(koristite SSL za gmail)"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:639
+msgid ""
+"TLS - This is not the same as STARTTLS. For most servers SSL is the "
+"recommended option."
+msgstr ""
+"TLS - To nije isto što i STARTTLS. Za većinu servera SSL je preporučena "
+"opcija."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:654
+msgid "Server time now:"
+msgstr "Vrijeme servera sada:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:655
+msgid "Next collection at approximately:"
+msgstr "Sljedeće prikupljanje u približno:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:665
+msgid "Collect New Emails"
+msgstr "Prikupiti Novu email poštu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:689
+msgid "The following users have been assigned as support agents."
+msgstr "Sljedeći korisnici su dodijeljeni kao agenti za podršku."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:691
+msgid ""
+"To add or remove support agents, go to 'Users' and click on 'Edit' on the "
+"user you would like to edit. Scroll to the bottom of the page and tick the "
+"checkbox that enables them to be a suppot agent"
+msgstr ""
+"Da biste dodali ili uklonili agente za podršku, idite na \"Korisnici\" i "
+"kliknite na \"Uredi\" na korisnika kojeg želite urediti. Skrolajte na dno "
+"stranice i kliknite na potvrdni okvir koji im omogućuje da budu agenti za "
+"podršku."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:789
+msgid ""
+"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+msgstr ""
+"Dogodila se neočekivana HTTP Greška prilikom API zahtjeva.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Pokušajte ponovo</a>"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:794
+msgid "An unknown error occurred"
+msgstr "Dogodila se neočekivana greška"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:803
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:814
+msgid "Support Macros"
+msgstr "Unaprijed spremni odgovori za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:804
+msgid "Support Macro"
+msgstr "Unaprijed spreman odgovor za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:805
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:808
+msgid "New Macro"
+msgstr "Novi unaprijed spreman odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:806
+msgid "Add New Macro"
+msgstr "Dodaj novi unaprijed spreman odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:807
+msgid "Edit Macro"
+msgstr "Uredi unaprijed spreman odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:809
+msgid "All Macros"
+msgstr "Svi unaprijed spremni odgovori"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:810
+msgid "View Macros"
+msgstr "Vidi unaprijed spremne odgovore"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:811
+msgid "Search Macros"
+msgstr "Pretraži unaprijed spremne odgovore"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:812
+msgid "No macros found"
+msgstr "Nema nađenih unaprijed spremnih odgovora"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:813
+msgid "No macros found in the Trash"
+msgstr "Nema unaprijed spremnih odgovora nađenih u Smeću"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:818
+msgid "Support macros"
+msgstr "Unaprijed spremni odgovori za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:873
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:875
+msgid "Assign macro"
+msgstr "Dodjeli unaprijed spreman odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:877
+msgid "Select"
+msgstr "Odaberi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:884
+msgid "What is this?"
+msgstr "Što je ovo?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:924
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:934
+msgid "Departments"
+msgstr "Odjeljenja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:925
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1185
+msgid "Department"
+msgstr "Odjeljenje"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:926
+msgid "Search Departments"
+msgstr "Pretraži Odjeljenja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:927
+msgid "All Departments"
+msgstr "Sva Odjeljenja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:928
+msgid "Parent Department"
+msgstr "Roditelj Odjeljenje"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:929
+msgid "Parent Department:"
+msgstr "Matično Odjeljenje:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:930
+msgid "Edit Department"
+msgstr "Uredi Odjeljenje"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:931
+msgid "Update Department"
+msgstr "Ažuriraj Odjeljenje"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:932
+msgid "Add New Department"
+msgstr "Dodaj Novo Odjeljenje"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:933
+msgid "New Department Name"
+msgstr "Naziv novog Odjeljenja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/error-log-page.php:4
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:306
+msgid "System Log"
+msgstr "Sistem Log"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:7
+msgid "Sola Support Tickets Feedback"
+msgstr "Povratna informacija za Sola Support Tickets"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:8
+msgid "We'd love to hear your comments and/or suggestions"
+msgstr "Mi bi voljeli čuti vaše komentare i/ili sugestije"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:13
+msgid "Your Name"
+msgstr "Vaše ime"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:21
+msgid "Your Email"
+msgstr "Vaš email"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:29
+msgid "Your Website"
+msgstr "Vaša web stranica"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:37
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:305
+msgid "Feedback"
+msgstr "Povratna informacija"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:48
+msgid "Send Feedback"
+msgstr "Pošalji povratnu informaciju"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:6
+msgid ""
+"Sola Support Tickets is still in BETA. If you find any errors or if you have "
+"any suggestions"
+msgstr ""
+"Sola Support Tickets je i dalje u BETA. Ako nađete greške ili imate "
+"prijedloge"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:6
+msgid "please get in touch with us"
+msgstr "molimo da nas kontaktirate"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:13
+msgid "Sola Support Tickets Version"
+msgstr "Sola Support Tickets verzija"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:14
+msgid "Support"
+msgstr "Podrška"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:15
+msgid "Documentation"
+msgstr "Dokumentacija"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:16
+msgid "Go Premium"
+msgstr "Odi Premium"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:15
+msgid "Sola Support Tickets Settings"
+msgstr "Sola Support Tickets Postavke"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:22
+msgid "Main Settings"
+msgstr "Glavne Postavke"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:23
+msgid "Email"
+msgstr "Email"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:24
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:99
+msgid "Agents"
+msgstr "Agenti"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:26
+msgid "Upgrade"
+msgstr "Nadogradi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:30
+msgid "Notification Settings"
+msgstr "Postavke obavjesti"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:34
+msgid "Notifications"
+msgstr "Obavjesti"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:37
+msgid "Send a notification when a new support ticket is received"
+msgstr "Pošalji obavijest kada je primljen novi tiket za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:38
+msgid "Send a notification when a new response is received"
+msgstr "Pošalji obavijest kada je primljen novi odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:40
+msgid "Send a notification to the agent when a ticket is assigned to them"
+msgstr "Pošalji obavijest agentu kada mu je dodjeljen tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:47
+msgid "Thank you text"
+msgstr "Tekst za Hvala vam"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:48
+msgid "This is sent when someone posts a new support ticket"
+msgstr "Ovo je poslano kada netko pošalje novi tiket za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:57
+msgid "Priorities"
+msgstr "Prioriteti"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:60
+msgid "Default ticket priority:"
+msgstr "Default prioritet za tiket:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:69
+msgid "Allow users to select a priority when submitting a ticket"
+msgstr "Dozvoli korisniku da odabere prioritet kada šalje tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:75
+msgid "General Settings"
+msgstr "Opće postavke"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:78
+msgid "Allow users to post HTML in support tickets and responses?"
+msgstr "Dozvoliti korisniku da šalje HTML u tiketima za podršku i odgovorima?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:83
+msgid "Need more options?"
+msgstr "Trebate više opcija?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:83
+msgid "Let us know!"
+msgstr "Recite nam da znamo!"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:83
+msgid "and we'll add it in!"
+msgstr "i mi ćemo to dodati!"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:89
+msgid "Email Settings"
+msgstr "Email postavke"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:95
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:103
+msgid "Upgrade to the"
+msgstr "Nadogradi na"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:95
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:103
+msgid "Premium version"
+msgstr "Premium verzija"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:95
+msgid ""
+"of Sola Support Tickets and automatically convert received emails to support "
+"tickets and responses"
+msgstr ""
+"od Sola Support Tickets i automatski konvertiraj primljene email poruke u "
+"tikete za podršku i odgovore"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:103
+msgid "of Sola Support Tickets and assign more than one support agent."
+msgstr "od Sola Support Tickets i dodjeli više od jednog agenta za podršku."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:109
+msgid "Upgrade to the premium version"
+msgstr "Nadogradi na premium verziju"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:110
+msgid "only"
+msgstr "samo"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:110
+msgid "once off"
+msgstr "jednom"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:119
+msgid "Add a support desk to the front end of your website"
+msgstr "Dodaj podršku na prednju stranu (front-end) web stranice"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:124
+msgid "Add as many support agents as you need"
+msgstr "Dodaj agenata za podršku koliko je potrebno"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:129
+msgid "Convert emails to support tickets"
+msgstr "Konvertiraj email poruke u tikete za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:136
+msgid "Save Settings"
+msgstr "Spremi postavke"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:139
+msgid "Need help?"
+msgstr "Trebate pomoć?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:139
+msgid "Read the documentation"
+msgstr "Pročitajte dokumentaciju"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:4
+msgid "Welcome to "
+msgstr "Dobrodošli u"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:8
+msgid "Create your own support desk in minutes"
+msgstr "Kreirajte vašu vlastitu podršku u nekoliko minuta"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:11
+msgid "How did you find us?"
+msgstr "Kako ste nas pronašli?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:16
+msgid "WordPress.org plugin repository "
+msgstr "WordPress.org plugin zbirka "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:19
+msgid "Search Term"
+msgstr "Termin pretraživanja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:23
+msgid "Google or other search Engine"
+msgstr "Google ili druga tražilica"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:29
+msgid "Friend recommendation"
+msgstr "Preporuka prijatelja"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:35
+msgid "Other"
+msgstr "Ostalo"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:39
+msgid "Please Explain"
+msgstr "Molimo objasnite"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:48
+msgid "Submit"
+msgstr "Pošalji"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:50
+msgid "Skip"
+msgstr "Preskoči"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:11
+msgid "Response Information"
+msgstr "Odgovor informacije"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:38
+msgid "Parent ID"
+msgstr "Matični ID"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:125
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:197
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:985
+msgid "Responses"
+msgstr "Odgovori"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:176
+msgid ""
+"This support ticket is pending approval. Please change the status to 'Open' "
+"before responding to this ticket."
+msgstr ""
+"Ovaj tiket za podršku čeka na odobrenje. Molimo promijenite status na "
+"'Otvoreno' prije odgovaranja na ovaj tiket."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:183
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:695
+msgid "Add a Response"
+msgstr "Dodaj odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:192
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:265
+msgid "Title"
+msgstr "Naslov"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:201
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:198
+msgid "Response"
+msgstr "Odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:210
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:709
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1225
+msgid "Send"
+msgstr "Pošalji"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:210
+msgid "Send Response"
+msgstr "Pošalji odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:238
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:242
+msgid "Notes"
+msgstr "Bilješke"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:256
+msgid "Add a Note"
+msgstr "Dodaj napomenu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:268
+msgid "Note for "
+msgstr "Napomena za"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:273
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:243
+msgid "Note"
+msgstr "Napomena"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:281
+msgid "Save"
+msgstr "Spremi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:281
+msgid "Save Note"
+msgstr "Spremi napomenu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:121
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:284
+msgid ""
+"Thank you for submitting your support ticket. One of our agents will respond "
+"as soon as possible."
+msgstr ""
+"Zahvaljujemo na slanju tiketa za podršku. Jedan od naših agenata odgovorit "
+"će vam što je prije moguće."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:151
+msgid "Tickets"
+msgstr "Tiketi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:152
+msgid "Ticket"
+msgstr "Tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:153
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:156
+msgid "New Ticket"
+msgstr "Novi Tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:154
+msgid "Add New Ticket"
+msgstr "Dodaj Novi Tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:155
+msgid "Edit Ticket"
+msgstr "Uredi Tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:157
+msgid "All Tickets"
+msgstr "Svi Tiketi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:158
+msgid "View Ticket"
+msgstr "Vidi Tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:159
+msgid "Search Tickets"
+msgstr "Pretraži Tikete"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:160
+msgid "No tickets found"
+msgstr "Nema nađenih tiketa"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:161
+msgid "No tickets found in the Trash"
+msgstr "Nema nađenih tiketa u smeću"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:162
+msgid "Support Tickets"
+msgstr "Tiketi za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:166
+msgid "Support tickets"
+msgstr "Tiketi za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:199
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:202
+msgid "New Response"
+msgstr "Novi odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:200
+msgid "Add New Response"
+msgstr "Dodaj novi odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:201
+msgid "Edit Response"
+msgstr "Uredi odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:203
+msgid "All Responses"
+msgstr "Svi odgovori"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:204
+msgid "View Response"
+msgstr "Vidi odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:205
+msgid "Search Responses"
+msgstr "Pretraži odgovore"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:206
+msgid "No responses found"
+msgstr "Nema nađenih odgovora"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:207
+msgid "No responses found in the Trash"
+msgstr "Nema nađenih odgovora u smeću"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:208
+msgid "Ticket Responses"
+msgstr "Odgovori na Tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:212
+msgid "Responses to support tickets"
+msgstr "Odgovori na tikete za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:244
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:247
+msgid "New Note"
+msgstr "Nova napomena"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:245
+msgid "Add New Note"
+msgstr "Dodaj novu napomenu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:246
+msgid "Edit Note"
+msgstr "Uredi napomenu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:248
+msgid "All Notes"
+msgstr "Sve napomene"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:249
+msgid "View Note"
+msgstr "Vidi napomenu"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:250
+msgid "Search Notes"
+msgstr "Pretraži napomene"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:251
+msgid "No notes found"
+msgstr "Nema nađenih napomena"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:252
+msgid "No notes found in the Trash"
+msgstr "Nema nađenih napomena u smeću"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:253
+msgid "Internal Notes"
+msgstr "Interne Napomene"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:257
+msgid "Internal Notes for support tickets"
+msgstr "Interne Napomene za tikete za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:304
+msgid "Settings"
+msgstr "Postavke"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:306
+msgid "Log"
+msgstr "Log"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:422
+msgid "No errors to report on"
+msgstr "Nema izvještaja o greškama"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:606
+msgid "New response"
+msgstr "Novi odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:606
+msgid "There is a new response to the support ticket titled"
+msgstr "Ovdje je novi odgovor za naslovljeni tiket za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:606
+msgid "Follow this link to view the reply"
+msgstr "Slijedite ovaj link da biste vidjeli odgovor"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:639
+msgid "To access your ticket, please follow this link:"
+msgstr "Da biste pristupili vašem tiketu, molimo slijedite ovaj link:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:649
+msgid "New support ticket:"
+msgstr "Novi tiket za podršku:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:649
+msgid ""
+"A new support ticket has been received. To access this ticket, please follow "
+"this link:"
+msgstr ""
+"Novi tiket za podršku je zaprimljen. Da biste pristupili ovom tiketu, molimo "
+"slijedite ovaj link:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:660
+msgid "New Ticket Assigned"
+msgstr "Novi Tiket Dodjeljen"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:660
+msgid "A new ticket has been assigned to you. "
+msgstr "Dodjeljen vam je novi tiket."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:660
+msgid "Follow this link to view the ticket"
+msgstr "Slijedite ovaj link da biste vidjeli tiket"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:678
+msgid "Replies"
+msgstr "Odgovori"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:721
+msgid "to submit a response."
+msgstr "za poslati odgovor."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:767
+msgid "This support ticket is marked as private or is pending approval."
+msgstr ""
+"Novi tiket za podršku je označen kao privatan ili je na čekanju za odobrenje."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:786
+msgid "This support ticket is pending approval."
+msgstr "Ovaj tiket za podršku čeka odobrenje."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:801
+msgid "You cannot view this support ticket"
+msgstr "Vi ne možete vidjeti ovaj tiket za podršku"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:839
+msgid "You cannot view this support ticket."
+msgstr "Vi ne možete vidjeti ovaj tiket za podršku."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:858
+msgid "This support ticket is marked as solved."
+msgstr "Ovaj tiket za podršku je označen kao rješen."
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:889
+msgid "edit"
+msgstr "uredi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:890
+msgid "delete"
+msgstr "obriši"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:986
+msgid "Last Response By"
+msgstr "Posljednji odgovor od strane"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:987
+msgid "Status"
+msgstr "Status"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1082
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1090
+msgid "Closed"
+msgstr "Zatvoreno"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1206
+msgid "Subject"
+msgstr "Predmet"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1214
+msgid "Description"
+msgstr "Opis"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1249
+msgid "Open Tickets"
+msgstr "Otvoreni Tiketi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1250
+msgid "Solved Tickets"
+msgstr "Rješeni Tiketi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1251
+msgid "Closed Tickets"
+msgstr "Zatvoreni Tiketi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1371
+msgid "All Priorities"
+msgstr "Svi Prioriteti"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1385
+msgid "All Statuses"
+msgstr "Svi Statusi"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1399
+msgid "All Agents"
+msgstr "Svi Agenti"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1494
+msgid "Submitted by "
+msgstr "Poslao"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1495
+msgid "on "
+msgstr "dana"
