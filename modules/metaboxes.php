@@ -51,6 +51,8 @@ function sola_st_reply_save_meta_box_data( $post_id ) {
 	 * because the save_post action can be triggered at other times.
 	 */
 
+    
+    
 
 	// Check if our nonce is set.
 	if ( ! isset( $_POST['sola_st_meta_box_nonce'] ) ) {
@@ -226,8 +228,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
                                 <td colspan="2">
                                     <div style="display:none;" id="response_file_upload_field_container">
                                         <br/><br/>
-
-                                        Allowed file formats: JPEG, PNG, GIF, TIFF, PDF, ZIP: <br/>
+                                        '.__("Allowed file formats: JPEG, PNG, GIF, TIFF, PDF, ZIP","sola_st").' : <br/>
                                         <br/>
                                         <input type="file" name="fl_upload_ticket_file_admin_section" id="fl_upload_ticket_file_admin_section"/>
                                     </div>

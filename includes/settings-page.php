@@ -67,7 +67,7 @@ if (function_exists("sola_st_api_check")) {
                                 $api_msg2 = get_option("sola_st_api_msg2");
                                 $api_domains = get_option("sola_st_api_domains");
                             ?>
-                        <div class="api_box <?php  if (isset($api_check) && $api_check == 1) {?>green-border<?php } else { ?>red-border<?php } ?>">
+                        <div class="api_box <?php  if (isset($api_check) && $api_check == 1) {?>sola_st_green_border<?php } else { ?>sola_st_red_border<?php } ?>">
                             <strong><?php echo $api_msg; ?></strong>
                             <p><?php echo $api_msg2; ?></p>
                             <p><ul><?php if($api_domains) { foreach($api_domains as $domain) { echo "<li>".$domain."</li>"; } }?></ul></p>
@@ -524,6 +524,16 @@ if (function_exists("sola_st_api_check")) {
         <h3><?php _e("Email Settings",'sola_st'); ?></h3>
         <?php
             if (function_exists("sola_st_pro_activate")) {
+                
+                
+                    /*pro function - backwards compatibility*/
+                    /* The person could have updated basic but not pro */
+                    if(function_exists('sola_st_pro_set_from_email'))
+                    {
+                        sola_st_pro_set_from_email();
+                   
+                    }
+                    
                 sola_st_pro_settings('email_settings');
             } else {
         ?>

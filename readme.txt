@@ -79,6 +79,19 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+
+= 3.02 2015-03-17 =
+* Enhancement: Added From e-mail headers to automated notification e-mail - A user can now enter a From E-mail that will be used when sending notification e-mails. (Premium)
+* Ehancement: When a file upload is done in the ticket editor view and no response text is given, a message is added as a response stating that a file upload was done. (Premium)
+* Enhancement: More strings are now translateable (Premium and Basic)
+* Bug Fix: Replaced deprecated function. Replaced get_settings() with get_option() (Premium and Basic)
+* Bug Fix: White space in ticket status removed (Premium and Basic)
+* Bug Fix: User roles weren't showing in ticket responses 
+* Bug Fix: Encoding has been fixed for ticket responses and notes - encoding between javascript and PHP was incorrect with AJAX requests (Premium and Basic)
+* Bug Fix: Font Awesome and Bootstrap disable functionality PHP notices fixed (Premium)
+* Bug Fix: Fixed Departments setting PHP notices
+* Bug Fix: Fixed generic naming of classes and IDs in the plugin stylesheets to ensure compatability with themes. (Premium and Basic) 
+
 = 3.01 19-02-2015 =
 * Files can now be uploaded and linked to support tickets (For browsers that support the HTML 5 file API only) (Premium)
 * Sola Support Tickets Languages added: Bengali, Croatian
