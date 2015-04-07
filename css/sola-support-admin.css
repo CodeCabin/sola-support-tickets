@@ -1,0 +1,27 @@
+.api_box {
+    font-size:12px;
+    width:300px;
+    padding:10px;
+     -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+    display:block;
+    margin-top:20px;
+    
+    
+}
+.sola_st_red_border {
+    border:1px solid red;
+}
+.sola_st_green_border {
+    border:1px solid #78AB46;
+    
+}
+.api_box ul li {
+    list-style: disc;
+}
+.api_box ul {
+    margin-left:25px;
+
+}
