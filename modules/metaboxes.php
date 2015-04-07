@@ -176,7 +176,7 @@ function sola_st_view_responses_meta_box_callback( $post ) {
 
 
 	$meta_data = sola_st_get_post_meta_all($post->ID);
-        //var_dump($meta_data);
+
         $sola_st_ajax_nonce = wp_create_nonce("sola_st");
         $value = get_post_custom_values( 'ticket_status', $post->ID );
 
@@ -328,7 +328,7 @@ function sola_st_view_internal_notes_callback($post){
 <?php
 
 $meta_data = sola_st_get_note_meta_all($post->ID);
-//var_dump($meta_data);
+
     echo '<hr />';
             foreach ($meta_data as $response) {
                 echo sola_st_draw_response_box($response->post_id);
@@ -523,7 +523,7 @@ function sola_st_topic_status_save_meta_box_data( $post_id ) {
         if(update_post_meta( $post_id, 'ticket_status', $my_data )){
             $sola_st_settings = get_option("sola_st_settings");
 
-            if($sola_st_settings['sola_st_settings_notify_status_change'] == 1){
+            if(isset($sola_st_settings['sola_st_settings_notify_status_change'])&&$sola_st_settings['sola_st_settings_notify_status_change'] == 1){
                 $post_details = get_post($post_id);
 
                 $author_id = $post_details->post_author;

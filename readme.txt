@@ -50,6 +50,7 @@ Get a free copy of the Sola Support Tickets Premium version in exchange for tran
 * Italian
 * Croatian (Sanjin Barac)
 * Bengali (Mayeenul Islam)
+* Portuguese - Portugal (Miguel Madeira Rodrigues)
 
 == Installation ==
 
@@ -80,17 +81,37 @@ Not applicable
 
 == Changelog  ==
 
+= 3.03 2015-03-30 =
+* Enhancement: Can now also enter a "From Name" for automated e-mails as a from header. The From Name and From E-mail headers are now also used for the Reply-To e-mail headers. (Premium)
+* Enhancement: Can select to use wp_mail() or SMTP (valid SMTP settings are required). Headers set (From Name and From E-mail - available when using the premium version) are incorporated. (Premium and Basic)
+* Enhancement: Can now set the Cron Frequency for checking a selected E-mail inbox for new support tickets. This has to do with the checking of a mailbox for new mails and the mails are automatically converted to support tickets. (Premium)
+* Enhancement: Response text given for a ticket is now included in the automated notification e-mail. (Premium and Basic)
+* Enhancement: A single function has been created to send out all automated e-mails. This function takes into account settings such as custom From Email and From Name headers (can be set when using premium version) and whether to use smtp settings or the wordpress email function. (Premium and Basic)
+* Enhancement: All automated e-mails are now HTML with UTF-8 character set. (Premium and Basic)
+* Enhancement: Support for the Customer Satisfaction Surveys add-on has been added. (Premium with activated Customer Satisfaction Surveys add-on)
+* Enhancement: Customer Satisfaction Survey email settings added - The text to use for the stars rating and a setting to enable/disable sending of the surveys created using the Customer Satisfaction Survey add-on. (Premium with activated Customer Satisfaction Surveys add-on)
+* Enhancement: Customer Satisfaction overall rating per ticket has been added to the Support Tickets Dashboard. (Premium with activated Customer Satisfaction Surveys add-on)
+* Enhancement: Customer Satisfaction Survey results can be viewed per ticket on the Support Tickets Dashboard. (Premium with activated Customer Satisfaction Surveys add-on)
+* Enhancement: The responder of a ticket no longer receives a notification e-mail stating that there was a response. Notifications to other recipients are still sent. (Premium and Basic)
+* Enhancement: Added translation - Portuguese - Portugal (Miguel Madeira Rodrigues)
+* Bug fix: Default priority setting in the back-end was not being saved (Premium)
+* Bug fix: Default priority setting in the front-end was not being used (Premium and Basic)
+* Bug fix: The setting for whether a user should be logged in to submit a support ticket was ignored on the public support desk page. (Premium)
+* Bug fix: The search functionality on the public support desk page did not work as expected. Additional data was included in the result set HTML. (Premium)
+* Bug fix: Fixed notice when captcha entered incorrectly in the front-end (Premium)
+* Bug fix: Fixed the ticket counts at the top of the Support Tickets Dashboard (Premium and Basic)
+
 = 3.02 2015-03-17 =
 * Enhancement: Added From e-mail headers to automated notification e-mail - A user can now enter a From E-mail that will be used when sending notification e-mails. (Premium)
 * Ehancement: When a file upload is done in the ticket editor view and no response text is given, a message is added as a response stating that a file upload was done. (Premium)
 * Enhancement: More strings are now translateable (Premium and Basic)
 * Bug Fix: Replaced deprecated function. Replaced get_settings() with get_option() (Premium and Basic)
 * Bug Fix: White space in ticket status removed (Premium and Basic)
-* Bug Fix: User roles weren't showing in ticket responses 
+* Bug Fix: User roles weren't showing in ticket responses
 * Bug Fix: Encoding has been fixed for ticket responses and notes - encoding between javascript and PHP was incorrect with AJAX requests (Premium and Basic)
 * Bug Fix: Font Awesome and Bootstrap disable functionality PHP notices fixed (Premium)
 * Bug Fix: Fixed Departments setting PHP notices
-* Bug Fix: Fixed generic naming of classes and IDs in the plugin stylesheets to ensure compatability with themes. (Premium and Basic) 
+* Bug Fix: Fixed generic naming of classes and IDs in the plugin stylesheets to ensure compatability with themes. (Premium and Basic)
 
 = 3.01 19-02-2015 =
 * Files can now be uploaded and linked to support tickets (For browsers that support the HTML 5 file API only) (Premium)

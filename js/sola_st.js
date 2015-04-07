@@ -49,7 +49,7 @@ jQuery("document").ready(function ()
         });
 
     });
-
+    
 });
 
 
@@ -106,5 +106,4 @@ function sola_st_display_file_input()
 
     }
 }
-
 

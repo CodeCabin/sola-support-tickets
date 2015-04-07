@@ -45,6 +45,24 @@ if (function_exists("sola_st_api_check")) {
           <?php if (!function_exists("sola_st_pro_activate")) { ?>
             <li><a href="#tabs-4"><?php _e("Upgrade","sola_st") ?></a></li>
           <?php } ?>
+          
+          <?php
+          	if(defined('SOLA_ST_CSS_CUSTOMER_SATISFACTION_SURVEY_ACTIVE')&&function_exists('sola_st_pro_activate'))
+			{
+				$out='<li>
+					<a href="#tabs-5"> 
+						'.__("Customer Satisfaction Survey","sola_st").'
+					</a>
+				</li>';
+				
+				echo $out;
+				
+			}
+          ?>
+          
+          
+          
+          
       </ul>
       <div id="tabs-1">
          <table width='100%'>
@@ -265,17 +283,17 @@ if (function_exists("sola_st_api_check")) {
 
 
                         $checkbox_normal='<input type="checkbox" name="cb_settings_enable_file_uploads" id="cb_settings_enable_file_uploads" value="1" disabled="disabled"/>
-                        '.__('Give a user the ability to upload a file when creating a support ticket. Only available in the','sola-st').' <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_enable_file_uploads" target="_blank">'.__('Premium Version','sola-st').'</a>';
+                        '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page. Only available in the','sola-st').' <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_enable_file_uploads" target="_blank">'.__('Premium Version','sola-st').'</a>';
 
                         if(isset($sola_st_settings['enable_file_uploads'])&&$sola_st_settings['enable_file_uploads']===1)
                         {
                             $checkbox_premium='<input type="checkbox" name="cb_settings_enable_file_uploads" id="cb_settings_enable_file_uploads" value="1" checked="checked"/>
-                            '.__('Give a user the ability to upload a file when creating a support ticket.','sola-st');
+                            '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page.','sola-st');
                         }
                         else
                         {
                             $checkbox_premium='<input type="checkbox" name="cb_settings_enable_file_uploads" id="cb_settings_enable_file_uploads" value="1"/>
-                            '.__('Give a user the ability to upload a file when creating a support ticket.','sola-st');
+                            '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page.','sola-st');
 
                         }
 
@@ -533,12 +551,55 @@ if (function_exists("sola_st_api_check")) {
                         sola_st_pro_set_from_email();
                    
                     }
+					
+					if(function_exists('sola_st_set_cron_frequency_for_mail_checking_view'))
+					{
+						sola_st_set_cron_frequency_for_mail_checking_view();
+					}
+					
+					
+					
+					
+					
+					
                     
                 sola_st_pro_settings('email_settings');
+				
+				
+				
+				
             } else {
+					
+					
+            	
+				
+				
+				
         ?>
           <p><?php echo __("Upgrade to the","sola_st")." <a href='http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_email' title='Premium Version' target='_BLANK'>".__("Premium version","sola_st")."</a> ". __("of Sola Support Tickets and automatically convert received emails to support tickets and responses","sola_st"); ?></p>
+          
           <?php } ?>
+          
+          
+          <?php
+          	
+          	
+          	if(function_exists('sola_st_select_mailing_system_to_use'))
+			{
+				sola_st_select_mailing_system_to_use();
+			}
+          
+          
+          
+          ?>
+          
+          
+          
+          
+          
+          
+          
+          
       </div>
       <div id="tabs-3">
           <h3><?php _e("Agents",'sola_st'); ?></h3>
@@ -577,7 +638,76 @@ if (function_exists("sola_st_api_check")) {
           </div>
 
       <?php } ?>
+      
+       <?php
+      		if(defined('SOLA_ST_CSS_CUSTOMER_SATISFACTION_SURVEY_ACTIVE')&&function_exists('sola_st_pro_activate'))
+      		{
+      			
+      			$out='<div id="tabs-5">';
+      				
+					$out.='<h3>'.__('Customer Satisfaction Survey Settings','sola_st').'</h3>';
+					
+					$out.='<label for="sola_st_css_text_for_stars_rating">'.__('Text to display along with the stars rating','sola_st').':</label>';
+					$out.='<br/>';
+					
+					if(isset($sola_st_settings['text_for_starts_rating']))
+					{
+						$value_stars_rating_text=$sola_st_settings['text_for_starts_rating'];
+					}
+					else
+					{
+						$value_stars_rating_text='Please rate the service you received';		
+					}
+					
+					
+					$out.='<input type="text" name="sola_st_css_text_for_stars_rating" id="sola_st_css_text_for_stars_rating" value="'.$value_stars_rating_text.'" class="sola-input"/>';
+					
+					
+					$out.='<br/><br/>';
+					if(isset($sola_st_settings['enable_sending_of_customer_satisfaction_surveys'])&&$sola_st_settings['enable_sending_of_customer_satisfaction_surveys']==='true')
+					{
+						$out.='<input type="checkbox" name="sola_st_css_enable_customer_satisfaction_surveys_sending" id="sola_st_css_enable_customer_satisfaction_surveys_sending" value="enable" checked="checked"/> ';
+						
+					}
+					else
+					{
+						$out.='<input type="checkbox" name="sola_st_css_enable_customer_satisfaction_surveys_sending" id="sola_st_css_enable_customer_satisfaction_surveys_sending" value="enable"/>';		
+					}
+					
+					$out.=' <label for="sola_st_css_enable_customer_satisfaction_surveys_sending">'.__('Enable the sending of customer satisfaction surveys','sola_st').' </label> <br/>';
+					$out.='('.__('A listing of all surveys you have created will be sent in the e-mail that is delivered to the user who closed the ticket','sola_st').')';
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+      			$out.='</div>';
+				
+				echo $out;
+      		}
+      ?>
+      
+      
+      
+      
+      
       </div>
+      
+      
+      
+      
+      
+      
+      
+     
+      
+      
+      
     <p class='submit' style="margin-left:15px;"><input type='submit' name='sola_st_save_settings' class='button-primary' value='<?php _e("Save Settings","sola_st") ?>' /></p>
     </form>
 

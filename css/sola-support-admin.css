@@ -15,7 +15,7 @@
     border:1px solid red;
 }
 .sola_st_green_border {
-    border:1px solid #78AB46;
+    border:1px solid green;
     
 }
 .api_box ul li {
@@ -25,3 +25,13 @@
     margin-left:25px;
 
 }
+
+
+body div.sola_st_email_settings_seperator{
+	border:1px solid #f1f1f1;
+	padding:10px;
+	margin: 12px;
+	border-radius: 2px;
+	max-width: 100%;
+}
+

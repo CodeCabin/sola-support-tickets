@@ -17,6 +17,14 @@ jQuery("document").ready(function()
 			}
 		});
 		
+		
+		php_mailer_settings_outgoing_mail.determine();
+    
+    	jQuery('input[name="rb_sola_mailing_system_selection"]').unbind('click').on('click',function()
+    	{
+    			php_mailer_settings_outgoing_mail.determine();
+    	});
+    
 	});
 
 var auto_close =
@@ -44,3 +52,34 @@ var auto_close =
     	jQuery('#display_hide_auto_ticket_closure_settings :input').attr('value',"");
     }
 };
+
+
+
+
+var php_mailer_settings_outgoing_mail={
+		determine:function()
+		{
+			var checked_radio=jQuery('input[name="rb_sola_mailing_system_selection"]').filter(':checked').attr('id');
+			if(checked_radio==='rb_sola_mailing_system_selection_smtp')
+			{
+				this.show();
+			}
+			else
+			{
+				this.hide();
+			}
+		},
+		show:function()
+		{
+			jQuery('#sola_st_hidden_php_mailer_smtp_settings').show();
+		},
+		hide:function()
+		{
+			jQuery('#sola_st_hidden_php_mailer_smtp_settings').hide();
+		}
+};
+
+
+
+
+
