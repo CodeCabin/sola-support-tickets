@@ -3,12 +3,16 @@
   Plugin Name: Sola Support Tickets
   Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
   Description: Create a support centre within your WordPress admin. No need for third party systems!
-  Version: 3.03
+  Version: 3.04
   Author: SolaPlugins
   Author URI: http://www.solaplugins.com
  */
 
-/* 3.03 2015-03-30
+/* 3.04 2015-04-08
+ * Made the warning to update both the premium and basic plugin dynamic
+ * Fixed a compatibility issue with the Customer Satisfaction Survey add-on
+ * 
+ * 3.03 2015-03-30
  * Enhancement: Can select to use the Wordpress e-mail function or SMTP (valid SMTP settings are required). Headers set (From Name and From E-mail - available when using the premium version) are incorporated.
  * Enhancement: Response text given for a ticket is now included in the automated notification e-mail.
  * Enhancement: A single function has been created to send out all automated e-mails. This function takes into account settings such as custom From Email and From Name headers (can be set when using premium version) and whether to use SMTP settings or the Wordpress e-mail function.
@@ -88,7 +92,10 @@
  * Code improvements (PHP Warnings)
  *
  */
-/*date_default_timezone_set('Africa/Johannesburg');*/
+ 
+ 
+
+
 @session_start();
 ob_start();
 
@@ -99,11 +106,10 @@ define("SOLA_ST_PLUGIN_NAME", "Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "3.03";
+$sola_st_version = "3.04";
 $sola_st_version_string = "basic";
 
 
-sola_st_warn_update_pro();
 
 include_once "modules/metaboxes.php";
 
@@ -222,6 +228,12 @@ function sola_st_init() {
 
         update_option("sola_st_current_version", $sola_st_version);
     }
+	
+	
+	sola_st_warn_update_pro();
+	
+	
+	
 }
 
 add_action('init', 'sola_st_create_ticket_post_type', 0);
@@ -1745,17 +1757,25 @@ function sola_st_manage_ticket_status_column($column_name, $post_id) {
             break;
         case 'satisfaction_rating':
 			
-			$rating_data = sola_st_model::retrieve_average_rating_by_ticket_id_model($post_id);
-			$rating=$rating_data[0]->rating;
-			if($rating===null)
+			if(defined('SOLA_ST_CSS_CUSTOMER_SATISFACTION_SURVEY_ACTIVE'))
 			{
-				$rating=0;
-			}	
+				$rating_data = sola_st_model::retrieve_average_rating_by_ticket_id_model($post_id);
+				$rating=$rating_data[0]->rating;
+				if($rating===null)
+				{
+					$rating=0;
+				}	
 				
 				
-			$stars = sola_st_view::return_survey_stars($rating);
-            $view_button='<input style="margin-top:10px;" type="button" class="btn btn-default btn-xs" name="sola_st_css_get_ticket_survey_results_'.$post_id.'" id="sola_st_css_get_ticket_survey_results_'.$post_id.'" value="View results"/>';
-            echo $stars.'<br/>'.$view_button;
+				$stars = sola_st_view::return_survey_stars($rating);
+            	$view_button='<input style="margin-top:10px;" type="button" class="btn btn-default btn-xs" name="sola_st_css_get_ticket_survey_results_'.$post_id.'" id="sola_st_css_get_ticket_survey_results_'.$post_id.'" value="View results"/>';
+            	echo $stars.'<br/>'.$view_button;	
+			}
+			else
+			{
+				echo '';		
+			}
+			
 			
             break;
         default:
@@ -1943,9 +1963,13 @@ add_filter('views_edit-sola_st_tickets', 'meta_views_sola_st_tickets', 10, 1);
 
 function meta_views_sola_st_tickets($views) {
     
-    echo sola_st_view::enter_survey_preview_modal();
-    echo sola_st_view::ajax_loader_display();
+	if(defined('SOLA_ST_CSS_CUSTOMER_SATISFACTION_SURVEY_ACTIVE'))
+	{
+		echo sola_st_view::enter_survey_preview_modal();
+    	echo sola_st_view::ajax_loader_display();	
+	}
 	
+    	
     //$views['separator'] = '&nbsp;';
     $views['metakey'] = '<a href="edit.php?meta_data=ticket_status&ticket_status=9&post_type=sola_st_tickets">' . __('Pending Approval', 'sola_st') . '</a> (' . sola_st_return_pending_ticket_qty() . ")";
     $views['metakey'] .= '| <a href="edit.php?meta_data=ticket_status&ticket_status=0&post_type=sola_st_tickets">' . __('Open Tickets', 'sola_st') . '</a> (' . sola_st_return_open_ticket_qty() . ")";
@@ -2861,13 +2885,17 @@ function use_wp_mail_as_default($email,$subject,$message,$wp_mail_headers)
 
 function sola_st_warn_update_pro()
 {
-	/*not pro and not a ajax request for Customer Satisfaction Surveys */
-    if(!function_exists('sola_st_pro_activate')&&(!isset($_REQUEST['mvc_action'])&&!isset($_REQUEST['mvc_function']))&&(isset($_GET['post_type'])&&$_GET['post_type']==='sola_st_tickets'))
+    if(function_exists('sola_st_pro_activate')&&(!isset($_REQUEST['mvc_action'])&&!isset($_REQUEST['mvc_function']))&&(isset($_GET['post_type'])&&$_GET['post_type']==='sola_st_tickets'))
     {
+    	global $sola_st_pro_version;
+		$sola_st_pro_version=floatval($sola_st_pro_version);
         if(is_admin())
         {
-            echo "<div class='error'><p>".__('Warning: We have made many changes in both Sola Support Tickets Basic and Sola Support Tickets Pro. Both these plugins need to be updated to ensure that no compatibility issues arise and to ensure that our latest add-on Sola Support Tickets Customer Satisfaction Surveys is also supported. Please update both these plugins to the latest versions through your WordPress dashboard, or by logging into your Sola Plugins account ', 'sola_st')."<a href='http://solaplugins.com/my-account' target='_BLANK'>".__('here', 'sola_st')."</a></p></div>";
-        }
+        	if($sola_st_pro_version<2.04)
+			{
+				 echo "<div class='error'><p>".__('Warning: Please update to the latest Sola Support Tickets Premium version. We have made many changes in both Sola Support Tickets Basic and Sola Support Tickets Premium. Both these plugins need to be updated to ensure that no compatibility issues arise and to ensure that our latest add-on Sola Support Tickets Customer Satisfaction Surveys is also supported. Please do the update through your WordPress dashboard, or by logging into your Sola Plugins account ', 'sola_st')."<a href='http://solaplugins.com/my-account' target='_BLANK'>".__('here', 'sola_st')."</a></p></div>";	
+			}
+		}
     }
 }
 

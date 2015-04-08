@@ -81,6 +81,10 @@ Not applicable
 
 == Changelog  ==
 
+= 3.04 2015-04-08 =
+* Made the warning to update both the premium and basic plugin dynamic
+* Fixed a compatibility issue with the Customer Satisfaction Survey add-on
+
 = 3.03 2015-03-30 =
 * Enhancement: Can now also enter a "From Name" for automated e-mails as a from header. The From Name and From E-mail headers are now also used for the Reply-To e-mail headers. (Premium)
 * Enhancement: Can select to use wp_mail() or SMTP (valid SMTP settings are required). Headers set (From Name and From E-mail - available when using the premium version) are incorporated. (Premium and Basic)
