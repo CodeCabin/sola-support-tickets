@@ -44,7 +44,7 @@ Get a free copy of the Sola Support Tickets Premium version in exchange for tran
 
 * English (default)
 * German (Michael Schulz)
-* French (Raymond Radet)
+* French (Raymond Radet) (Etienne Couturier)
 * Spanish (Io)
 * Dutch (Johan Omlo)
 * Italian
@@ -80,6 +80,10 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+
+= 3.05 2015-04-12 =
+ * Fixed character-set encoding (SMTP e-mail)
+ * Updated French translation file (Etienne Couturier)
 
 = 3.04 2015-04-08 =
 * Made the warning to update both the premium and basic plugin dynamic

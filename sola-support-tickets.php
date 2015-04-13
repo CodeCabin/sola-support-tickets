@@ -3,12 +3,16 @@
   Plugin Name: Sola Support Tickets
   Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
   Description: Create a support centre within your WordPress admin. No need for third party systems!
-  Version: 3.04
+  Version: 3.05
   Author: SolaPlugins
   Author URI: http://www.solaplugins.com
  */
 
-/* 3.04 2015-04-08
+/* 3.05 2015-04-12
+ * Fixed character-set encoding (SMTP e-mail)
+ * Updated French translation file (Etienne Couturier)
+ *
+ * 3.04 2015-04-08
  * Made the warning to update both the premium and basic plugin dynamic
  * Fixed a compatibility issue with the Customer Satisfaction Survey add-on
  * 
@@ -106,7 +110,7 @@ define("SOLA_ST_PLUGIN_NAME", "Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "3.04";
+$sola_st_version = "3.05";
 $sola_st_version_string = "basic";
 
 
@@ -2718,6 +2722,9 @@ function sola_st_select_mailing_system_to_use()
 		
 }
 
+
+
+
 function send_automated_emails($email,$subject,$message,$headers=null)
 {
     include_once "includes/PHPMailer-master/PHPMailerAutoload.php";
@@ -2733,9 +2740,6 @@ function send_automated_emails($email,$subject,$message,$headers=null)
 	$from_name='';
 	$replyto_name='';
 	$wp_mail_headers='';
-	
-	
-	
 	
 	$result=false;
 	
@@ -2814,7 +2818,7 @@ function send_automated_emails($email,$subject,$message,$headers=null)
 			$php_mailer_object->SMTPSecure = $sola_st_smtp_encryption_setting_php_mailer;
 			$php_mailer_object->Username = $sola_st_smtp_username_setting_php_mailer;
 			$php_mailer_object->Password = $sola_st_smtp_password_setting_php_mailer;
-			
+			$php_mailer_object->CharSet = "UTF-8"; 
 			if($from_address!==''&&$from_name!=='')
 			{
 				$php_mailer_object->setFrom($from_address,$from_name);	
@@ -2856,8 +2860,10 @@ function send_automated_emails($email,$subject,$message,$headers=null)
 }
 
 function use_wp_mail_as_default($email,$subject,$message,$wp_mail_headers)
-{	
-	$result=false;
+{
+   
+	
+    $result=false;
 	
 	if(is_array($wp_mail_headers))
 	{
