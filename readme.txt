@@ -81,6 +81,13 @@ Not applicable
 
 == Changelog  ==
 
+= 3.07 2015-04-14 = 
+* Bug fix: Localization bug fixed. Some strings were not being translated.
+* Enhancement: French translation has been updated to support the Customer Satisfaction Surveys add-on (Etienne Couturier)
+
+= 3.06 2015-04-13 =
+* Fixed bug where CAPTCHA setting was not utilized in front-end along with PHP notice (code refactored)
+
 = 3.05 2015-04-12 =
  * Fixed character-set encoding (SMTP e-mail)
  * Updated French translation file (Etienne Couturier)

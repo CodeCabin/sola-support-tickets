@@ -3,12 +3,16 @@
   Plugin Name: Sola Support Tickets
   Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
   Description: Create a support centre within your WordPress admin. No need for third party systems!
-  Version: 3.06
+  Version: 3.07
   Author: SolaPlugins
   Author URI: http://www.solaplugins.com
  */
 
-/* 3.06 2015-04-13
+/* 3.07 2015-04-14
+ * Bug fix: Localization bug fixed. Some strings were not being translated.
+ * Enhancement: French translation has been updated to support the Customer Satisfaction Surveys add-on (Etienne Couturier)
+ * 
+ * 3.06 2015-04-13
  * Fixed bug where CAPTCHA setting was not utilized in front-end along with PHP notice (code refactored)
  *
  * 3.05 2015-04-12
@@ -113,7 +117,7 @@ define("SOLA_ST_PLUGIN_NAME", "Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "3.06";
+$sola_st_version = "3.07";
 $sola_st_version_string = "basic";
 
 

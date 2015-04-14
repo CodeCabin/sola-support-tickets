@@ -268,7 +268,7 @@ if (function_exists("sola_st_api_check")) {
             </tr>
             <tr>
                 <td style="width:250px;">
-                    <label for="cb_settings_enable_file_uploads"><?php _e("Enable file uploads","sola-st"); ?></label>
+                    <label for="cb_settings_enable_file_uploads"><?php _e("Enable file uploads","sola_st"); ?></label>
                 </td>
                 <td>
                     <?php
@@ -283,17 +283,17 @@ if (function_exists("sola_st_api_check")) {
 
 
                         $checkbox_normal='<input type="checkbox" name="cb_settings_enable_file_uploads" id="cb_settings_enable_file_uploads" value="1" disabled="disabled"/>
-                        '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page. Only available in the','sola-st').' <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_enable_file_uploads" target="_blank">'.__('Premium Version','sola-st').'</a>';
+                        '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page. Only available in the','sola_st').' <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_enable_file_uploads" target="_blank">'.__('Premium Version','sola_st').'</a>';
 
                         if(isset($sola_st_settings['enable_file_uploads'])&&$sola_st_settings['enable_file_uploads']===1)
                         {
                             $checkbox_premium='<input type="checkbox" name="cb_settings_enable_file_uploads" id="cb_settings_enable_file_uploads" value="1" checked="checked"/>
-                            '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page.','sola-st');
+                            '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page.','sola_st');
                         }
                         else
                         {
                             $checkbox_premium='<input type="checkbox" name="cb_settings_enable_file_uploads" id="cb_settings_enable_file_uploads" value="1"/>
-                            '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page.','sola-st');
+                            '.__('Give a user the ability to upload a file when creating a support ticket or adding a response on the admin ticket editor page.','sola_st');
 
                         }
 
@@ -315,7 +315,7 @@ if (function_exists("sola_st_api_check")) {
             <tr>
                 <td>
                     <label for="automatic_ticket_closure">
-                        <?php _e("Close tickets automatically","sola-st"); ?>:
+                        <?php _e("Close tickets automatically","sola_st"); ?>:
                     </label>
                 </td>
                 <td>
@@ -330,7 +330,7 @@ if (function_exists("sola_st_api_check")) {
 
 
                         $normal_auto_close='<input type="checkbox" name="automatic_ticket_closure" id="automatic_ticket_closure" value="1" disabled="disabled"/>'
-                                . __('Enable automatic closing of tickets after a set amount of days. Only available in the','sola-st').' <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_auto_close_tickets" target="_blank">'.__('Premium Version','sola-st').'</a>';
+                                . __('Enable automatic closing of tickets after a set amount of days. Only available in the','sola_st').' <a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_auto_close_tickets" target="_blank">'.__('Premium Version','sola_st').'</a>';
 
 
                         if(isset($sola_st_settings['automatic_ticket_closure'])&&$sola_st_settings['automatic_ticket_closure']===1)
@@ -349,7 +349,7 @@ if (function_exists("sola_st_api_check")) {
                         }
 
 
-                        $pro_auto_close.='<span id="display_hide_auto_ticket_closure_settings" style="'.$style_settings_display.'">'.__("Automatically close tickets after","sola-st").'';
+                        $pro_auto_close.='<span id="display_hide_auto_ticket_closure_settings" style="'.$style_settings_display.'">'.__("Automatically close tickets after","sola_st").'';
 
 
                         if(isset($sola_st_settings['interval_in_days_autoclose_tickets']))
@@ -357,7 +357,7 @@ if (function_exists("sola_st_api_check")) {
                         	$stored_interval_auto_close=(integer)$sola_st_settings['interval_in_days_autoclose_tickets'];
                         	$pro_auto_close.='<select name="sb_amount_of_days_till_auto_close" id="sb_amount_of_days_till_auto_close">';
 
-                        	$pro_auto_close.='<option value=""> - '.__("Please select","sola-st").' - </option>';
+                        	$pro_auto_close.='<option value=""> - '.__("Please select","sola_st").' - </option>';
 
 
                         	for($x=1;$x<=120;$x++)
@@ -378,7 +378,7 @@ if (function_exists("sola_st_api_check")) {
                         {
                         	$pro_auto_close.='<select name="sb_amount_of_days_till_auto_close" id="sb_amount_of_days_till_auto_close">';
 
-                        	$pro_auto_close.='<option value="" selected="selected"> - '.__("Please select","sola-st").' - </option>';
+                        	$pro_auto_close.='<option value="" selected="selected"> - '.__("Please select","sola_st").' - </option>';
 
 
                         	for($x=1;$x<=120;$x++)
@@ -396,10 +396,10 @@ if (function_exists("sola_st_api_check")) {
 
 
 
-                        $pro_auto_close.=__('day(s)','sola-st').'</span>
+                        $pro_auto_close.=__('day(s)','sola_st').'</span>
 
             			<span id="display_no_setting_for_autoclose" style="'.$style_display_instructions.'">
-            				'.__("Please tick the checkbox for settings.","sola-st").'
+            				'.__("Please tick the checkbox for settings.","sola_st").'
             			</span>
             			';
 
@@ -439,7 +439,7 @@ if (function_exists("sola_st_api_check")) {
             <tr>
             	<td>
             		<label for="cb_boostrap_disable">
-            			<?php _e("Exclude Bootstrap","sola-st"); ?>
+            			<?php _e("Exclude Bootstrap","sola_st"); ?>
             		</label>
 
             	</td>
@@ -449,11 +449,11 @@ if (function_exists("sola_st_api_check")) {
 
                     if(isset($sola_st_settings['disable_bootstrap'])&&$sola_st_settings['disable_bootstrap']===true)
                     {
-                            $include_exclude_bootstrap_checkbox_premium='<input type="checkbox" name="cb_boostrap_disable" id="cb_boostrap_disable" value="" checked="checked"/> '.__("Exclude Bootstrap library (select this if you are experiencing issues with your layout and theme in the front end)","sola-st");
+                            $include_exclude_bootstrap_checkbox_premium='<input type="checkbox" name="cb_boostrap_disable" id="cb_boostrap_disable" value="" checked="checked"/> '.__("Exclude Bootstrap library (select this if you are experiencing issues with your layout and theme in the front end)","sola_st");
                     }
                     else
                     {
-                            $include_exclude_bootstrap_checkbox_premium='<input type="checkbox" name="cb_boostrap_disable" id="cb_boostrap_disable" value=""/> '.__("Exclude Bootstrap library (select this if you are experiencing issues with your layout and theme in the front end)","sola-st");
+                            $include_exclude_bootstrap_checkbox_premium='<input type="checkbox" name="cb_boostrap_disable" id="cb_boostrap_disable" value=""/> '.__("Exclude Bootstrap library (select this if you are experiencing issues with your layout and theme in the front end)","sola_st");
                     }
                     ($premium_user===false)? $html=$include_exclude_bootstrap_checkbox_normal : $html=$include_exclude_bootstrap_checkbox_premium;
 
@@ -488,7 +488,7 @@ if (function_exists("sola_st_api_check")) {
             <tr>
             	<td>
             		<label for="cb_font_awesome_disable">
-            			<?php _e("Exclude Font Awesome","sola-st"); ?>
+            			<?php _e("Exclude Font Awesome","sola_st"); ?>
             		</label>
             	</td>
             	<td>
@@ -496,12 +496,12 @@ if (function_exists("sola_st_api_check")) {
             			if(isset($sola_st_settings['disable_font_awesome'])&&$sola_st_settings['disable_font_awesome']===true)
             			{
             				$exclude_font_awesome_premium_checkbox='<input type="checkbox" name="cb_font_awesome_disable" id="cb_font_awesome_disable" value="" checked="checked"/>
-            				'.__('Exclude Font Awesome','sola-st');
+            				'.__('Exclude Font Awesome','sola_st');
             			}
             			else
             			{
             				$exclude_font_awesome_premium_checkbox='<input type="checkbox" name="cb_font_awesome_disable" id="cb_font_awesome_disable" value=""/>
-            				'.__('Exclude Font Awesome','sola-st');
+            				'.__('Exclude Font Awesome','sola_st');
             			}
             		
 
