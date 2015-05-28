@@ -3,7 +3,7 @@ Contributors: SolaPlugins, NickDuncan
 Donate link: http://www.solaplugins.com
 Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk, support desk
 Requires at least: 3.5
-Tested up to: 4.1.1
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2
 
@@ -51,6 +51,7 @@ Get a free copy of the Sola Support Tickets Premium version in exchange for tran
 * Croatian (Sanjin Barac)
 * Bengali (Mayeenul Islam)
 * Portuguese - Portugal (Miguel Madeira Rodrigues)
+* Danish (Kenneth Wagner)
 
 == Installation ==
 
@@ -80,6 +81,12 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 Not applicable
 
 == Changelog  ==
+
+= 3.08 2015-05-28 - Low Priority =
+* Translations added:
+*  Danish (Thank you Kenneth Wagner)
+* Improvement: Minor UI change (Pro)
+* Accessibility Improvements on submission form
 
 = 3.07 2015-04-14 = 
 * Bug fix: Localization bug fixed. Some strings were not being translated.

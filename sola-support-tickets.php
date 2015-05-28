@@ -3,12 +3,18 @@
   Plugin Name: Sola Support Tickets
   Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
   Description: Create a support centre within your WordPress admin. No need for third party systems!
-  Version: 3.07
+  Version: 3.08
   Author: SolaPlugins
   Author URI: http://www.solaplugins.com
  */
 
-/* 3.07 2015-04-14
+/* 3.08 2015-05-28 - Low Priority
+ * Translations added:
+ *  Danish (Thank you Kenneth Wagner)
+ * Improvement: Minor UI change (Pro)
+ * Accessibility Improvements on submission form
+ * 
+ * 3.07 2015-04-14
  * Bug fix: Localization bug fixed. Some strings were not being translated.
  * Enhancement: French translation has been updated to support the Customer Satisfaction Surveys add-on (Etienne Couturier)
  * 
@@ -117,7 +123,7 @@ define("SOLA_ST_PLUGIN_NAME", "Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "3.07";
+$sola_st_version = "3.08";
 $sola_st_version_string = "basic";
 
 
@@ -2391,15 +2397,14 @@ function sola_st_submission_form() {
 					$sola_priority_text = "
 		            <tr class=\"sola_st_st_tr sola_st_st_subject\">
 		               <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_priority_label\">
-		                  <strong>" . __("Priority", "sola_st") . "</strong>
+		                  <label for=\"sola_st_submit_priority\" title=". __("Priority", "sola_st") ."><strong>" . __("Priority", "sola_st") . "</strong></label>
 		               </td>
 		               <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_priority_input\">
 		                  <select name=\"sola_st_submit_priority\" id=\"sola_st_submit_priority\">
-		                  <option value='1' selected='selected'>" . __("Low", "sola_st") . "</option>
-		                  <option value='2'>" . __("High", "sola_st") . "</option>
-		                  <option value='3'>" . __("Urgent", "sola_st") . "</option>
-		                  <option value='4'>" . __("Critical", "sola_st") . "</option>
-		
+                                    <option value='1' selected='selected'>" . __("Low", "sola_st") . "</option>
+                                    <option value='2'>" . __("High", "sola_st") . "</option>
+                                    <option value='3'>" . __("Urgent", "sola_st") . "</option>
+                                    <option value='4'>" . __("Critical", "sola_st") . "</option>
 		                    </select>
 		               </td>
 		            </tr>";		
@@ -2549,15 +2554,15 @@ function sola_st_submission_form() {
                 $sola_st_email_row
                 <tr class=\"sola_st_st_tr sola_st_st_subject\">
                    <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_subject_label\">
-                      <strong>" . __("Subject", "sola_st") . "</strong>
+                      <label for=\"sola_st_ticket_title\" title=". __("Subject", "sola_st")."><strong>" . __("Subject", "sola_st") . "</strong></label>
                    </td>
-                   <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_subject_input\">
+                   <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_subject_input\">                      
                       <input type=\"text\" value=\"\" name=\"sola_st_ticket_title\" id=\"sola_st_ticket_title\" data-validation=\"required\" data-validation-error-msg=\"$validation_text\"/><br />
                    </td>
                 </tr>
                 <tr class=\"sola_st_st_tr sola_st_st_desc\">
                     <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_desc_label\">
-                      <strong>" . __("Description", "sola_st") . "</strong>
+                      <label for=\"sola_st_ticket_text\" title=".__("Description", "sola_st")."><strong>" . __("Description", "sola_st") . "</strong></label>
                     </td>
                     <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_desc_textare\">
                       <textarea style=\"width:100%; height:120px;\" name=\"sola_st_ticket_text\" id=\"sola_st_ticket_text\" data-validation=\"required\" data-validation-error-msg=\"$validation_text\"></textarea><br />
@@ -2572,7 +2577,7 @@ function sola_st_submission_form() {
                     $content.='
                     <tr>
                         <td colspan="2">
-                            '.__('Upload a file:', 'sola_st').'
+                            <label for="fl_upload_ticket_file_public_section" title="'.__('Upload a file:', 'sola_st').'"><strong>'.__('Upload a file:', 'sola_st').'</strong></label>
                         </td>
                     </tr>
                     <tr>
