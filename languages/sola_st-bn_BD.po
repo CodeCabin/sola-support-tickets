@@ -1,0 +1,1393 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sola_st\n"
+"POT-Creation-Date: 2015-01-27 13:09+0200\n"
+"PO-Revision-Date: 2015-01-29 12:38+0600\n"
+"Last-Translator: Mayeenul Islam <wz.islam@gmail.com>\n"
+"Language-Team: nanodesigns <info@nanodesignsbd.com>\n"
+"Language: bn_BD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress\\wp-content\\plugins\\sola-"
+"support-tickets\n"
+"X-Poedit-SearchPath-1: C:\\wamp\\www\\wordpress\\wp-content\\plugins\\sola-"
+"support-tickets-pro\n"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:24
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:70
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:100
+msgid "Email connection error"
+msgstr "ইমেইল সংযোগে সমস্যা হয়েছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/classes/sola_email_handling.php:26
+msgid "Email Connected Successfully"
+msgstr "ইমেইল সংযোগ সফল হয়েছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:150
+msgid "Email response received"
+msgstr "ইমেইল বার্তা এসেছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:217
+msgid "Your support desk log in details"
+msgstr "আপনার সাপোর্ট ডেস্ক লগইন বৃত্তান্ত"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:217
+msgid "Login URL:"
+msgstr "লগইন ইউআরএল:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:217
+msgid "Username:"
+msgstr "ইউযারনেম:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/email.php:217
+msgid "Password:"
+msgstr "পাসওয়ার্ড:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:13
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:38
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:347
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:384
+msgid "Ticket Status"
+msgstr "টিকেটের অবস্থা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:42
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:138
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:388
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:791
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1366
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1380
+msgid "Open"
+msgstr "উন্মুক্ত"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:43
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:748
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:389
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:794
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1368
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1382
+msgid "Solved"
+msgstr "মিমাংসিত"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:44
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:390
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:797
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1372
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1386
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1494
+msgid "Pending Approval"
+msgstr "অনুমোদনের অপেক্ষায়"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:49
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:774
+msgid "Public"
+msgstr "পাবলিক"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:52
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:802
+msgid "Yes"
+msgstr "হ্যাঁ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:53
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:800
+msgid "No"
+msgstr "না"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:59
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:396
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1269
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1862
+msgid "Priority"
+msgstr "গুরুত্ব"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:63
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:158
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:400
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1395
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1403
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1409
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1417
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1866
+msgid "Low"
+msgstr "নিম্ন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:64
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:159
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:401
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1397
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1411
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1867
+msgid "High"
+msgstr "উচ্চ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:65
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:160
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:402
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1399
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1413
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1868
+msgid "Urgent"
+msgstr "জরুরি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:66
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:161
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:403
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1401
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1415
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1869
+msgid "Critical"
+msgstr "তীব্র জরুরি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/metaboxes.php:72
+msgid "Agent"
+msgstr "প্রতিনিধি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:24
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:146
+msgid "Submit a ticket"
+msgstr "টিকেট জমা করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:26
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:872
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1471
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1483
+msgid "Log in"
+msgstr "লগইন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:26
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:872
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1471
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1483
+msgid "or"
+msgstr "কিংবা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:26
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:872
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1471
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1483
+msgid "register"
+msgstr "রেজিস্টার"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:26
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1471
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1483
+msgid "to submit a support ticket."
+msgstr "সাপোর্ট টিকেট জমা দিতে হলে।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:36
+msgid "Search the help desk"
+msgstr "হেল্প ডেস্ক অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:37
+msgid "Search"
+msgstr "অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:63
+msgid "Latest Product Updates"
+msgstr "সাম্প্রতিক পণ্য তথ্যাদি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:89
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:94
+msgid "No updates found"
+msgstr "কোনো আপডেট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:152
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:157
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1193
+msgid "No documentation found"
+msgstr "কোনো নির্দেশিকা পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:214
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:219
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1227
+msgid "No news found"
+msgstr "কোনো সংবাদ পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:274
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:279
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:334
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:339
+msgid "No posts found"
+msgstr "কোনো পোস্ট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:388
+msgid "Latest Support Tickets"
+msgstr "সাম্প্রতিক সাপোর্ট টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:407
+msgid "solved"
+msgstr "সমাধাকৃত"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:433
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:438
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:510
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:515
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:581
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:586
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:634
+msgid "No topics found"
+msgstr "কোনো বিষয় পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:468
+msgid "Open tickets"
+msgstr "উন্মুক্ত টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:545
+msgid "Closed tickets"
+msgstr "রহিত টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/modules/shortcodes.php:612
+msgid "Pending tickets"
+msgstr "অনুমোদন-অপেক্ষারত টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:99
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:303
+msgid "Internal Notes"
+msgstr "অভ্যন্তরীন নোট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:100
+msgid "Quick Responses"
+msgstr "দ্রুত প্রত্যুত্তর"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:132
+msgid "Support Desk"
+msgstr "সাপোর্ট ডেস্ক"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:144
+msgid "Support Ticket Author"
+msgstr "সাপোর্ট টিকেট-কর্তা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:168
+msgid "Every 15 Minutes"
+msgstr "প্রতি ১৫ মিনিটে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:362
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1878
+msgid "You have not completed all required fields"
+msgstr "প্রয়োজনীয় সকল ফিল্ড আপনি পূরণ করেননি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:375
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:483
+msgid "Your settings have been saved."
+msgstr "আপনার সেটিংস সংরক্ষিত হয়েছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:382
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:395
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:490
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:503
+msgid "Thank you for your feedback. We will be in touch soon"
+msgstr "আপনার বার্তার জন্য ধন্যবাদ। আমরা দ্রুতই প্রত্যুত্তরের চেষ্টা করবো"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:398
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:506
+msgid "There was a problem sending your feedback. Please log your feedback on "
+msgstr "আপনার বার্তা পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে আপনার বার্তা লিখুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:408
+msgid "Your most recent mails have been collected."
+msgstr "আপনার সাম্প্রতিকতম বার্তাগুলো সংগৃহীত হয়েছে।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:416
+msgid "Sola Support Tickets Pro requires an API key."
+msgstr "সোলা সাপোর্ট টিকেট প্রো'র জন্য দরকার একটি API কী।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:416
+msgid "Please insert your API key."
+msgstr "অনুগ্রহ করে আপনার API কী লিখুন।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:581
+msgid "Support Agent"
+msgstr "সাপোর্ট প্রতিনিধি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:590
+msgid "Make this user a support agent"
+msgstr "আপনার ব্যবহারকারীকে সাপোর্ট প্রতিনিধি বানান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:773
+msgid "Assigned Agent"
+msgstr "নির্ধারিত প্রতিনিধি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:804
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:800
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1374
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1388
+msgid "Unknown"
+msgstr "অজানা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:826
+msgid "Automatically convert emails to support tickets"
+msgstr "ইমেইলকে স্বয়ংক্রীয়ভাবে সাপোর্ট টিকেটে রূপান্তর করো"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:836
+msgid "Email Retrieval Settings"
+msgstr "ইমেইল উদ্ধারের সেটিংসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:841
+msgid "Host"
+msgstr "হোস্ট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:849
+msgid "Enter your host's URL (for gmail use imap.gmail.com)"
+msgstr "হোস্ট-এর URL (gmail-এর জন্য imap.gmail.com) লিখুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:854
+msgid "Username"
+msgstr "ব্যবহারকারী নাম"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:862
+msgid "The username for your Email Account"
+msgstr "আপনার ইমেইল ঠিকানার জন্য ব্যবহারকারী নাম"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:867
+msgid "Password"
+msgstr "পাসওয়ার্ড"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:875
+msgid "Your Email Password"
+msgstr "আপনার ইমেইলের পাসওয়ার্ড"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:880
+msgid "Port"
+msgstr "পোর্ট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:888
+msgid "And finally the port number. We recommend 993"
+msgstr "এবং সবশেষে, পোর্ট নাম্বার। আমরা পরামর্শ দেই 993 ব্যবহার করতে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:893
+msgid "Encryption"
+msgstr "এনক্রিপশন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:907
+msgid "No Encryption"
+msgstr "এনক্রিপশন নয়"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:912
+msgid "SSL"
+msgstr "SSL"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:912
+msgid "(use SSL for gmail)"
+msgstr "(gmail-এর জন্য SSL ব্যবহার করুন)"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:917
+msgid ""
+"TLS - This is not the same as STARTTLS. For most servers SSL is the "
+"recommended option."
+msgstr "TLS - এটি STARTTLS-এর অনুরূপ নয়। অধিকাংশ সার্ভারে SSL-ই ব্যবহারযোগ্য অপশন।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:927
+msgid "Filters"
+msgstr "ফিল্টারসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:932
+msgid "Exclude subjects containing:"
+msgstr "বাদ দাও এমন বিষয়, যাতে আছে:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:933
+msgid ""
+"Exclude any email containing the following in the email subject (new line "
+"per rule)"
+msgstr "যেসকল ইমেইলে নিচের লেখাগুলো আছে, সেসকল ইমেইল বাদ দাও (লাইনপ্রতি একটা রুল)"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:936
+msgid "Exclude emails containing:"
+msgstr "যেসকল ইমেইলে এই লেখাগুলো আছে, সেগুলো বাদ দাও:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:937
+msgid ""
+"Exclude any email containing the following in the email body section (new "
+"line per rule)"
+msgstr "ইমেইলের বক্তব্যে এখানকার লেখাগুলো থাকলে তা বাদ দাও (লাইনপ্রতি একটা রুল)"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:940
+msgid "Exclude emails from:"
+msgstr "এখান থেকে ইমেইলগুলো বাদ দাও:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:941
+msgid ""
+"Exclude any emails from the following email addresses (new line per rule)"
+msgstr "এই ইমেইল ঠিকানাগুলো থেকে ইমেইল বাদ দাও (লাইনপ্রতি একটা রুল)"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:961
+msgid "Server time now:"
+msgstr "সার্ভারে এখন সময়:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:962
+msgid "Next collection at approximately:"
+msgstr "পরবর্তি কালেকশন হবে আনুমানিক:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:970
+msgid "Collect New Emails"
+msgstr "নতুন ইমেইল সংগ্রহ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:992
+msgid "The following users have been assigned as support agents."
+msgstr "এই ব্যবহারকারীগণ সাপোর্ট প্রতিনিধি হিসেবে নিযুক্ত আছেন।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:994
+msgid ""
+"To add or remove support agents, go to 'Users' and click on 'Edit' on the "
+"user you would like to edit. Scroll to the bottom of the page and tick the "
+"checkbox that enables them to be a suppot agent"
+msgstr ""
+"সাপোর্ট প্রতিনিধি যোগ করতে কিংবা বাদ দিতে, 'Users' থেকে যে ব্যবহারকারীর তথ্যাদি "
+"সম্পাদনা করতে চাচ্ছেন তাঁর 'Edit' বোতামে ক্লিক করুন। পাতার নিচে চলে যান আর তাকে "
+"সাপোর্ট প্রতিনিধি নির্বাচন করতে টিকচিহ্ন দিন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1097
+msgid ""
+"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+msgstr ""
+"API রিকোয়েস্ট পাঠাতে গিয়ে অযাচিত HTTP সমস্যা দেখা দিয়েছে।</p> <p><a href=\"?\" "
+"onclick=\"document.location.reload(); return false;\">পূনরায় চেষ্টা করুন</a>"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1102
+msgid "An unknown error occurred"
+msgstr "অযাচিত সমস্যা হয়েছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1140
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1151
+msgid "Support Macros"
+msgstr "ম্যাক্রো সাপোর্ট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1141
+msgid "Support Macro"
+msgstr "ম্যাক্রো সাপোর্ট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1142
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1145
+msgid "New Macro"
+msgstr "নতুন ম্যাক্রো"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1143
+msgid "Add New Macro"
+msgstr "নতুন ম্যাক্রো যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1144
+msgid "Edit Macro"
+msgstr "ম্যাক্রো সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1146
+msgid "All Macros"
+msgstr "সকল ম্যাক্রো"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1147
+msgid "View Macros"
+msgstr "ম্যাক্রোসমূহ দেখান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1148
+msgid "Search Macros"
+msgstr "ম্যাক্রো অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1149
+msgid "No macros found"
+msgstr "ম্যাক্রো পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1150
+msgid "No macros found in the Trash"
+msgstr "ময়লার ঝুড়িতে কোনো ম্যাক্রো পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1155
+msgid "Support macros"
+msgstr "ম্যাক্রোর সাপোর্ট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1184
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1185
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1195
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1199
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:15
+msgid "Documentation"
+msgstr "নির্দেশিকা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1186
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1189
+msgid "New Documentation"
+msgstr "নতুন নির্দেশিকা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1187
+msgid "Add New Documentation"
+msgstr "নতুন নির্দেশিকা যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1188
+msgid "Edit Documentation"
+msgstr "নির্দেশিকা সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1190
+msgid "All Documentation"
+msgstr "সকল নির্দেশিকা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1191
+msgid "View Documentation"
+msgstr "নির্দেশিকা দেখান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1192
+msgid "Search Documentation"
+msgstr "নির্দেশিকা অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1194
+msgid "No documentation found in the Trash"
+msgstr "ময়লার ঝুড়িতে কোনো নির্দেশিকা পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1218
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1219
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1229
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1233
+msgid "Help Desk News"
+msgstr "হেল্প ডেস্ক সংবাদ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1220
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1223
+msgid "New Article"
+msgstr "নতুন নিবন্ধ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1221
+msgid "Add New Article"
+msgstr "নতুন নিবন্ধ যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1222
+msgid "Edit Article"
+msgstr "নিবন্ধ সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1224
+msgid "All Articles"
+msgstr "সকল নিবন্ধ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1225
+msgid "View Article"
+msgstr "নিবন্ধ দেখান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1226
+msgid "Search Help Desk News"
+msgstr "হেল্প ডেস্ক সংবাদ অনুসন্ধান করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1228
+msgid "No news found in the Trash"
+msgstr "ময়লার ঝুড়িতে কোনো সংবাদ পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1252
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1263
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1267
+msgid "Product Updates"
+msgstr "পণ্য আপডেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1253
+msgid "Product Update"
+msgstr "পণ্য আপডেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1254
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1257
+msgid "New Product Update"
+msgstr "নতুন পণ্য আপডেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1255
+msgid "Add New Product Update"
+msgstr "নতুন পণ্য আপডেট যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1256
+msgid "Edit Product Update"
+msgstr "পণ্য আপডেট সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1258
+msgid "All Product Update"
+msgstr "সকল পণ্য আপডেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1259
+msgid "View Product Update"
+msgstr "পণ্য আপডেট দেখান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1260
+msgid "Search Product Updates"
+msgstr "পণ্য আপডেট অনুসন্ধান করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1261
+msgid "No Product Update found"
+msgstr "পণ্য আপডেট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1262
+msgid "No Product Update found in the Trash"
+msgstr "ময়লার ঝুড়িতে কোনো পণ্য আপডেট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1306
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1310
+msgid "Assign macro"
+msgstr "ম্যাক্রো আরোপ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1313
+msgid "Select"
+msgstr "নির্বাচন করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1319
+msgid "What is this?"
+msgstr "এটা কী?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1357
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1367
+msgid "Departments"
+msgstr "বিভাগসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1358
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1390
+msgid "Department"
+msgstr "বিভাগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1359
+msgid "Search Departments"
+msgstr "বিভাগ অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1360
+msgid "All Departments"
+msgstr "সকল বিভাগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1361
+msgid "Parent Department"
+msgstr "শীর্ষ বিভাগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1362
+msgid "Parent Department:"
+msgstr "শীর্ষ বিভাগ:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1363
+msgid "Edit Department"
+msgstr "বিভাগ সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1364
+msgid "Update Department"
+msgstr "বিভাগ আপডেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1365
+msgid "Add New Department"
+msgstr "নতুন বিভাগ যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1366
+msgid "New Department Name"
+msgstr "নতুন বিভাগের নাম"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1421
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1432
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:203
+msgid "None"
+msgstr "কোনোটি নয়"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1441
+msgid "Email Address"
+msgstr "ইমেইল ঠিকানা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1470
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:767
+msgid "New support ticket:"
+msgstr "নতুন সাপোর্ট টিকেট:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1470
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:767
+msgid ""
+"A new support ticket has been received. To access this ticket, please follow "
+"this link:"
+msgstr ""
+"নতুন সাপোর্ট টিকেট গৃহীত হয়েছে। টিকেটটি দেখতে অনুগ্রহ করে এই লিংকটি অনুসরণ করুন:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets-pro/sola-support-tickets-pro.php:1488
+msgid "CAPTCHA"
+msgstr "ক্যাপচা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/error-log-page.php:4
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:370
+msgid "System Log"
+msgstr "সিস্টেম লগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:7
+msgid "Sola Support Tickets Feedback"
+msgstr "সোলা সাপোর্ট টিকেট ফিরতি বার্তা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:8
+msgid "We'd love to hear your comments and/or suggestions"
+msgstr "আমরা আপনার মন্তব্য এবং/অথবা পরামর্শ জানতে আগ্রহী"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:13
+msgid "Your Name"
+msgstr "আপনার নাম"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:21
+msgid "Your Email"
+msgstr "আপনার ইমেইল"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:29
+msgid "Your Website"
+msgstr "আপনার ওয়েবসাইট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:37
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:369
+msgid "Feedback"
+msgstr "ফিরতি বার্তা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/feedback-page.php:48
+msgid "Send Feedback"
+msgstr "ফিরতি বার্তা পাঠান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:6
+msgid ""
+"Sola Support Tickets is still in BETA. If you find any errors or if you have "
+"any suggestions"
+msgstr ""
+"সোলা সাপোর্ট টিকেট এখনও 'বেটা' ভার্ষনে আছে। যদি কোনো ত্রুটি নজরে আসে কিংবা কোনো "
+"পরামর্শ থাকে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:6
+msgid "please get in touch with us"
+msgstr "অনুগ্রহ করে আমাদের সাথে থাকুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:13
+msgid "Sola Support Tickets Version"
+msgstr "সোলা সাপোর্ট টিকেট ভার্ষন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:14
+msgid "Support"
+msgstr "সাপোর্ট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/footer.php:16
+msgid "Go Premium"
+msgstr "প্রিমিয়াম হোন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:33
+msgid "Sola Support Tickets Settings"
+msgstr "সোলা সাপোর্ট টিকেট সেটিংসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:36
+msgid ""
+"You are using an outdated version of Sola Support Tickets Pro. Please update "
+"the plugin to take advantage of new features."
+msgstr ""
+"আপনি সোলা সাপোর্ট টিকেট প্রো'র মেয়াদোত্তীর্ণ ভার্ষন ব্যবহার করছেন। নতুন ফিচারসমূহ "
+"ব্যবহার করতে অনুগ্রহ করে প্লাগইনটি আপডেট করুন।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:44
+msgid "Main Settings"
+msgstr "মূল সেটিংসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:45
+msgid "Email"
+msgstr "ইমেইল"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:46
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:274
+msgid "Agents"
+msgstr "এজেন্টসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:48
+msgid "Upgrade"
+msgstr "আপগ্রেড"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:56
+msgid "API Key"
+msgstr "API কী"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:57
+msgid "Enter your Sola Support Tickets Premium API key"
+msgstr "সোলা সাপোর্ট টিকেট প্রিমিয়াম API কী লিখুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:61
+msgid "Where do I get my API key?"
+msgstr "আমার API কী কোথায় পাবো?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:94
+msgid "Notification Settings"
+msgstr "নোটিফিকেশন সেটিংসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:98
+msgid "Notifications"
+msgstr "নোটিফিকেশনসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:101
+msgid "Send a notification when a new support ticket is received"
+msgstr "যখন নতুন সাপোর্ট টিকেট জমা পড়বে তখন নোটিফিকেশন পাঠান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:102
+msgid "Send a notification when a new response is received"
+msgstr "যখন নতুন সাপোর্ট জবাব জমা পড়বে তখন নোটিফিকেশন পাঠান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:103
+msgid ""
+"Send a notification to the user whenever the status of a support ticket "
+"changes"
+msgstr ""
+"যখন কোনো ব্যবহারকারীর সাপোর্ট টিকেটের অবস্থা পরিবর্তিত হবে, তখন তাঁকে নোটিফিকেশন "
+"পাঠান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:105
+msgid "Send a notification to the agent when a ticket is assigned to them"
+msgstr ""
+"যখন কোনো সাপোর্ট প্রতিনিধিকে টিকেট আরোপ করা হবে, তখন তাঁকে নোটিফিকেশন পাঠান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:107
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:114
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:145
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:182
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:202
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:219
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:242
+msgid "Premium Version"
+msgstr "প্রিমিয়াম ভার্ষন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:112
+msgid "Send a notification to all agents when a new ticket is received."
+msgstr "নতুন সাপোর্ট টিকেট জমা পড়লে, তখন সকল সাপোর্ট প্রতিনিধিকে নোটিফিকেশন পাঠান।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:123
+msgid "Thank you text"
+msgstr "ধন্যবাদ বার্তা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:124
+msgid "This is sent when someone posts a new support ticket"
+msgstr "যখন কেউ নতুন সাপোর্ট টিকেট জমা করবেন, তখন এই বার্তা পাঠানো হবে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:132
+msgid "Default Ticket Status"
+msgstr "নির্ধারিত টিকেট-অবস্থা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:137
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:142
+msgid "Pending Review"
+msgstr "যাচাইয়ের অপেক্ষায়"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:153
+msgid "Priorities"
+msgstr "গুরুত্ব"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:156
+msgid "Default ticket priority:"
+msgstr "নির্ধারিত টিকেট-গুরুত্ব:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:170
+msgid "Allow users to select a priority when submitting a ticket"
+msgstr "টিকেট জমা করার সময় ব্যবহারকারীকে এর গুরুত্ব বাছাই করতে দিন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:175
+msgid "Departments "
+msgstr "বিভাগসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:179
+msgid "Allow users to select a department when submitting a ticket"
+msgstr "টিকেট জমা করার সময় ব্যবহারকারীকে এর জন্য প্রযোজ্য বিভাগ বাছাই করতে দিন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:199
+msgid " Select a default department your support tickets will be added to. "
+msgstr ""
+"একটি নির্ধারিত বিভাগ বাছাই করুন, যা স্বাভাবিকভাবেই সকল সাপোর্ট টিকেটে যোগ হবে।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:211
+msgid "Require Login?"
+msgstr "লগইন করতে হবে কি?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:217
+msgid "Require users to login when submitting a support ticket?"
+msgstr "সাপোর্ট টিকেট জমা দিতে কি ব্যবহারকারীদের লগইন করাই লাগবে?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:228
+msgid "Enable CAPTCHA?"
+msgstr "ক্যাপচা চালু থাকবে?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:235
+msgid ""
+"Enable CAPTCHA verification for users who are not logged in when submitting "
+"a ticket?"
+msgstr "টিকেট জমা করার সময় লগইন না করা ব্যবহারকারীদের জন্য কি ক্যাপচা চালু থাকবে?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:237
+msgid "Really Simple CAPTCHA"
+msgstr "রিয়্যালি সিম্পল ক্যাপচা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:250
+msgid "General Settings"
+msgstr "সাধারণ সেটিংসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:253
+msgid "Allow users to post HTML in support tickets and responses?"
+msgstr "সাপোর্ট টিকেট এবং প্রত্যুত্তরে ব্যবহারকারীদের HTML ব্যবহারের অনুমতি থাকবে কি?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:258
+msgid "Need more options?"
+msgstr "নতুন সুবিধাদি লাগবে কি?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:258
+msgid "Let us know!"
+msgstr "আমাদেরকে জানান!"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:258
+msgid "and we'll add it in!"
+msgstr "আর আমরা তা যোগ করবো!"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:264
+msgid "Email Settings"
+msgstr "ইমেইল সেটিংসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:270
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:278
+msgid "Upgrade to the"
+msgstr "আপগ্রেড করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:270
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:278
+msgid "Premium version"
+msgstr "প্রিমিয়াম ভার্ষন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:270
+msgid ""
+"of Sola Support Tickets and automatically convert received emails to support "
+"tickets and responses"
+msgstr ""
+"সোলা টিকেটের, এবং গৃহীত ইমেইলগুলোকে স্বয়ংক্রীয়ভাবে সাপোর্ট টিকেট এবং প্রত্যুত্তর "
+"হিসেবে বদলে নাও"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:278
+msgid "of Sola Support Tickets and assign more than one support agent."
+msgstr "সোলা টিকেটের, এবং একাধিক সাপোর্ট প্রতিনিধি যোগ করুন।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:284
+msgid "Upgrade to the premium version"
+msgstr "প্রিমিয়াম ভার্ষনে আপগ্রেড করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:285
+msgid "only"
+msgstr "শুধুমাত্র"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:285
+msgid "/ year"
+msgstr " বছরপ্রতি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:294
+msgid "Add a support desk to the front end of your website"
+msgstr "ওয়েবসাইটের ফ্রন্টএন্ডে সাপোর্ট ডেস্ক যোগ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:299
+msgid "Add as many support agents as you need"
+msgstr "যত দরকার তত সাপোর্ট প্রতিনিধি যোগ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:304
+msgid "Convert emails to support tickets"
+msgstr "ইমেইলকে সাপোর্ট টিকেটে রূপান্তর করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:311
+msgid "Save Settings"
+msgstr "সেটিংসমূহ সংরক্ষণ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:314
+msgid "Need help?"
+msgstr "সহায়তা দরকার?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/settings-page.php:314
+msgid "Read the documentation"
+msgstr "নির্দেশিকা পড়ুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:4
+msgid "Welcome to "
+msgstr "স্বাগত "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:8
+msgid "Create your own support desk in minutes"
+msgstr "কয়েক মিনিটে আপনার নিজস্ব সাপোর্ট ডেস্ক তৈরি করে ফেলুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:11
+msgid "How did you find us?"
+msgstr "কিভাবে আপনি আমাদের সম্বন্ধে জানতে পারলেন?"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:16
+msgid "WordPress.org plugin repository "
+msgstr "WordPress.org প্লাগইন রেপোযিটরি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:19
+msgid "Search Term"
+msgstr "যা দিয়ে অনুসন্ধান করেছেন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:23
+msgid "Google or other search Engine"
+msgstr "গুগল এবং অন্যান্য সার্চ ইঞ্জিন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:29
+msgid "Friend recommendation"
+msgstr "বন্ধুর পরামর্শে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:35
+msgid "Other"
+msgstr "অন্যান্য"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:39
+msgid "Please Explain"
+msgstr "অনুগ্রহ করে বিস্তারিত লিখুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:48
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1928
+msgid "Submit"
+msgstr "জমা করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/includes/welcome-page.php:50
+msgid "Skip"
+msgstr "বাদ রেখে যান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:11
+msgid "Response Information"
+msgstr "প্রত্যুত্তরের তথ্যাদি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:38
+msgid "Parent ID"
+msgstr "শীর্ষ আইডি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:125
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:246
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:367
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1270
+msgid "Responses"
+msgstr "প্রত্যুত্তরসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:176
+msgid ""
+"This support ticket is pending approval. Please change the status to 'Open' "
+"before responding to this ticket."
+msgstr ""
+"এই সাপোর্ট টিকেটটি অনুমোদনের অপেক্ষায় আছে। টিকেটটিতে জবাব দেবার আগে অনুগ্রহ করে "
+"এর অবস্থা 'উন্মুক্ত' করে নিন।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:183
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:847
+msgid "Add a Response"
+msgstr "প্রত্যুত্তর যোগ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:192
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:266
+msgid "Title"
+msgstr "শিরোনাম"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:201
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:247
+msgid "Response"
+msgstr "প্রত্যুত্তর"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:210
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:861
+msgid "Send"
+msgstr "পাঠান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:210
+msgid "Send Response"
+msgstr "প্রত্যুত্তর পাঠান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:239
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:292
+msgid "Notes"
+msgstr "নোট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:257
+msgid "Add a Note"
+msgstr "নোট যোগ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:269
+msgid "Note for "
+msgstr "যার জন্য নোট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:274
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:293
+msgid "Note"
+msgstr "নোট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:282
+msgid "Save"
+msgstr "সংরক্ষণ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/modules/metaboxes.php:282
+msgid "Save Note"
+msgstr "নোট সংরক্ষণ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:169
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:348
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:463
+msgid ""
+"Thank you for submitting your support ticket. One of our agents will respond "
+"as soon as possible."
+msgstr ""
+"সাপোর্ট টিকেট জমা করার জন্য ধন্যবাদ আপনাকে। আমাদের একজন প্রতিনিধি সম্ভাব্য দ্রুততর "
+"সময়ে আপনার সাথে যোগাযোগ করবেন।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:200
+msgid "Tickets"
+msgstr "টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:201
+msgid "Ticket"
+msgstr "টিকেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:202
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:205
+msgid "New Ticket"
+msgstr "নতুন টিকেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:203
+msgid "Add New Ticket"
+msgstr "নতুন টিকেট যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:204
+msgid "Edit Ticket"
+msgstr "টিকেট সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:206
+msgid "All Tickets"
+msgstr "সকল টিকেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:207
+msgid "View Ticket"
+msgstr "টিকেট দেখান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:208
+msgid "Search Tickets"
+msgstr "টিকেটসমূহ অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:209
+msgid "No tickets found"
+msgstr "কোনো টিকেট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:210
+msgid "No tickets found in the Trash"
+msgstr "ময়লার ঝুড়িতে কোনো টিকেট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:211
+msgid "Help Desk"
+msgstr "হেল্প ডেস্ক"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:215
+msgid "Support tickets"
+msgstr "সাপোর্ট টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:248
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:251
+msgid "New Response"
+msgstr "নতুন প্রত্যুত্তর"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:249
+msgid "Add New Response"
+msgstr "নতুন প্রত্যুত্তর যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:250
+msgid "Edit Response"
+msgstr "প্রত্যুত্তর সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:252
+msgid "All Responses"
+msgstr "সকল প্রত্যুত্তর"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:253
+msgid "View Response"
+msgstr "প্রত্যুত্তর দেখান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:254
+msgid "Search Responses"
+msgstr "প্রত্যুত্তর অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:255
+msgid "No responses found"
+msgstr "কোনো প্রত্যুত্তর পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:256
+msgid "No responses found in the Trash"
+msgstr "ময়লার ঝুড়িতে কোনো প্রত্যুত্তর পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:257
+msgid "Ticket Responses"
+msgstr "টিকেটের প্রত্যুত্তরসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:261
+msgid "Responses to support tickets"
+msgstr "সাপোর্ট টিকেটের প্রত্যুত্তরসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:294
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:297
+msgid "New Note"
+msgstr "নতুন নোট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:295
+msgid "Add New Note"
+msgstr "নতুন নোট যোগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:296
+msgid "Edit Note"
+msgstr "নোট সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:298
+msgid "All Notes"
+msgstr "সকল নোট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:299
+msgid "View Note"
+msgstr "নোট দেখান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:300
+msgid "Search Notes"
+msgstr "নোটসমূহ অনুসন্ধান"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:301
+msgid "No notes found"
+msgstr "কোনো নোট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:302
+msgid "No notes found in the Trash"
+msgstr "ময়লার ঝুড়িতে কোনো নোট পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:307
+msgid "Internal Notes for support tickets"
+msgstr "সাপোর্ট টিকেটের অভ্যন্তরীণ নোটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:368
+msgid "Settings"
+msgstr "সেটিংসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:370
+msgid "Log"
+msgstr "লগ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:522
+msgid "No errors to report on"
+msgstr "প্রতিবেদন করার মতো কোনো ত্রুটি পাওয়া যায়নি"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:702
+msgid "New response"
+msgstr "নতুন প্রত্যুত্তর"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:702
+msgid "There is a new response to the support ticket titled"
+msgstr "এই টিকেটটির নতুন প্রত্যুত্তর জমা পড়েছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:702
+msgid "Follow this link to view the reply"
+msgstr "দেখতে হলে এই লিংকটি অনুসরণ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:745
+msgid ""
+"Please use the following credentials to access and respond to your ticket: "
+msgstr ""
+"নিচের তথ্যাদি ব্যবহার করে লগইন করুন এবং আপনার সাপোর্ট টিকেটে প্রত্যুত্তর জানান: "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:746
+msgid "Username: "
+msgstr "ব্যবহারকারী নাম: "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:747
+msgid "Password: "
+msgstr "পাসওয়ার্ড: "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:748
+msgid "To login, please follow this link: "
+msgstr "লগইন করতে অনুগ্রহ করে এই লিংকটি অনুসরণ করুন: "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:749
+msgid "To view your ticket, please follow this link:"
+msgstr "আপনার টিকেট দেখতে অনুগ্রহ করে এই লিংক অনুসরণ করুন:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:751
+msgid "To access your ticket, please follow this link:"
+msgstr "আপনার টিকেটে লগইন করতে অনুগ্রহ করে এই লিংক অনুসরণ করুন:"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:778
+msgid "New Ticket Assigned"
+msgstr "নতুন টিকেট আরোপিত হয়েছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:778
+msgid "A new ticket has been assigned to you. "
+msgstr "আপনার প্রতি নতুন টিকেট আরোপিত হয়েছে। "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:778
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:809
+msgid "Follow this link to view the ticket"
+msgstr "টিকেটটি দেখতে নিচের লিংক অনুসরণ করুন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:806
+msgid "Support Ticket Status Changed"
+msgstr "সাপোর্ট টিকেটের অবস্থার পরিবর্তন হয়েছে"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:807
+msgid "Your Support Ticket "
+msgstr "আপনার সাপোর্ট টিকেট"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:826
+msgid "Replies"
+msgstr "প্রত্যুত্তরসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:872
+msgid "to submit a response."
+msgstr "প্রত্যুত্তর জানাতে চাইলে।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:953
+msgid "This support ticket has been  marked as private."
+msgstr "এই সাপোর্ট টিকেটটি গোপনীয় হিসেবে চিহ্নিত।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:982
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:986
+msgid "This support ticket has been  marked as solved."
+msgstr "এই সাপোর্ট টিকেটটি সমাধাকৃত হিসেবে চিহ্নিত।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1015
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1019
+msgid "This support ticket is pending approval."
+msgstr "এই সাপোর্ট টিকেটটি অনুমোদনের জন্য অপেক্ষারত।"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1166
+msgid "edit"
+msgstr "সম্পাদনা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1167
+msgid "delete"
+msgstr "মুছে ফেলো"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1271
+msgid "Last Response By"
+msgstr "সর্বশেষ প্রত্যুত্তর দিয়েছেন"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1272
+msgid "Status"
+msgstr "অবস্থা"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1370
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1384
+msgid "Closed"
+msgstr "রহিত"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1495
+msgid "Open Tickets"
+msgstr "উন্মুক্ত টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1496
+msgid "Solved Tickets"
+msgstr "সমাধাকৃত টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1497
+msgid "Closed Tickets"
+msgstr "রহিত টিকেটসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1675
+msgid "All Priorities"
+msgstr "সকল গুরুত্বসূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1707
+msgid "All Statuses"
+msgstr "সকল অবস্থাসমূহ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1740
+msgid "All Agents"
+msgstr "সকল প্রতিনিধিগণ"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1849
+msgid "Submitted by "
+msgstr "জমা করেছেন "
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1850
+msgid "on "
+msgstr "-"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1908
+msgid "Subject"
+msgstr "বিষয়"
+
+#: C:\wamp\www\wordpress\wp-content\plugins\sola-support-tickets/sola-support-tickets.php:1916
+msgid "Description"
+msgstr "বিবরণ"

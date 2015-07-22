@@ -1,0 +1,1828 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sola support tickets\n"
+"POT-Creation-Date: 2015-04-14 12:11+0200\n"
+"PO-Revision-Date: 2015-04-14 12:11+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-"
+"support-tickets\n"
+"X-Poedit-SearchPath-1: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-"
+"support-tickets-customer-satisfaction-survey\n"
+"X-Poedit-SearchPath-2: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-"
+"support-tickets-pro\n"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:198
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:34
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:43
+msgid "Submit a ticket"
+msgstr "Soumettre un ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:221
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:408
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:538
+msgid ""
+"Thank you for submitting your support ticket. One of our agents will respond "
+"as soon as possible."
+msgstr ""
+"Merci d'avoir soumis votre ticket d'assistance. Un de nos agents vous "
+"répondra dès que possible."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:260
+msgid "Tickets"
+msgstr "Tickets"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:261
+msgid "Ticket"
+msgstr "Ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:262
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:265
+msgid "New Ticket"
+msgstr "Nouveau ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:263
+msgid "Add New Ticket"
+msgstr "Ajouter un nouveau ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:264
+msgid "Edit Ticket"
+msgstr "Editer un ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:266
+msgid "All Tickets"
+msgstr "Tous les tickets"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:267
+msgid "View Ticket"
+msgstr "Regarder le ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:268
+msgid "Search Tickets"
+msgstr "Rechercher les tickets"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:269
+msgid "No tickets found"
+msgstr "Pas de tickets trouvés"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:270
+msgid "No tickets found in the Trash"
+msgstr "Pas de tickets trouvés dans la corbeille"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:271
+msgid "Help Desk"
+msgstr "Service d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:275
+msgid "Support tickets"
+msgstr "Tickets d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:306
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:432
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1718
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1727
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:127
+msgid "Responses"
+msgstr "Réponses"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:307
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:210
+msgid "Response"
+msgstr "Réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:308
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:311
+msgid "New Response"
+msgstr "Nouvelle réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:309
+msgid "Add New Response"
+msgstr "Ajouter une nouvelle réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:310
+msgid "Edit Response"
+msgstr "Editer la réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:312
+msgid "All Responses"
+msgstr "Toutes les réponses"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:313
+msgid "View Response"
+msgstr "Regarder la réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:314
+msgid "Search Responses"
+msgstr "Rechercher les réponses"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:315
+msgid "No responses found"
+msgstr "Pas de réponses trouvés"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:316
+msgid "No responses found in the Trash"
+msgstr "Pas de réponses trouvés dans la corbeille"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:317
+msgid "Ticket Responses"
+msgstr "Réponses au ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:321
+msgid "Responses to support tickets"
+msgstr "Réponses aux tickets d'assistances"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:352
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:276
+msgid "Notes"
+msgstr "Notes internes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:353
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:311
+msgid "Note"
+msgstr "Note interne"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:354
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:357
+msgid "New Note"
+msgstr "Nouvelle note interne"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:355
+msgid "Add New Note"
+msgstr "Ajouter une nouvelle note interne"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:356
+msgid "Edit Note"
+msgstr "Editer une note interne"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:358
+msgid "All Notes"
+msgstr "Toutes les notes internes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:359
+msgid "View Note"
+msgstr "Regarder les notes internes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:360
+msgid "Search Notes"
+msgstr "Rechercher les notes internes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:361
+msgid "No notes found"
+msgstr "Pas de notes internes trouvés"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:362
+msgid "No notes found in the Trash"
+msgstr "Pas de notes internes trouvés dans la corbeille"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:363
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:152
+msgid "Internal Notes"
+msgstr "Notes internes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:367
+msgid "Internal Notes for support tickets"
+msgstr "Notes internes pour les billets d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:433
+msgid "Settings"
+msgstr "Paramètres"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:434
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/feedback-page.php:37
+msgid "Feedback"
+msgstr "Retours"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:435
+msgid "Log"
+msgstr "Enregistrer"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:435
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/error-log-page.php:4
+msgid "System Log"
+msgstr "Journal Système"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:625
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:982
+msgid "Your settings have been saved."
+msgstr "Vos paramètres ont été enregistrés."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:645
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:658
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1001
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1016
+msgid "Thank you for your feedback. We will be in touch soon"
+msgstr "Merci pour vos commentaires. Nous serons en contact bientôt"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:661
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1019
+msgid "There was a problem sending your feedback. Please log your feedback on "
+msgstr ""
+"Il y a eu un problème lors de l'envoi de votre message. Veuillez réessayer "
+"ultérieurement"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:677
+msgid "No errors to report on"
+msgstr "Aucune erreur à rapporter"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:769
+msgid " File uploaded "
+msgstr "Activer le téléchargement de fichiers"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1003
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1007
+msgid "There is a new response to the support ticket titled"
+msgstr "Il y a une nouvelle réponse pour le ticket d'assistance intitulé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1003
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1007
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1073
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1086
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1106
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1123
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1158
+msgid "Ticket content"
+msgstr "Contenu du ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1003
+msgid "Response text"
+msgstr "Réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1003
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1007
+msgid "Follow this link to view the reply"
+msgstr "Suivez ce lien pour voir la réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1013
+msgid "New response"
+msgstr "Nouvelle réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1074
+msgid ""
+"Please use the following credentials to access and respond to your ticket: "
+msgstr ""
+"S'il vous plaît utiliser les informations suivantes pour accéder et répondre "
+"à votre ticket:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1075
+msgid "Username: "
+msgstr "Nom d'utilisateur:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1076
+msgid "Password: "
+msgstr "Mot de passe:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1077
+msgid "To login, please follow this link: "
+msgstr "Pour vous connecter, veuillez suivre ce lien:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1078
+msgid "To view your ticket, please follow this link:"
+msgstr "Pour voir votre ticket, veuillez suivre ce lien:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1086
+msgid "To access your ticket, please follow this link:"
+msgstr "Pour accéder à votre ticket, veuillez suivre ce lien:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1106
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2430
+msgid "New support ticket:"
+msgstr "Nouveau ticket d'assistance:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1106
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2430
+msgid ""
+"A new support ticket has been received. To access this ticket, please follow "
+"this link:"
+msgstr ""
+"Un nouveau ticket d'assistance a été reçu. Pour accéder à ce ticket, "
+"veuillez suivre ce lien:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1123
+msgid "New Ticket Assigned"
+msgstr "Nouveau Ticket Assigné"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1123
+msgid "A new ticket has been assigned to you. "
+msgstr "Un nouveau ticket vous a été assigné"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1123
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1159
+msgid "Follow this link to view the ticket"
+msgstr "Suivez ce lien pour voir le ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1138
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1847
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1861
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:154
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:431
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:53
+msgid "Open"
+msgstr "Ouvert"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1141
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1849
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1863
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:432
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1428
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:54
+msgid "Solved"
+msgstr "Résolu"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1144
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1853
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1867
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1985
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:433
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:55
+msgid "Pending Approval"
+msgstr "Validation En Attente"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1147
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1855
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1869
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1484
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1155
+msgid "Support Ticket Status Changed"
+msgstr "Le statut du ticket d'assistance a changé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1156
+msgid "Your Support Ticket "
+msgstr "Votre ticket d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1186
+msgid ""
+"Your ticket has been marked as closed. Please answer the following survey(s):"
+msgstr ""
+"Votre ticket a été marqué comme clos. Veuillez répondre au(x) sondage(s) "
+"suivant(s):"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1213
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/includes/sola_st_wordpress_hooks.php:39
+msgid "Customer satisfaction survey"
+msgstr "Sondage de satisfaction du client"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1233
+msgid "Replies"
+msgstr "Réponses"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1254
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:192
+msgid "Add a Response"
+msgstr "Ajouter une réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1268
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:247
+msgid "Send"
+msgstr "Envoyer"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1279
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1954
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1966
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:38
+msgid "Log in"
+msgstr "Se connecter"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1279
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1954
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1966
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:38
+msgid "or"
+msgstr "ou"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1279
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1954
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1966
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:38
+msgid "register"
+msgstr "s'enregistrer"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1279
+msgid "to submit a response."
+msgstr "Soumettre une réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1376
+msgid "This support ticket has been marked as private."
+msgstr "Ce ticket d'assistance a été marqué comme privé."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1405
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1411
+msgid "This support ticket has been marked as solved."
+msgstr "Ce ticket d'assistance a été marqué comme résolu."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1450
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1454
+msgid "This support ticket is pending approval."
+msgstr "Ce ticket d'assistance est en attente d'approbation."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1605
+msgid "edit"
+msgstr "editer"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1606
+msgid "delete"
+msgstr "effacer"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1717
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1726
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2394
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2412
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2430
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2448
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2465
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2484
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:439
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:70
+msgid "Priority"
+msgstr "Priorité"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1719
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1728
+msgid "Last Response By"
+msgstr "Dernière réponse par"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1720
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1729
+msgid "Status"
+msgstr "Statut"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1721
+msgid "Rating"
+msgstr "Evaluation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1851
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1865
+msgid "Closed"
+msgstr "Fermé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1876
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1884
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1890
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1898
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2398
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2416
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2434
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2452
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2469
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2488
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:174
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:443
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:74
+msgid "Low"
+msgstr "Basse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1878
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1892
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2399
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2417
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2435
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2453
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2470
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2489
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:175
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:444
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:75
+msgid "High"
+msgstr "Haute"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1880
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1894
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2400
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2418
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2436
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2454
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2471
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2490
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:176
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:445
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:76
+msgid "Urgent"
+msgstr "Urgent"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1882
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1896
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2401
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2419
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2437
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2455
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2472
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2491
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:177
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:446
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:77
+msgid "Critical"
+msgstr "Critique"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1954
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1966
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:38
+msgid "to submit a support ticket."
+msgstr "pour soumettre un ticket d'assistance."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1986
+msgid "Open Tickets"
+msgstr "Tickets ouverts"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1987
+msgid "Solved Tickets"
+msgstr "Tickets résolus"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:1988
+msgid "Closed Tickets"
+msgstr "Tickets fermés"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2182
+msgid "All Priorities"
+msgstr "Toutes les priorités"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2214
+msgid "All Statuses"
+msgstr "Tous les statuts"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2247
+msgid "All Agents"
+msgstr "Tous les agents"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2359
+msgid "Submitted by "
+msgstr "Soumis par"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2360
+msgid "on "
+msgstr "sur"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2505
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:714
+msgid "You have not completed all required fields"
+msgstr "Vous n'avez pas rempli tous les champs nécessaires"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2552
+msgid "Subject"
+msgstr "Sujet"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2560
+msgid "Description"
+msgstr "Description"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2575
+msgid "Upload a file:"
+msgstr "Charger un fichier"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2580
+msgid "Allowed formats: JPEG, PNG, GIF, TIFF, PDF, ZIP:"
+msgstr "Formats autorisés: JPEG, PNG, GIF, TIFF, PDF, ZIP:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2594
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:48
+msgid "Submit"
+msgstr "Soumettre"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2660
+msgid ""
+"Please select the mailing type to use when sending any notification e-mails"
+msgstr ""
+"S'il vous plaît sélectionnez le type d'envoi à utiliser pour envoyer les e-"
+"mails de notification"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2668
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2675
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2682
+msgid "The Wordpress mailer - wp mail"
+msgstr "L' expéditeur Wordpress - courriel Wordpress"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2670
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2677
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2684
+msgid "Custom SMTP settings"
+msgstr "Paramètres SMTP  du client"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2691
+msgid "Enter your host URL (for gmail use imap.gmail.com)"
+msgstr "Entrez l'URL de votre hôte (pour gmail, utilisez imap.gmail.com)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2693
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1548
+msgid "The username for your Email Account"
+msgstr "Le nom d'utilisateur pour votre compte de messagerie"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2694
+msgid "The password of your Email Account"
+msgstr "Le nom d'utilisateur pour votre compte de messagerie"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2695
+msgid "And finally the port number"
+msgstr "Et finalement, le numéro de port. Nous recommandons 993"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2696
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1579
+msgid "Encryption"
+msgstr "Chiffrement"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2703
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2710
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2717
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2724
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1593
+msgid "No Encryption"
+msgstr "Pas de chiffrement"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2704
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2711
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2718
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2725
+msgid "SSL - (use SSL for gmail)"
+msgstr "(utilisez SSL pour gmail)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2705
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2712
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2719
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2726
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1603
+msgid ""
+"TLS - This is not the same as STARTTLS. For most servers SSL is the "
+"recommended option."
+msgstr ""
+"TLS - Ce n'est pas le même que STARTTLS. Pour la plupart des serveurs SSL, "
+"il s'agit de l'option recommandée."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2731
+msgid ""
+"In the event that SMTP sending fails, the wordpress mailer will be used as "
+"the fallback."
+msgstr ""
+"Dans le cas où l'envoi SMTP a échoué, le logiciel de messagerie wordpress "
+"sera utilisé comme procédure de secours."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2926
+msgid ""
+"Warning: Please update to the latest Sola Support Tickets Premium version. "
+"We have made many changes in both Sola Support Tickets Basic and Sola "
+"Support Tickets Premium. Both these plugins need to be updated to ensure "
+"that no compatibility issues arise and to ensure that our latest add-on Sola "
+"Support Tickets Customer Satisfaction Surveys is also supported. Please do "
+"the update through your WordPress dashboard, or by logging into your Sola "
+"Plugins account "
+msgstr ""
+"Attention: Veuillez mettre à jour vers la dernière version Premium de Sola "
+"Support Tickets. Nous avons fait beaucoup de changements dans les versions "
+"Basic et Premium de Sola Support Tickets. Ces deux plugins doivent être mis "
+"à jour pour vous assurer qu'aucun problème de compatibilité ne se posent et "
+"pour s'assurer que notre dernier add-on Sola Support Tickets Customer "
+"Satisfaction Surveys est également supporté. Veuillez faire la mise à jour "
+"grâce à votre tableau de bord WordPress, ou en vous connectant à votre "
+"compte Sola Plugins."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/sola-support-tickets.php:2926
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2530
+msgid "here"
+msgstr "ici"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:31
+msgid "Sola Support Tickets Settings"
+msgstr "Sola Support Tickets Paramètres"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:34
+msgid ""
+"You are using an outdated version of Sola Support Tickets Pro. Please update "
+"the plugin to take advantage of new features."
+msgstr ""
+"Vous utilisez une ancienne version de Sola Support Tickets Pro. Veuillez "
+"mettre à jour le plugin pour profiter de nouvelles fonctionnalités."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:42
+msgid "Main Settings"
+msgstr "Paramètres principaux"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:43
+msgid "Email"
+msgstr "Courriel"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:44
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:605
+msgid "Agents"
+msgstr "Agents"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:46
+msgid "Upgrade"
+msgstr "Mise à jour"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:54
+msgid "Customer Satisfaction Survey"
+msgstr "Sondage de Satisfaction du Client"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:72
+msgid "API Key"
+msgstr "Clé API"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:73
+msgid "Enter your Sola Support Tickets Premium API key"
+msgstr "Entrez votre clé API Sola Support Tickets Premium"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:77
+msgid "Where do I get my API key?"
+msgstr "Où puis-je avoir ma clé API?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:110
+msgid "Notification Settings"
+msgstr "Paramètres de notification"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:114
+msgid "Notifications"
+msgstr "Notifications"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:117
+msgid "Send a notification when a new support ticket is received"
+msgstr "Envoyer une notification quand un nouveau ticket d'assistance est reçu"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:118
+msgid "Send a notification when a new response is received"
+msgstr "Envoyer une notification quand une nouvelle réponse est reçu"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:119
+msgid ""
+"Send a notification to the user whenever the status of a support ticket "
+"changes"
+msgstr ""
+"Envoyer une notification à l'utilisateur lorsque l'état d'un billet "
+"d'assistance changements"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:121
+msgid "Send a notification to the agent when a ticket is assigned to them"
+msgstr "Envoyer une notification à l'agent quand un billet lui est attribué"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:123
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:130
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:161
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:198
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:218
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:235
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:263
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:286
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:333
+msgid "Premium Version"
+msgstr "Version Premium"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:128
+msgid "Send a notification to all agents when a new ticket is received."
+msgstr ""
+"Envoyer une notification à tous les agents quand un nouveau ticket est reçu."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:139
+msgid "Thank you text"
+msgstr "Texte de remerciement"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:140
+msgid "This is sent when someone posts a new support ticket"
+msgstr ""
+"Ceci est envoyé lorsqu'un utilisateur poste un nouveau ticket d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:148
+msgid "Default Ticket Status"
+msgstr "Statut de ticket par défaut"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:153
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:158
+msgid "Pending Review"
+msgstr "En attente d'examen"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:169
+msgid "Priorities"
+msgstr "Priorités"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:172
+msgid "Default ticket priority:"
+msgstr "La priorité par défaut des tickets:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:186
+msgid "Allow users to select a priority when submitting a ticket"
+msgstr ""
+"Permet aux utilisateurs de sélectionner une priorité lors de la soumission "
+"d'un ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:191
+msgid "Departments "
+msgstr "Départements"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:195
+msgid "Allow users to select a department when submitting a ticket"
+msgstr ""
+"Permet aux utilisateurs de sélectionner un département lors de la soumission "
+"d'un ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:215
+msgid " Select a default department your support tickets will be added to. "
+msgstr "Sélectionnez un département par défaut pour vos tickets d'assistance."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:219
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2345
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2376
+msgid "None"
+msgstr "Rien"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:227
+msgid "Require Login?"
+msgstr "Exiger une connexion?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:233
+msgid "Require users to login when submitting a support ticket?"
+msgstr ""
+"Obliger les utilisateurs à s'identifier lors de la soumission d'un ticket "
+"d'assistance?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:244
+msgid "Enable CAPTCHA?"
+msgstr "Activer la vérification CAPTCHA ?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:252
+msgid ""
+"Enable CAPTCHA verification for users who are not logged in when submitting "
+"a ticket?"
+msgstr ""
+"Activer la vérification CAPTCHA pour les utilisateurs qui ne sont pas "
+"connecté lors de la soumission d'un ticket?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:256
+msgid "Really Simple CAPTCHA"
+msgstr "CAPTCHA très simple"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:271
+msgid "Enable file uploads"
+msgstr "Activer le téléchargement de fichiers"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:286
+msgid ""
+"Give a user the ability to upload a file when creating a support ticket or "
+"adding a response on the admin ticket editor page. Only available in the"
+msgstr ""
+"Donner à un utilisateur la possibilité de charger un fichier lors de la "
+"création d'un ticket d'assistance. Uniquement disponible dans la"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:291
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:296
+msgid ""
+"Give a user the ability to upload a file when creating a support ticket or "
+"adding a response on the admin ticket editor page."
+msgstr ""
+"Donner à un utilisateur la possibilité de charger un fichier lors de la "
+"création d'un ticket d'assistance. Uniquement disponible dans la"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:318
+msgid "Close tickets automatically"
+msgstr "Fermer les tickets automatiquement"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:333
+msgid ""
+"Enable automatic closing of tickets after a set amount of days. Only "
+"available in the"
+msgstr ""
+"Activer la fermeture automatique des tickets après un certain laps de jours. "
+"Uniquement disponible dans la"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:352
+msgid "Automatically close tickets after"
+msgstr "Les tickets se ferment automatiquement après"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:360
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:381
+msgid "Please select"
+msgstr "Veuillez choisir"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:399
+msgid "day(s)"
+msgstr "jour(s)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:402
+msgid "Please tick the checkbox for settings."
+msgstr "Veuillez cocher la case pour les paramétrages."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:442
+msgid "Exclude Bootstrap"
+msgstr "Exclure Bootstrap"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:452
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:456
+msgid ""
+"Exclude Bootstrap library (select this if you are experiencing issues with "
+"your layout and theme in the front end)"
+msgstr ""
+"Exclure la bibliothèque Bootstrap (sélectionnez cette option si vous "
+"rencontrez des problèmes avec votre mise en page et le thème à la partie "
+"avant)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:491
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:499
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:504
+msgid "Exclude Font Awesome"
+msgstr "Veuillez Exclure la Police d'écriture Awesome"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:528
+msgid "General Settings"
+msgstr "Paramètres généraux"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:531
+msgid "Allow users to post HTML in support tickets and responses?"
+msgstr ""
+"Permettre aux utilisateurs de poster de l'HTML dans les tickets d'assistance "
+"et les réponses ?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:536
+msgid "Need more options?"
+msgstr "Besoin de plus d'options?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:536
+msgid "Let us know!"
+msgstr "Faites le nous savoir"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:536
+msgid "and we'll add it in!"
+msgstr "et nous l'ajouterons!"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:542
+msgid "Email Settings"
+msgstr "Paramètres de messagerie"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:579
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:609
+msgid "Upgrade to the"
+msgstr "Mise à niveau vers la"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:579
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:609
+msgid "Premium version"
+msgstr "Version Premium"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:579
+msgid ""
+"of Sola Support Tickets and automatically convert received emails to support "
+"tickets and responses"
+msgstr ""
+"de Sola Support Tickets et convertir automatiquement les courriels reçus en "
+"tickets d'assistance et en réponses."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:609
+msgid "of Sola Support Tickets and assign more than one support agent."
+msgstr "de Sola Support Tickets et assigner plus d'un agent d'assistance."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:615
+msgid "Upgrade to the premium version"
+msgstr "Mise à niveau vers la version premium"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:616
+msgid "only"
+msgstr "seulement"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:616
+msgid "/ year"
+msgstr "/an"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:625
+msgid "Add a support desk to the front end of your website"
+msgstr "Ajouter un service d'assistance à la partie avant de votre site web"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:630
+msgid "Add as many support agents as you need"
+msgstr "Ajouter autant d'agents d'assistance dont vous avez besoin"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:635
+msgid "Convert emails to support tickets"
+msgstr "Convertir les courriels en tickets d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:648
+msgid "Customer Satisfaction Survey Settings"
+msgstr "Paramètres de notification"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:650
+msgid "Text to display along with the stars rating"
+msgstr "Texte à afficher avec la notation par étoiles"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:677
+msgid "Enable the sending of customer satisfaction surveys"
+msgstr "Activer l'envoi de sondages de satisfaction de la clientèle"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:678
+msgid ""
+"A listing of all surveys you have created will be sent in the e-mail that is "
+"delivered to the user who closed the ticket"
+msgstr ""
+"Une liste de tous les sondages que vous avez créés vous sera envoyé dans l'e-"
+"mail qui est livré à l'utilisateur qui a fermé le billet"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:711
+msgid "Save Settings"
+msgstr "Enregistrer les paramètres"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:714
+msgid "Need help?"
+msgstr "Besoin d'aide?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/settings-page.php:714
+msgid "Read the documentation"
+msgstr "Lire la documentation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/feedback-page.php:7
+msgid "Sola Support Tickets Feedback"
+msgstr "Sola Support Tickets Retour"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/feedback-page.php:8
+msgid "We'd love to hear your comments and/or suggestions"
+msgstr "Nous aimerions entendre vos commentaires et / ou suggestions"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/feedback-page.php:13
+msgid "Your Name"
+msgstr "Votre Nom"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/feedback-page.php:21
+msgid "Your Email"
+msgstr "Votre adresse de courriel"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/feedback-page.php:29
+msgid "Your Website"
+msgstr "Votre Site Web"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/feedback-page.php:48
+msgid "Send Feedback"
+msgstr "Envoyer des commentaires"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:4
+msgid "Welcome to "
+msgstr "Bienvenue à"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:8
+msgid "Create your own support desk in minutes"
+msgstr "Créez votre propre service d'assistance en quelques minutes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:11
+msgid "How did you find us?"
+msgstr "Comment nous avez-vous trouvé?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:16
+msgid "WordPress.org plugin repository "
+msgstr "Le répertoire à plugin de WordPress.org"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:19
+msgid "Search Term"
+msgstr "Recherche par terme"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:23
+msgid "Google or other search Engine"
+msgstr "Google ou un autre moteur de recherche"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:29
+msgid "Friend recommendation"
+msgstr "Recommandation d'un ami"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:35
+msgid "Other"
+msgstr "Autre"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:39
+msgid "Please Explain"
+msgstr "Veuillez expliquer s'il vous plaît"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/welcome-page.php:50
+msgid "Skip"
+msgstr "Passer"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/footer.php:6
+msgid ""
+"Sola Support Tickets is still in BETA. If you find any errors or if you have "
+"any suggestions"
+msgstr ""
+"Sola Support Tickets est encore en BETA. Si vous trouvez la moindre erreur "
+"ou si vous avez des suggestions"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/footer.php:6
+msgid "please get in touch with us"
+msgstr "s'il vous plaît entrez en contact avec nous"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/footer.php:13
+msgid "Sola Support Tickets Version"
+msgstr "Sola Support Tickets Version"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/footer.php:14
+msgid "Support"
+msgstr "Service d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/footer.php:15
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2108
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2109
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2119
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2123
+msgid "Documentation"
+msgstr "Documentation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/includes/footer.php:16
+msgid "Go Premium"
+msgstr "Aller en verion Premium"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:11
+msgid "Response Information"
+msgstr "Information sur l'intervention"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:38
+msgid "Parent ID"
+msgstr "Id parent"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:185
+msgid ""
+"This support ticket is pending approval. Please change the status to 'Open' "
+"before responding to this ticket."
+msgstr ""
+"Ce ticket d'assistance est en attente d'approbation. Veuillez changer le "
+"statut vers 'Ouvert' avant de répondre à ce ticket."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:201
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:303
+msgid "Title"
+msgstr "Titre"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:231
+msgid "Allowed file formats: JPEG, PNG, GIF, TIFF, PDF, ZIP"
+msgstr "Fichiers autorisés: JPEG, PNG, GIF, TIFF, PDF, ZIP"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:247
+msgid "Send Response"
+msgstr "Envoyer une réponse"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:294
+msgid "Add a Note"
+msgstr "Ajouter une note"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:306
+msgid "Note for "
+msgstr "Note pour"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:319
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:319
+msgid "Save Note"
+msgstr "Sauvegarder la note"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:384
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:427
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:13
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:49
+msgid "Ticket Status"
+msgstr "Statut du ticket"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets/modules/metaboxes.php:452
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:105
+msgid "Author e-mail:"
+msgstr "Adresse courriel de l'auteur"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/includes/sola_st_wordpress_hooks.php:72
+msgid "Surveys"
+msgstr "Sodages"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/includes/sola_st_wordpress_hooks.php:73
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:611
+msgid "Survey results"
+msgstr "Résultats des sondages"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_model.php:327
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2021
+msgid ""
+"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+msgstr ""
+"Une erreur HTTP inattendu est survenu durant la requête API.</p> <p><a href="
+"\"?\" onclick=\"document.location.reload(); return false;\">Essayez encore</"
+"a>"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_model.php:332
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2026
+msgid "An unknown error occurred"
+msgstr "Une erreur inconnu est survenu"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:283
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:478
+msgid "Survey name"
+msgstr "Courriel de"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:479
+msgid "Last edited date"
+msgstr "Dernières mises à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:480
+msgid "Average rating"
+msgstr "Note moyenne"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:606
+msgid "Captured Survey Information"
+msgstr "Informations de Sondages Saisies"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:611
+msgid "select survey above"
+msgstr "sélectionnez le sondage ci-dessus"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:647
+msgid "Filter"
+msgstr "Filtre"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:826
+msgid "Survey Name"
+msgstr "Votre Nom"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:828
+msgid "User"
+msgstr "Nom d'utilisateur"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-customer-satisfaction-survey/mvc/sola_st_view.php:844
+msgid "No results yet."
+msgstr "Pas de résultats pour le moment."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:153
+msgid "Quick Responses"
+msgstr "Réponses rapides"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:185
+msgid "Support Desk"
+msgstr "Service d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:212
+msgid "Support Ticket Author"
+msgstr "Auteur du ticket d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:426
+msgid "Every 15 Minutes"
+msgstr "Toutes les 15 minutes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:436
+msgid "Every 5 Minutes"
+msgstr "Toutes les 15 minutes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:441
+msgid "Every 10 Minutes"
+msgstr "Toutes les 15 minutes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:446
+msgid "Every 30 Minutes"
+msgstr "Toutes les 15 minutes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:453
+msgid "Every 2 Hours"
+msgstr "Toutes les 15 minutes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:458
+msgid "Every 8 Hours"
+msgstr "Toutes les 15 minutes"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1029
+msgid "Your most recent mails have been collected."
+msgstr "Vos plus récents mails ont été recueillies."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1037
+msgid "Sola Support Tickets Pro requires an API key."
+msgstr "Sola Support Tickets Pro nécessite une clé API."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1037
+msgid "Please insert your API key."
+msgstr "Veuillez rentrer votre clé API."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1261
+msgid "Support Agent"
+msgstr "Agent d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1270
+msgid "Make this user a support agent"
+msgstr "Faire de cet utilisateur un agent d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1453
+msgid "Assigned Agent"
+msgstr "Agent assigné"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1454
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:60
+msgid "Public"
+msgstr "Public"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1480
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:64
+msgid "No"
+msgstr "Non"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1482
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:63
+msgid "Yes"
+msgstr "Oui"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1512
+msgid "Automatically convert emails to support tickets"
+msgstr "Convertir automatiquement les courriels en ticket d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1522
+msgid "Email Retrieval Settings"
+msgstr "Paramètres de récupération de courriels"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1527
+msgid "Host"
+msgstr "Hôte"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1535
+msgid "Enter your host's URL (for gmail use imap.gmail.com)"
+msgstr "Entrez l'URL de votre hôte (pour gmail, utilisez imap.gmail.com)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1540
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1553
+msgid "Password"
+msgstr "Mot de passe"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1561
+msgid "Your Email Password"
+msgstr "Le mot de passe de votre compte de messagerie"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1566
+msgid "Port"
+msgstr "Port"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1574
+msgid "And finally the port number. We recommend 993"
+msgstr "Et finalement, le numéro de port. Nous recommandons 993"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1598
+msgid "SSL"
+msgstr "SSL"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1598
+msgid "(use SSL for gmail)"
+msgstr "(utilisez SSL pour gmail)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1613
+msgid "Filters"
+msgstr "Filtre"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1618
+msgid "Exclude subjects containing:"
+msgstr "Exclure les sujets contenant:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1619
+msgid ""
+"Exclude any email containing the following in the email subject (new line "
+"per rule)"
+msgstr ""
+"Exclure chaque courriels contenant les éléments suivants dans l'objet du "
+"courriel (nouvelle ligne par règle)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1622
+msgid "Exclude emails containing:"
+msgstr "Exclure les courriels contenant:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1623
+msgid ""
+"Exclude any email containing the following in the email body section (new "
+"line per rule)"
+msgstr ""
+"Exclure chaque courriels contenant les éléments suivants dans la section de "
+"corps du message (nouvelle ligne par règle)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1626
+msgid "Exclude emails from:"
+msgstr "Exclure les courriels provenant de:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1627
+msgid ""
+"Exclude any emails from the following email addresses (new line per rule)"
+msgstr ""
+"Exclure les courriels à partir des adresses e-mail suivantes (nouvelle ligne "
+"par règle)"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1647
+msgid "Server time now:"
+msgstr "Heure du serveur maintenant:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1648
+msgid "Next collection at approximately:"
+msgstr "Prochaine collection à environ:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1656
+msgid "Collect New Emails"
+msgstr "Recueillir les derniers courriels"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1678
+msgid "The following users have been assigned as support agents."
+msgstr ""
+"Les utilisateurs suivant ont été désigné en tant qu'agent d'assistance."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1680
+msgid ""
+"To add or remove support agents, go to 'Users' and click on 'Edit' on the "
+"user you would like to edit. Scroll to the bottom of the page and tick the "
+"checkbox that enables them to be a suppot agent"
+msgstr ""
+"Pour ajouter ou retirer un agent d'assistance, allez dans l'onglet "
+"'Utilisateur' et cliquez sur 'Editer' sur l'utilisateur dont vous voulez "
+"modifier l'attribution. Scrollez jusqu'à la fin de la page et cochez ou "
+"décochez la case qui l'autorise à être un agent d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1725
+msgid ""
+"Both the From Name and From E-mail have to be valid for it to be used for "
+"sending out automated e-mails"
+msgstr ""
+"Le nom de l'expéditeur et son adresse courriel doivent être valide pour être "
+"utilisé pour envoyer des e-mails automatiques"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1725
+msgid "Defaults will be used otherwise"
+msgstr "Autrement, les valeurs par défaut seront utilisées "
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1728
+msgid ""
+"If an invalid From Name is supplied it will default to Support. Please use A-"
+"Z only."
+msgstr ""
+"Si un nom d'expéditeur invalide est fourni,  il sera, par défaut, adressé "
+"par le support. Veuillez utiliser les touches alphabétiques de A à Z "
+"seulement."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1732
+msgid "Set the From Name for automated e-mails"
+msgstr "Réglez l'adresse de l'expéditeur pour les courriels automatiques"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1737
+msgid "From name"
+msgstr "Courriel de"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1741
+msgid "Only a valid e-mail address will be stored"
+msgstr "Seul une adresse courriel valide sera stockée"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1743
+msgid "Set the From E-mail Address for automated e-mails"
+msgstr "Réglez l'adresse de l'expéditeur pour les courriels automatiques"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1748
+msgid "From e-mail"
+msgstr "Courriel de"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1796
+msgid ""
+"You can set the frequency at which your mailbox will be checked for new "
+"tickets"
+msgstr ""
+"Vous pouvez régler la fréquence à laquelle votre boîte de réception "
+"vérifiera les nouveaux tickets reçus."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:1799
+msgid "Frequency"
+msgstr "Fréquence"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2064
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2075
+msgid "Support Macros"
+msgstr "Scripts d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2065
+msgid "Support Macro"
+msgstr "Script d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2066
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2069
+msgid "New Macro"
+msgstr "Nouveau script"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2067
+msgid "Add New Macro"
+msgstr "Ajoutez un nouveau script"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2068
+msgid "Edit Macro"
+msgstr "Editer le script"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2070
+msgid "All Macros"
+msgstr "Tous les script"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2071
+msgid "View Macros"
+msgstr "Regarder les scripts"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2072
+msgid "Search Macros"
+msgstr "Rechercher les scripts"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2073
+msgid "No macros found"
+msgstr "Pas de scripts trouvés"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2074
+msgid "No macros found in the Trash"
+msgstr "Pas de scripts trouvés dans la corbeille"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2079
+msgid "Support macros"
+msgstr "Scripts d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2110
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2113
+msgid "New Documentation"
+msgstr "Nouvelle documentation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2111
+msgid "Add New Documentation"
+msgstr "Ajouter une nouvelle documentation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2112
+msgid "Edit Documentation"
+msgstr "Editer une documentation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2114
+msgid "All Documentation"
+msgstr "Toutes les documentations"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2115
+msgid "View Documentation"
+msgstr "Regarder la documentation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2116
+msgid "Search Documentation"
+msgstr "Rechercher une documentation"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2117
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:172
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:177
+msgid "No documentation found"
+msgstr "Aucune documentation trouvé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2118
+msgid "No documentation found in the Trash"
+msgstr "Aucune documentation trouvé dans la corbeille"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2142
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2143
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2153
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2157
+msgid "Help Desk News"
+msgstr "Nouvelles du service d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2144
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2147
+msgid "New Article"
+msgstr "Nouvel article"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2145
+msgid "Add New Article"
+msgstr "Ajouter un nouvel article"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2146
+msgid "Edit Article"
+msgstr "Editer un article"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2148
+msgid "All Articles"
+msgstr "Tous les articles"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2149
+msgid "View Article"
+msgstr "Regarder l'article"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2150
+msgid "Search Help Desk News"
+msgstr "Rechercher les nouvelles du service d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2151
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:237
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:242
+msgid "No news found"
+msgstr "Pas de nouvelles trouvées"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2152
+msgid "No news found in the Trash"
+msgstr "Pas de nouvelles trouvées dans la corbeille"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2176
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2187
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2191
+msgid "Product Updates"
+msgstr "Mise à jour des produits"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2177
+msgid "Product Update"
+msgstr "Mise à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2178
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2181
+msgid "New Product Update"
+msgstr "Nouvelle mise à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2179
+msgid "Add New Product Update"
+msgstr "Ajouter une nouvelle mise à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2180
+msgid "Edit Product Update"
+msgstr "Editer une mise à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2182
+msgid "All Product Update"
+msgstr "Toutes les mises à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2183
+msgid "View Product Update"
+msgstr "Regarder la mise à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2184
+msgid "Search Product Updates"
+msgstr "Rechercher les mises à jour d'un produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2185
+msgid "No Product Update found"
+msgstr "Aucune mise à jour d'un produit trouvé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2186
+msgid "No Product Update found in the Trash"
+msgstr "Aucune mise à jour d'un produit trouvé dans laa corbeille"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2230
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2234
+msgid "Assign macro"
+msgstr "Affecter un script"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2237
+msgid "Select"
+msgstr "Sélectionner"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2243
+msgid "What is this?"
+msgstr "Qu'est-ce que cela?"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2281
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2291
+msgid "Departments"
+msgstr "Départements"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2282
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2314
+msgid "Department"
+msgstr "Département"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2283
+msgid "Search Departments"
+msgstr "Rechercher les départements"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2284
+msgid "All Departments"
+msgstr "Tous les départements"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2285
+msgid "Parent Department"
+msgstr "Département parent"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2286
+msgid "Parent Department:"
+msgstr "Département parent:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2287
+msgid "Edit Department"
+msgstr "Editer le département"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2288
+msgid "Update Department"
+msgstr "Mettre à jour le département"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2289
+msgid "Add New Department"
+msgstr "Ajouter un nouveau département"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2290
+msgid "New Department Name"
+msgstr "Nouveau nom de département "
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2385
+msgid "Email Address"
+msgstr "Adresse de courriel"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2449
+msgid "CAPTCHA"
+msgstr "CAPTCHA"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/sola-support-tickets-pro.php:2530
+msgid ""
+"Warning: Please update to the latest Sola Support Tickets Basic version. We "
+"have made many changes in both Sola Support Tickets Basic and Sola Support "
+"Tickets Premium. Both these plugins need to be updated to ensure that no "
+"compatibility issues arise and to ensure that our latest add-on Sola Support "
+"Tickets Customer Satisfaction Surveys is also supported. Please do the "
+"update through your WordPress dashboard, or by logging into your Sola "
+"Plugins account "
+msgstr ""
+"Attention: Veuillez mettre à jour vers la dernière version Basic de Sola "
+"Support Tickets. Nous avons fait beaucoup de changements dans les versions "
+"Basic et Premium de Sola Support Tickets. Ces deux plugins doivent être mis "
+"à jour pour vous assurer qu'aucun problème de compatibilité ne se posent et "
+"pour s'assurer que notre dernier add-on Sola Support Tickets Customer "
+"Satisfaction Surveys est également supporté. Veuillez faire la mise à jour "
+"grâce à votre tableau de bord WordPress, ou en vous connectant à votre "
+"compte Sola Plugins."
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/classes/sola_email_handling.php:24
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/classes/sola_email_handling.php:70
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/classes/sola_email_handling.php:100
+msgid "Email connection error"
+msgstr "Courriel erreur de connexion"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/classes/sola_email_handling.php:26
+msgid "Email Connected Successfully"
+msgstr "Courriel connexion réussi"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:83
+msgid "Agent"
+msgstr "Agent"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/metaboxes.php:229
+msgid "Currently linked files"
+msgstr "Fichiers liés actuellement"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/email.php:139
+msgid "Email response received"
+msgstr "Réponse par courriel reçu"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/email.php:207
+msgid "Your support desk log in details"
+msgstr "Vos informations de connexion au service d'assistance en détails"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/email.php:207
+msgid "Login URL:"
+msgstr "URL de connexion:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/email.php:207
+msgid "Username:"
+msgstr "Nom d'utilisateur:"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/email.php:207
+msgid "Password:"
+msgstr "Mot de passe: "
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:56
+msgid "Search the help desk"
+msgstr "Recherche dans le service d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:57
+msgid "Search"
+msgstr "Rechercher"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:83
+msgid "Latest Product Updates"
+msgstr "Dernières mises à jour du produit"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:109
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:114
+msgid "No updates found"
+msgstr "Aucune mise à jour trouvé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:297
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:302
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:357
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:362
+msgid "No posts found"
+msgstr "Aucun article trouvé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:411
+msgid "Latest Support Tickets"
+msgstr "Derniers tickets d'assistance"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:430
+msgid "solved"
+msgstr "résolu"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:456
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:461
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:533
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:538
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:604
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:609
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:657
+msgid "No topics found"
+msgstr "Aucun sujet trouvé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:491
+msgid "Open tickets"
+msgstr "Ticket ouvert"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:568
+msgid "Closed tickets"
+msgstr "Ticket fermé"
+
+#: /opt/lampp/htdocs/wordpress/wp-content/plugins/sola-support-tickets-pro/modules/shortcodes.php:635
+msgid "Pending tickets"
+msgstr "Ticket en attente"
+
+#~ msgid ""
+#~ "Give a user the ability to upload a file when creating a support ticket."
+#~ msgstr ""
+#~ "Donner à un utilisateur la possibilité de charger un fichier lors de la "
+#~ "création d'un ticket d'assistance."
