@@ -3,12 +3,15 @@
   Plugin Name: Sola Support Tickets
   Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
   Description: Create a support centre within your WordPress admin. No need for third party systems!
-  Version: 3.08
+  Version: 3.09
   Author: SolaPlugins
   Author URI: http://www.solaplugins.com
  */
 
-/* 3.08 2015-05-28 - Low Priority
+/* 3.09 2015-07-22 - Low priority
+ * Added a pending support ticket count to the menu in wp-admin
+ * 
+ * 3.08 2015-05-28 - Low Priority
  * Translations added:
  *  Danish (Thank you Kenneth Wagner)
  * Improvement: Minor UI change (Pro)
@@ -123,7 +126,7 @@ define("SOLA_ST_PLUGIN_NAME", "Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "3.08";
+$sola_st_version = "3.09";
 $sola_st_version_string = "basic";
 
 
@@ -259,6 +262,21 @@ add_action('init', 'sola_st_create_internal_notes', 0);
 
 add_action('wp_ajax_sola_st_save_response', 'sola_st_action_callback');
 add_action('wp_ajax_sola_st_save_note', 'sola_st_action_callback');
+
+add_filter( 'add_menu_classes', 'sola_st_show_pending_number');
+function sola_st_show_pending_number( $menu ) {
+
+    $menu_str = "edit.php?post_type=sola_st_tickets";
+    $pending_count = sola_st_return_pending_ticket_qty();
+
+    // loop through $menu items, find match, add indicator
+    foreach( $menu as $menu_key => $menu_data ) {
+        if( $menu_str != $menu_data[2] )
+            continue;
+        $menu[$menu_key][0] .= " <span class='update-plugins count-$pending_count'><span class='plugin-count'>" . number_format_i18n($pending_count) . '</span></span>';
+    }
+    return $menu;
+}
 
 function sola_st_create_ticket_post_type() {
 
@@ -2028,6 +2046,11 @@ function sola_st_return_open_ticket_qty() {
     );
     $total = $row->total;
     return $total;
+}
+
+function sola_st_return_pending_ticket_qty_menu(){
+    $qty = sola_st_return_pending_ticket_qty();
+    return " <span class=\"update-plugins count-".$qty."\"><span class=\"plugin-count\">$qty</span></span>";
 }
 
 function sola_st_return_pending_ticket_qty() {

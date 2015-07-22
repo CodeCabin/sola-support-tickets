@@ -82,6 +82,9 @@ Not applicable
 
 == Changelog  ==
 
+= 3.09 2015-07-22 - Low priority =
+* Added a pending support ticket count to the menu in wp-admin
+
 = 3.08 2015-05-28 - Low Priority =
 * Translations added:
 *  Danish (Thank you Kenneth Wagner)
