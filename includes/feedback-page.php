@@ -45,6 +45,7 @@ get_currentuserinfo();
                 
             </td>
             <td>
+                <?php wp_nonce_field( 'sola_st_save_admin_settings_basic','sola_st_security' ); ?>
                 <input type='submit' name='sola_st_send_feedback' class='button-primary' value='<?php _e("Send Feedback","sola_st") ?>' />
            </td>
         </tr>

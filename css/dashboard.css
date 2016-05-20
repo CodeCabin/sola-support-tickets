@@ -1,0 +1,245 @@
+a{
+	color: #303E47;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #303E47;
+}
+
+.sola_st_db_container{
+	width: 100%;	
+}
+
+.sola_st_db_inner_container{
+
+
+}
+
+.sola_st_db_column{
+    display: block;
+    background-color: #FFF;
+    margin: 0 5px 10px 0;
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+
+.sola_st_db_left_column{
+    width: 20%;
+    float: left;
+}
+
+.sola_st_db_center_column{
+    width: 75%;
+    float: left;
+    margin-left: 30px;
+    background-color: white;
+    padding: 10px;
+}
+
+.ticket_container{
+	float: left;
+    display: inline-block;
+    background-color: white;
+    padding: 10px;
+}
+
+.sola_st_db_full_column{
+    width: 95%;
+    padding: 15px 22px;
+}
+
+.sola_st_db_controls{
+	margin: 0;
+}
+
+.sola_st_db_controls li{
+	margin-bottom: 0;
+}
+
+.sola_st_db_controls li a{
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+}
+
+.sola_st_db_controls li a span{
+    width: 85%;
+    display: inline-block;
+}
+
+.sola_st_action_panel{
+	text-align: right;
+}
+
+.sola_st_db_ticket_container{
+	width: 100%;
+}
+
+.ticket_title{
+	cursor: pointer;
+}
+
+.ticket_responder_gravatar img{
+    border-radius: 100px;
+}
+
+.ticket_author_image{
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 10px;
+}
+
+.ticket_author_details{
+    display: inline-block;
+    width: 92%;
+    float: right;
+}
+
+.ticket_subject{
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.ticket_author_meta {
+    border-bottom: 1px solid #CCC;
+    padding: 10px 5px;
+    margin: 0 0 10px 0;
+}
+
+.ticket_contents{
+    border: 1px solid #CCC;
+    padding: 10px 15px;
+    border-radius: 5px;    
+}
+
+.ticket_author_meta_note .ticket_contents_response{
+    background-color: rgb(255, 246, 217);
+}
+
+.ticket_author_meta_response .ticket_author, .ticket_author_meta_note .ticket_author{
+	margin-top: 10px;
+}
+
+.ticket_author_meta_response, .ticket_author_meta_note {
+    margin-bottom: 10px;
+}
+
+.ticket_author_label {
+    display: inline-block;
+    background-color: #118E11;
+    color: white;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-size: 0.8em;
+}
+
+.ticket_response_label {
+    display: inline-block;
+    background-color: rgb(255, 246, 217);
+    color: black;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-size: 0.8em;
+}
+
+.ticket_id_label {
+    display: inline-block;
+    background-color: #CE0505;
+    color: white;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-size: 0.8em;
+}
+
+.sola_st_response_textarea {
+    width: 100%;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin: 0 0 10px 0;
+}
+
+.ticket_response_fields .button {
+    margin-bottom: 10px;
+    display: block;
+    margin: 0 15px 10px auto;
+}
+
+.sola_st_ticket_meta_input{
+    width: 100%;
+}
+
+table.sola_st_db_ticket_container {
+    border-collapse: collapse;
+}
+
+.sola_st_db_ticket_container thead tr td, .sola_st_db_ticket_container tbody tr td {
+    padding: 10px 0;
+}
+
+.sola_st_db_ticket_container thead tr, table.sola_st_db_ticket_container tbody tr {
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.sola_st_db_column h4{
+    margin: 0;
+}
+
+.ticket_container{
+    width: 98%;
+}
+
+.sola_st_pro_modern_departments_container{
+    width: 100%;
+    padding: 0px 3px;
+}
+
+.sola_st_department_single {
+    display: block;
+}
+.sola_st_db_before_button {
+    margin: 0 0 15px 0;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+}
+.sola_st_db_before_button .sola_st_upload_button {
+    background-color: #CCC;
+    color: #FFF;
+    padding: 5px;
+    border-radius: 3px;
+}
+.sola_st_db_before_button a {
+    padding: 0 5px;
+}
+
+.sola_st_standard_response, .sola_st_private_note{
+    cursor: pointer;
+}
+
+.sola_st_standard_response{
+    text-decoration: underline;
+}
+
+.sola_st_modern_file_upload_container {
+    width: 60%;
+    display: inline-block;
+}
+
+.sola_st_modern_quick_responses_container {
+    width: 40%;
+    display: inline-block;
+    padding: 0 0 15px 0;
+    text-align: right;
+}
+
+.sola_st_db_single_ticket{
+    cursor: pointer;
+}
+
+.sola_st_modern_ticket_actions{
+    text-align: right;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #E8E8E8;
+}

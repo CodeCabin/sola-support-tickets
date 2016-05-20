@@ -453,9 +453,7 @@ function sola_st_ticket_status_meta_box_callback( $post ) {
 
             	</td>
             	<td>
-            		<?php echo $user_email ?>
-
-
+                    <input type="text" readonly value="<?php echo $user_email ?>" />
             	</td>
             </tr>
         </table>
