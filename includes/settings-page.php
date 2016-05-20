@@ -531,6 +531,15 @@ if (function_exists("sola_st_api_check")) {
                   <input type="checkbox" class='sola-input' name="sola_st_settings_allow_html" value="1" <?php if (isset($sola_st_settings['sola_st_settings_allow_html']) && $sola_st_settings['sola_st_settings_allow_html'] == "1") { echo 'checked="checked"'; } ?> /><?php _e("Allow users to post HTML in support tickets and responses?","sola_st"); ?><br />
                </td>
             </tr>
+
+            <tr>
+                <td width="250">
+                    <label><?php _e("Display Tickets In Legacy View","sola_st"); ?></label>
+                </td>
+               <td>
+                  <input type="checkbox" class='sola-input' name="sola_st_display_legacy_tickets" value="1" <?php if (isset($sola_st_settings['sola_st_display_legacy_tickets']) && $sola_st_settings['sola_st_display_legacy_tickets'] == "1") { echo 'checked="checked"'; } ?> /><?php _e("Change back from the modern support ticket view to the legacy view (Removes Ajax ticket loading)","sola_st"); ?><br />
+               </td>
+            </tr>
           </table>
         <p>&nbsp;</p>
         <p><?php echo __("Need more options?","sola_st"). " <a href='./edit.php?post_type=sola_st_tickets&page=sola-st-menu-feedback-page'>".__("Let us know!","sola_st")."</a> ".__("and we'll add it in!","sola_st"); ?></p>
@@ -707,8 +716,10 @@ if (function_exists("sola_st_api_check")) {
      
       
       
-      
+    </div>  
+    <?php wp_nonce_field( 'sola_st_save_admin_settings_basic','sola_st_security' ); ?>
     <p class='submit' style="margin-left:15px;"><input type='submit' name='sola_st_save_settings' class='button-primary' value='<?php _e("Save Settings","sola_st") ?>' /></p>
+
     </form>
 
     <p style="margin-left:15px;"><?php echo __("Need help?","sola_st"). " <a href='http://solaplugins.com/documentation/sola-support-tickets-documentation/?utm_source=plugin&utm_medium=link&utm_campaign=st_documentation' target='_BLANK'>".__("Read the documentation","sola_st")."</a>"; ?></p>

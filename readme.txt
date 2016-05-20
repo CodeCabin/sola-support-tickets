@@ -1,9 +1,9 @@
 === Sola Support Tickets ===
-Contributors: SolaPlugins, NickDuncan
+Contributors: SolaPlugins, NickDuncan, CodeCabin_, Jarryd Long
 Donate link: http://www.solaplugins.com
 Tags: support ticket, support tickets, support, support plugin, ticket plugin, tickets, helpdesk, help desk, support desk
 Requires at least: 3.5
-Tested up to: 4.2.2
+Tested up to: 4.5
 Stable tag: trunk
 License: GPLv2
 
@@ -52,6 +52,7 @@ Get a free copy of the Sola Support Tickets Premium version in exchange for tran
 * Bengali (Mayeenul Islam)
 * Portuguese - Portugal (Miguel Madeira Rodrigues)
 * Danish (Kenneth Wagner)
+* Turkish (Cahit Cengizhan)
 
 == Installation ==
 
@@ -73,14 +74,49 @@ In the basic version of the plugin, only a "Submit ticket" page is created. Shou
 == Screenshots ==
 
 1. Submit a support ticket
-2. Add a response to a support ticket
-3. Support ticket settings
+2. View your open, solved and pending support tickets
+3. View of a single ticket
+4. Respond to your support ticket
+5. Add an internal note to your support ticket
 
 == Upgrade Notice ==
 
 Not applicable
 
 == Changelog  ==
+
+= 3.16 - 2016-05-13 - Low Priority =
+* Support Tickets menu order fixed
+* Support Tickets menu label changed back to Help Desk
+* Styling improvements to the modern support desk
+* You can now select multiple tickets and delete them
+* You can now search for a ticket in the modern support desk
+
+= 3.15 - 2016-05-11 - Medium Priority =
+* New Ticket Dashboard Introduced
+* Improved File Upload Functionality (Pro)
+
+= 3.14 - 2016-02-03 - Low Priority =
+* Bug Fix: Fixed a bug in the settings page that would affect any form in the admin page to throw an error when submitting
+
+= 3.13 - 2016-02-03 - High Priority =
+* Security Patches:
+*  Checks in place when saving settings and sending feedback (Thank you Justin Greer)
+
+= 3.12 - 2016-01-26 - Low Priority =
+* Limited Promotion Removed
+
+= 3.11 - 2016-01-07 - Low Priority =
+* Limited Promotion
+* Tested on WordPress 4.4
+* Turkish translation included (Thank you Cahit Cengizhan)
+* English language files updated with the latest strings
+* Fixed a styling issue on the settings page
+
+= 3.10 - 2015-09-09 - Low Priority =
+* PHP Notices fixed in the admin panel
+* Aesthetic improvement to a metabox in the single ticket view
+* Bug fixed in mail sending function when a new response is sent
 
 = 3.09 2015-07-22 - Low priority =
 * Added a pending support ticket count to the menu in wp-admin
