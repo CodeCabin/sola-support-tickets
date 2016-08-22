@@ -42,6 +42,8 @@ if (function_exists("sola_st_api_check")) {
           <li><a href="#tabs-1"><?php _e("Main Settings","sola_st") ?></a></li>
           <li><a href="#tabs-2"><?php _e("Email","sola_st") ?></a></li>
           <li><a href="#tabs-3"><?php _e("Agents","sola_st") ?></a></li>
+          <li><a href="#tabs-6"><?php _e("Views","sola_st") ?></a></li>
+          <li><a href="#tabs-channels"><?php _e("Channels","sola_st") ?></a></li>
           <?php if (!function_exists("sola_st_pro_activate")) { ?>
             <li><a href="#tabs-4"><?php _e("Upgrade","sola_st") ?></a></li>
           <?php } ?>
@@ -150,12 +152,12 @@ if (function_exists("sola_st_api_check")) {
                <td>
                    <?php if(function_exists('sola_st_pro_activate')){ ?>
                     <select name="sola_st_settings_default_status" id="sola_st_settings_default_status">
-                        <option value="0" <?php if(isset($sola_st_settings['sola_st_settings_default_status']) && $sola_st_settings['sola_st_settings_default_status'] == '0'){ echo 'selected'; }?>><?php _e("Pending Review","sola_st"); ?></option>
+                        <option value="0" <?php if(isset($sola_st_settings['sola_st_settings_default_status']) && $sola_st_settings['sola_st_settings_default_status'] == '0'){ echo 'selected'; }?>><?php _e("New","sola_st"); ?></option>
                         <option value="1" <?php if(isset($sola_st_settings['sola_st_settings_default_status']) && $sola_st_settings['sola_st_settings_default_status'] == '1'){ echo 'selected'; }?>><?php _e("Open","sola_st"); ?></option>
                     </select>
                    <?php } else { ?>
                         <select name="sola_st_settings_default_status" id="sola_st_settings_default_status" disabled>
-                            <option value="0" ><?php _e("Pending Review","sola_st"); ?></option>
+                            <option value="0" ><?php _e("New","sola_st"); ?></option>
                         </select>
                         <?php
                             $pro_link = '<a href="http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_default_status" target="_BLANK">'.__('Premium Version', 'sola_st').'</a>';
@@ -618,6 +620,14 @@ if (function_exists("sola_st_api_check")) {
           <p><?php echo __("Upgrade to the","sola_st")." <a href='http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/?utm_source=plugin&utm_medium=link&utm_campaign=st_agents' title='Premium Version' target='_BLANK'>".__("Premium version","sola_st")."</a> ". __("of Sola Support Tickets and assign more than one support agent.","sola_st"); ?></p>
           <?php } ?>
       </div>
+      <div id="tabs-channels">
+          <h3><?php _e("Channels",'sola_st'); ?> <?php echo apply_filters("sola_st_filter_view_new_channel_button_control",""); ?></h3>
+          <?php sola_st_channel_html_output(); ?>
+      </div>
+      <div id="tabs-6">
+          <h3><?php _e("Views",'sola_st'); ?> <?php echo apply_filters("sola_st_filter_view_new_view_button_control",""); ?></h3>
+          <?php sola_st_views_html_output(); ?>
+      </div>
       <?php if (!function_exists("sola_st_pro_activate")) { ?>
       <div id="tabs-4">
           <center>
@@ -669,21 +679,21 @@ if (function_exists("sola_st_api_check")) {
 					}
 					
 					
-					$out.='<input type="text" name="sola_st_css_text_for_stars_rating" id="sola_st_css_text_for_stars_rating" value="'.$value_stars_rating_text.'" class="sola-input"/>';
+					$out.='<input type="text" name="sola_st_css_text_for_stars_rating" id="sola_st_css_text_for_stars_rating" value="'.$value_stars_rating_text.'" class="sola-input" />';
 					
 					
-					$out.='<br/><br/>';
+					$out.='<br /><br />';
 					if(isset($sola_st_settings['enable_sending_of_customer_satisfaction_surveys'])&&$sola_st_settings['enable_sending_of_customer_satisfaction_surveys']==='true')
 					{
-						$out.='<input type="checkbox" name="sola_st_css_enable_customer_satisfaction_surveys_sending" id="sola_st_css_enable_customer_satisfaction_surveys_sending" value="enable" checked="checked"/> ';
+						$out.='<input type="checkbox" name="sola_st_css_enable_customer_satisfaction_surveys_sending" id="sola_st_css_enable_customer_satisfaction_surveys_sending" value="enable" checked="checked" /> ';
 						
 					}
 					else
 					{
-						$out.='<input type="checkbox" name="sola_st_css_enable_customer_satisfaction_surveys_sending" id="sola_st_css_enable_customer_satisfaction_surveys_sending" value="enable"/>';		
+						$out.='<input type="checkbox" name="sola_st_css_enable_customer_satisfaction_surveys_sending" id="sola_st_css_enable_customer_satisfaction_surveys_sending" value="enable" />';		
 					}
 					
-					$out.=' <label for="sola_st_css_enable_customer_satisfaction_surveys_sending">'.__('Enable the sending of customer satisfaction surveys','sola_st').' </label> <br/>';
+					$out.=' <label for="sola_st_css_enable_customer_satisfaction_surveys_sending">'.__('Enable the sending of customer satisfaction surveys','sola_st').' </label> <br />';
 					$out.='('.__('A listing of all surveys you have created will be sent in the e-mail that is delivered to the user who closed the ticket','sola_st').')';
 					
 					
@@ -718,10 +728,10 @@ if (function_exists("sola_st_api_check")) {
       
     </div>  
     <?php wp_nonce_field( 'sola_st_save_admin_settings_basic','sola_st_security' ); ?>
-    <p class='submit' style="margin-left:15px;"><input type='submit' name='sola_st_save_settings' class='button-primary' value='<?php _e("Save Settings","sola_st") ?>' /></p>
+        <p class='submit' style="margin-left:15px;"><input type='submit' name='sola_st_save_settings' class='button-primary' value='<?php _e("Save Settings","sola_st") ?>' /></p>
 
     </form>
 
     <p style="margin-left:15px;"><?php echo __("Need help?","sola_st"). " <a href='http://solaplugins.com/documentation/sola-support-tickets-documentation/?utm_source=plugin&utm_medium=link&utm_campaign=st_documentation' target='_BLANK'>".__("Read the documentation","sola_st")."</a>"; ?></p>
-    </div>
+
 <?php include 'footer.php'; ?>
