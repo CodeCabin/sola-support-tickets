@@ -35,3 +35,8 @@ body div.sola_st_email_settings_seperator{
 	max-width: 100%;
 }
 
+.sola_st_table_action {
+    min-width:100px;
+    max-width:100px;
+    width:100px;
+}

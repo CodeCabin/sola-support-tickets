@@ -3,7 +3,7 @@
 <div class="footer" style="padding:15px 7px;">
     <div id=foot-contents>
         <div class="support">
-            <em><?php _e("Sola Support Tickets is still in BETA. If you find any errors or if you have any suggestions","sola_st");?>, <a href="http://solaplugins.com/support-desk/" target="_BLANK"><?php _e("please get in touch with us","sola_st"); ?></a>.</em>
+            <em><?php _e("If you find any errors or if you have any suggestions","sola_st");?>, <a href="http://solaplugins.com/support-desk/" target="_BLANK"><?php _e("please get in touch with us","sola_st"); ?></a>.</em>
             
             <?php if (function_exists("sola_st_pro_activate")) { global $sola_st_pro_version; global $sola_st_pro_version_string; ?>
             

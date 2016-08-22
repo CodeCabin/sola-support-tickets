@@ -1,6 +1,7 @@
 <?php
 global $current_user;
-get_currentuserinfo();
+//get_currentuserinfo();
+$current_user = wp_get_current_user();
 ?><div class="wrap">
    
     
