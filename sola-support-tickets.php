@@ -1,23 +1,19 @@
 <?php
 /*
-  Plugin Name: Sola Support - Help Desk & Ticket System
+  Plugin Name: Sola Support Tickets
   Plugin URI: http://solaplugins.com/plugins/sola-support-tickets-helpdesk-plugin/
   Description: Create a support centre within your WordPress admin. No need for third party systems!
-  Version: 4.00
+  Version: 3.16
   Author: SolaPlugins
   Author URI: http://www.solaplugins.com
  */
 
-/* 
- * 4.00 - 2016-08-05 - Medium priority
- * Added "Views" which will become the default functionality for the ticket dashboard control moving forward
- * You have the ability to create 2 additional ticket views over and above the default views
- * Responses are now displayed in descending order (by date)
- * Refactored code
- * UI improvements in the ticket view
- * Added pagination to the modern ticket list
- * Added helper classess for critical, urgent, high and low priority items
- * Added functionality to change the URI of the page so that specific tickets can be shared via links
+/* 3.17 
+ * Support tickets are now ordered by last responded time by default
+ * Slashes are now stripped from tickets and responses
+ * A tickets status will now change to Open when responding by default
+ * The ticket authors email address is now visible in the ticket view
+ 
  * 
  * 3.16 - 2016-05-13 - Low Priority
  * Support Tickets menu order fixed
@@ -170,14 +166,12 @@ define("SOLA_ST_PLUGIN_NAME", "Sola Support Tickets");
 
 global $sola_st_version;
 global $sola_st_version_string;
-$sola_st_version = "4.00";
+$sola_st_version = "3.15";
 $sola_st_version_string = "basic";
 
 
 
 include_once "modules/metaboxes.php";
-include_once "modules/views.php";
-include_once "modules/channels.php";
 
 global $wpdb;
 
@@ -257,44 +251,44 @@ function sola_st_init() {
     /* check if options are correct */
     $sola_st_settings = get_option("sola_st_settings");
 
-    if (!isset($sola_st_settings['sola_st_settings_default_priority'])) { $sola_st_settings['sola_st_settings_default_priority'] = 1; }
-    if (!isset($sola_st_settings['sola_st_settings_allow_priority'])) { $sola_st_settings['sola_st_settings_allow_priority'] = 0; }
-    if (!isset($sola_st_settings['sola_st_settings_notify_new_tickets'])) { $sola_st_settings['sola_st_settings_notify_new_tickets'] = 0; }
-    if (!isset($sola_st_settings['sola_st_settings_notify_new_responses'])) { $sola_st_settings['sola_st_settings_notify_new_responses'] = 0; }
-    if (!isset($sola_st_settings['sola_st_settings_allow_html'])) { $sola_st_settings['sola_st_settings_allow_html'] = 0; }
-    if (!isset($sola_st_settings['sola_st_settings_thank_you_text'])) {
-        $sola_st_settings['sola_st_settings_thank_you_text'] = __("<p>Thank you for submitting your support ticket. One of our agents will respond as soon as possible.</p>".
-                            "{ticket_content}".
-                            "{login_details}".
-                            "<p>To view this ticket, please follow this link: {ticket_link}</p>", "sola_st");
+    if (!isset($sola_st_settings['sola_st_settings_default_priority'])) {
+        $sola_st_settings['sola_st_settings_default_priority'] = 1;
     }
-    if (!isset($sola_st_settings['sola_st_settings_notify_agent_change'])) { $sola_st_settings['sola_st_settings_notify_agent_change'] = 0; }
-    if (!isset($sola_st_settings['sola_st_settings_notify_status_change'])) { $sola_st_settings['sola_st_settings_notify_status_change'] = 0; }
+    if (!isset($sola_st_settings['sola_st_settings_allow_priority'])) {
+        $sola_st_settings['sola_st_settings_allow_priority'] = 0;
+    }
+    if (!isset($sola_st_settings['sola_st_settings_notify_new_tickets'])) {
+        $sola_st_settings['sola_st_settings_notify_new_tickets'] = 0;
+    }
+    if (!isset($sola_st_settings['sola_st_settings_notify_new_responses'])) {
+        $sola_st_settings['sola_st_settings_notify_new_responses'] = 0;
+    }
+    if (!isset($sola_st_settings['sola_st_settings_allow_html'])) {
+        $sola_st_settings['sola_st_settings_allow_html'] = 0;
+    }
+    if (!isset($sola_st_settings['sola_st_settings_thank_you_text'])) {
+        $sola_st_settings['sola_st_settings_thank_you_text'] = __("Thank you for submitting your support ticket. One of our agents will respond as soon as possible.", "sola_st");
+    }
+    if (!isset($sola_st_settings['sola_st_settings_notify_agent_change'])) {
+        $sola_st_settings['sola_st_settings_notify_agent_change'] = 0;
+    }
+    if (!isset($sola_st_settings['sola_st_settings_notify_status_change'])) {
+        $sola_st_settings['sola_st_settings_notify_status_change'] = 0;
+    }
 
 
-    
+
+
+
+    update_option("sola_st_settings", $sola_st_settings);
     /* version control */
     global $sola_st_version;
     if (floatval($sola_st_version) > floatval(get_option("sola_st_current_version"))) {
         /* new version update functionality here */
 
-        if (!get_option("sola_st_views")) {
-            sola_st_set_default_views();
-        }
-
-        if (floatval(get_option("sola_st_current_version")) < 4) {
-            /* set the thank you text to the new default if updating from an older version */
-            $sola_st_settings['sola_st_settings_thank_you_text'] = __("<p>Thank you for submitting your support ticket. One of our agents will respond as soon as possible.</p>".
-                            "{ticket_content}".
-                            "{login_details}".
-                            "<p>To view this ticket, please follow this link: {ticket_link}</p>", "sola_st");
-        }
-
         update_option("sola_st_current_version", $sola_st_version);
     }
 	
-
-    update_option("sola_st_settings", $sola_st_settings);
 	
 	sola_st_warn_update_pro();
 	
@@ -462,11 +456,6 @@ function sola_st_create_internal_notes() {
 }
 
 function sola_st_activate() {
-
-    if (!get_option("sola_st_views")) {
-        sola_st_set_default_views();
-    }
-
     //sola_st_handle_db();
     if (!get_option("sola_st_email_to_ticket")) {
         add_option("sola_st_email_to_ticket", "0");
@@ -522,7 +511,9 @@ function sola_st_admin_menu() {
         add_submenu_page('edit.php?post_type=sola_st_tickets', __('Log', 'sola'), __('System Log', 'sola_st'), 'manage_options', 'sola-st-menu-error-log', 'sola_st_admin_error_log_layout');
     } else {
         remove_menu_page('edit.php?post_type=sola_st_tickets');
-        add_menu_page( __('Help Desk', 'sola_st'), __('Help Desk', 'sola_st'), 'manage_options', 'support-tickets', 'sola_st_modern_dashboard', 'dashicons-businessman', 51);
+        if( current_user_can( 'edit_sola_st_tickets' ) || current_user_can( 'manage_options' ) ){
+            add_menu_page( __('Help Desk', 'sola_st'), __('Help Desk', 'sola_st'), 'manage_options', 'support-tickets', 'sola_st_modern_dashboard', 'dashicons-businessman', 51);
+        }
         add_submenu_page('support-tickets', __('Responses', 'sola_st'), __('Responses', 'sola_st'), 'manage_options', 'edit.php?post_type=sola_st_responses');
         add_submenu_page('support-tickets', __('Settings', 'sola_st'), __('Settings', 'sola_st'), 'manage_options', 'sola-st-settings', 'sola_st_settings_page');
         add_submenu_page('support-tickets', __('Feedback', 'sola'), __('Feedback', 'sola_st'), 'manage_options', 'sola-st-menu-feedback-page', 'sola_st_admin_feedback_layout');
@@ -533,10 +524,9 @@ function sola_st_admin_menu() {
 function sola_st_settings_page() {
     if (isset($_GET['page']) && $_GET['page'] == "sola-st-settings" && isset($_GET['action']) && $_GET['action'] == "welcome_page") {
         include('includes/welcome-page.php');
-    } else if (isset($_GET['page']) && $_GET['page'] == "sola-st-settings" && !isset($_GET['action'])) {
+    } else {
         include('includes/settings-page.php');
     }
-    do_action("sola_st_settings_page_header_control");
 }
 
 function sola_st_admin_error_log_layout() {
@@ -551,7 +541,6 @@ add_action('admin_print_scripts', 'sola_st_admin_scripts_basic');
 
 function sola_st_admin_scripts_basic() {
     wp_enqueue_script('jquery');
-    wp_enqueue_script('jquery-ui-tabs');
 
     if (isset($_GET['page']) && $_GET['page'] == "sola-st-settings") {
         wp_enqueue_script('jquery-ui-core');
@@ -634,7 +623,6 @@ function sola_st_wp_head() {
 
 
 
-
         if (isset($_POST['sola_st_save_settings'])) {
 
             if ( ! empty( $_POST ) && check_admin_referer( 'sola_st_save_admin_settings_basic', 'sola_st_security' ) && current_user_can( 'manage_options' ) ) {
@@ -645,26 +633,109 @@ function sola_st_wp_head() {
         		
                 $sola_st_settings = array();
 
-                if (isset($_POST['sola_st_settings_notify_new_tickets'])) { $sola_st_settings['sola_st_settings_notify_new_tickets'] = esc_attr($_POST['sola_st_settings_notify_new_tickets']); } else { $sola_st_settings['sola_st_settings_notify_new_tickets'] = 0; }
-                if (isset($_POST['sola_st_settings_notify_new_responses'])) { $sola_st_settings['sola_st_settings_notify_new_responses'] = esc_attr($_POST['sola_st_settings_notify_new_responses']); } else { $sola_st_settings['sola_st_settings_notify_new_responses'] = 0; }
-                if (isset($_POST['sola_st_settings_allow_html'])) { $sola_st_settings['sola_st_settings_allow_html'] = esc_attr($_POST['sola_st_settings_allow_html']); } else { $sola_st_settings['sola_st_settings_allow_html'] = 0; }
-                if (isset($_POST['sola_st_settings_thank_you_text'])) { $sola_st_settings['sola_st_settings_thank_you_text'] = esc_attr($_POST['sola_st_settings_thank_you_text']); } else { $sola_st_settings['sola_st_settings_thank_you_text'] = __('Thank you for submitting your support ticket. One of our agents will respond as soon as possible.', 'sola_st'); }
-                if (isset($_POST['sola_st_settings_allow_priority'])) { $sola_st_settings['sola_st_settings_allow_priority'] = esc_attr($_POST['sola_st_settings_allow_priority']); } else { $sola_st_settings['sola_st_settings_allow_priority'] = 0; }
+                if (isset($_POST['sola_st_settings_notify_new_tickets'])) {
+                    $sola_st_settings['sola_st_settings_notify_new_tickets'] = esc_attr($_POST['sola_st_settings_notify_new_tickets']);
+                } else {
+                    $sola_st_settings['sola_st_settings_notify_new_tickets'] = 0;
+                }
+                if (isset($_POST['sola_st_settings_notify_new_responses'])) {
+                    $sola_st_settings['sola_st_settings_notify_new_responses'] = esc_attr($_POST['sola_st_settings_notify_new_responses']);
+                } else {
+                    $sola_st_settings['sola_st_settings_notify_new_responses'] = 0;
+                }
+                if (isset($_POST['sola_st_settings_allow_html'])) {
+                    $sola_st_settings['sola_st_settings_allow_html'] = esc_attr($_POST['sola_st_settings_allow_html']);
+                } else {
+                    $sola_st_settings['sola_st_settings_allow_html'] = 0;
+                }
+                if (isset($_POST['sola_st_settings_thank_you_text'])) {
+                    $sola_st_settings['sola_st_settings_thank_you_text'] = esc_attr($_POST['sola_st_settings_thank_you_text']);
+                } else {
+                    $sola_st_settings['sola_st_settings_thank_you_text'] = __('Thank you for submitting your support ticket. One of our agents will respond as soon as possible.', 'sola_st');
+                }
+                if (isset($_POST['sola_st_settings_allow_priority'])) {
+                    $sola_st_settings['sola_st_settings_allow_priority'] = esc_attr($_POST['sola_st_settings_allow_priority']);
+                } else {
+                    $sola_st_settings['sola_st_settings_allow_priority'] = 0;
+                }
                 
-                if (isset($_POST['sola_st_settings_default_priority'])) { $sola_st_settings['sola_st_settings_default_priority'] = $_POST['sola_st_settings_default_priority']; } else { $sola_st_settings['sola_st_settings_default_priority'] = 0; }
+                if (isset($_POST['sola_st_settings_default_priority'])) 
+                {
+                    $sola_st_settings['sola_st_settings_default_priority'] = $_POST['sola_st_settings_default_priority'];
+                } 
+                else 
+                {
+                    $sola_st_settings['sola_st_settings_default_priority'] = 0;
+                }
         		
-                if (isset($_POST['sola_st_settings_notify_status_change'])) { $sola_st_settings['sola_st_settings_notify_status_change'] = esc_attr($_POST['sola_st_settings_notify_status_change']); } else { $sola_st_settings['sola_st_settings_notify_status_change'] = 0; }
+                if (isset($_POST['sola_st_settings_notify_status_change'])) {
+                    $sola_st_settings['sola_st_settings_notify_status_change'] = esc_attr($_POST['sola_st_settings_notify_status_change']);
+                } else {
+                    $sola_st_settings['sola_st_settings_notify_status_change'] = 0;
+                }
 
-                if (isset($_POST['cb_settings_enable_file_uploads'])) { $sola_st_settings['enable_file_uploads'] = 1; } else { $sola_st_settings['enable_file_uploads'] = 0; }
-                if (isset($_POST['sola_st_display_legacy_tickets'])) { $sola_st_settings['sola_st_display_legacy_tickets'] = 1; } else { $sola_st_settings['sola_st_display_legacy_tickets'] = 0; }
+                if(isset($_POST['cb_settings_enable_file_uploads']))
+                {
+                    //true;
+                    $sola_st_settings['enable_file_uploads']=1;
+                }
+                else
+                {
+                    //false
+                    $sola_st_settings['enable_file_uploads']=0;
+                }
+        		
+                if (isset($_POST['sola_st_display_legacy_tickets'])) {
+                    $sola_st_settings['sola_st_display_legacy_tickets'] = 1;
+                } else {
+                    $sola_st_settings['sola_st_display_legacy_tickets'] = 0;
+                }
+        		
+        		if(isset($_REQUEST['rb_sola_mailing_system_selection']))
+        		{
+        			$rb_sola_mailing_system_selection=$_REQUEST['rb_sola_mailing_system_selection'];
+        			if($rb_sola_mailing_system_selection==='smtp')
+        			{
+        				if(isset($_REQUEST['sola_st_smtp_host_setting_php_mailer'])&&isset($_REQUEST['sola_st_smtp_username_setting_php_mailer'])&&isset($_REQUEST['sola_st_smtp_password_setting_php_mailer'])&&isset($_REQUEST['sola_st_smtp_port_setting_php_mailer'])&&isset($_REQUEST['sola_st_smtp_encryption_setting_php_mailer']))
+        				{
+        					$sola_st_settings['sola_st_smtp_host_setting_php_mailer'] = $_REQUEST['sola_st_smtp_host_setting_php_mailer'];
+        					$sola_st_settings['sola_st_smtp_username_setting_php_mailer'] = $_REQUEST['sola_st_smtp_username_setting_php_mailer'];
+        					$sola_st_settings['sola_st_smtp_password_setting_php_mailer'] = $_REQUEST['sola_st_smtp_password_setting_php_mailer'];
+        					$sola_st_settings['sola_st_smtp_port_setting_php_mailer'] = $_REQUEST['sola_st_smtp_port_setting_php_mailer'];
+        					$sola_st_settings['sola_st_smtp_encryption_setting_php_mailer'] = $_REQUEST['sola_st_smtp_encryption_setting_php_mailer'];
+        					$sola_st_settings['rb_sola_mailing_system_selection']='smtp';
+        				}
+        				else
+        				{
+        					$sola_st_settings['rb_sola_mailing_system_selection']='wp_mail';	
+        				}
+        			}
+        			else
+        			{
+        				$sola_st_settings['rb_sola_mailing_system_selection']='wp_mail';	
+        			}
+        		}
+        		else
+        		{
+        			$sola_st_settings['rb_sola_mailing_system_selection']='wp_mail';	
+        		}	
 
-                if (isset($_POST['rb_sola_mailing_system_selection'])) { $sola_st_settings['rb_sola_mailing_system_selection'] = $_POST['rb_sola_mailing_system_selection']; }
-                if (isset($_POST['sola_st_smtp_host_setting_php_mailer'])) { $sola_st_settings['sola_st_smtp_host_setting_php_mailer'] = $_POST['sola_st_smtp_host_setting_php_mailer']; }
-                if (isset($_POST['sola_st_smtp_username_setting_php_mailer'])) { $sola_st_settings['sola_st_smtp_username_setting_php_mailer'] = $_POST['sola_st_smtp_username_setting_php_mailer']; }
-                if (isset($_POST['sola_st_smtp_password_setting_php_mailer'])) { $sola_st_settings['sola_st_smtp_password_setting_php_mailer'] = $_POST['sola_st_smtp_password_setting_php_mailer']; }
-                if (isset($_POST['sola_st_smtp_port_setting_php_mailer'])) { $sola_st_settings['sola_st_smtp_port_setting_php_mailer'] = $_POST['sola_st_smtp_port_setting_php_mailer']; }
-                if (isset($_POST['sola_st_smtp_encryption_setting_php_mailer'])) { $sola_st_settings['sola_st_smtp_encryption_setting_php_mailer'] = $_POST['sola_st_smtp_encryption_setting_php_mailer']; }
 
+        		
+        		if(isset($data['sola_st_automated_emails_from_name']))
+        		{
+        			$sola_st_settings['sola_st_automated_emails_from_name']=$data['sola_st_automated_emails_from_name'];
+        		}
+        		
+        		if(isset($data['sola_st_mailbox_cron_frequency']))
+        		{
+        			$sola_st_settings['sola_st_mailbox_cron_frequency']=$data['sola_st_mailbox_cron_frequency'];
+        		}
+        		
+        		if(isset($data['sola_st_automated_emails_from']))
+        		{
+        			$sola_st_settings['sola_st_automated_emails_from']=$data['sola_st_automated_emails_from'];
+        		}
 
 
 
@@ -737,23 +808,6 @@ function sola_st_return_error_log() {
 function sola_st_return_error($data) {
     echo "<div id=\"message\" class=\"error\"><p><strong>" . $data->get_error_message() . "</strong><blockquote>" . $data->get_error_data() . "</blockquote></p></div>";
     sola_st_write_to_error_log($data);
-}
-
-
-function sola_st_write_to_mail_log($data) {
-    $upload_dir = wp_upload_dir();
-    if (sola_st_error_directory()) {
-        if (is_multisite()) {
-            $content = "\r\n" . date("Y-m-d H:i:s", current_time('timestamp')) . ": " . $data;
-            $fp = fopen($upload_dir['basedir'] . '/sola' . "/sola_st_mail_log.txt", "a+");
-            fwrite($fp, $content);
-        } else {
-            $content = "\r\n" . date("Y-m-d H:i:s", current_time('timestamp')) . ": " . $data;
-            $fp = fopen(ABSPATH . 'wp-content/uploads/sola' . "/sola_st_mail_log.txt", "a+");
-            fwrite($fp, $content);
-        }
-    }
-
 }
 
 function sola_st_write_to_error_log($data) {
@@ -934,7 +988,7 @@ function sola_st_action_callback() {
             $post_id = wp_insert_post($data);
 
             update_post_meta($post_id, '_response_parent_id', $parent_id);
-            sola_st_notification_control('response', $parent_id, get_current_user_id(),false,false,$content,$post_id);
+            sola_st_notification_control('response', $parent_id, get_current_user_id(),false,false,$content);
             
         } else if ($_POST['action'] == "sola_st_save_note") {
             if (!isset($_POST['parent'])) {
@@ -992,11 +1046,13 @@ function sola_st_check_for_html($content) {
 
 
 
-function sola_st_notification_control($type, $post_id, $userid, $email = false, $password = false,$response_text='',$channel = false,$response_id = false) {
+function sola_st_notification_control($type, $post_id, $userid, $email = false, $password = false,$response_text='') {
     
 	global $wpdb;
     $sola_st_settings = get_option("sola_st_settings");
     
+    
+
 
     $post_data=get_post( $post_id, ARRAY_A);
     $ticket_content=$post_data['post_content'];
@@ -1026,8 +1082,8 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
         /* response */
         if ($sola_st_settings['sola_st_settings_notify_new_responses'] == "1") {
             /* get user who the post is assigned to */
-            $assigned_ID = get_post_meta($post_id,"ticket_assigned_to",true);
-            $user_details = get_user_by('id', intval($assigned_ID));
+            $meta_data = get_post_custom_values('ticket_assigned_to', $post_id);
+            $user_details = get_user_by('id', $meta_data[0]);
 
             /* first figure out who sent the response */
 
@@ -1035,18 +1091,15 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
 
             $post_user = $post_data->post_author;
 
+
+
             /* get a list of everyone involved in this ticket */
             $meta_data = sola_st_get_post_meta_all($post_id);
             $notification_array = array();
             $notification_array[$post_user] = get_userdata($post_user)->user_email;
             
-
-            /* get the email address of who this ticket is assigned to and add it to the notification array. */
-            if ($user_details) {
-                $assigned_to_email = $user_details->user_email;
-                $notification_array[$assigned_ID] = $assigned_to_email;
-            }
-
+            
+            
             foreach ($meta_data as $response) {
                 $response_data = get_post($response->post_id);
                 $response_user = $response_data->post_author;
@@ -1056,51 +1109,38 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
                     $notification_array[$response_user] = get_userdata($response_user)->user_email;
                 }
             }
-
-
-            $email_of_person_sending_the_response = get_userdata($userid)->user_email;
-
              
             
             
             
             $notification_array = array_unique($notification_array);
-            $ticket_reference = get_post_meta($post_id,"ticket_reference",true);
-            foreach ($notification_array as $email_item) {
-                if($email_item!==$email_of_person_sending_the_response) {
 
 
-					if(isset($response_text) && $response_text!=="") {
+            foreach ($notification_array as $email_item) 
+            {
+                
+                if($email_item!==get_userdata($response_user)->user_email)
+                {
+                	
+					if(isset($response_text)&&$response_text!=="")
+					{
 						$message_text= __("There is a new response to the support ticket titled", "sola_st") ." <br/><br/> ". $post_data->post_title . " <br/><br/> ".__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ".__("Response text","sola_st").": <br/><br/> ".$response_text." <br/><br/> ". __("Follow this link to view the reply", "sola_st") . " " . get_permalink($post_id);
 					}
-					else {
+					else 
+					{
 						$message_text= __("There is a new response to the support ticket titled", "sola_st") ." <br/><br/> ". $post_data->post_title . " <br/><br/> ".__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ". __("Follow this link to view the reply", "sola_st") . " " . get_permalink($post_id);
 					}
-
-
-                    /* check if we originally got this via an email, if yes, then we need to respond directly to this mail */
-                    $messageid = get_post_meta($post_id, '_ticket_reference_receipt_id', true);
-                    if ($messageid) {
-                        if (function_exists("sola_st_pro_send_response_notification")) {
-                            return sola_st_pro_send_response_notification($email_item,$response_id,$post_data,$messageid,$response_text,$ticket_reference,$channel);
-                        } else {
-                            if(function_exists('send_automated_emails')) {
-                                return send_automated_emails($email_item,  __("New response", "sola_st") . " (" . $post_data->post_title . ")", $message_text,false,$messageid,$channel,$response_id);   
-                            }
-                        }
-                    } else {
-                        if(function_exists('send_automated_emails')) {
-                            return send_automated_emails($email_item,  __("New response", "sola_st") . " (" . $post_data->post_title . ")", $message_text,false,$messageid,$channel,$response_id);   
-                            
-                        }
-                    }
 					
+					
+					if(function_exists('send_automated_emails'))
+					{
+						send_automated_emails($email_item,  __("New response", "sola_st") . " (" . $post_data->post_title . ")", $message_text);	
+					}
 					
                 }
                 
                 
             }
-            
         }
     } else if ($type == 'ticket') {
 
@@ -1109,7 +1149,8 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
         extract($_POST);
 
         /* send an email to the owner of the ticket */
-        if(is_object(get_userdata($userid))) {
+        if(is_object(get_userdata($userid)))
+        {
             $user_email = get_userdata($userid)->user_email;
         }
 
@@ -1141,60 +1182,52 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
 			$headers_array['from']['address']=$admin_address;
 			$headers_array['reply_to']['name']=get_bloginfo('name');
 			$headers_array['reply_to']['address']=$admin_address;
+			
 
 
+            $additional_response = $sola_st_settings['sola_st_settings_thank_you_text'];
 
-            $email_body = $sola_st_settings['sola_st_settings_thank_you_text'];
-            
-            $email_body = html_entity_decode(sola_st_internal_tags($email_body,$post_id));
-            
-
-
-
-            if ($email && $password) {
+            if ($email && $password) 
+            {
                 $username = str_replace('+', '', $email);
-                /* add the log in details section to the thank you text */
-				$email_body = html_entity_decode(sola_st_build_login_details_content($email_body,$post_id,$username,$password));
+				
+				if(function_exists('send_automated_emails'))
+				{
+					send_automated_emails($user_email, $post->post_title . " [$ticket_reference]", $additional_response . "<br/><br/>" .
+                  		__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ".
+                        __("Please use the following credentials to access and respond to your ticket: ", "sola_st") . " <br/><br/> " .
+                        __("Username: ", "sola_st") . $username . "<br/><br/>" .
+                        __("Password: ", "sola_st") . $password . "<br/><br/>" .
+                        __("To login, please follow this link: ", "sola_st") . wp_login_url(get_permalink($post_id)) . "<br/><br/>" .
+                        __("To view your ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id) . "<br/><br/>",$headers_array);
+					
+				}
             } 
-            else {
-                /* remove the {login_details} shortcode if it is still there... */
-                $email_body = str_replace("{login_details}","",$email_body);
-                
-
+            else 
+            {
+            	if(function_exists('send_automated_emails'))
+				{
+					send_automated_emails($user_email, $post->post_title . " [$ticket_reference]", $additional_response . " <br/><br/> ".__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> " . __("To access your ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id),$headers_array);	
+				}
             }
-
-            if(function_exists('send_automated_emails')) {
-                /* notify the ticket owner of us receiving his ticket */
-                $email_body = apply_filters("sola_st_email_body_user_ticket",$email_body);
-                $email_body = html_entity_decode(apply_filters("sola_st_email_body_ticket_reference",$email_body,$ticket_reference));
-
-
-
-                /* did this come from an email? if yes, get the email ID and respond to it directly. */
-                $messageid = get_post_meta($post_id, '_ticket_reference_receipt_id', true);
-
-                $checker = send_automated_emails($user_email,$post->post_title, $email_body,$headers_array,$messageid,$channel,$post_id); 
-                
-            }
-
-
-
         }
 
         if (isset($sola_st_settings['sola_st_settings_notify_all_agents']) && $sola_st_settings['sola_st_settings_notify_all_agents'] == "1") {
             /* Notify all agents function must go here */
             if (function_exists('sola_st_pro_activate')) {
-                sola_st_notify_all_agents($post_id,$channel);
+                sola_st_notify_all_agents($post_id);
             }
         } else {
             /* send an email to the auto assigned support member */
             if (isset($sola_st_settings['sola_st_settings_notify_new_tickets']) && $sola_st_settings['sola_st_settings_notify_new_tickets'] == "1") {
                 $meta_data = get_post_custom_values('ticket_assigned_to', $post_id);
                 $user_details = get_user_by('id', $meta_data[0]);
-                
-                if (isset($user_details->user_email)) {
-					if(function_exists('send_automated_emails')) {
-						send_automated_emails($user_details->user_email, __("New support ticket:" ,"sola_st") . " " . $post->post_title . " <br/><br/> ".__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ", __("A new support ticket has been received. To access this ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id),null,false,$channel,$post_id);
+                $user_email = $user_details->user_email;
+                if (isset($user_email)) 
+                {
+					if(function_exists('send_automated_emails'))
+					{
+						send_automated_emails($user_email, __("New support ticket:" ,"sola_st") . " " . $post->post_title . " <br/><br/> ".__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ", __("A new support ticket has been received. To access this ticket, please follow this link:", "sola_st") . " " . get_permalink($post_id));
 						
 					}
                 	
@@ -1211,7 +1244,7 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
 			
 			if(function_exists('send_automated_emails'))
 			{
-				send_automated_emails($user_email, __("New Ticket Assigned", "sola_st") . " (" . $post_data->post_title . ")", __("A new ticket has been assigned to you. ", "sola_st") . " \"" . $post_data->post_title . "\" <br/><br/> ".__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ". __("Follow this link to view the ticket", "sola_st") . " " . get_page_link($post_id),null,false,$channel,$post_id);	
+				send_automated_emails($user_email, __("New Ticket Assigned", "sola_st") . " (" . $post_data->post_title . ")", __("A new ticket has been assigned to you. ", "sola_st") . " \"" . $post_data->post_title . "\" <br/><br/> ".__("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ". __("Follow this link to view the ticket", "sola_st") . " " . get_page_link($post_id));	
 			}
 			            
        }
@@ -1231,14 +1264,8 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
                 /* Solved */
                 $stat = __('Solved', 'sola_st');
             } else if ($post_status == 9) {
-                /* New */
-                $stat = __('New', 'sola_st');
-            } else if ($post_status == 2) {
-                /* Closed */
-                $stat = __('Closed', 'sola_st');
-            } else if ($post_status == 3) {
                 /* Pending */
-                $stat = __('Pending', 'sola_st');
+                $stat = __('Pending Approval', 'sola_st');
             } else {
                 /* Unknown */
                 $stat = __('Unknown', 'sola_st');
@@ -1247,17 +1274,14 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
             $user_details = get_user_by('id', $userid);
             $user_email = $user_details->user_email;
 
-            $channel = get_post_meta($post_id,"ticket_channel_id",true);
-
 			if(function_exists('send_automated_emails'))
 			{
-                $body =     __("Your Support Ticket ", "sola_st") . " *" .
-                            $post_data->post_title . "* ".__("has been marked as ","sola_st").$stat." <br/><br/> " .
-                            __("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ".
-                            __("Follow this link to view the ticket", "sola_st") . " " .
-                            get_page_link($post_id);
-
-				send_automated_emails($user_email, __("Support Ticket Status Changed", "sola_st") . " (" . $post_data->post_title . ")", $body,"",false,false,$channel,$post_id);
+				send_automated_emails($user_email, __("Support Ticket Status Changed", "sola_st") . " (" . $post_data->post_title . ")",
+                    __("Your Support Ticket ", "sola_st") . " \"" .
+                    $post_data->post_title . " ".__("has been marked as $stat")."\" <br/><br/> " .
+                      __("Ticket content","sola_st").": <br/><br/> ".$ticket_content." <br/><br/> ".
+                    __("Follow this link to view the ticket", "sola_st") . " " .
+                    get_page_link($post_id));
 			}
 			
         }
@@ -1310,7 +1334,7 @@ function sola_st_notification_control($type, $post_id, $userid, $email = false, 
 
                     if(function_exists('send_automated_emails'))
                     {
-                        send_automated_emails($user_email, __('Customer satisfaction survey','sola_st'), $survey_listing,$post_id);
+                        send_automated_emails($user_email, __('Customer satisfaction survey','sola_st'), $survey_listing);
                     }
                 }
             }
@@ -1435,10 +1459,9 @@ function sola_st_content_control($content) {
             /*
              * 0 - Open
              * 1 - Solved
-             * 3 - Pending
-             * 9 - New
+             * 9 - Pending
              */
-            if ($ticket_status == '0' || $ticket_status == '3') {
+            if ($ticket_status == '0') {
                 /* Open Ticket */
                 $current_user = wp_get_current_user();
                 $post_details = get_post($post->ID);
@@ -1483,7 +1506,6 @@ function sola_st_content_control($content) {
 					} 
                 } else {
                     $sola_content .= "<span class='sola_st_pending_approval_span'>" . __("This support ticket has been marked as private.", "sola_st") . "</span>";
-                    $sola_content .= wp_login_form();
                     $content = $sola_content;
                 }
             } else if ($ticket_status == '1') {
@@ -1549,20 +1571,17 @@ function sola_st_content_control($content) {
 
 
 
+
                 if(isset($_SESSION['file_upload_failed']))
                 {
                     echo $_SESSION['file_upload_failed'].'<br/>';
                     unset($_SESSION['file_upload_failed']);
                 }
 
-
                 if ($show_ticket) {
                     $sola_content .= "<span class='sola_st_pending_approval_span'>" . __("This support ticket is pending approval.", "sola_st") . "</span>";
                     $content = $sola_content . $content;
                     $content = $content;
-                    if(!is_search()){
-                        $content = $content . sola_st_append_responses_to_ticket(get_the_ID());
-                    }
                 } else {
                     $sola_content .= "<span class='sola_st_pending_approval_span'>" . __("This support ticket is pending approval.", "sola_st") . "</span>";
                     $content = $sola_content;
@@ -1817,22 +1836,8 @@ function sola_st_user_head() {
             'ping_status' => 'closed'
         );
         $post_id = wp_insert_post($data);
-
-        /* check if current user is an agent, if not, change status to "open" */
-        if (get_the_author_meta('sola_st_agent', get_current_user_id()) == "1") {
-            /* is agent */
-            /* change status to pending */
-            update_post_meta($parent_id, 'ticket_status', '3');            
-
-        } else {
-            /* change status to open */
-            update_post_meta($parent_id, 'ticket_status', '0');            
-        }
-
-
-
         update_post_meta($post_id, '_response_parent_id', $parent_id);
-        sola_st_notification_control('response', $parent_id, get_current_user_id(),false,false,$content,false,$post_id);
+        sola_st_notification_control('response', $parent_id, get_current_user_id(),false,false,$content);
     }
 }
 
@@ -1968,14 +1973,43 @@ function sola_st_time_elapsed_string($ptime) {
     }
 }
 
+function sola_st_time_elapsed_int( $ptime ){
+    $etime = time() - $ptime;
+
+    if ($etime < 1) {
+        return 'Now';
+    }
+
+    $a = array(12 * 30 * 24 * 60 * 60 => 'year',
+        30 * 24 * 60 * 60 => 'month',
+        24 * 60 * 60 => 'day',
+        60 * 60 => 'hour',
+        60 => 'minute',
+        1 => 'second'
+    );
+
+    foreach ($a as $secs => $str) {
+        $d = $etime;
+        if ($d >= 1) {
+            $r = round($d);
+            return $r;
+        }
+    }
+}
+
 function sola_st_return_ticket_status($post_id) {
     $value = get_post_custom_values('ticket_status', $post_id);
-    if ($value[0] == "0") { _e("Open", "sola_st"); } 
-    else if ($value[0] == "1") { _e("Solved", "sola_st"); }
-    else if ($value[0] == "2") { _e("Closed", "sola_st"); }
-    else if ($value[0] == "9") { _e("New", "sola_st"); }
-    else if ($value[0] == "3") { _e("Pending", "sola_st"); }
-    else { _e("Unknown", "sola_st"); }
+    if ($value[0] == "0") {
+        _e("Open", "sola_st");
+    } else if ($value[0] == "1") {
+        _e("Solved", "sola_st");
+    } else if ($value[0] == "2") {
+        _e("Closed", "sola_st");
+    } else if ($value[0] == "9") {
+        _e("Pending Approval", "sola_st");
+    } else {
+        _e("Unknown", "sola_st");
+    }
 }
 
 function sola_st_return_ticket_status_returns($post_id) {
@@ -1986,10 +2020,8 @@ function sola_st_return_ticket_status_returns($post_id) {
        return __("Solved", "sola_st");
     } else if ($value[0] == "2") {
        return __("Closed", "sola_st");
-    } else if ($value[0] == "3") {
-       return __("Pending", "sola_st");
     } else if ($value[0] == "9") {
-        return __("New", "sola_st");
+        return __("Pending Approval", "sola_st");
     } else {
         return __("Unknown", "sola_st");
     }
@@ -2002,10 +2034,8 @@ function sola_st_return_ticket_status_from_meta_id($id) {
         return __("Solved", "sola_st");
     } else if ($id == "2") {
         return __("Closed", "sola_st");
-    } else if ($id == "3") {
-        return __("Pending", "sola_st");
     } else if ($id == "9") {
-        return __("New", "sola_st");
+        return __("Pending Approval", "sola_st");
     } else {
         return __("Unknown", "sola_st");
     }
@@ -2029,15 +2059,15 @@ function sola_st_return_ticket_priority($post_id) {
 function sola_st_return_ticket_priority_returns($post_id) {
     $value = get_post_custom_values('ticket_priority', $post_id);
     if ($value[0] == "1") {
-        return "<span class='low priority_box'>".__("Low", "sola_st"). "</span>";
+        return __("Low", "sola_st");
     } else if ($value[0] == "2") {
-        return "<span class='high priority_box'>".__("High", "sola_st"). "</span>";
+        return __("High", "sola_st");
     } else if ($value[0] == "3") {
-        return "<span class='urgent priority_box'>" . __("Urgent", "sola_st") . "</span>";
+        return "<span style='color:orange;'>" . __("Urgent", "sola_st") . "</span>";
     } else if ($value[0] == "4") {
-        return "<span class='critical priority_box'>" . __("Critical", "sola_st") . "</span>";
+        return "<span style='color:red;'>" . __("Critical", "sola_st") . "</span>";
     } else {
-        return "<span class='low priority_box'>".__("Low", "sola_st"). "</span>";
+        return __("Low", "sola_st");
     }
 }
 
@@ -2138,9 +2168,8 @@ function meta_views_sola_st_tickets($views) {
 	
     	
     //$views['separator'] = '&nbsp;';
-    $views['metakey'] = '<a href="edit.php?meta_data=ticket_status&ticket_status=9&post_type=sola_st_tickets">' . __('New', 'sola_st') . '</a> (' . sola_st_return_pending_ticket_qty() . ")";
+    $views['metakey'] = '<a href="edit.php?meta_data=ticket_status&ticket_status=9&post_type=sola_st_tickets">' . __('Pending Approval', 'sola_st') . '</a> (' . sola_st_return_pending_ticket_qty() . ")";
     $views['metakey'] .= '| <a href="edit.php?meta_data=ticket_status&ticket_status=0&post_type=sola_st_tickets">' . __('Open Tickets', 'sola_st') . '</a> (' . sola_st_return_open_ticket_qty() . ")";
-    $views['metakey'] .= '| <a href="edit.php?meta_data=ticket_status&ticket_status=0&post_type=sola_st_tickets">' . __('Pending Tickets', 'sola_st') . '</a> (' . sola_st_return_ticket_qty_by_status(3) . ")";
     $views['metakey'] .= '| <a href="edit.php?meta_data=ticket_status&ticket_status=1&post_type=sola_st_tickets">' . __('Solved Tickets', 'sola_st') . '</a> (' . sola_st_return_solved_ticket_qty() . ")";
     $views['metakey'] .= '| <a href="edit.php?meta_data=ticket_status&ticket_status=2&post_type=sola_st_tickets">' . __('Closed Tickets', 'sola_st') . '</a> (' . sola_st_return_closed_ticket_qty() . ")";
     return $views;
@@ -2165,23 +2194,6 @@ function posts_where_sola_st_status($where) {
     }
     return $where;
 }
-
-
-function sola_st_return_ticket_qty_by_status($status) {
-   global $wpdb;
-    $row = $wpdb->get_row(
-            $wpdb->prepare(
-                    "SELECT count(meta_id) as total FROM ".$wpdb->prefix."postmeta pm INNER JOIN ".$wpdb->prefix."posts as p
-                    ON pm.post_id =p.ID  
-                    WHERE pm.meta_key = %s AND pm.meta_value = %d
-                    AND p.post_status='publish' AND p.post_type='sola_st_tickets'
-                    "  , 'ticket_status', $status
-            )
-    );
-    $total = $row->total;
-    return $total;
-}
-
 
 function sola_st_return_open_ticket_qty() {
    global $wpdb;
@@ -2276,10 +2288,6 @@ function sola_st_loop_control($query) {
                                 array(
                                     'key' => 'ticket_status',
                                     'value' => 9
-                                ),
-                                array(
-                                    'key' => 'ticket_status',
-                                    'value' => 3
                                 )
                             ),
                             array(
@@ -2306,10 +2314,6 @@ function sola_st_loop_control($query) {
                                 array(
                                     'key' => 'ticket_status',
                                     'value' => 1
-                                ),
-                                array(
-                                    'key' => 'ticket_status',
-                                    'value' => 3
                                 )
                             ),
                             array(
@@ -2744,7 +2748,7 @@ function sola_st_submission_form() {
                       <input type=\"text\" value=\"\" name=\"sola_st_ticket_title\" id=\"sola_st_ticket_title\" data-validation=\"required\" data-validation-error-msg=\"$validation_text\"/><br />
                    </td>
                 </tr>
-                <tr class=\"sola_st_st_tr sola_st_st_`\">
+                <tr class=\"sola_st_st_tr sola_st_st_desc\">
                     <td valign=\"top\" class=\"sola_st_st_td sola_st_st_td_desc_label\">
                       <label for=\"sola_st_ticket_text\" title=".__("Description", "sola_st")."><strong>" . __("Description", "sola_st") . "</strong></label>
                     </td>
@@ -2795,7 +2799,7 @@ function sola_st_select_mailing_system_to_use()
 {
 		$out='';
 	
-		$data = get_option('sola_st_settings');
+		$data=get_option('sola_st_settings');
 		$rb_sola_mailing_system_selection='';
 		$sola_st_smtp_host_setting_php_mailer='';
 		$sola_st_smtp_username_setting_php_mailer='';
@@ -2803,24 +2807,78 @@ function sola_st_select_mailing_system_to_use()
 		$sola_st_smtp_port_setting_php_mailer='';
 		$sola_st_smtp_encryption_setting_php_mailer='';
 		
-		if(isset($data['rb_sola_mailing_system_selection'])) { $rb_sola_mailing_system_selection=$data['rb_sola_mailing_system_selection'];	 }
-		if(isset($data['sola_st_smtp_host_setting_php_mailer'])) { $sola_st_smtp_host_setting_php_mailer=$data['sola_st_smtp_host_setting_php_mailer']; }
-		if(isset($data['sola_st_smtp_username_setting_php_mailer'])) { $sola_st_smtp_username_setting_php_mailer=$data['sola_st_smtp_username_setting_php_mailer']; }
-		if(isset($data['sola_st_smtp_password_setting_php_mailer'])) { $sola_st_smtp_password_setting_php_mailer=$data['sola_st_smtp_password_setting_php_mailer']; }
-		if(isset($data['sola_st_smtp_port_setting_php_mailer'])) { $sola_st_smtp_port_setting_php_mailer=$data['sola_st_smtp_port_setting_php_mailer']; }
-		if(isset($data['sola_st_smtp_encryption_setting_php_mailer'])) { $sola_st_smtp_encryption_setting_php_mailer=$data['sola_st_smtp_encryption_setting_php_mailer']; }
+		
+		
+		if(isset($data['rb_sola_mailing_system_selection']))
+		{
+			$rb_sola_mailing_system_selection=$data['rb_sola_mailing_system_selection'];	
+		}
+		
+		if(isset($data['sola_st_smtp_host_setting_php_mailer']))
+		{
+			$sola_st_smtp_host_setting_php_mailer=$data['sola_st_smtp_host_setting_php_mailer'];
+			
+		}
+		
+		if(isset($data['sola_st_smtp_username_setting_php_mailer']))
+		{
+			
+			$sola_st_smtp_username_setting_php_mailer=$data['sola_st_smtp_username_setting_php_mailer'];
+		}
+		
+		if(isset($data['sola_st_smtp_password_setting_php_mailer']))
+		{
+			$sola_st_smtp_password_setting_php_mailer=$data['sola_st_smtp_password_setting_php_mailer'];
+		}
+		
+		if(isset($data['sola_st_smtp_port_setting_php_mailer']))
+		{
+			$sola_st_smtp_port_setting_php_mailer=$data['sola_st_smtp_port_setting_php_mailer'];
+		}
+		
+		if(isset($data['sola_st_smtp_encryption_setting_php_mailer']))
+		{
+			$sola_st_smtp_encryption_setting_php_mailer=$data['sola_st_smtp_encryption_setting_php_mailer'];	
+		}
+		
+		
+		
+		
+		
+		
 		
 		
 	
 		$out.='<div class="sola_st_email_settings_seperator">';
 			 $out.='<p> '.__("Please select the mailing type to use when sending any notification e-mails","sola_st").'</p>';
-            $em_method1 = ($rb_sola_mailing_system_selection == 'wp_mail' || !$rb_sola_mailing_system_selection || $rb_sola_mailing_system_selection == "") ? 'checked="checked"' : '';
-            $em_method2 = $rb_sola_mailing_system_selection == 'smtp' ? 'checked="checked"' : '';
-
-            $out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_wp_mail" value="wp_mail" '.$em_method1.'/> <label> '.__('Default WordPress Mail','sola_st').'</label> ';
-            $out.='<br/>';
-            $out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_smtp" value="smtp" '.$em_method2.' /> <label>  '.__('Custom SMTP settings','sola_st').' </label> ';
             
+            
+            
+            
+            
+			if($rb_sola_mailing_system_selection==='wp_mail')
+			{
+				$out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_wp_mail" value="wp_mail" checked="checked"/> <label> '.__('The Wordpress mailer - wp mail','sola_st').'</label> ';
+				$out.='<br/>';
+				$out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_smtp" value="smtp"/> <label>  '.__('Custom SMTP settings','sola_st').' </label> ';
+			
+			}
+			elseif ($rb_sola_mailing_system_selection==='smtp') 
+			{
+				$out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_wp_mail" value="wp_mail"/> <label> '.__('The Wordpress mailer - wp mail','sola_st').'</label> ';
+				$out.='<br/>';
+				$out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_smtp" value="smtp" checked="checked"/> <label>  '.__('Custom SMTP settings','sola_st').' </label> ';
+			
+			}
+			else 
+			{
+				$out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_wp_mail" value="wp_mail" checked="checked"/> <label> '.__('The Wordpress mailer - wp mail','sola_st').'</label> ';
+				$out.='<br/>';
+				$out.='<input type="radio" name="rb_sola_mailing_system_selection" id="rb_sola_mailing_system_selection_smtp" value="smtp"/> <label>  '.__('Custom SMTP settings','sola_st').' </label> ';
+			
+			}
+			
+			
 			
 			$out.='<div style="display:none;" class="sola_st_email_settings_seperator" id="sola_st_hidden_php_mailer_smtp_settings">
 				<label for="sola_st_smtp_host_setting_php_mailer"> '.__('Enter your host URL (for gmail use imap.gmail.com)','sola_st').': </label> <br/>
@@ -2884,7 +2942,8 @@ function sola_st_select_mailing_system_to_use()
 
 
 
-function send_automated_emails($email,$subject,$message,$headers=null,$in_reply_to = false,$channel = false,$post_id = false) {
+function send_automated_emails($email,$subject,$message,$headers=null)
+{
 
 	$sola_st_smtp_host_setting_php_mailer='';
 	$sola_st_smtp_username_setting_php_mailer='';
@@ -2899,19 +2958,15 @@ function send_automated_emails($email,$subject,$message,$headers=null,$in_reply_
 	
 	$result=false;
 	
-	$data = get_option('sola_st_settings');
-
-    $message = nl2br($message);
-
-
-
-
-
+	$data=get_option('sola_st_settings');
 	
-	if($headers === null) {
+	if($headers===null)
+	{
 		/*none passed to function - check if any were set for pro*/
-		if(function_exists("sola_st_pro_activate")) {
-			if((isset($data['sola_st_automated_emails_from'])&& filter_var($data['sola_st_automated_emails_from'], FILTER_VALIDATE_EMAIL) !== false)&&(isset($data['sola_st_automated_emails_from_name'])&&ctype_alnum($data['sola_st_automated_emails_from_name'])===true)) {
+		if(function_exists("sola_st_pro_activate"))
+		{
+			if((isset($data['sola_st_automated_emails_from'])&& filter_var($data['sola_st_automated_emails_from'], FILTER_VALIDATE_EMAIL) !== false)&&(isset($data['sola_st_automated_emails_from_name'])&&ctype_alnum($data['sola_st_automated_emails_from_name'])===true))
+			{
 				/*valid from and reply to headers*/
 				$replyto_address=$data['sola_st_automated_emails_from'];
             	$from_address=$data['sola_st_automated_emails_from'];
@@ -2921,46 +2976,59 @@ function send_automated_emails($email,$subject,$message,$headers=null,$in_reply_
 				$wp_mail_headers['from_name']=$from_name;
 				$wp_mail_headers['from_email']=$from_address;
 				$wp_mail_headers['replyto_name']=$replyto_name;
-                $wp_mail_headers['replyto_address']=$replyto_address;
-
-                if ($in_reply_to) { $wp_mail_headers['In-Reply-To']=$in_reply_to; }
-                if ($in_reply_to) { $wp_mail_headers['References']=$in_reply_to; }
+				$wp_mail_headers['replyto_address']=$replyto_address;
 				
 			}
 		}
 	}
-	elseif(is_array($headers)) {
-
-    	 $replyto_address=$headers['reply_to']['address'];
-    	 $from_address=$headers['from']['address'];
-    	 $from_name=$headers['from']['name'];
-    	 $replyto_name=$headers['reply_to']['name'];
-    	 
-    	 $wp_mail_headers['from_name']=$from_name;
-    	 $wp_mail_headers['from_email']=$from_address;
-    	 $wp_mail_headers['replyto_name']=$replyto_name;
-    	 $wp_mail_headers['replyto_address']=$replyto_address;
-        if ($in_reply_to) { $wp_mail_headers['In-Reply-To']=$in_reply_to; }
-        if ($in_reply_to) { $wp_mail_headers['References']=$in_reply_to; }
+	elseif(is_array($headers))
+	{
+		 $replyto_address=$headers['reply_to']['address'];
+		 $from_address=$headers['from']['address'];
+		 $from_name=$headers['from']['name'];
+		 $replyto_name=$headers['reply_to']['name'];
+		 
+		 $wp_mail_headers['from_name']=$from_name;
+		 $wp_mail_headers['from_email']=$from_address;
+		 $wp_mail_headers['replyto_name']=$replyto_name;
+		 $wp_mail_headers['replyto_address']=$replyto_address;
 	}
-    $wp_mail_headers = apply_filters("sola_st_email_header_filter",$wp_mail_headers,$channel);
-
-	
-	if(isset($data['sola_st_smtp_host_setting_php_mailer'])) { $sola_st_smtp_host_setting_php_mailer=$data['sola_st_smtp_host_setting_php_mailer']; }
-	if(isset($data['sola_st_smtp_username_setting_php_mailer'])) { $sola_st_smtp_username_setting_php_mailer=$data['sola_st_smtp_username_setting_php_mailer']; }
-	if(isset($data['sola_st_smtp_password_setting_php_mailer'])) {	$sola_st_smtp_password_setting_php_mailer=$data['sola_st_smtp_password_setting_php_mailer']; }
-	if(isset($data['sola_st_smtp_port_setting_php_mailer'])) { $sola_st_smtp_port_setting_php_mailer=$data['sola_st_smtp_port_setting_php_mailer']; }
-	if(isset($data['sola_st_smtp_encryption_setting_php_mailer'])) { $sola_st_smtp_encryption_setting_php_mailer=$data['sola_st_smtp_encryption_setting_php_mailer']; }
 	
 	
+	if(isset($data['sola_st_smtp_host_setting_php_mailer']))
+	{
+		$sola_st_smtp_host_setting_php_mailer=$data['sola_st_smtp_host_setting_php_mailer'];
+	}
 	
+	if(isset($data['sola_st_smtp_username_setting_php_mailer']))
+	{
+		$sola_st_smtp_username_setting_php_mailer=$data['sola_st_smtp_username_setting_php_mailer'];
+	}
+	
+	if(isset($data['sola_st_smtp_password_setting_php_mailer']))
+	{
+		$sola_st_smtp_password_setting_php_mailer=$data['sola_st_smtp_password_setting_php_mailer'];
+	}
+	
+	if(isset($data['sola_st_smtp_port_setting_php_mailer']))
+	{
+		$sola_st_smtp_port_setting_php_mailer=$data['sola_st_smtp_port_setting_php_mailer'];
+	}
+	
+	if(isset($data['sola_st_smtp_encryption_setting_php_mailer']))
+	{
+		$sola_st_smtp_encryption_setting_php_mailer=$data['sola_st_smtp_encryption_setting_php_mailer'];
+	}
+	
+	
+	
+	
+	
+	if(isset($data['rb_sola_mailing_system_selection'])&&$data['rb_sola_mailing_system_selection']==='smtp')
+	{
+                        include_once "includes/PHPMailer-master/PHPMailerAutoload.php";
 
-
-	if(isset($data['rb_sola_mailing_system_selection'])&&$data['rb_sola_mailing_system_selection']==='smtp') {
-            
-            include_once "includes/PHPMailer-master/PHPMailerAutoload.php";
-
-            $php_mailer_object = new PHPMailer;
+                        $php_mailer_object = new PHPMailer;
 			$php_mailer_object->isSMTP();
 			$php_mailer_object->Host = $sola_st_smtp_host_setting_php_mailer;		
 			$php_mailer_object->Port = $sola_st_smtp_port_setting_php_mailer;
@@ -2969,119 +3037,68 @@ function send_automated_emails($email,$subject,$message,$headers=null,$in_reply_
 			$php_mailer_object->Username = $sola_st_smtp_username_setting_php_mailer;
 			$php_mailer_object->Password = $sola_st_smtp_password_setting_php_mailer;
 			$php_mailer_object->CharSet = "UTF-8"; 
-			if($from_address!==''&&$from_name!=='') {
+			if($from_address!==''&&$from_name!=='')
+			{
 				$php_mailer_object->setFrom($from_address,$from_name);	
 			}
 			
 			$php_mailer_object->addAddress($email,'User');
 			
-			if($replyto_address!==''&&$replyto_name!=='') { $php_mailer_object->addReplyTo($replyto_address,$replyto_name);	}
+			if($replyto_address!==''&&$replyto_name!=='')
+			{
+				$php_mailer_object->addReplyTo($replyto_address,$replyto_name);	
+			}
 			
 			
 			$php_mailer_object->Subject = $subject;
-
-            if ($in_reply_to) { $php_mailer_object->addCustomHeader('In-Reply-To', $in_reply_to); }
-            if ($in_reply_to) { $php_mailer_object->addCustomHeader('References', $in_reply_to); }
-
+			
 			
 			$php_mailer_object->msgHTML($message."<br/><br/> <b>Sent using SMTP settings</b>");
 		
-			if(!$php_mailer_object->send()) { $result=use_wp_mail_as_default($email, $subject, $message, $wp_mail_headers); } 
-			else {
+			if(!$php_mailer_object->send())
+			{
+				
+				$result=use_wp_mail_as_default($email, $subject, $message, $wp_mail_headers);
+			} 
+			else 
+			{
 	   			$result=true;
 			}
 			
 	}
-	else {
+	else
+	{
 		$result=use_wp_mail_as_default($email, $subject, $message, $wp_mail_headers);
 	}
-    if (!$result && $post_id) {
-        $issue_array = array(
-            'email' => $email,
-            'subject' => $subject,
-            'message' => $message,
-            'in_reply_to' => $in_reply_to,
-            'post_id' => $post_id,
-            'channel' => $channel,
-            'headers' => $headers
-        );
-        /* we couldnt send the email, flag this */
-        update_post_meta($post_id, 'sola_st_notification_issue', $issue_array,true);
-    } else {
-        /* was a success, clear the issue */
-        delete_post_meta($post_id, 'sola_st_notification_issue');
-    }
+	
 	
 	return $result;
 	
 	
 }
 
-
-add_filter("sola_st_wrap_body_in_html","sola_st_filter_control_wrap_body_in_html",10,1);
-function sola_st_filter_control_wrap_body_in_html($content) {
-
-    $html_top = ''.
-'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
-  <style type=3D"text/css">
-    table td {
-      border-collapse: collapse;
-    }
-    body[dir=3Drtl] .directional_text_wrapper { direction: rtl; unicode-bidi: embed; }
-
-  </style>
-</head>
-<body  style=3D"width: 100%!important; margin: 0; padding: 0;">
-  <div style=3D"padding: 10px ; line-height: 18px; font-family: \'Lucida Grande\',Verdana,Arial,sans-serif; font-size: 12px; color:#444444;">';
-
-
-$html_bottom = ''.
-'</div>
-</html>';
-
-return $html_top.$content.$html_bottom;
-
-}
-
-
-function sola_st_set_html_mail_content_type() {
-    return 'text/html';
-}
 function use_wp_mail_as_default($email,$subject,$message,$wp_mail_headers)
 {
    
-	add_filter( 'wp_mail_content_type', 'sola_st_set_html_mail_content_type' );
-    
-    $message = apply_filters("sola_st_wrap_body_in_html",$message);
-
+	
     $result=false;
 	
 	if(is_array($wp_mail_headers))
 	{
 		$headers_mail = 'From: '.$wp_mail_headers['from_name'].' < '.$wp_mail_headers['from_email'].' >' ."\r\n";
 		$headers_mail.= 'Reply-To: '.$wp_mail_headers['replyto_name'].' < '.$wp_mail_headers['replyto_address'].' >' ."\r\n";
-        if (isset($wp_mail_headers['In-Reply-To'])) {
-            $headers_mail.= 'In-Reply-To: '.$wp_mail_headers['In-Reply-To']."\r\n";
-            $headers_mail.= 'References: '.$wp_mail_headers['References']."\r\n";
-        }
-        //$headers_mail.= 'Content-type: text/html; charset=utf-8' . "\r\n";
-        //$headers_mail.= 'MIME-Version: 1.0' . "\r\n";
-		$result=wp_mail($email,$subject,$message."<br/><br/> <b>Sent using wordpress email</b> ",$headers_mail);
+        $headers_mail.= 'MIME-Version: 1.0' . "\r\n";
+        $headers_mail.= 'Content-type: text/html; charset=utf-8' . "\r\n";
+		
+		$result=mail($email,$subject,$message."<br/><br/> <b>Sent using wordpress email</b> ",$headers_mail);
 	}
 	else
 	{
         $headers_mail= 'MIME-Version: 1.0' . "\r\n";
-        //$headers_mail.= 'Content-type: text/html; charset=utf-8' . "\r\n";
-        if (isset($wp_mail_headers['In-Reply-To'])) {
-            $headers_mail.= 'In-Reply-To: '.$wp_mail_headers['In-Reply-To']."\r\n";
-            $headers_mail.= 'References: '.$wp_mail_headers['References']."\r\n";
-        }
+        $headers_mail.= 'Content-type: text/html; charset=utf-8' . "\r\n";
 		$result = wp_mail($email,$subject,$message."<br/><br/> <b>Sent using wordpress email </b> ",$headers_mail);
 	}
-    remove_filter( 'wp_mail_content_type', 'sola_st_set_html_mail_content_type' );
+	
 	return $result;
 	
 	
@@ -3113,7 +3130,6 @@ function sola_st_modern_dashboard(){
 
 include 'modules/dashboard-ajax.php';
 
-/*
 add_action('sola_st_modern_tickets_left_column_after', 'sola_st_basic_pro_filtering_functionality', 10 );
 
 function sola_st_basic_pro_filtering_functionality(){
@@ -3148,7 +3164,6 @@ function sola_st_basic_pro_filtering_functionality(){
     echo $ret;
 
 }
-*/
 
 add_action('sola_st_text_response_after', 'sola_st_internal_notes_submit', 10, 3);
 
@@ -3157,13 +3172,6 @@ function sola_st_internal_notes_submit( $string, $data ){
     $ret = "";
 
     $ret .= "<button type='button' class='button' id='submit_ticket_internal_note' style='display: none;'>".__('Save Note', 'sola_st')."</button>";
-
-    $ret .= "<select id='submit_ticket_status_on_response'>";
-    $ret .= "<option value='0'>".__("Submit as Open","sola_st")."</option>";
-    $ret .= "<option value='3' selected>".__("Submit as Pending","sola_st")."</option>";
-    $ret .= "<option value='1'>".__("Submit as Solved","sola_st")."</option>";
-    $ret .= "</select>";
-
 
     return $string . $ret;
 
@@ -3175,200 +3183,8 @@ function sola_st_response_type_switch( $string, $data ){
 
     $ret = "";
 
-    $ret .= " <span class='sola_st_response_type_container'><span class='sola_st_standard_response sola_st_button_active'>".__('Standard Response', 'sola_st')."</span>  <span class='sola_st_private_note'>".__('Private Note', 'sola_st')."</span></span>";
+    $ret .= " <span class='sola_st_response_type_container'><span class='sola_st_standard_response'>".__('Standard Response', 'sola_st')." </span> | <span class='sola_st_private_note'>".__('Private Note', 'sola_st')."</span></span>";
 
     return $string.$ret;
-
-}
-
-function sola_st_internal_tags($content,$post_id) {
-    $ticket_link = get_permalink($post_id);
-
-    $content_post = get_post($post_id);
-    $content_post = $content_post->post_content;
-    //$content_post = apply_filters('the_content', $content_post);
-    //$content_post = str_replace(']]>', ']]&gt;', $content_post);
-
-    $title_title = get_the_title( $post_id );
-
-
-    $content = str_replace("{ticket_link}",$ticket_link,$content);
-    $content = str_replace("{ticket_title}",$title_title,$content);
-    $content = str_replace("{ticket_content}",$content_post,$content);
-    return $content;
-
-
-}
-
-function sola_st_build_login_details_content($content,$post_id,$username,$password) {
-
-    $login_details_content =    "<p>Please use the following credentials to access and respond to your ticket:</p>"+
-                                "<p>Username: {ticket_username}<br />"+
-                                "Password: {ticket_password}</p>"+
-                                "<p>To login and view your ticket, please follow this link: {ticket_login_link}</p>";
-                                
-
-    $content = str_replace("{ticket_username}",$username,$content);
-    $content = str_replace("{ticket_password}",$password,$content);
-    $content = str_replace("{ticket_login_link}",wp_login_url(get_permalink($post_id)),$content);
-
-    return $content;
-}
-
-
-
-add_action("sola_st_modern_tickets_left_column_before","sola_st_modern_tickets_left_column_before_insert_refresh",10);
-function sola_st_modern_tickets_left_column_before_insert_refresh() {
-    echo "<img src='".plugins_url('/images/reload.png', __FILE__)."' class='sola_st_refresh' alt='".__("Refresh","sola_st")."' title='".__("Refresh","sola_st")."' />";
-}
-
-
-function sola_st_get_allowed_tags(){
-   $tags = wp_kses_allowed_html("post");
-   
-   $tags['iframe'] = array(
-           'src'             => true,
-           'width'           => true,
-           'height'          => true,
-           'align'           => true,
-           'class'           => true,
-           'style'           => true,
-           'name'            => true,
-           'id'              => true,
-           'frameborder'     => true,
-           'seamless'        => true,
-           'srcdoc'          => true,
-           'sandbox'         => true,
-           'allowfullscreen' => true
-       );
-   unset($tags['font']);
-   $tags['input'] = array(
-           'type'            => true,
-           'value'           => true,
-           'placeholder'     => true,
-           'class'           => true,
-           'style'           => true,
-           'name'            => true,
-           'id'              => true,
-           'checked'         => true,
-           'readonly'        => true,
-           'disabled'        => true,
-           'enabled'         => true
-       );
-   $tags['select'] = array(
-           'value'           => true,
-           'class'           => true,
-           'style'           => true,
-           'name'            => true,
-           'id'              => true
-       );
-   $tags['option'] = array(
-           'value'           => true,
-           'class'           => true,
-           'style'           => true,
-           'name'            => true,
-           'id'              => true,
-           'selected'        => true
-       );
-   return $tags;
-}
-function sola_st_parse_date($timestamp) {
-
-    $timestamp = $timestamp;
-    $datetime1=date_create(date('Y-m-d H:i:s',current_time('timestamp')));
-    $datetime2=date_create(date('Y-m-d H:i:s',$timestamp));
-    $diff=date_diff($datetime1, $datetime2);
-    $timemsg='';
-    if($diff->y > 0){
-        $timemsg = $diff->y .' year'. ($diff->y > 1?"s":'');
-
-    }
-    else if($diff->m > 0){
-     $timemsg = $diff->m . ' month'. ($diff->m > 1?"s":'');
-    }
-    else if($diff->d > 0){
-     $timemsg = $diff->d .' day'. ($diff->d > 1?"s":'');
-    }
-    else if($diff->h > 0){
-     $timemsg = $diff->h .' hour'.($diff->h > 1 ? "s":'');
-    }
-    else if($diff->i > 0){
-     $timemsg = $diff->i .' minute'. ($diff->i > 1?"s":'');
-    }
-    else if($diff->s > 0){
-     $timemsg = $diff->s .' second'. ($diff->s > 1?"s":'');
-    } else {
-        return "Just now";
-    }
-
-    $timemsg = $timemsg.' ago';
-    return $timemsg;
-}
-
-function sola_st_delete_ticket($ticket_id) {
-    global $wpdb;
-
-    $checker = $wpdb->get_results( 
-        $wpdb->prepare("SELECT `post_id` FROM $wpdb->postmeta
-             WHERE meta_key = %s
-             AND meta_value = %d
-            ",
-            '_response_parent_id', $ticket_id 
-            )
-    );
-    
-    if ($checker) {
-        foreach($checker as $check) {
-            $response_id = intval($check->post_id);
-            if ($response_id) {
-                wp_delete_post($response_id,true);
-            }
-        }
-    }
-    $checker = $wpdb->get_results( 
-        $wpdb->prepare("DELETE FROM $wpdb->postmeta
-             WHERE meta_key = %s
-             AND meta_value = %d
-            ",
-            '_response_parent_id', $ticket_id 
-            )
-    );
-
-    /* delete all the attachments */
-    $checker = $wpdb->get_results( 
-        $wpdb->prepare("SELECT `meta_value` FROM $wpdb->postmeta
-             WHERE meta_key = %s
-             AND post_id = %d
-            ",
-            'ticket_attachments', $ticket_id 
-            )
-    );
-
-    if (isset($checker[0]->meta_value)) {
-        $upload_dir = wp_upload_dir();
-        $udir = $upload_dir['basedir'].'/sola-uploads/'.$ticket_id."/";
-
-        $checker = maybe_unserialize($checker[0]->meta_value);
-        foreach($checker as $check) {
-            if (@file_exists($udir.$check)) {
-                unlink($udir.$check);
-                rmdir($udir);
-            }
-        }
-    }                       
-
-
-
-    $failed = wp_delete_post($ticket_id,true);
-    return $failed;
-}
-
-function sola_st_build_notification_error_html($type,$post_id) {
-   if ($type == 'ticket') {
-        $message = "<span class='sola_st_error' id='sola_st_error_".$post_id."'>".__("There was a problem sending the ticket notification. Please check your email settings and host to make sure everything is correct and your mail ports are not blocked","sola_st")." <a href='javascript:void(0);' class='sola_st_resend_notification_button' nid='".$post_id."'>Resend</a></span>";
-   } else if ($type == 'response') {
-        $message = "<span class='sola_st_error' id='sola_st_error_".$post_id."'>".__("This response failed to be sent to the intended user(s). Please check your email settings and host to make sure everything is correct and your mail ports are not blocked.","sola_st")." <a href='javascript:void(0);' class='sola_st_resend_notification_button' nid='".$post_id."'>Resend</a></span>";
-   }
-   return $message;
 
 }

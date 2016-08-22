@@ -9,50 +9,33 @@ a:hover{
 
 .sola_st_db_container{
 	width: 100%;	
-    overflow: auto;
 }
 
 .sola_st_db_inner_container{
 
-}
-.sola_st_db_left_column_inner {
-    padding:10px;
-}
 
-span.sola_st_error {
-    display: block;
-    padding: 10px;
-    border: 1px solid #ccc;
-    color: #ff7d7d;
-    
-    margin-bottom: 10px;
 }
 
 .sola_st_db_column{
     display: block;
+    background-color: #FFF;
     margin: 0 5px 10px 0;
     float: left;
+    padding: 10px;
     width: 100%;
 }
 
 .sola_st_db_left_column{
-    width:250px;
+    width: 20%;
     float: left;
-    background-color: #fbfbfb;
 }
 
-
-.sola_st_db_center_column_inner {
-    width:100%;
-        padding: 10px;
-    margin-left: 30px;
-
-}
 .sola_st_db_center_column{
-    left: 250px;
-    right: 0px;
-    display: flex;
+    width: 75%;
+    float: left;
+    margin-left: 30px;
     background-color: white;
+    padding: 10px;
 }
 
 .ticket_container{
@@ -70,68 +53,22 @@ span.sola_st_error {
 .sola_st_db_controls{
 	margin: 0;
 }
-.ui-tabs-nav li { position: relative; }
-a.tabclose {
-position: absolute;
-    top: 3px;
-    right: 5px;
-    text-align: center;
-    display: block;
-    padding: 0 !important;
-    width: 15px;
-    height: 15px;
-    line-height: 12px;
-    border-radius: 20px;
-}
-a.tabclose:hover {
-    background-color: #941d1d;
-    color: #FFF;
-    border-radius: 20px;
-
-}
-.ui-state-default a:focus {
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
-    -o-box-shadow: none !important;
-}
-.ui-tabs-nav li:first-child {
-    margin-left: 16px;
-}
 
 .sola_st_db_controls li{
 	margin-bottom: 0;
-    background-color:#fbfbfb;
-    transition:background 0.5s;
-    -webkit-transition:background 0.5s;
-    -moz-transition:background 0.5s;
-    -o-transition:background 0.5s;
-
-}
-.sola_st_db_controls li:hover {
-    background-color:#ebebeb;
 }
 
 .sola_st_db_controls li a{
 	display: block;
-	padding: 10px;
-}
-.sola_st_db_controls li a:focus {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+	width: 100%;
+	padding: 10px 0;
 }
 
-
-
-.sola_st_view_control_ticket_name {
-    width: 80%;
+.sola_st_db_controls li a span{
+    width: 85%;
     display: inline-block;
 }
-.sola_st_view_control_ticket_count {
-    width: 20%;
-    text-align: right;
-    display: inline-block;
-}
+
 .sola_st_action_panel{
 	text-align: right;
 }
@@ -151,18 +88,18 @@ a.tabclose:hover {
 .ticket_author_image{
 	display: inline-block;
 	vertical-align: top;
+	margin-bottom: 10px;
 }
 
 .ticket_author_details{
     display: inline-block;
-        position: relative;
-    left: 10px;
+    width: 92%;
+    float: right;
 }
 
 .ticket_subject{
 	font-weight: bold;
-	font-size: 19px;
-    line-height:22px;
+	font-size: 16px;
 }
 
 .ticket_author_meta {
@@ -171,10 +108,10 @@ a.tabclose:hover {
     margin: 0 0 10px 0;
 }
 
-.ticket_contents {
-    padding: 15px;
-    margin-left: 40px;    
-    margin-bottom: 10px;
+.ticket_contents{
+    border: 1px solid #CCC;
+    padding: 10px 15px;
+    border-radius: 5px;    
 }
 
 .ticket_author_meta_note .ticket_contents_response{
@@ -187,7 +124,6 @@ a.tabclose:hover {
 
 .ticket_author_meta_response, .ticket_author_meta_note {
     margin-bottom: 10px;
-    border-bottom: 1px dashed #ccc;
 }
 
 .ticket_author_label {
@@ -222,32 +158,12 @@ a.tabclose:hover {
     border: 1px solid #CCC;
     border-radius: 5px;
     margin: 0 0 10px 0;
-    padding:8px;
 }
 
 .ticket_response_fields .button {
     margin-bottom: 10px;
     display: block;
     margin: 0 15px 10px auto;
-}
-#submit_ticket_internal_note { 
-    float:right;
-    background-color: #333 !important;
-    border-color: #333 !important;
-    color: #FFF;
-    margin-right:0;
-
-}
-#submit_ticket_response { 
-    float:right;
-    background-color: #333 !important;
-    border-color: #333 !important;
-    color: #FFF;
-    margin-right:0;
-}
-#submit_ticket_status_on_response {
-    float: right;
-    margin: 0 10px;
 }
 
 .sola_st_ticket_meta_input{
@@ -286,14 +202,7 @@ table.sola_st_db_ticket_container {
     margin: 0 0 15px 0;
     display: block;
     width: 100%;
-
-}
-.ticket_response_fields {
-    margin-left: 54px;
-    margin-right: 50px;
-    display: block;
-    overflow: auto;
-    padding-bottom:5px;
+    border-bottom: 1px solid #CCC;
 }
 .sola_st_db_before_button .sola_st_upload_button {
     background-color: #CCC;
@@ -304,17 +213,9 @@ table.sola_st_db_ticket_container {
 .sola_st_db_before_button a {
     padding: 0 5px;
 }
+
 .sola_st_standard_response, .sola_st_private_note{
     cursor: pointer;
-    position:relative;
-    padding: 3px;
-    border: 1px solid #c3c3c3;
-    border-radius: 3px;
-    text-decoration: none !important;
-    padding-left: 6px;
-    padding-right: 6px;
-    line-height: 12px;
-    text-align: center;
 }
 
 .sola_st_standard_response{
@@ -341,213 +242,4 @@ table.sola_st_db_ticket_container {
     text-align: right;
     padding: 0 0 10px 0;
     border-bottom: 1px solid #E8E8E8;
-}
-
-
-.priority_box {
-    display: inline-block;
-
-    padding: 1px 5px;
-    border-radius: 2px;
-    font-size: 0.8em;
-
-}
-.critical {
-    background-color: #CE0505;
-    color: white;
-}
-
-.urgent {
-    background-color: #ffa500;
-    color: white;
-}
-.high {
-    background-color: #f7cb56;
-    color: white;
-}
-.low {
-    background-color: #ccc;
-    color: white;
-}
-
-
-
-
-span.author_name {
-    font-weight: bold;
-}
-
-.sola_st_button_active {
-    background-color: #333 !important;
-    border-color: #333 !important;
-    color: #FFF;
-}
-
-
-#wpcontent { 
-    background-color:#FFF;
-}
-
-@media screen and (max-width:700px) {
-
-    .sola_st_db_center_column {
-        display:inline-block;
-
-    }
-    .sola_st_db_left_column {
-        width:100%;
-        max-height: 150px;
-        overflow-y: scroll;
-    }
-
-
-}
-
-#wpwrap {
-    background-color:#fff;
-}
-
-
-
-.ui-tabs-nav li {
-    display: inline-block;
-    margin-right:2px;
-}
-
-.ui-widget-header {
-    background: transparent !important;
-    border-style: none !important;
-}
-
-.ui-corner-all {
-    border-style: none;
-    border-radius: 0px ;
-}
-
-.ui-tabs-active {
-    background: #0073AA !important;
-}
-
-.ui-tabs-active a {
-    color:white !important;
-}
-
-.ui-state-default{
-    background: #E8E8E8;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-
-    transition: background 0.2s;
-    -webkit-transition: background 0.2s;
-    -moz-transition: background 0.2s;
-    -o-transition: background 0.2s;
-}
-
-.ui-state-default a{
-    text-decoration: none;
-    color: black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-
-}
-
-.ui-tabs-panel {
-    background: white;
-    margin-top: -19px !important;
-    padding: 13px;
-}
-
-.ui-slider {
-    position: relative;
-    text-align: left;
-    background: #E8E8E8;
-}
-.ui-slider .ui-slider-handle {
-    position: absolute;
-    z-index: 2;
-    cursor: default;
-    background: #0073AA;
-    border-radius: 10px;
-    padding: 9px !important;
-}
-.ui-slider .ui-slider-range {
-    position: absolute;
-    z-index: 1;
-    font-size: .7em;
-    display: block;
-    border: 0;
-    background-position: 0 0;
-}
-
-.ui-slider-horizontal {
-    height: .8em;
-}
-.ui-slider-horizontal .ui-slider-handle {
-    top: -.3em;
-    margin-left: -.6em;
-}
-.ui-slider-horizontal .ui-slider-range {
-    top: 0;
-    height: 100%;
-}
-.ui-slider-horizontal .ui-slider-range-min {
-    left: 0;
-}
-.ui-slider-horizontal .ui-slider-range-max {
-    right: 0;
-}
-
-.ui-slider-vertical {
-    width: .8em;
-    height: 100px;
-}
-.ui-slider-vertical .ui-slider-handle {
-    left: -.3em;
-    margin-left: 0;
-    margin-bottom: -.6em;
-}
-.ui-slider-vertical .ui-slider-range {
-    left: 0;
-    width: 100%;
-}
-.ui-slider-vertical .ui-slider-range-min {
-    bottom: 0;
-}
-.ui-slider-vertical .ui-slider-range-max {
-    top: 0;
-}
-.sola_st_refresh { 
-    cursor: pointer;
-    float:right;
-}
- .sola_st_loader {
-    width:80px;
- }
-.sola_st_view_active {
-    background-color:#ccc;
-}
-
-.sola_st_attachment { 
-    border-radius: 4px;
-    list-style-type: circle;
-    color:#0073AA !important;
-    margin-left:25px;
-}
-.sola_st_attachment a { 
-    color:#0073AA !important;
-
-}
-
-.ticket_responser, .ticket_responses {
-    display: table-cell;
-}
-
-.sola_st_db_ticket_container { font-size:11px; }
-@media screen and (max-width:1280px) {
-    .ticket_responser, .ticket_responses { display: none; }
-
 }

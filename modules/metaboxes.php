@@ -339,7 +339,7 @@ $meta_data = sola_st_get_note_meta_all($post->ID);
 function sola_st_get_post_meta_all($post_id){
     global $wpdb;
     $data   =   array();
-    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` DESC";
+    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_response_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC";
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
@@ -349,7 +349,7 @@ function sola_st_get_post_meta_all($post_id){
 function sola_st_get_note_meta_all($post_id){
     global $wpdb;
     $data   =   array();
-    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_note_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` DESC";
+    $sql = "SELECT `meta_key`, `meta_value`, `post_id` FROM $wpdb->postmeta WHERE `meta_key` = '_note_parent_id' AND `meta_value` = '$post_id' ORDER BY `meta_id` ASC";
     $wpdb->query($sql);
     foreach($wpdb->last_result as $k => $v){
         $data[$k] = $v;
