@@ -249,6 +249,58 @@ a.tabclose:hover {
     float: right;
     margin: 0 10px;
 }
+.ticket_status {
+    width: 24px;
+}
+.sola_st_modern_ticket_row:hover {
+    background-color: #EEE;
+}
+input#sola_st_db_check_all {
+    margin-left: 5px;
+}
+input.sola_st_checkbox {
+    margin-left: 5px;
+}
+.sola_st_file_list {
+    clear: left;
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #333;
+}
+.sola_st_status_block {
+    opacity: 0.6;
+    display: block;
+    width: 15px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 15px;
+    padding: 0px;
+    border-radius:2px;
+}
+.sola_st_status_block_3 {
+    background-color:#0073AA;
+    color:#fff;
+}
+.sola_st_status_block_9 {
+    background-color:#ffa500;
+    color:#fff;
+}
+.sola_st_status_block_2 {
+    background-color:#ccc;
+    color:#666;
+}
+.sola_st_status_block_1 {
+    background-color:#666;
+    color:#ccc;
+}
+.sola_st_status_block_0 {
+    background-color:#CE0505;
+    color:white;
+}
+
+.ticket_checkbox { width:35px; }
 
 .sola_st_ticket_meta_input{
     width: 100%;

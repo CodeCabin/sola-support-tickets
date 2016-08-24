@@ -1,6 +1,5 @@
 var tid;
-
-
+var sola_st_file = [];
 var dashboard_obj = new Object();
 var num_tabs;
 var ticket_id;
@@ -711,6 +710,26 @@ jQuery("body").on("click", "#submit_ticket_response", function(){
 
 	jQuery("#submit_ticket_response").attr('disabled', 'disabled');
 
+	formData = new FormData();
+	
+	formData.append('sola_st_db_security', sola_st_dashboard_security);
+	formData.append('action', 'sola_st_submit_response');
+	formData.append('status', jQuery("#submit_ticket_status_on_response").val());
+	formData.append('parent', jQuery("#sola_st_parent_id").val());
+	formData.append('content', jQuery("#sola_st_db_response_textarea").val());
+	formData.append('title', jQuery("#sola_st_response_title").val());
+	formData.append('author', jQuery("#sola_st_agent_id").val());
+	if (typeof sola_st_file !== "undefined") {
+
+		jQuery.each( sola_st_file, function( index, value ){
+			formData.append('file[]', sola_st_file[index]);
+		});
+		//formData.append('file', sola_st_file);
+		formData.append('ticket_id', jQuery("#sola_st_parent_id").val());
+	}
+	formData.append('timestamp', Date.now());
+	console.log(formData);
+	/*
     var data = {
         'sola_st_db_security': sola_st_dashboard_security,
 		'action': 'sola_st_submit_response',
@@ -718,43 +737,61 @@ jQuery("body").on("click", "#submit_ticket_response", function(){
 		'parent': jQuery("#sola_st_parent_id").val(),
         'content': jQuery("#sola_st_db_response_textarea").val(),
         'title': jQuery("#sola_st_response_title").val(),
-        'author': jQuery("#sola_st_agent_id").val()
+        'author': jQuery("#sola_st_agent_id").val(),
+        'extra' : formData
     };
+    console.log(data);
+	*/
 
-    jQuery.post( ajaxurl, data, function(response){
-		try{
-		    response = JSON.parse( response );
-		}catch(e){
-		    console.log(e); //error in the above string(in this case,yes)!
-		}
+	jQuery.ajax({
+		url : ajaxurl,
+		type : 'POST',
+		data : formData,
+		cache: false,
+		processData: false, 
+		contentType: false, 
+		success : function(response) {
 
-		if (typeof e === "undefined") {
-			if (typeof response.errormsg !== "undefined") {
-				alert(response.errormsg);
+			if(parseInt(response) !== 0){
 
-				jQuery("#submit_ticket_response").removeAttr('disabled');
+				try{
+				    response = JSON.parse( response );
+				}catch(e){
+				    console.log(e); //error in the above string(in this case,yes)!
+				}
 
-			} else {
-		    	if (response.content !== '') {
-		    		jQuery("#sola_st_db_response_textarea").val('');
-			    	jQuery("#ticket_response_content_holder").prepend( response.content );
-			    	jQuery("#submit_ticket_response").removeAttr('disabled');
-			    	jQuery(".ticket_author_meta").append("<div class='updated'><p>"+response.message+"</p></div>");
-			    	jQuery("#sola_st_ticket_status").val(response.status_string);
-			    } else {
-			    	jQuery("#submit_ticket_response").removeAttr('disabled');
-			    	jQuery(".ticket_author_meta").append("<div class='updated'><p>"+response.message+"</p></div>");
-			    	jQuery("#sola_st_ticket_status").val(response.status_string);
-			    }
+				if (typeof e === "undefined") {
+					if (typeof response.errormsg !== "undefined") {
+						alert(response.errormsg);
+
+						jQuery("#submit_ticket_response").removeAttr('disabled');
+
+					} else {
+				    	if (response.content !== '') {
+				    		jQuery("#sola_st_db_response_textarea").val('');
+					    	jQuery("#ticket_response_content_holder").prepend( response.content );
+					    	jQuery("#submit_ticket_response").removeAttr('disabled');
+					    	jQuery(".ticket_author_meta").append("<div class='updated'><p>"+response.message+"</p></div>");
+					    	jQuery("#sola_st_ticket_status").val(response.status_string);
+					    } else {
+					    	jQuery("#submit_ticket_response").removeAttr('disabled');
+					    	jQuery(".ticket_author_meta").append("<div class='updated'><p>"+response.message+"</p></div>");
+					    	jQuery("#sola_st_ticket_status").val(response.status_string);
+					    }
+					}
+				} else {
+				    	jQuery("#submit_ticket_response").removeAttr('disabled');
+				}
+
 			}
-		} else {
-		    	jQuery("#submit_ticket_response").removeAttr('disabled');
+
+		},
+		error : function (){
+			jQuery("#submit_ticket_response").removeAttr('disabled');
+   		 	jQuery(".ticket_author_meta").append("<div class='updated'><p>"+"There was an error. Please try again."+"</p></div>");
 		}
-    })
-    .fail(function() {
-    	jQuery("#submit_ticket_response").removeAttr('disabled');
-    	jQuery(".ticket_author_meta").append("<div class='updated'><p>"+"There was an error. Please try again."+"</p></div>");
-    });
+	});
+   
 
 
 

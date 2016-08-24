@@ -501,11 +501,28 @@ function sola_st_db_ajax_callback(){
 					/* check if we had issues notifying this user of their ticket */
 					$notification_issue = get_post_meta($meta->post_id,'sola_st_notification_issue',true);
 					if ($notification_issue) {
-						
+
 						$response_contents .= sola_st_build_notification_error_html('response',$meta->post_id);
 					}
 
 					$response_contents .= $response_content;
+
+
+					$ticket_attachments = maybe_unserialize(get_post_custom_values('ticket_attachments', $meta->post_id));
+
+					$upload_dir = wp_upload_dir();
+					$udir = $upload_dir['baseurl'].'/sola-uploads/'.$ticket_id."/";
+					if ($ticket_attachments) {
+						$response_contents .= "<ul>";
+						foreach ($ticket_attachments as $key => $att) {
+							$att = maybe_unserialize($att);
+							foreach ($att as $att_for_realz) {
+							
+								$response_contents .= "<li class='sola_st_attachment'><a class='' target='_BLANK' href='".$udir.$att_for_realz."'>".$att_for_realz."</li>";
+							}
+						}
+						$response_contents .= "</ul>";
+					}
 					$response_contents .= "</div>";
 
 					$response_contents .= "	</div>";
@@ -625,6 +642,7 @@ function sola_st_db_ajax_callback(){
 
 
 			$ticket_attachments = maybe_unserialize(get_post_custom_values('ticket_attachments', $ticket_id));
+
 			$upload_dir = wp_upload_dir();
 			$udir = $upload_dir['baseurl'].'/sola-uploads/'.$ticket_id."/";
 			if ($ticket_attachments) {
@@ -787,13 +805,43 @@ function sola_st_db_ajax_callback(){
 	            update_post_meta($post_id, '_response_parent_id', $parent_id);
 	            update_post_meta($parent_id, 'ticket_status', $status);
 
-	            $checker = sola_st_notification_control('response', $parent_id, get_current_user_id(),false,false,$content,$ticket_channel,$post_id);
+	            $file_filter = apply_filters("sola_st_filters_pro_files",$_POST,$_FILES);
+	            var_dump($file_filter);
+
+
+	            if ($file_filter) {
+
+					$upload_dir = wp_upload_dir();
+					$udir = $upload_dir['baseurl'].'/sola-uploads/'.$parent_id."/";
+					$upath = $upload_dir['basedir'].'/sola-uploads/'.$parent_id."/";
+
+	            	$post_attachments = array();
+	            	$mail_attachments = array();
+
+
+	            	foreach ($file_filter as $file) {
+	            		$post_attachments[] = $file['filename'];
+	            		$mail_attachments[] = $upath.$file['filename'];
+	            	}
+	            	if (count($post_attachments) > 0) {
+                        add_post_meta( $post_id, 'ticket_attachments', $post_attachments, true );
+                    }
+
+
+
+	            }
+
+
+	            $checker = sola_st_notification_control('response', $parent_id, get_current_user_id(),false,false,$content,$ticket_channel,$post_id,$mail_attachments);
 	            if (!$checker) {
 	            	/* email settings not working or what?! */
 	            	echo json_encode( array( 'errormsg' => __("There was a problem trying to send the email notification for this response. Please check your WordPress email settings and/or host to ensure that your settings are correct and no email ports are blocked.","sola_st") ) );
 	            	wp_die();
 	            }
 	            $post = get_post( $post_id );
+
+
+
 
 				$ticket_request_date = sola_st_parse_date(strtotime($post->post_date));
 
@@ -805,7 +853,25 @@ function sola_st_db_ajax_callback(){
 				$response_contents .= "	<div class='ticket_author_details'>";
 				$response_contents .= "		<div class='ticket_author'><span class='author_name'>$ticket_author_name</span> | <span>$ticket_request_date</span></div>";
 				$response_contents .= " </div>";				
-				$response_contents .= "		<div class='ticket_contents ticket_contents_response'>".nl2br($content_current)."</div>";
+				$response_contents .= "		<div class='ticket_contents ticket_contents_response'>";
+				$response_contents .= nl2br($content_current);
+
+				$ticket_attachments = maybe_unserialize(get_post_custom_values('ticket_attachments', $post_id));
+
+					$upload_dir = wp_upload_dir();
+					$udir = $upload_dir['baseurl'].'/sola-uploads/'.$parent_id."/";
+					if ($ticket_attachments) {
+						$response_contents .= "<ul>";
+						foreach ($ticket_attachments as $key => $att) {
+							$att = maybe_unserialize($att);
+							foreach ($att as $att_for_realz) {
+							
+								$response_contents .= "<li class='sola_st_attachment'><a class='' target='_BLANK' href='".$udir.$att_for_realz."'>".$att_for_realz."</li>";
+							}
+						}
+						$response_contents .= "</ul>";
+					}
+				$response_contents .= "</div>";
 				$response_contents .= "	</div>";
 				echo json_encode( array( 'content' => $response_contents, 'status_string' => $status, 'message' => __('Your ticket has been successfully submitted', 'sola_st' ) ) );
 	            wp_die();
