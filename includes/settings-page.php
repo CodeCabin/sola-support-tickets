@@ -44,6 +44,9 @@ if (function_exists("sola_st_api_check")) {
           <li><a href="#tabs-3"><?php _e("Agents","sola_st") ?></a></li>
           <li><a href="#tabs-6"><?php _e("Views","sola_st") ?></a></li>
           <li><a href="#tabs-channels"><?php _e("Channels","sola_st") ?></a></li>
+
+          <?php do_action("sola_st_settings_tabs"); ?>
+
           <?php if (!function_exists("sola_st_pro_activate")) { ?>
             <li><a href="#tabs-4"><?php _e("Upgrade","sola_st") ?></a></li>
           <?php } ?>
@@ -628,6 +631,9 @@ if (function_exists("sola_st_api_check")) {
           <h3><?php _e("Views",'sola_st'); ?> <?php echo apply_filters("sola_st_filter_view_new_view_button_control",""); ?></h3>
           <?php sola_st_views_html_output(); ?>
       </div>
+      
+      <?php do_action("sola_st_settings_content"); ?>
+
       <?php if (!function_exists("sola_st_pro_activate")) { ?>
       <div id="tabs-4">
           <center>
