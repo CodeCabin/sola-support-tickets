@@ -53,7 +53,16 @@ sola_st_write_to_mail_log("test");
 
 									<div class='sola_st_dashboard_view_control'></div>
 									<div class='sola_st_modern_ticket_actions'>
-										<button class='button' id='sola_st_modern_bulk_delete'><?php _e('Delete Tickets', 'sola_st'); ?></button>
+										<div class='sola_st_ticket_action_inner' style="display:none;">
+											<select class="sola_st_dropdown" id="sola_st_modern_bulk_select_primary">
+												<option value="sola_st_db_bulk_delete_tickets"><?php _e('Delete', 'sola_st'); ?></option>
+												<?php do_action("sola_st_dashboard_actions_primary"); ?>
+											</select>
+
+											<?php do_action("sola_st_dashboard_actions_after_primary"); ?>
+
+											<button class='button' id='sola_st_modern_bulk_action'><?php _e('Apply', 'sola_st'); ?></button>
+										</div>
 									</div>
 									<?php do_action( 'sola_st_modern_tickets_right_column_before' ); ?>
 									<table class="sola_st_db_ticket_container">

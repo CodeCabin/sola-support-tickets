@@ -20,6 +20,9 @@
  * Added functionality to change the URI of the page so that specific tickets can be shared via links
  * Performance improvements when collecting tickets to display on teh dashboard
  * UI improvements to the dashboard
+ * Added 'sola_st_activate_hook', and 'sola_st_update_hook' 
+ * Added REST API Integration
+ * Added basic reporting
  * 
  * 3.16 - 2016-05-13 - Low Priority
  * Support Tickets menu order fixed
@@ -180,6 +183,8 @@ $sola_st_version_string = "basic";
 include_once "modules/metaboxes.php";
 include_once "modules/views.php";
 include_once "modules/channels.php";
+include_once "modules/api/sola-api.php";
+include_once "modules/reporting.php";
 
 global $wpdb;
 
@@ -291,6 +296,8 @@ function sola_st_init() {
                             "{login_details}".
                             "<p>To view this ticket, please follow this link: {ticket_link}</p>", "sola_st");
         }
+
+        do_action("sola_st_update_hook");
 
         update_option("sola_st_current_version", $sola_st_version);
     }
@@ -503,6 +510,7 @@ function sola_st_activate() {
 
 
 
+   do_action("sola_st_activate_hook");
 
 
     flush_rewrite_rules();

@@ -393,6 +393,7 @@ table.sola_st_db_ticket_container {
     text-align: right;
     padding: 0 0 10px 0;
     border-bottom: 1px solid #E8E8E8;
+    min-height: 30px;
 }
 
 
@@ -599,6 +600,37 @@ span.author_name {
 }
 
 .sola_st_db_ticket_container { font-size:11px; }
+
+.sola_st_dropdown {
+    width: 120px;
+    border-radius: 3px;
+}
+
+.sola_st_timer span{
+    width: 100%;
+    font-size:18px;
+    display: block;
+    text-align: left;
+    color:#232323;
+}
+.sola_st_timer_btn{
+    background-color: #fff !important;
+    border: solid 1px #c3c3c3;
+    border-radius: 3px;
+    color: #333333;
+    margin-top: 13px;
+    display: inline-block;
+    width: 48%;
+    text-align: center;
+    font-size: 14px;
+    height: 22px;
+    line-height: 21px;
+}
+
+.sola_st_timer_hist {
+    color: #a8a8a8;
+}
+
 @media screen and (max-width:1280px) {
     .ticket_responser, .ticket_responses { display: none; }
 

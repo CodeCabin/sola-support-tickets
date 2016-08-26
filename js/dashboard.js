@@ -70,6 +70,9 @@ function sola_st_add_tab(tid,callback) {
 }
 function sola_st_remove_tab(tid) {
 	console.log("removing "+tid);
+
+	jQuery.event.trigger({type: "sola_st_db_close_ticket", current_ticket_id: tid}); 
+
     jQuery("#sola_tab_"+tid).remove();
     jQuery("#tab"+tid).remove();
     jQuery("#sola_tabs").tabs("refresh");
@@ -417,8 +420,30 @@ jQuery("body").on("click", ".sola_st_refresh", function(){
 	});
 });
 
+jQuery("body").on("click", ".sola_st_checkbox, #sola_st_db_check_all", function(){
+	var must_show = typeof jQuery("#sola_st_db_check_all").attr("checked") == "undefined" ? false : true;
+	if(!must_show){
+		//Bulk selector not used. Lets cycle through all checkboxes
+		jQuery(".sola_st_checkbox").each(function(index, element){
+			if(!must_show){
+				must_show = typeof jQuery(this).attr("checked") == "undefined" ? false : true;
+			}
+		});
+	}
 
-jQuery("body").on("click", "#sola_st_modern_bulk_delete", function(){
+	if(must_show){
+		jQuery(".sola_st_ticket_action_inner").fadeIn();
+	}else{
+		jQuery(".sola_st_ticket_action_inner").fadeOut();
+	}
+});
+
+jQuery("body").on("change", "#sola_st_modern_bulk_select_primary", function(){
+	var sola_sec = jQuery("#sola_st_modern_bulk_select_primary").find(":selected").attr("sola-sec-ref");
+	jQuery(this).attr("sola-sec-action", sola_sec);
+});
+
+jQuery("body").on("click", "#sola_st_modern_bulk_action", function(){
 
 	var ticket_ids = jQuery(".sola_st_checkbox:checked").map(function(){
 
@@ -426,15 +451,26 @@ jQuery("body").on("click", "#sola_st_modern_bulk_delete", function(){
 
 	}).get();
 
-	var proceed_delete = confirm('Are you sure you want to delete the selected tickets?');
+	var bulk_action = jQuery("#sola_st_modern_bulk_select_primary").val();
+	var secondary_id = jQuery("#sola_st_modern_bulk_select_primary").attr("sola-sec-action");
 
-	if( proceed_delete ){
+	var secondary_action = jQuery("#sola_st_modern_bulk_select_secondary_" + secondary_id).length > 0 ? jQuery("#sola_st_modern_bulk_select_secondary_" + secondary_id).val() : false;
+
+	console.log(bulk_action);
+	console.log(secondary_id);
+	console.log(secondary_action);
+
+	var proceed = confirm('Are you sure you want to proceed?');
+
+	if(proceed){
 
 		var data = {
 			'sola_st_db_security': sola_st_dashboard_security,
-			'action': 'sola_st_db_bulk_delete_tickets',
+			'action': bulk_action,
+			'sec_action' : secondary_action,
 			'ticket_ids': JSON.stringify( ticket_ids )
 		}
+
 
 		jQuery.post( ajaxurl, data, function(response){
 
@@ -442,15 +478,19 @@ jQuery("body").on("click", "#sola_st_modern_bulk_delete", function(){
 
 				jQuery(".sola_st_modern_ticket_actions").append("<div class='updated sola_st_fade_away'><p style='text-align: left;'>"+response+"</p></div>");
 
-				jQuery.each( ticket_ids, function( index, value ){
-					jQuery("#sola_st_modern_ticket_row_"+value).fadeOut();
-				});
+				if(bulk_action == "sola_st_db_bulk_delete_tickets"){
+					jQuery.each( ticket_ids, function( index, value ){
+						jQuery("#sola_st_modern_ticket_row_"+value).fadeOut();
+					});
+				}
+
 				var fadeaway = setTimeout(function() {
 					jQuery(".sola_st_fade_away").fadeOut('slow');
 				},1000);
 				jQuery("#sola_st_db_check_all").attr('checked',false);
-				
 
+				jQuery(".sola_st_ticket_action_inner").fadeOut();
+				jQuery(".sola_st_refresh").click();
 			}
 
 		});
@@ -511,7 +551,8 @@ jQuery("body").on("click", ".sola_st_db_single_ticket", function(){
 	//jQuery(".sola_st_db_ticket_container tbody").html("<tr><td colspan='8'><img src='"+sola_st_db_plugins_url+"/sola-support-tickets/images/ajax-loader.gif' style='display: block; margin: 0 auto;' /></td></tr>");
 	ticket_id = jQuery(this).attr('ticket_id');
 	sola_st_view_ticket(ticket_id);
-
+	
+	jQuery.event.trigger({type: "sola_st_db_open_single_ticket", current_ticket_id: ticket_id}); 
 
 
 });
@@ -699,6 +740,7 @@ function sola_st_view_ticket(ticket_id) {
 		    }
 
 		});
+	
 	});
 }
 
@@ -782,6 +824,7 @@ jQuery("body").on("click", "#submit_ticket_response", function(){
 				} else {
 				    	jQuery("#submit_ticket_response").removeAttr('disabled');
 				}
+    jQuery.event.trigger({type: "sola_st_db_response_sent", current_ticket_id: data['parent']}); 
 
 			}
 

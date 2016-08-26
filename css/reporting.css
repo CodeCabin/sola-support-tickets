@@ -1,0 +1,112 @@
+.sola_st_reporting_actions{
+	text-align: right;
+}
+
+.sola_st_reporting_action_dropdown{
+	border-radius: 3px;
+	min-width: 120px;
+}
+
+.sola_st_reporting_row{
+	width:100%;
+    text-align: center;
+}
+
+.sola_st_reporting_col_30{
+	width:28%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sola_st_reporting_col_50{
+	width:48%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sola_st_reporting_col_70{
+	width: 68%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sola_stat_heading{
+	font-size: 13px;
+}
+
+.sola_stat_heading_sub{
+	font-size: 9px;
+}
+
+.sola_stat_heading span {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 5px;
+}
+
+.sola_st_container {
+    background-color: #ffffff;
+    padding: 5px;
+    max-width: 98%;
+}
+
+.sola_st_container_clear {
+    padding-top: 5px;
+    max-width: 98%;
+}
+
+.sola_st_border{
+	border:1px solid #dddddd;
+}
+
+.sola_st_rep_chart{
+	height:300px;
+}
+
+.sola_st_rounded_container{
+	height: 300px;
+    border-radius: 3px;
+}
+
+.sola_st_rounded_container_grey{
+	height: 300px;
+    border-radius: 3px;
+    background-color: #e9e9e9;
+}
+
+.sola_st_inline_inputs{
+	display: inline-block;;
+	max-width: 150px;
+}
+
+.sola_st_pad_10{
+	padding:10px;
+}
+
+.sola_st_reporting_agent_row {
+    display: inline-block;
+    float: left;
+}
+
+.sola_rounded{
+	border-radius: 3px;
+}
+
+.sola_white_back{
+	background-color: #ffffff;
+}
+
+.sola_left_float{
+ 	float:left;
+}
+
+.sola_right_float{
+	float:right;
+}
+
+.sola_min_card_320{
+	min-height: 320px;
+}
+
+

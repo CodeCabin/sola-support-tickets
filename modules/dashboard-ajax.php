@@ -831,6 +831,7 @@ function sola_st_db_ajax_callback(){
 
 	            }
 
+	            do_action("sola_st_submit_response_before_notify_hook", $parent_id, get_current_user_id());
 
 	            $checker = sola_st_notification_control('response', $parent_id, get_current_user_id(),false,false,$content,$ticket_channel,$post_id,$mail_attachments);
 	            if (!$checker) {
