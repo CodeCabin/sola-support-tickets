@@ -34,6 +34,7 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
 	
 	$order = $current_views[$view]['data']['order'];
 	$priority = $current_views[$view]['data']['priority'];
+	if (isset($current_views[$view]['data']['department'])) { $department = $current_views[$view]['data']['department']; } else { $department = false; }
 	if (!isset($current_views[$view]['data']['status'])) {
 		/* if a user created a view and selected no statuses, select all by default now  */
 		$status = array(
@@ -50,7 +51,7 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
 	
 	
 
-
+	$department_string = "";
 
 	$and_relation = array("relation" => "AND");
 
@@ -101,6 +102,21 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
 		
 	}
 	
+	if ($department) {
+
+		$cnter = 0;
+		foreach ($department as $key => $department_val) {
+			if ($cnter == 0) { 
+				$department_string = $key;
+			} else {
+				$department_string = $department_string.",".$key;
+			}
+			$cnter++;
+		}
+	}
+	
+
+
 
 	if ($priority > 0) {
 
@@ -254,6 +270,8 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
 		/* one line query, do not use AND or OR */
 		array_push($meta_query,$status_meta_query);
 	}
+
+
 	global $wpdb;
 	$meta_sql = get_meta_sql( $meta_query, 'post', $wpdb->posts, 'ID' );
 
@@ -269,17 +287,38 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
 
 	update_option("posts_per_page",$limit+1);
 
+	if ($department) {
 
+		$terms = explode(",",$department_string);
+		$terms = array_values($terms);
 
-	$args = array(
-		'post_type' => 'sola_st_tickets',
-		'posts_per_page ' => $limit+1,
-		'offset' => $offset,
-		'orderby' => $orderby,
-		'order' => $order,
-		'meta_query' => array($meta_query)
-	);
-	//var_dump($args);
+		$tax_query = array(
+			array(
+				'taxonomy' => 'sola_st_departments',
+				'field'    => 'term_id',
+				'terms'    => $terms
+			)
+		);
+		$args = array(
+			'post_type' => 'sola_st_tickets',
+			'posts_per_page ' => $limit+1,
+			'offset' => $offset,
+			'orderby' => $orderby,
+			'order' => $order,
+			'tax_query' => $tax_query,
+			'meta_query' => array($meta_query)
+		);
+	} else {
+		$args = array(
+			'post_type' => 'sola_st_tickets',
+			'posts_per_page ' => $limit+1,
+			'offset' => $offset,
+			'orderby' => $orderby,
+			'order' => $order,
+			'meta_query' => array($meta_query)
+		);
+	}
+	
 
 
 
@@ -296,19 +335,23 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
 
 		while ( $my_query->have_posts() ) {
 			$my_query->the_post();
-
-			$post_status = sola_st_return_ticket_status_returns( get_the_ID() );
 			$ticket_id = get_the_ID();
 
-			$ticket_channel = get_post_meta( $ticket_id, 'ticket_channel_id', true );
+			$post_meta = get_post_meta($ticket_id);
+
+			$post_status = sola_st_return_ticket_status_html_block( $post_meta['ticket_status'][0] );
+
+
+			$ticket_channel = $post_meta['ticket_channel_id'][0];
 			if (function_exists('sola_st_get_ticket_channel_name')) {
 				$channel_name = sola_st_get_ticket_channel_name($ticket_channel);
 			} else {
 				$channel_name = __('Default','sola_st');
 			}
 
-			$is_public = get_post_meta( $ticket_id, 'ticket_public', true );
-			$assigned_to = get_post_meta( $ticket_id, 'ticket_assigned_to', true );
+			if (isset($post_meta['ticket_status'][0])) { $is_public = $post_meta['ticket_public'][0]; } else { $is_public = false; }
+			if (isset($post_meta['ticket_assigned_to'][0])) { $assigned_to = $post_meta['ticket_assigned_to'][0]; } else { $assigned_to = false; }
+
 			$user_data = get_user_by('id', $assigned_to);
 			if (!$user_data) { $user_data = (object)[]; $user_data->display_name = "Not assigned"; }
 
@@ -321,9 +364,9 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
                 $author = $data->post_author;
                 if ($author) {
                     $author_data = get_userdata($author);
-                    $last_responder .= $author_data->display_name;
+                    /* $last_responder .= $author_data->display_name; */
 
-                    $last_responder .= "<br /><small>" . sola_st_time_elapsed_string(strtotime($data->post_date)) . "</small>";
+                    $last_responder .= "<small>" . sola_st_time_elapsed_string(strtotime($data->post_date)) . "</small>";
                 } else {
                     $last_responder .= "-";
                 }
@@ -332,8 +375,10 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
             }
             $ticket_counter++;
             if ($ticket_counter <= $limit) {
-				$ret .= "<tr id='sola_st_modern_ticket_row_".$ticket_id."'>";
-				$ret .= "<td><input type='checkbox' class='sola_st_checkbox' value='".$ticket_id."' /></td>";
+				$ret .= "<tr id='sola_st_modern_ticket_row_".$ticket_id."' class='sola_st_modern_ticket_row'>";
+				$ret .= "<td class='sola_st_db_single_ticket ticket_checkbox'><input type='checkbox' class='sola_st_checkbox' value='".$ticket_id."' /></td>";
+				$ret .= "<td class='sola_st_db_single_ticket ticket_status' ticket_id='".$ticket_id."'>" . $post_status . "</td>";
+				$ret .= "<td class='sola_st_db_single_ticket ticket_id' ticket_id='".$ticket_id."'>#" . $ticket_id . "</td>";
 				$ret .= "<td class='sola_st_db_single_ticket ticket_title' ticket_id='".$ticket_id."' >" . get_the_title() . "</td>";
 				$ret .= "<td class='sola_st_db_single_ticket ticket_author' ticket_id='".$ticket_id."'>" . get_the_author() . "</td>";
 				$ret .= "<td class='sola_st_db_single_ticket ticket_date' ticket_id='".$ticket_id."'>".sola_st_parse_date(get_the_time('U')) . "</td>";
@@ -341,7 +386,6 @@ function sola_st_get_tickets_by_view($view,$offset = 0,$limit = 20,$return_all_c
 				$ret .= "<td class='sola_st_db_single_ticket ticket_responses' ticket_id='".$ticket_id."'>" . $response_count . "</td>";
 				$ret .= "<td class='sola_st_db_single_ticket ticket_responser' ticket_id='".$ticket_id."'>" . $last_responder . "</td>";
 				$ret .= "<td class='sola_st_db_single_ticket ticket_owner' ticket_id='".$ticket_id."'>" . $user_data->display_name . "</td>";
-				$ret .= "<td class='sola_st_db_single_ticket ticket_status' ticket_id='".$ticket_id."'>" . $post_status . "</td>";
 				$ret .= "<td class='sola_st_db_single_ticket ticket_channel' ticket_id='".$ticket_id."'>" . $channel_name . "</td>";
 				$ret .= "</tr>";
 			} else {

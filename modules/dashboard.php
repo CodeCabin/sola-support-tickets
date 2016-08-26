@@ -59,7 +59,9 @@ sola_st_write_to_mail_log("test");
 									<table class="sola_st_db_ticket_container">
 										<thead>
 											<tr>
-												<td><input type="checkbox" id='sola_st_db_check_all' /></td>
+												<td class='ticket_checkbox'><input type="checkbox" id='sola_st_db_check_all' /></td>
+												<td class='ticket_status'></td>
+												<td class='ticket_id'><?php _e("ID","sola_st_"); ?></td>
 												<td><?php _e('Subject', 'sola_st'); ?></td>
 												<td><?php _e('Requester', 'sola_st'); ?></td>
 												<td><?php _e('Requested', 'sola_st'); ?></td>
@@ -67,7 +69,6 @@ sola_st_write_to_mail_log("test");
 												<td class='ticket_responses'><?php _e('Responses', 'sola_st'); ?></td>
 												<td class='ticket_responser'><?php _e('Last Response', 'sola_st'); ?></td>
 												<td><?php _e('Owner', 'sola_st'); ?></td>
-												<td><?php _e('Status', 'sola_st'); ?></td>
 												<td><?php _e('Channel', 'sola_st'); ?></td>
 											</tr>
 										</thead>
